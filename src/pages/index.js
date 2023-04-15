@@ -10,6 +10,7 @@ import Header from "../components/Header";
 import HomepageHeader from "../components/HomePageHeader";
 import Product from "../components/Product";
 import About from "../components/About";
+import Mission from "../components/Mission";
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
@@ -21,6 +22,7 @@ export default function Home() {
         {/* <HomepageFeatures /> */}
         <Product />
         <About />
+        <Mission />
       </main>
     </div>
   );
