@@ -11,6 +11,8 @@ import HomepageHeader from "../components/HomePageHeader";
 import Product from "../components/Product";
 import About from "../components/About";
 import Mission from "../components/Mission";
+import Blogs from "../components/Blogs";
+import Footer from "../components/Footer";
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
@@ -23,6 +25,8 @@ export default function Home() {
         <Product />
         <About />
         <Mission />
+        <Blogs />
+        <Footer />
       </main>
     </div>
   );
