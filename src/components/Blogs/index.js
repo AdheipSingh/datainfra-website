@@ -51,7 +51,7 @@ const Blogs = () => {
         color={"black"}
       />
 
-      <div className="w-full mx-auto max-w-[85%] grid grid-cols-3 gap-6">
+      <div className="w-full mx-auto max-w-[85%] grid md:grid-cols-3 gap-6">
         {data?.map((item, index) => (
           <div className="w-full bg-white shadow-lg rounded-lg">
             <div className="w-full h-44 rounded-t-lg">

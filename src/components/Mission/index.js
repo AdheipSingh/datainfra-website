@@ -2,7 +2,7 @@ import React from "react";
 
 const Mission = () => {
   return (
-    <div className="w-full mt-20 bg-[#3056D3] flex flex-col min-h-screen">
+    <div className="w-full mt-20 bg-[#18285D] flex flex-col min-h-screen">
       <div className="w-full max-w-[85%] flex-1 p-2 mx-auto mt-5 grid md:grid-cols-2 realtive">
         <div className="text-white w-5/6 pt-20">
           <div className="text-lg ">Our Mission</div>

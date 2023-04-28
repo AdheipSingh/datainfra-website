@@ -30,7 +30,7 @@ const Header = () => {
       <div>
         <Link
           to="/"
-          className="px-7 text-sm py-2 bg-[#3056D3] text-white rounded-md hover:text-white hover:bg-blue-800 hover:no-underline"
+          className="px-7 text-sm py-2 bg-[#18285D] text-white rounded-md hover:text-white hover:bg-blue-800 hover:no-underline"
         >
           Contact
         </Link>

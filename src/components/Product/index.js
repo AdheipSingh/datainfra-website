@@ -3,16 +3,21 @@ import SectionHeading from "../SectionHeading";
 
 const Product = () => {
   return (
-    <div className="w-full bg-[#3056D3] flex flex-col h-screen py-10">
+    <div className="w-full bg-[#18285D] flex flex-col h-screen py-10">
       <SectionHeading
-        title={"Our Products"}
+        title={"Our Mission"}
         description={
           "Using our products organisations can build internal open source data cloud without data leaving your network"
         }
         color={"white"}
       />
-      <div className="w-full max-w-[85%] flex-1 p-2 mx-auto mt-20 grid md:grid-cols-2 realtive">
-        <div className="flex flex-col justify-end">
+      <div className="w-full max-w-[85%] flex-1 p-2 mx-auto  grid md:grid-cols-2 realtive">
+        <div>
+          
+        </div>
+      </div>
+      {/* <div className="w-full max-w-[85%] flex-1 p-2 mx-auto  grid md:grid-cols-2 realtive">
+        <div className="flex flex-col">
           <div className="h-12 w-12 rounded-md bg-gray-50"></div>
           <div className="my-3 text-white text-2xl font-bold">BallasData</div>
           <div className="w-5/6">
@@ -42,7 +47,7 @@ const Product = () => {
         <div className="absolute right-0 ">
           <img src="img/container.png" />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
