@@ -34,13 +34,13 @@ export default function Home() {
             </div>
             <div className="flex space-x-9 items-center justify-center mt-5">
               <Link
-                to="/docss/intro"
+                to="/docs/intro"
                 className="px-7 text-sm py-2 w-40 justify-center flex bg-[#18285D] text-white rounded-md hover:text-white hover:bg-blue-800 hover:no-underline"
               >
                 Get Started
               </Link>
               <Link
-                to="/docss/intro"
+                to="/docs/intro"
                 className="px-7 text-sm py-2 w-40 justify-center flex bg-white border border-[#18285D] text-gray-700 rounded-md hover:text-white hover:bg-blue-800 hover:no-underline"
               >
                 Blogs
@@ -76,7 +76,7 @@ export default function Home() {
               </div>
               <div className="mt-10">
                 <Link
-                  to="/docss/intro"
+                  to="/docs/intro"
                   className="px-7 text-sm py-2 w-40 justify-center flex bg-[#18285D] text-white rounded-md hover:text-white hover:bg-blue-800 hover:no-underline"
                 >
                   Get Started
@@ -321,13 +321,13 @@ export default function Home() {
             </div>
             <div className="flex space-x-9 items-center mt-5">
               <Link
-                to="/docss/intro"
+                to="/docs/intro"
                 className="px-7 text-sm py-2 w-40 justify-center flex bg-[#18285D] text-white rounded-md hover:text-white hover:bg-blue-800 hover:no-underline"
               >
                 Join Slack
               </Link>
               <Link
-                to="/docss/intro"
+                to="/docs/intro"
                 className="px-7 text-sm py-2 w-40 justify-center flex bg-white border border-[#18285D] text-gray-700 rounded-md hover:text-white hover:bg-blue-800 hover:no-underline"
               >
                 Github

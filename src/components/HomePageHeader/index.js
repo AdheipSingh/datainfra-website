@@ -14,13 +14,13 @@ const HomepageHeader = () => {
       </div>
       <div className="flex space-x-9 items-center justify-center">
         <Link
-          to="/docss/intro"
+          to="/docs/intro"
           className="px-7 text-sm py-2 w-40 bg-[#18285D] text-white rounded-md hover:text-white hover:bg-blue-800 hover:no-underline"
         >
           Get Started
         </Link>
         <Link
-          to="/docss/intro"
+          to="/docs/intro"
           className="px-7 text-sm py-2 w-40 bg-white border border-[#18285D] text-gray-700 rounded-md hover:text-white hover:bg-blue-800 hover:no-underline"
         >
           Blogs
