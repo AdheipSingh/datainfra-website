@@ -5,7 +5,7 @@ const HomepageHeader = () => {
   return (
     <div className="h-[85vh] w-full flex justify-center items-center flex-col text-center relative overflow-hidden">
       <div className="w-full max-w-8xl px-3 leading-relaxed tracking-wide sm:text-3xl lg:text-5xl  font-bold text-gray-800">
-        <div>"Control Planes for running Data on Kubernetes"</div>
+        <div>"Control Planes for running Data Analytics on Kubernetes"</div>
         <div>We Handle the Infra, You Drive Insights."</div>
       </div>
       <div className="w-full max-w-2xl px-3 text-gray-600 my-4 text-xl">
