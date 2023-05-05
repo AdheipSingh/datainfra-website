@@ -7,19 +7,19 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula")
 /** @type {import('@docusaurus/types').Config} */
 const config = {
     title: "DataInfra",
-    tagline: "",
+    tagline: "Dinosaurs are cool",
     favicon: "img/favicon.ico",
 
     // Set the production url of your site here
-    url: "https://your-docusaurus-test-site.com",
+    url: "https://your-docusaurus-test-site.com", // change to => https://datainfra-website.vercel.app/
     // Set the /<baseUrl>/ pathname under which your site is served
     // For GitHub pages deployment, it is often '/<projectName>/'
     baseUrl: "/",
 
     // GitHub pages deployment config.
     // If you aren't using GitHub pages, you don't need these.
-    organizationName: "facebook", // Usually your GitHub org/user name.
-    projectName: "docusaurus", // Usually your repo name.
+    organizationName: "DataInfra", // Usually your GitHub org/user name.
+    projectName: "DataInfra", // Usually your repo name.
 
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
@@ -31,19 +31,6 @@ const config = {
         defaultLocale: "en",
         locales: ["en"],
     },
-    plugins: [
-        async function myPlugin(context, options) {
-            return {
-                name: "docusaurus-tailwindcss",
-                configurePostCss(postcssOptions) {
-                    // Appends TailwindCSS and AutoPrefixer.
-                    postcssOptions.plugins.push(require("tailwindcss"))
-                    postcssOptions.plugins.push(require("autoprefixer"))
-                    return postcssOptions
-                },
-            }
-        },
-    ],
 
     presets: [
         [
@@ -57,13 +44,13 @@ const config = {
                     editUrl:
                         "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
                 },
-                blog: {
-                    showReadingTime: true,
-                    // Please change this to your repo.
-                    // Remove this to remove the "edit this page" links.
-                    editUrl:
-                        "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
-                },
+                // blog: {
+                //     showReadingTime: true,
+                //     // Please change this to your repo.
+                //     // Remove this to remove the "edit this page" links.
+                //     editUrl:
+                //         "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+                // },
                 theme: {
                     customCss: require.resolve("./src/css/custom.css"),
                 },
@@ -77,10 +64,10 @@ const config = {
             // Replace with your project's social card
             image: "img/docusaurus-social-card.jpg",
             navbar: {
-                title: "My Site",
+                // title: "DataInfra",
                 logo: {
-                    alt: "My Site Logo",
-                    src: "img/logo.svg",
+                    alt: "DataInfra Logo",
+                    src: "img/logo-blue.png",
                 },
                 items: [
                     {
@@ -89,9 +76,9 @@ const config = {
                         position: "left",
                         label: "Tutorial",
                     },
-                    { to: "/blog", label: "Blog", position: "left" },
+                    // { to: "/blog", label: "Blog", position: "left" },
                     {
-                        href: "https://github.com/facebook/docusaurus",
+                        href: "https://github.com/datainfrahq",
                         label: "GitHub",
                         position: "right",
                     },

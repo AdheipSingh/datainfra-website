@@ -1,22 +1,7 @@
 import React from "react"
-import clsx from "clsx"
-import Link from "@docusaurus/Link"
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
 import Layout from "@theme/Layout"
-import HomepageFeatures from "@site/src/components/HomepageFeatures"
-
-import styles from "./index.module.css"
-import Header from "../components/Header"
-import HomepageHeader from "../components/HomePageHeader"
-import Product from "../components/Product"
-import About from "../components/About"
-import Mission from "../components/Mission"
-import Blogs from "../components/Blogs"
-import Footer from "../components/Footer"
-import Pricing from "../components/Pricing"
 
 export default function Home() {
-    const { siteConfig } = useDocusaurusContext()
     return (
         <div className="w-full ">
             {/* <Header /> */}
