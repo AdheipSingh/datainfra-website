@@ -1,29 +1,30 @@
 import React from "react"
 import Layout from "@theme/Layout"
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
 
 export default function Home() {
+    const { siteConfig } = useDocusaurusContext()
+
     return (
-        <div className="w-full ">
-            {/* <Header /> */}
-            <Layout>
-                <div className="relative ">
-                    <img src={"img/herobg.svg"} className="w-full" />
-                    <div className="absolute top-72 w-full flex flex-col items-center max-w-8xl mx-auto">
-                        <div className="text-center text-white px-3 leading-relaxed tracking-wide sm:text-3xl lg:text-5xl  font-bold">
-                            <div>
-                                "Control Planes for running Data on Kubernetes"
-                            </div>
-                            <div>We Handle the Infra, You Drive Insights."</div>
-                        </div>
-                        <div className="w-full max-w-2xl text-center px-3 text-white my-4 text-xl">
-                            With our products, organizations can build an
-                            internal open-source data cloud that keeps data
-                            within their network.
-                        </div>
-                        <div className="flex space-x-9 items-center justify-center mt-5"></div>
-                    </div>
-                </div>
-            </Layout>
-        </div>
+        <Layout
+            title={`${siteConfig.title}`}
+            description="Control Planes for Running Data Analytics"
+        >
+            <div style={{ paddingLeft: "90px", paddingTop: "120px" }}>
+                <h1>Control Planes for Running Data Analytics</h1>
+                <ul>
+                    <li>Secure: Keep your data within your network.</li>
+                    <li>
+                        Efficient: Streamline your data management with
+                        kubernetes native features.
+                    </li>
+                    <li>
+                        Open: Utilize open source data analytics for flexibility
+                        and transparency."
+                    </li>
+                    <li>Cost-effective: Avoid costly SAAS vendors.</li>
+                </ul>
+            </div>
+        </Layout>
     )
 }

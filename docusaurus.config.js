@@ -7,11 +7,11 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula")
 /** @type {import('@docusaurus/types').Config} */
 const config = {
     title: "DataInfra",
-    tagline: "Dinosaurs are cool",
+    tagline: "Control Planes for Running Data Analytics",
     favicon: "img/favicon.ico",
 
     // Set the production url of your site here
-    url: "https://your-docusaurus-test-site.com", // change to => https://datainfra-website.vercel.app/
+    url: "https://datainfra-website.vercel.app/", // change to => https://datainfra-website.vercel.app/
     // Set the /<baseUrl>/ pathname under which your site is served
     // For GitHub pages deployment, it is often '/<projectName>/'
     baseUrl: "/",
@@ -74,7 +74,12 @@ const config = {
                         type: "docSidebar",
                         sidebarId: "tutorialSidebar",
                         position: "left",
-                        label: "Tutorial",
+                        label: "Docs",
+                    },
+                    {
+                        href: "#contact",
+                        label: "Contact",
+                        position: "left",
                     },
                     // { to: "/blog", label: "Blog", position: "left" },
                     {
@@ -101,7 +106,7 @@ const config = {
                         items: [
                             {
                                 label: "Stack Overflow",
-                                href: "https://stackoverflow.com/questions/tagged/docusaurus",
+                                href: "https://stackoverflow.com/questions/tagged/datainfra",
                             },
                             {
                                 label: "Discord",
