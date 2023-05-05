@@ -71,10 +71,35 @@ const config = {
                 },
                 items: [
                     {
-                        type: "docSidebar",
-                        sidebarId: "tutorialSidebar",
+                        type: "dropdown",
+                        // sidebarId: "tutorialSidebar",
                         position: "left",
-                        label: "Docs",
+                        label: "Products",
+                        items: [
+                            {
+                                label: "Druid On Kuberenetes",
+                                to: "docs/druid-on-kuberenetes/documentation",
+                            },
+                            {
+                                label: "Pinot On Kubernetes",
+                                to: "docs/pinot-on-kubernetes/documentation",
+                            },
+                            {
+                                label: "Distributed sytem operator interface",
+                                to: "docs/distributed-sytem-operator-interface/documentation",
+                            },
+
+                            {
+                                label: "Operator runtime",
+                                to: "docs/operator-runtime/documentation",
+                            },
+                        ],
+                    },
+                    {
+                        type: "docSidebar",
+                        sidebarId: "druidSidebar", //to be changed
+                        position: "left",
+                        label: "Documentation",
                     },
                     {
                         href: "#contact",
