@@ -28,3 +28,8 @@
     --ifm-color-primary-lightest: #bfc9fa;
     --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+/* Hides the extra tutorial.md file which is needed to make Tutorials folder work */
+.theme-doc-sidebar-item-link.hide {
+    display: none;
+}

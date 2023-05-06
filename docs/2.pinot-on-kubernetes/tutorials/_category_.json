@@ -2,7 +2,7 @@
   "label": "Tutorials",
   "position": 2,
   "link": {
-    "type": "generated-index",
-    "description": "Pinot On Kubernetes tutorials"
+    "type": "doc",
+    "id": "pinot-on-kubernetes/tutorials"
   }
 }

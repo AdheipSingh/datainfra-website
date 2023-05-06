@@ -2,7 +2,7 @@
   "label": "Tutorials",
   "position": 2,
   "link": {
-    "type": "generated-index",
-    "description": "Distributed sytem operator interface tutorials"
+    "type": "doc",
+    "id": "distributed-sytem-operator-interface/tutorials"
   }
 }
