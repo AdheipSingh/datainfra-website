@@ -32,6 +32,32 @@ const config = {
         locales: ["en"],
     },
 
+    // Google fonts
+    headTags: [
+        {
+            tagName: "link",
+            attributes: {
+                rel: "preconnect",
+                href: "https://fonts.googleapis.com",
+            },
+        },
+        {
+            tagName: "link",
+            attributes: {
+                rel: "preconnect",
+                href: "https://fonts.gstatic.com",
+                crossorigin: "anonymous",
+            },
+        },
+        {
+            tagName: "link",
+            attributes: {
+                rel: "stylesheet",
+                href: "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap",
+            },
+        },
+    ],
+
     presets: [
         [
             "classic",
@@ -44,13 +70,13 @@ const config = {
                     editUrl:
                         "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
                 },
-                // blog: {
-                //     showReadingTime: true,
-                //     // Please change this to your repo.
-                //     // Remove this to remove the "edit this page" links.
-                //     editUrl:
-                //         "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
-                // },
+                blog: {
+                    showReadingTime: true,
+                    // Please change this to your repo.
+                    // Remove this to remove the "edit this page" links.
+                    editUrl:
+                        "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+                },
                 theme: {
                     customCss: require.resolve("./src/css/custom.css"),
                 },
@@ -67,7 +93,7 @@ const config = {
                 // title: "DataInfra",
                 logo: {
                     alt: "DataInfra Logo",
-                    src: "img/logo-blue.png",
+                    src: "img/logo-text.svg",
                 },
                 items: [
                     {
@@ -106,7 +132,7 @@ const config = {
                         label: "Contact",
                         position: "left",
                     },
-                    // { to: "/blog", label: "Blog", position: "left" },
+                    { to: "/blog", label: "Blogs", position: "left" },
                     {
                         href: "https://github.com/datainfrahq",
                         label: "GitHub",
@@ -146,10 +172,10 @@ const config = {
                     {
                         title: "More",
                         items: [
-                            // {
-                            //     label: "Blog",
-                            //     to: "/blog",
-                            // },
+                            {
+                                label: "Blogs",
+                                to: "/blog",
+                            },
                             {
                                 label: "GitHub",
                                 href: "https://github.com/facebook/docusaurus",

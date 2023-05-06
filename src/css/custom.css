@@ -15,6 +15,8 @@
     --ifm-color-primary-lightest: #97a8f6;
     --ifm-code-font-size: 95%;
     --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+    --ifm-heading-font-family: "Montserrat", sans-serif;
+    --ifm-font-family-base: "Montserrat", sans-serif;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -32,4 +34,23 @@
 /* Hides the extra tutorial.md file which is needed to make Tutorials folder work */
 .theme-doc-sidebar-item-link.hide {
     display: none;
+}
+
+/* Navbar */
+.navbar {
+    height: 112px;
+    padding-left: 56px;
+}
+
+/* .navbar__inner {
+    max-width: 1440px;
+    margin: auto;
+} */
+
+.navbar__logo {
+    height: 2.5rem;
+}
+
+.navbar__item {
+    font-size: 1.25rem;
 }
