@@ -1,0 +1,8 @@
+{
+  "label": "Documentation",
+  "position": 2,
+  "link": {
+    "type": "doc",
+    "id": "distributed-sytem-operator-interface/documentation"
+  }
+}
