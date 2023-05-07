@@ -103,7 +103,7 @@ const config = {
                         label: "Products",
                         items: [
                             {
-                                label: "Druid On Kuberenetes",
+                                label: "Druid On Kubernetes",
                                 to: "docs/druid-on-kubernetes/documentation",
                             },
                             {
