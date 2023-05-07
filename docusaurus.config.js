@@ -53,7 +53,7 @@ const config = {
             tagName: "link",
             attributes: {
                 rel: "stylesheet",
-                href: "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap",
+                href: "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap",
             },
         },
     ],
@@ -134,9 +134,9 @@ const config = {
                     },
                     { to: "/blog", label: "Blogs", position: "left" },
                     {
-                        href: "https://github.com/datainfrahq",
-                        label: "GitHub",
+                        type: "html",
                         position: "right",
+                        value: "<button style='height: 56px; width: 223px; background: #4361ee; border-radius: 40px; border: none; color: #fff; font-family: Montserrat; font-weight: 600; font-size: 1.25rem;'>Book Demo</button>",
                     },
                 ],
             },

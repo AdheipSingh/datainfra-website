@@ -48,9 +48,9 @@
 } */
 
 .navbar__logo {
-    height: 2.5rem;
+    height: 50px;
 }
 
 .navbar__item {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
 }
