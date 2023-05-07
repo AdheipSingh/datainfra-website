@@ -22,7 +22,7 @@ export default function Home() {
                     <ServiceContainer>
                         <img src="/img/secure.svg" alt="secure-icon" />
 
-                        <div style={{ marginLeft: "24px" }}>
+                        <div style={{ marginLeft: "16px" }}>
                             <H3>Secure:</H3>
                             <Description>
                                 Keep your data within your network.
@@ -34,7 +34,7 @@ export default function Home() {
                     <ServiceContainer>
                         <img src="/img/efficient.svg" alt="efficient-icon" />
 
-                        <div style={{ marginLeft: "24px" }}>
+                        <div style={{ marginLeft: "16px" }}>
                             <H3>Efficient:</H3>
                             <Description>
                                 Streamline your data management with kubernetes
@@ -47,7 +47,7 @@ export default function Home() {
                     <ServiceContainer>
                         <img src="/img/open.svg" alt="open-icon" />
 
-                        <div style={{ marginLeft: "24px" }}>
+                        <div style={{ marginLeft: "16px" }}>
                             <H3>Open:</H3>
                             <Description>
                                 Utilize open source data analytics for
@@ -63,7 +63,7 @@ export default function Home() {
                             alt="cost-effective-icon"
                         />
 
-                        <div style={{ marginLeft: "24px" }}>
+                        <div style={{ marginLeft: "16px" }}>
                             <H3>Cost-Effective:</H3>
                             <Description>
                                 Avoid costly SAAS vendors.
@@ -104,11 +104,11 @@ function Title({ children }) {
         <h1
             style={{
                 fontWeight: 700,
-                fontSize: "3rem",
-                lineHeight: "59px",
+                fontSize: "2.5rem",
+                lineHeight: "48.76px",
                 letterSpacing: "0.04em",
                 color: "#131212",
-                maxWidth: "550px",
+                maxWidth: "500px",
             }}
         >
             {children}
@@ -133,7 +133,7 @@ function H3({ children }) {
         <h3
             style={{
                 marginBottom: "0",
-                fontSize: "1.375rem",
+                fontSize: "1.25rem",
             }}
         >
             {children}
@@ -145,12 +145,12 @@ function Description({ children }) {
     return (
         <p
             style={{
-                fontSize: "1.375rem",
+                fontSize: "1.25rem",
                 color: "#5c5c5c",
-                lineHeight: "26.82px",
+                lineHeight: "24.38px",
                 marginTop: "4px",
                 marginBottom: 0,
-                maxWidth: "500px",
+                maxWidth: "450px",
             }}
         >
             {children}

@@ -124,19 +124,19 @@ const config = {
                     {
                         type: "docSidebar",
                         sidebarId: "druidSidebar", //to be changed
-                        position: "left",
+                        position: "right",
                         label: "Documentation",
                     },
                     {
                         href: "#contact",
                         label: "Contact",
-                        position: "left",
+                        position: "right",
                     },
-                    { to: "/blog", label: "Blogs", position: "left" },
+                    { to: "/blog", label: "Blogs", position: "right" },
                     {
                         type: "html",
                         position: "right",
-                        value: "<button style='height: 56px; width: 223px; background: #4361ee; border-radius: 40px; border: none; color: #fff; font-family: Montserrat; font-weight: 600; font-size: 1.25rem;'>Book Demo</button>",
+                        value: "<a class='navbar__item navbar__link navbar__link--active' style='height: 56px; width: 223px; background: #4361ee; border-radius: 40px; border: none; color: #fff; font-family: Montserrat; font-weight: 600; font-size: 1.25rem; display:flex; align-items: center; justify-content: center; text-decoration: none;'>Book Demo</a>",
                     },
                 ],
             },
