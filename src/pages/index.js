@@ -9,13 +9,13 @@ export default function Home() {
     return (
         <Layout
             title={`${siteConfig.title}`}
-            description="Control Planes for Running Data Analytics"
+            description="Control Planes for Real Time Analytics"
             wrapperClassName={styles.wrapper}
         >
             <Container>
                 <LeftColumn>
                     <Title>
-                        Control Planes For <Purple>Data Analytics</Purple>
+                        Control Planes For <Purple>Real Time Analytics</Purple>
                     </Title>
 
                     {/* Secure */}
