@@ -104,7 +104,7 @@ const config = {
                         items: [
                             {
                                 label: "Druid On Kuberenetes",
-                                to: "docs/druid-on-kuberenetes/documentation",
+                                to: "docs/druid-on-kubernetes/documentation",
                             },
                             {
                                 label: "Pinot On Kubernetes",

@@ -1,8 +1,10 @@
 ---
-sidebar_position: 1
-displayed_sidebar: operatorSidebar
+slug: documentation
+sidebar_class_name: "hide"
 ---
 
-# Documentation
+import DocCardList from '@theme/DocCardList';
 
-This is the **Operator Runtime** documentation.
+# Tutorials
+
+<DocCardList />
