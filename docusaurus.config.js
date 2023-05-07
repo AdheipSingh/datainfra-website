@@ -122,10 +122,9 @@ const config = {
                         ],
                     },
                     {
-                        type: "docSidebar",
-                        sidebarId: "druidSidebar", //to be changed
-                        position: "right",
+                        to: "/documentation",
                         label: "Documentation",
+                        position: "right",
                     },
                     {
                         href: "#contact",
