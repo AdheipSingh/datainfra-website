@@ -19,9 +19,9 @@ To effectively power real-time analytics, organizations must build a robust data
 
 **Why Data-Centric Kubernetes Control Planes are Critical for Real-Time Analytics Infrastructure**
 
-Kubernetes cannot be just seen as an orchestration platform, kubernetes is a control plane for your data application. By building control planes we can streamline data management with kubernetes native feature.
+Kubernetes cannot be just seen as an orchestration platform, kubernetes is a control plane for your data application. With its extensibility features, Kubernetes can be used to build data-centric control planes that streamline data management and data operations.
 
-Control planes serve as a bridge between a data application's desired state and its interpretation in Kubernetes. They maintain the application's state and enable operations such as rolling upgrades, rollbacks, and scaling storage as well as compute, all while considering the current state of the data application.
+Control planes are essential for managing data applications on Kubernetes. They handle installation, upgrading, scaling, and running the data application in autopilot mode. They can also perform rollbacks and complex data management operations such as schema and table management. Control planes act as a bridge between a data application's desired state and its interpretation in Kubernetes, enabling smooth and efficient data management.
 
 By leveraging control planes, organizations can create a secure and compliant internal cloud data platform for real-time analytics on Kubernetes. With a control plane, data never leaves the network, ensuring privacy and reducing the risk of data breaches.
 
