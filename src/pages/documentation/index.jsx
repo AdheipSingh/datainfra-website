@@ -1,20 +1,21 @@
 import React from "react"
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
-import Footer from "@theme-original/Footer"
-// import styles from "./index.module.css"
+import Layout from "@theme/Layout"
 import Link from "@docusaurus/Link"
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
+import { useLocation } from "@docusaurus/router"
 
-export default function Home() {
+// import styles from "./index.module.css"
+
+export default function Documentation() {
+    const { siteConfig } = useDocusaurusContext()
+
+    React.useLayoutEffect(() => {
+        // Disable theme toggle button
+        document.querySelector('[class*="toggle_node"]').style.display = "none"
+    }, [])
+
     return (
-        <>
-            <NavBar>
-                <Logo />
-
-                <NavLink to="/blog">Blogs</NavLink>
-
-                <NavLink to="/">Home</NavLink>
-            </NavBar>
-
+        <Layout title={`${siteConfig.title}`} description="Control Planes for Real Time Analytics">
             <Main>
                 <img src="img/analytics.png" alt="analytics-image" height="163px" />
 
@@ -29,51 +30,11 @@ export default function Home() {
                     <Service name="Operator Runtime" icon="operator" />
                 </Services>
             </Main>
-
-            <Footer />
-        </>
+        </Layout>
     )
 }
 
 // ** Styled Components
-function NavBar({ children }) {
-    return (
-        <nav
-            style={{
-                height: "112px",
-                background: "#001EAA",
-                position: "fixed",
-                width: "100%",
-                display: "flex",
-                alignItems: "center",
-                paddingLeft: "56px",
-                paddingRight: "56px",
-                marginRight: "auto",
-            }}
-        >
-            {children}
-        </nav>
-    )
-}
-
-function NavLink({ to, children }) {
-    return (
-        <Link
-            to={to}
-            style={{
-                color: "#fff",
-                marginLeft: "64px",
-                fontSize: "1.25rem",
-            }}
-        >
-            {children}
-        </Link>
-    )
-}
-
-function Logo() {
-    return <img src="/img/logo-developer.svg" alt="secure-icon" style={{ marginRight: "auto" }} />
-}
 
 function Purple({ children }) {
     return (
@@ -89,19 +50,21 @@ function Purple({ children }) {
 
 function Service({ name, icon }) {
     return (
-        <div
+        <Link
+            to={`/docs/${name.toLowerCase().split(" ").join("-")}/documentation`} // converts title to slug
             style={{
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
                 gap: "20px",
+                textDecoration: "none",
                 height: "180px",
                 width: "314px",
                 borderRadius: "40px",
-                boxShadow: "-1px 1px 7px -1px rgba(0,0,0,0.75)",
-                WebkitBoxShadow: "-1px 1px 7px -1px rgba(0,0,0,0.75)",
-                MozBoxShadow: "-1px 1px 7px -1px rgba(0,0,0,0.75)",
+                boxShadow: "0px 8px 16px rgba(0, 0, 0, 0.16)",
+                WebkitBoxShadow: "0px 8px 16px rgba(0, 0, 0, 0.16)",
+                MozBoxShadow: "0px 8px 16px rgba(0, 0, 0, 0.16)",
             }}
         >
             <img src={`img/${icon}.png`} alt={`${icon}-icon`} />
@@ -116,7 +79,7 @@ function Service({ name, icon }) {
             >
                 {name}
             </span>
-        </div>
+        </Link>
     )
 }
 
@@ -126,7 +89,7 @@ function Main({ children }) {
             style={{
                 display: "flex",
                 justifyContent: "center",
-                marginTop: "189px",
+                marginTop: "76px",
                 flexDirection: "column",
                 alignItems: "center",
             }}

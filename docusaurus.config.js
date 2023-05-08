@@ -93,14 +93,15 @@ const config = {
                 // title: "DataInfra",
                 logo: {
                     alt: "DataInfra Logo",
-                    src: "img/logo-text.svg",
+                    src: "img/logo-only-white.svg",
                 },
                 items: [
                     {
                         type: "dropdown",
                         // sidebarId: "tutorialSidebar",
                         position: "left",
-                        label: "Products",
+                        label: "​",
+                        className: "service-dropdown",
                         items: [
                             {
                                 label: "Druid On Kubernetes",
@@ -111,8 +112,8 @@ const config = {
                                 to: "docs/pinot-on-kubernetes/documentation",
                             },
                             {
-                                label: "Distributed sytem operator interface",
-                                to: "docs/distributed-sytem-operator-interface/documentation",
+                                label: "Distributed systems operator interface",
+                                to: "docs/distributed-systems-operator-interface/documentation",
                             },
 
                             {
@@ -121,17 +122,18 @@ const config = {
                             },
                         ],
                     },
-                    {
-                        to: "/documentation",
-                        label: "Documentation",
-                        position: "right",
-                    },
-                    {
-                        href: "#contact",
-                        label: "Contact",
-                        position: "right",
-                    },
+                    // {
+                    //     to: "/documentation",
+                    //     label: "Documentation",
+                    //     position: "left",
+                    // },
                     { to: "/blog", label: "Blogs", position: "right" },
+                    {
+                        to: "/",
+                        label: "Home",
+                        position: "right",
+                        className: "navbar-home-link",
+                    },
                 ],
             },
             footer: {
@@ -182,6 +184,35 @@ const config = {
             prism: {
                 theme: lightCodeTheme,
                 darkTheme: darkCodeTheme,
+            },
+            algolia: {
+                // The application ID provided by Algolia
+                appId: "YOUR_APP_ID",
+
+                // Public API key: it is safe to commit it
+                apiKey: "YOUR_SEARCH_API_KEY",
+
+                indexName: "YOUR_INDEX_NAME",
+
+                // Optional: see doc section below
+                contextualSearch: true,
+
+                // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
+                externalUrlRegex: "external\\.com|domain\\.com",
+
+                // Optional: Replace parts of the item URLs from Algolia. Useful when using the same search index for multiple deployments using a different baseUrl. You can use regexp or string in the `from` param. For example: localhost:3000 vs myCompany.com/docs
+                replaceSearchResultPathname: {
+                    from: "/docs/", // or as RegExp: /\/docs\//
+                    to: "/",
+                },
+
+                // Optional: Algolia search parameters
+                searchParameters: {},
+
+                // Optional: path for search page that enabled by default (`false` to disable it)
+                searchPagePath: "search",
+
+                //... other Algolia params
             },
         }),
 }
