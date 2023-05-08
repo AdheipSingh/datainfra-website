@@ -20,7 +20,7 @@ export default function Home() {
 
                 <Title>
                     Accelerate <Purple>Real Time Analytics</Purple> Infrastructure on Kubernetes
-                </Title>    
+                </Title>
 
                 <Services>
                     <Service name="Druid On Kubernetes" icon="druid" />

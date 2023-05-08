@@ -6,3 +6,8 @@
 .wrapper {
     background: #f4f4f4;
 }
+
+.navbar__link_hover:hover {
+    color: var(--ifm-color-primary) !important;
+    text-decoration: none;
+}
