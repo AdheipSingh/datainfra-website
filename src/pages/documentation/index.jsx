@@ -19,8 +19,8 @@ export default function Home() {
                 <img src="img/analytics.png" alt="analytics-image" height="163px" />
 
                 <Title>
-                    Run <Purple>Real Time Analytics</Purple> on Kubernetes with Confidence
-                </Title>
+                    Accelerate <Purple>Real Time Analytics</Purple> Infra on Kubernetes
+                </Title>    
 
                 <Services>
                     <Service name="Druid On Kubernetes" icon="druid" />
