@@ -2,7 +2,6 @@ import React from "react"
 import Layout from "@theme/Layout"
 import Link from "@docusaurus/Link"
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
-import { useLocation } from "@docusaurus/router"
 
 // import styles from "./index.module.css"
 
@@ -51,7 +50,7 @@ function Purple({ children }) {
 function Service({ name, icon }) {
     return (
         <Link
-            to={`/docs/${name.toLowerCase().split(" ").join("-")}/documentation`} // converts title to slug
+            to={`/docs/${name.toLowerCase().split(" ").join("-")}`} // converts title to slug
             style={{
                 display: "flex",
                 flexDirection: "column",

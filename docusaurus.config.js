@@ -53,7 +53,7 @@ const config = {
             tagName: "link",
             attributes: {
                 rel: "stylesheet",
-                href: "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap",
+                href: "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap",
             },
         },
     ],
@@ -105,20 +105,20 @@ const config = {
                         items: [
                             {
                                 label: "Druid On Kubernetes",
-                                to: "docs/druid-on-kubernetes/documentation",
+                                to: "docs/druid-on-kubernetes",
                             },
                             {
                                 label: "Pinot On Kubernetes",
-                                to: "docs/pinot-on-kubernetes/documentation",
+                                to: "docs/pinot-on-kubernetes",
                             },
                             {
                                 label: "Distributed systems operator interface",
-                                to: "docs/distributed-systems-operator-interface/documentation",
+                                to: "docs/distributed-systems-operator-interface",
                             },
 
                             {
                                 label: "Operator runtime",
-                                to: "docs/operator-runtime/documentation",
+                                to: "docs/operator-runtime",
                             },
                         ],
                     },
