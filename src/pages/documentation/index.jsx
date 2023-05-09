@@ -89,7 +89,7 @@ function Main({ children }) {
             style={{
                 display: "flex",
                 justifyContent: "center",
-                marginTop: "76px",
+                marginTop: "50px",
                 flexDirection: "column",
                 alignItems: "center",
             }}
@@ -121,7 +121,7 @@ function Services({ children }) {
         <div
             style={{
                 display: "flex",
-                marginTop: "88px",
+                marginTop: "60px",
                 marginBottom: "200px",
                 maxWidth: "1328px",
                 width: "100%",
