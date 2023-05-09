@@ -15,6 +15,8 @@ export default function Documentation() {
 
     return (
         <Layout title={`${siteConfig.title}`} description="Control Planes for Real Time Analytics">
+            <NavBarLogo />
+
             <Main>
                 <img src="img/analytics.png" alt="analytics-image" height="163px" />
 
@@ -129,5 +131,22 @@ function Services({ children }) {
         >
             {children}
         </div>
+    )
+}
+
+function NavBarLogo() {
+    return (
+        <span
+            style={{
+                position: "fixed",
+                top: "26px",
+                zIndex: 999,
+                left: "150px",
+                fontSize: "24px",
+                color: "#fff",
+            }}
+        >
+            <b>Data</b>Infra <b>Developer</b>
+        </span>
     )
 }
