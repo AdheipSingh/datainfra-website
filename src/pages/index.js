@@ -96,7 +96,7 @@ function Container({ children }) {
         <div
             className={styles.wrapper}
             style={{
-                padding: "224px 56px 95px 56px",
+                padding: "180px 56px 95px 56px",
                 display: "flex",
                 gap: "40px",
                 maxWidth: "1440px",
