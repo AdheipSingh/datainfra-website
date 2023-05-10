@@ -2,22 +2,15 @@ import React from "react"
 import Link from "@docusaurus/Link"
 import { useLocation } from "@docusaurus/router"
 
-export default function DocMainSection() {
+export default function DocMainSection({ children }) {
     return (
         <Container>
             <HeroBackground />
 
             <ContentWrapper>
-                <Title>
-                    Control Plane For <Purple>Druid</Purple>
-                </Title>
+                <Title>{children[0]}</Title>
 
-                <Content>
-                    The Control Plane for Druid on Kubernetes is an open-source tool that
-                    facilitates the creation and management of Apache Druid clusters and their
-                    associated data management operations on a Kubernetes platform. This tool is
-                    designed using the Kubernetes operator
-                </Content>
+                <Content>{children[1]}</Content>
             </ContentWrapper>
 
             <Pages>
@@ -67,7 +60,7 @@ function Title({ children }) {
     )
 }
 
-function Purple({ children }) {
+export function Purple({ children }) {
     return (
         <span
             style={{

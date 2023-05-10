@@ -8,7 +8,7 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
 export default function Documentation() {
     const { siteConfig } = useDocusaurusContext()
 
-    React.useLayoutEffect(() => {
+    React.useEffect(() => {
         // Disable theme toggle button
         document.querySelector('[class*="toggle_node"]').style.display = "none"
     }, [])
