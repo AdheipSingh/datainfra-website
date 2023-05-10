@@ -8,11 +8,6 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
 export default function Documentation() {
     const { siteConfig } = useDocusaurusContext()
 
-    React.useEffect(() => {
-        // Disable theme toggle button
-        document.querySelector('[class*="toggle_node"]').style.display = "none"
-    }, [])
-
     return (
         <Layout title={`${siteConfig.title}`} description="Control Planes for Real Time Analytics">
             <NavBarLogo />

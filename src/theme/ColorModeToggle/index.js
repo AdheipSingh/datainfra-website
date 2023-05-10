@@ -5,5 +5,5 @@ import { useLocation } from "@docusaurus/router"
 export default function ColorModeToggleWrapper(props) {
     const { pathname } = useLocation()
 
-    return pathname === "/" ? null : <ColorModeToggle {...props} />
+    return pathname === "/documentation" ? null : <ColorModeToggle {...props} />
 }
