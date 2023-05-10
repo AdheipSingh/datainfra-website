@@ -16,7 +16,7 @@ export default function Home() {
         <>
             <Layout
                 title={`${siteConfig.title}`}
-                description="Control Planes for Real Time Analytics"
+                description="Control Planes for Real-Time Analytics Infrastructure"
                 wrapperClassName={styles.wrapper}
             >
                 <NavBar>
@@ -32,7 +32,7 @@ export default function Home() {
                 <Container>
                     <LeftColumn>
                         <Title>
-                            Control Planes For <Purple>Real Time Analytics</Purple>
+                            Control Planes for <Purple>Real-Time Analytics</Purple> Infrastructure
                         </Title>
 
                         {/* Secure */}
@@ -41,7 +41,9 @@ export default function Home() {
 
                             <div style={{ marginLeft: "16px" }}>
                                 <H3>Secure:</H3>
-                                <Description>Keep your data within your network.</Description>
+                                <Description>
+                                    Keep your data within your network by building an internal cloud data plaform.
+                                </Description>
                             </div>
                         </ServiceContainer>
 

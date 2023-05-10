@@ -9,14 +9,14 @@ export default function Documentation() {
     const { siteConfig } = useDocusaurusContext()
 
     return (
-        <Layout title={`${siteConfig.title}`} description="Control Planes for Real Time Analytics">
+        <Layout title={`${siteConfig.title}`} description="Control Planes for Real-Time Analytics Infrastructure">
             <NavBarLogo />
 
             <Main>
                 <img src="img/analytics.png" alt="analytics-image" height="163px" />
 
                 <Title>
-                    Accelerate <Purple>Real Time Analytics</Purple> Infrastructure on Kubernetes
+                    Accelerate <Purple>Real-Time Analytics</Purple> Infrastructure on Kubernetes
                 </Title>
 
                 <Services>
