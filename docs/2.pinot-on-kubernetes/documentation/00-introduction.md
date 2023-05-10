@@ -10,7 +10,7 @@ With Pinot control plane for Kubernetes, data engineers and data ops can build t
 
 This control plane is designed to accelerate deployment of pinot infrastructure on Kubernetes. This project provides the right set of tooling to data engineers and data ops, making it easier to run Pinot clusters on Kubernetes without any challenges. A single control plane can manage N number of pinot clusters.
 
-## Major Features
+## :rocket: Major Features
 
 - Installation of heterogeneous pinot clusters across mutiple AZ's.
 - Rolling Upgrades - Incremental
@@ -19,7 +19,7 @@ This control plane is designed to accelerate deployment of pinot infrastructure 
 - Schema Management
 - Tenant Management (experimental)
 
-## Motivation
+## :dart: Motivation
 
 We believe that Kubernetes can serve as a control plane for any application, including those with data and stateful sets. While Helm charts are useful for configuration management, they don't maintain the state of the application. That's why we've built a control plane that acts as a bridge between your application's requirements and Kubernetes infrastructure.
 
