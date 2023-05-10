@@ -110,3 +110,50 @@
 [data-theme="light"] .menu__link {
     color: #111;
 }
+
+/* Dropdown service icons */
+.dropdown__link {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+.druid::before {
+    background-image: url("/img/druid.png");
+    background-size: 20px 20px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    content: "";
+    margin-top: 2x;
+    margin-right: 10px;
+}
+.pinot::before {
+    background-image: url("/img/pinot.png");
+    background-size: 20px 20px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    content: "";
+    margin-top: 2x;
+    margin-right: 10px;
+}
+.dsoi::before {
+    background-image: url("/img/dsoi.png");
+    background-size: 20px 20px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    content: "";
+    margin-top: 2x;
+    margin-right: 10px;
+}
+.operator::before {
+    background-image: url("/img/operator.png");
+    background-size: 20px 20px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    content: "";
+    margin-top: 2x;
+    margin-right: 10px;
+}

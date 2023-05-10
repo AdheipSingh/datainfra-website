@@ -106,19 +106,23 @@ const config = {
                             {
                                 label: "Druid On Kubernetes",
                                 to: "docs/druid-on-kubernetes",
+                                className: "druid",
                             },
                             {
                                 label: "Pinot On Kubernetes",
                                 to: "docs/pinot-on-kubernetes",
+                                className: "pinot",
                             },
                             {
                                 label: "Distributed systems operator interface",
                                 to: "docs/distributed-systems-operator-interface",
+                                className: "dsoi",
                             },
 
                             {
                                 label: "Operator runtime",
                                 to: "docs/operator-runtime",
+                                className: "operator",
                             },
                         ],
                     },
