@@ -15,3 +15,19 @@
     font-weight: 600;
     padding-right: 10px;
 }
+
+/* Code buttons background */
+.main > div > div > div > button {
+    background-color: #4361ee;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+} /* Copy button */
+.main > div > div > div > button:last-child::before {
+    content: "Copy";
+    font-weight: 700;
+    padding-right: 10px;
+} /* Wrap button */
+.main > div > div > div > button:first-child svg:first-child {
+    color: #fff;
+}
