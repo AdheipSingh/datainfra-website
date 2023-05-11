@@ -1,10 +1,12 @@
 ---
 sidebar_position: 1
+description: aaa
 ---
 
 # Pinot Cluster Management
 
-- This documentation cover the internal's of a pinot controller and the underlying custom resource it reconciles.
+- This documentation cover's the ```Pinot``` custom resource and its fields.
+- ```Pinot``` CR holds the desired state of the pinot cluster.
 
 ### GVK - Group Version Kind
 
@@ -138,9 +140,9 @@ pinotNodeConfig:
 This section defines the specifications of a Pinot node type and maps each type to k8s configuration and node specific configuration.
 
 :::info
-Pinot has different node. Each node is defined with a ```nodeType```.           
-This is key for building specific logic for each nodeType.              
-Pinot has ```server```, ```broker```, ```controller``` and ```minion``` as nodeTypes.
+Pinot has different nodess. Each node is defined with a ```nodeType```.           
+This is a key for building specific logic for each ```nodeType```.              
+Pinot has ```server```, ```broker```, ```controller``` and ```minion``` as ```nodeTypes```.
 :::
 
 ```
