@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Pinot Controller
+# Pinot Cluster Management
 
 - This documentation cover the internal's of a pinot controller and the underlying custom resource it reconciles.
 
