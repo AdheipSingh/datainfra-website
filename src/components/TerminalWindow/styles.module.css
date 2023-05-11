@@ -1,0 +1,12 @@
+.main {
+}
+
+/* Code background */
+.main > div > div > pre {
+    background-color: #262936;
+}
+
+/* Code text */
+.main > div > div > pre > code span {
+    color: #fff;
+}
