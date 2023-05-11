@@ -1,6 +1,3 @@
-.main {
-}
-
 /* Code background */
 .main > div > div > pre {
     background-color: #262936;
@@ -9,4 +6,12 @@
 /* Code text */
 .main > div > div > pre > code span {
     color: #fff;
+}
+
+/* Code text dollar icon */
+.main > div > div > pre > code > span::before {
+    content: "$";
+    color: #43eecf;
+    font-weight: 600;
+    padding-right: 10px;
 }

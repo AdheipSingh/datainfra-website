@@ -39,10 +39,14 @@ Let's first get the pinot control plane repo.
 
 Clone the github repo and cd to the pinot-control-plane-k8s dir.
 
+<TerminalWindow>
+
 ```
 git clone https://github.com/datainfrahq/pinot-control-plane-k8s.git
 cd pinot-control-plane-k8s/
 ```
+
+</TerminalWindow>
 
 #### Deploy Zookeeper Using Zookeeper Operator
 
