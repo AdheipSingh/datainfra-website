@@ -16,8 +16,8 @@
     --ifm-navbar-background-color: #001eaa;
     --ifm-code-font-size: 95%;
     --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-    --ifm-heading-font-family: "Montserrat", sans-serif;
-    --ifm-font-family-base: "Montserrat", sans-serif;
+    --ifm-heading-font-family: "Mulish", sans-serif;
+    --ifm-font-family-base: "Mulish", sans-serif;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -89,7 +89,7 @@
         rgba(255, 255, 255, 0.32) 100%
     ) !important;
     color: #fff !important;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Mulish", sans-serif;
     border-radius: 16px !important;
     height: 50px !important;
     width: 245px;

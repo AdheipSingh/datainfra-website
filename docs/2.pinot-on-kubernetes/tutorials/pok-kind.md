@@ -59,10 +59,10 @@ make helm-install-zk-operator
 ```
 
 :::info
-The underlying make command deploy's zookeeper-operator in ```zookeeper-operator``` namespace.
-A zookeeper CR is deployed in ```pinot``` namespace.            
-```pinot``` namespace and ```zookeeper-operator``` namespace is created on the fly.          
-Run the following command to check the status of the zk cluster ```kubectl get zk -n pinot```.
+The underlying make command deploy's zookeeper-operator in `zookeeper-operator` namespace.
+A zookeeper CR is deployed in `pinot` namespace.  
+`pinot` namespace and `zookeeper-operator` namespace is created on the fly.  
+Run the following command to check the status of the zk cluster `kubectl get zk -n pinot`.
 :::
 
 ## Install Control Plane for Pinot

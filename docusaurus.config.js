@@ -53,7 +53,7 @@ const config = {
             tagName: "link",
             attributes: {
                 rel: "stylesheet",
-                href: "https://fonts.googleapis.com/css2?family=Segoe:weight@400;500;600;700&display=swap",
+                href: "https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600;700&display=swap",
             },
         },
     ],
