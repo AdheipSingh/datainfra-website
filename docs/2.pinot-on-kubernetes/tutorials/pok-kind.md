@@ -2,9 +2,7 @@
 sidebar_position: 1
 ---
 
-# Pinot on Kubernetes - Kind
-
-## Introduction
+# Pinot on Kubernetes - KIND
 
 -   In this tutorial, we are going to deploy an [Apache Pinot](https://github.com/apache/pinot) cluster on [KIND](https://kind.sigs.k8s.io/).
 -   This tutorial can easily run on your local machine.
@@ -57,10 +55,10 @@ make helm-install-zk-operator
 ```
 
 :::info
-The underlying make command deploy's zookeeper-operator in `zookeeper-operator` namespace.
-A zookeeper CR is deployed in `pinot` namespace.  
-`Pinot` namespace and `zookeeper-operator` namespace is created on the fly.  
-Run the following command to check the status of the zk cluster `kubectl get zk -n pinot`.
+The underlying make command deploy's zookeeper-operator in ```zookeeper-operator``` namespace.
+A zookeeper CR is deployed in ```pinot``` namespace.            
+```pinot``` namespace and ```zookeeper-operator``` namespace is created on the fly.          
+Run the following command to check the status of the zk cluster ```kubectl get zk -n pinot```.
 :::
 
 ## Install Control Plane for Pinot
