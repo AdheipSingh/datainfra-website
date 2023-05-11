@@ -32,7 +32,7 @@ export default function Home() {
                 <Container>
                     <LeftColumn>
                         <Title>
-                            Control Planes for <Purple>Real-Time Analytics</Purple> Infrastructure
+                            Control Planes for  <Purple>Real-Time Analytics</Purple> Infrastructure
                         </Title>
 
                         {/* Secure */}
@@ -120,7 +120,7 @@ function Title({ children }) {
                 lineHeight: "48.76px",
                 letterSpacing: "0.04em",
                 color: "#131212",
-                maxWidth: "500px",
+                maxWidth: "450px",
             }}
         >
             {children}
