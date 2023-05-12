@@ -106,8 +106,9 @@ function Pages({ children }) {
 
 function Page({ name, icon }) {
     const { pathname } = useLocation()
+    let isDSOI = pathname.includes("distributed-systems-operator-interface")
 
-    return (
+    return isDSOI && name !== "Documentation" ? null : (
         <Link
             to={pathname + "/" + name.toLowerCase()}
             style={{

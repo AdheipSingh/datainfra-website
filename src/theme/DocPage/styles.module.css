@@ -1,0 +1,13 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.wrapper {
+    background: #f4f4f4;
+}
+
+.navbar__link_hover:hover {
+    color: var(--ifm-color-primary) !important;
+    text-decoration: none;
+}
