@@ -5,7 +5,7 @@ description: Introdcution to Pinot Control Plane
 ---
 
 # Introduction
-1
+
 Pinot control plane for Kubernetes, is a solution that bridges the gap between Pinot's requirements and Kubernetes infrastructure. 
 
 With Pinot control plane for Kubernetes, data engineers and data ops can build their internal pinot cloud platform, knowing that their data remains within their network. Thus, avoiding costly SAAS vendors. The control plane ensures configuration and data management for pinot and reconciles them with ease, ensuring a seamless user experience.
@@ -33,3 +33,9 @@ As a distributed database, Pinot can be challenging to run on Kubernetes without
 
 
 This control plane is based on [Distributed System Operator Interface](../../3.distributed-systems-operator-interface/documentation/introduction.md) and is built using [operator-runtime](../../4.operator-runtime/documentation/introduction.md). This is a radical new approach that brings ease of use and decouples application and kubernetes in a way that it becomes easier for day 2 operations. The underlying controllers are built on observed state (conditions) and not state machines.
+
+:::note
+Apache®, Apache Druid, Druid® are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries.
+Apache™, Apache Pinot™, Pinot™ are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries.
+Presto, Presto DB are registered trademarks of The Linux Foundation & Presto Foundation.
+:::

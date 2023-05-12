@@ -50,7 +50,7 @@ function Title({ children }) {
         <h1
             style={{
                 paddingTop: "40px",
-                paddingLeft: "50px",
+                paddingLeft: "42px",
                 fontSize: "2.5rem",
                 color: "#111",
             }}

@@ -12,8 +12,9 @@ import DocMainSection from '/src/components/DocMainSection/index.jsx'
 
 <DocMainSection>
 
-Control Plane For <Purple>Druid</Purple>
+Distributed System<Purple> Operator Interface</Purple>
 
-The Control Plane for Druid on Kubernetes is an open-source tool that facilitates the creation and management of Apache Druid clusters and their associated data management operations on a Kubernetes platform. This tool is designed using the Kubernetes operator
+The Distributed System Operator Interface (DSOI) specification is a set of best practices for building Kubernetes operators for distributed systems. The spec defines standard practices that can help define custom resources.
+
 
 </DocMainSection>
