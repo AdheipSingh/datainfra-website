@@ -1,19 +1,22 @@
 ---
 sidebar_position: 1
-description: aaa
+description: Deep Dive into Pinot Custom Resource
 ---
 
 # Pinot Cluster Management
 
--   This documentation cover's the `Pinot` custom resource and its fields.
--   `Pinot` CR holds the desired state of the pinot cluster.
+
+- This documentation cover's the ```Pinot``` custom resource and its fields.
+- ```Pinot``` CR holds the desired state of the pinot cluster.
+- Reference to [pinot CR](https://github.com/datainfrahq/pinot-control-plane-k8s/blob/main/examples/00-pinot-basic/pinot-basic.yaml)
+
 
 ### GVK - Group Version Kind
 
 -   Pinot Controller watches and reconciles `Pinot` custom resource.
 -   `Pinot CRD` defines the following:
 
-```
+```yaml
 Group: datainfra.io
 Version: v1beta1
 Kind: Pinot
@@ -21,7 +24,7 @@ Kind: Pinot
 
 #### Names
 
-```
+```yaml
 kind: Pinot
 listKind: PinotList
 plural: pinots
@@ -47,7 +50,7 @@ Pinot has a dependency for zookeeper. Its an external dependency, the control pl
 responsible for creating or managing zookeeper instances. The spec gives an option to define
 external dependency as a seperation of concern principle for configuration management.
 
-```
+```yaml
   external:
     zookeeper:
      spec:
@@ -120,7 +123,7 @@ k8sConfig:
 
 This section defines configurations for different pinot nodes. The node section (defined below) requires a reference to a pinot node configuration, in the `nodes.pinotNodeConfig` section.
 
-```
+```yaml
 pinotNodeConfig:
 
   - name: controller
@@ -144,7 +147,7 @@ This is a key for building specific logic for each `nodeType`.
 Pinot has `server`, `broker`, `controller` and `minion` as `nodeTypes`.
 :::
 
-```
+```yaml
  nodes:
     ## create a pinot-controller ie name of the node
     ## with a statefulset having single replica having
@@ -163,7 +166,7 @@ Pinot has `server`, `broker`, `controller` and `minion` as `nodeTypes`.
 Mapping of node name to k8s config and pinot node config is many to one and one to one.
 Ex: i want to have three servers out of which two belongs to a `high mem configuration` and other belongs to `low mem configuration`. Here is what the mapping looks in the nodes section:
 
-```
+```yaml
 nodes:
     - name: pinot-server-az1
       kind: Statefulset
@@ -196,7 +199,8 @@ Having 3 replicas of `nodeType` server isn't the same as having 3 instances of `
 Define the order of your deployment. Control plane upgrades the pinot nodes on the basis of the
 order defined.
 
-```
+
+```yaml
 deploymentOrder:
   - controller
   - broker
@@ -208,7 +212,7 @@ deploymentOrder:
 
 Define the plugins to be added to pinot nodes. This section is scoped at `spec.plugins` in the pinot CR.
 
-```
+```yaml
 plugins:
    - pinot-s3
 ```

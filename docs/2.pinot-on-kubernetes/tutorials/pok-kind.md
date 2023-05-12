@@ -50,13 +50,17 @@ cd pinot-control-plane-k8s/
 
 This make command bootstraps zookeeper operator and zookeeper CR on a Kubernetes cluster using the [Helm](https://helm.sh/) package manager.
 
-:::note
+:::info
 The command `make helm-install-zk-operator` can take couple of minutes.
 :::
+
+<TerminalWindow>
 
 ```
 make helm-install-zk-operator
 ```
+
+</TerminalWindow>
 
 :::info
 The underlying make command deploy's zookeeper-operator in `zookeeper-operator` namespace.
@@ -71,9 +75,13 @@ This chart bootstraps Pinot Control Plane on a Kubernetes cluster using the [Hel
 
 ### Configure DataInfra Helm Repo
 
+<TerminalWindow>
+
 ```
 helm repo add datainfra https://charts.datainfra.io
 ```
+
+</TerminalWindow>
 
 :::info
 Pinot control plane is fast moving project.  
@@ -86,12 +94,16 @@ if already added using:
 
 Install this chart using:
 
+<TerminalWindow>
+
 ```
 helm upgrade --install \
 --namespace pinot-control-plane \
 --create-namespace \
 pinot-control-plane datainfra/pinot-control-plane
 ```
+
+</TerminalWindow>
 
 ## Install Pinot Custom Resource
 
@@ -101,9 +113,12 @@ Let's install pinot custom resource:
 
 Storage class is passed to the pinot custom resource yaml.
 
+<TerminalWindow>
+
 ```
 export STORAGE_CLASS_NAME=standard
 ```
+</TerminalWindow>
 
 :::info
 
@@ -115,9 +130,14 @@ To get the storage class of your cluster run `kubectl get storageclass`.
 
 #### Install Custom Resource
 
+<TerminalWindow>
+
 ```
 envsubst <  examples/00-pinot-kind/pinot-basic.yaml | kubectl apply -f - -n pinot
 ```
+
+</TerminalWindow>
+
 
 :::info
 
@@ -132,9 +152,14 @@ brew link --force gettext
 
 #### View Pinot Control Plane Events
 
+<TerminalWindow>
+
 ```
 kubectl describe pinot -n pinot
 ```
+
+</TerminalWindow>
+
 
 :::tip
 Run the following command to get the all resource created by the control plane.  
@@ -145,6 +170,10 @@ Run the following command to get the all resource created by the control plane.
 
 Pinot console can be accessed by port-forwarding pinot controller service
 
+<TerminalWindow>
+
 ```
 kubectl port-forward svc/pinot-controller-controller-svc -n pinot 9000
 ```
+
+</TerminalWindow>
