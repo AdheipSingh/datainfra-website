@@ -5,14 +5,16 @@ description: Deep Dive into Pinot Custom Resource
 
 # Pinot Cluster Management
 
+
 - This documentation cover's the ```Pinot``` custom resource and its fields.
 - ```Pinot``` CR holds the desired state of the pinot cluster.
 - Reference to [pinot CR](https://github.com/datainfrahq/pinot-control-plane-k8s/blob/main/examples/00-pinot-basic/pinot-basic.yaml)
 
+
 ### GVK - Group Version Kind
 
-- Pinot Controller watches and reconciles ```Pinot``` custom resource. 
-- ```Pinot CRD``` defines the following:
+-   Pinot Controller watches and reconciles `Pinot` custom resource.
+-   `Pinot CRD` defines the following:
 
 ```yaml
 Group: datainfra.io
@@ -31,21 +33,21 @@ singular: pinot
 
 ### Scope
 
-- ```Pinot CRD``` scopes ```Pinot``` to namespace scope.
+-   `Pinot CRD` scopes `Pinot` to namespace scope.
 
 :::info
-In kubernetes resources are scoped to namespace or cluster.         
-Ex: ```clusterrole``` is scoped to cluster whereas ```deployments``` are scoped to namespace.
+In kubernetes resources are scoped to namespace or cluster.  
+Ex: `clusterrole` is scoped to cluster whereas `deployments` are scoped to namespace.
 :::
 
 ### Pinot Custom Resource Fields
 
 Pinot Custom Resource is designed on the principles defined by the [DSOI-SPEC](../../3.distributed-systems-operator-interface/documentation/introduction.md)
 
-
 #### External Spec
+
 Pinot has a dependency for zookeeper. Its an external dependency, the control plane is not
-responsible for creating or managing zookeeper instances. The spec gives an option to define 
+responsible for creating or managing zookeeper instances. The spec gives an option to define
 external dependency as a seperation of concern principle for configuration management.
 
 ```yaml
@@ -57,70 +59,69 @@ external dependency as a seperation of concern principle for configuration manag
 
 #### K8s Config - Configurations specific to kubernetes
 
-This section defines Kubernetes configurations. The node section (defined below) requires a reference to a Kubernetes configuration, in the ```nodes.k8sConfig``` section.
+This section defines Kubernetes configurations. The node section (defined below) requires a reference to a Kubernetes configuration, in the `nodes.k8sConfig` section.
 
 ```yaml
 k8sConfig:
-  
     ## Name of the k8s config
-  - name: controller
+    - name: controller
 
-    ## k8s service account
-    serviceAccountName: "default"
+      ## k8s service account
+      serviceAccountName: "default"
 
-    ## ports
-    port:
-    - name: controller 
-      containerPort: 9000
-      protocol: TCP
-    
-    ## define k8s service 
-    service:
-      type: LoadBalancer
-      ports:
-      - protocol: TCP
-        port: 9000
-        targetPort: 9000
+      ## ports
+      port:
+          - name: controller
+            containerPort: 9000
+            protocol: TCP
 
-    ## probes
-    livenessProbe:
-      initialDelaySeconds: 60
-      periodSeconds: 10
-      httpGet:
-        path: "/health"
-        port: 9000
-    readinessProbe:
-      initialDelaySeconds: 60
-      periodSeconds: 10
-      httpGet:
-        path: "/health"
-        port: 9000
+      ## define k8s service
+      service:
+          type: LoadBalancer
+          ports:
+              - protocol: TCP
+                port: 9000
+                targetPort: 9000
 
-    ## define env variables
-    env:
-    - name: LOG4J_CONSOLE_LEVEL
-      value: info
-    
-    ## define image
-    image: apachepinot/pinot:latest
+      ## probes
+      livenessProbe:
+          initialDelaySeconds: 60
+          periodSeconds: 10
+          httpGet:
+              path: "/health"
+              port: 9000
+      readinessProbe:
+          initialDelaySeconds: 60
+          periodSeconds: 10
+          httpGet:
+              path: "/health"
+              port: 9000
 
-    ## define storage config with a name, mountPath and pvcSpec.
+      ## define env variables
+      env:
+          - name: LOG4J_CONSOLE_LEVEL
+            value: info
 
-    storageConfig:
-    - name: pinotcontroller
-      mountPath: "/var/pinot/controller/data"
-      spec:
-        accessModes:
-        - ReadWriteOnce
-        storageClassName: ${STORAGE_CLASS_NAME}
-        resources:
-          requests:
-            storage: 1Gi
+      ## define image
+      image: apachepinot/pinot:latest
+
+      ## define storage config with a name, mountPath and pvcSpec.
+
+      storageConfig:
+          - name: pinotcontroller
+            mountPath: "/var/pinot/controller/data"
+            spec:
+                accessModes:
+                    - ReadWriteOnce
+                storageClassName: ${STORAGE_CLASS_NAME}
+                resources:
+                    requests:
+                        storage: 1Gi
 ```
 
 #### Node Config - Configurations specific to Pinot Nodes
 
-This section defines configurations for different pinot nodes. The node section (defined below) requires a reference to a pinot node configuration, in the ```nodes.pinotNodeConfig``` section.
+This section defines configurations for different pinot nodes. The node section (defined below) requires a reference to a pinot node configuration, in the `nodes.pinotNodeConfig` section.
 
 ```yaml
 pinotNodeConfig:
@@ -131,7 +132,7 @@ pinotNodeConfig:
                 -Dplugins.dir=/opt/pinot/plugins"
     data: |-
         controller.port=9000
-        controller.data.dir=/var/pinot/controller/data 
+        controller.data.dir=/var/pinot/controller/data
         pinot.set.instance.id.to.hostname=true
         controller.task.scheduler.enabled=true
 ```
@@ -141,14 +142,14 @@ pinotNodeConfig:
 This section defines the specifications of a Pinot node type and maps each type to k8s configuration and node specific configuration.
 
 :::info
-Pinot has different nodess. Each node is defined with a ```nodeType```.           
-This is a key for building specific logic for each ```nodeType```.              
-Pinot has ```server```, ```broker```, ```controller``` and ```minion``` as ```nodeTypes```.
+Pinot has different nodess. Each node is defined with a `nodeType`.  
+This is a key for building specific logic for each `nodeType`.  
+Pinot has `server`, `broker`, `controller` and `minion` as `nodeTypes`.
 :::
 
 ```yaml
  nodes:
-    ## create a pinot-controller ie name of the node 
+    ## create a pinot-controller ie name of the node
     ## with a statefulset having single replica having
     ## nodeType as controller nodetype and k8s config controller
     ## and pinotNodeConfig as controller.
@@ -158,12 +159,12 @@ Pinot has ```server```, ```broker```, ```controller``` and ```minion``` as ```no
       nodeType: controller
       k8sConfig: controller
       pinotNodeConfig: controller
-    
+
 ```
 
 :::info
 Mapping of node name to k8s config and pinot node config is many to one and one to one.
-Ex: i want to have three servers out of which two belongs to a ```high mem configuration``` and other belongs to ```low mem configuration```. Here is what the mapping looks in the nodes section:
+Ex: i want to have three servers out of which two belongs to a `high mem configuration` and other belongs to `low mem configuration`. Here is what the mapping looks in the nodes section:
 
 ```yaml
 nodes:
@@ -186,15 +187,18 @@ nodes:
       k8sConfig: low-mem-server
       pinotNodeConfig: low-mem-server
 ```
+
 :::
 
 :::note
-Having 3 replicas of ```nodeType``` server isn't the same as having 3 instances of ```nodeType``` servers.
+Having 3 replicas of `nodeType` server isn't the same as having 3 instances of `nodeType` servers.
 :::
 
 ### Deployment Order - Incremental Upgrades
-Define the order of your deployment. Control plane upgrades the pinot nodes on the basis of the 
+
+Define the order of your deployment. Control plane upgrades the pinot nodes on the basis of the
 order defined.
+
 
 ```yaml
 deploymentOrder:
@@ -205,7 +209,8 @@ deploymentOrder:
 ```
 
 ### Plugins
-Define the plugins to be added to pinot nodes. This section is scoped at ```spec.plugins``` in the pinot CR.
+
+Define the plugins to be added to pinot nodes. This section is scoped at `spec.plugins` in the pinot CR.
 
 ```yaml
 plugins:
