@@ -9,7 +9,7 @@ export default function LinkWrapper(props) {
     return docId === druid || docId === pinot ? (
         <div style={{ position: "relative" }}>
             <img
-                style={{ height: "40px", position: "absolute", top: "16px", left: "28px" }}
+                style={{ height: "40px", position: "absolute", top: "28px", left: "28px" }}
                 src={docId === druid ? "/img/druid.png" : "/img/pinot.png"}
                 alt="secure-icon"
             />
