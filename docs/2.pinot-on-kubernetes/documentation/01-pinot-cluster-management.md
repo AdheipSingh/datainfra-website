@@ -5,11 +5,9 @@ description: Deep Dive into Pinot Custom Resource
 
 # Pinot Cluster Management
 
-
-- This documentation cover's the ```Pinot``` custom resource and its fields.
-- ```Pinot``` CR holds the desired state of the pinot cluster.
-- Reference to [pinot CR](https://github.com/datainfrahq/pinot-control-plane-k8s/blob/main/examples/00-pinot-basic/pinot-basic.yaml)
-
+-   This documentation cover's the `Pinot` custom resource and its fields.
+-   `Pinot` CR holds the desired state of the pinot cluster.
+-   Reference to [pinot CR](https://github.com/datainfrahq/pinot-control-plane-k8s/blob/main/examples/00-pinot-basic/pinot-basic.yaml)
 
 ### GVK - Group Version Kind
 
@@ -42,7 +40,7 @@ Ex: `clusterrole` is scoped to cluster whereas `deployments` are scoped to names
 
 ### Pinot Custom Resource Fields
 
-Pinot Custom Resource is designed on the principles defined by the [DSOI-SPEC](../../3.distributed-systems-operator-interface/documentation/introduction.md)
+Pinot Custom Resource is designed on the principles defined by the [DSOI-SPEC](../../3.distributed-systems-operator-interface/index.md)
 
 #### External Spec
 
@@ -51,10 +49,10 @@ responsible for creating or managing zookeeper instances. The spec gives an opti
 external dependency as a seperation of concern principle for configuration management.
 
 ```yaml
-  external:
+external:
     zookeeper:
-     spec:
-       zkAddress: zk-pinot-zookeeper-headless.pinot:2181
+        spec:
+            zkAddress: zk-pinot-zookeeper-headless.pinot:2181
 ```
 
 #### K8s Config - Configurations specific to kubernetes
@@ -125,16 +123,15 @@ This section defines configurations for different pinot nodes. The node section 
 
 ```yaml
 pinotNodeConfig:
-
-  - name: controller
-    java_opts: "-XX:ActiveProcessorCount=2 -Xms256M -Xmx1G -XX:+UseG1GC -XX:MaxGCPauseMillis=200
-                -Xlog:gc*:file=/opt/pinot/gc-pinot-controller.log -Dlog4j2.configurationFile=/opt/pinot/conf/log4j2.xml
-                -Dplugins.dir=/opt/pinot/plugins"
-    data: |-
-        controller.port=9000
-        controller.data.dir=/var/pinot/controller/data
-        pinot.set.instance.id.to.hostname=true
-        controller.task.scheduler.enabled=true
+    - name: controller
+      java_opts: "-XX:ActiveProcessorCount=2 -Xms256M -Xmx1G -XX:+UseG1GC -XX:MaxGCPauseMillis=200
+          -Xlog:gc*:file=/opt/pinot/gc-pinot-controller.log -Dlog4j2.configurationFile=/opt/pinot/conf/log4j2.xml
+          -Dplugins.dir=/opt/pinot/plugins"
+      data: |-
+          controller.port=9000
+          controller.data.dir=/var/pinot/controller/data
+          pinot.set.instance.id.to.hostname=true
+          controller.task.scheduler.enabled=true
 ```
 
 #### Nodes - Maps K8s Configurations with Pinot Node Configurations
@@ -148,7 +145,7 @@ Pinot has `server`, `broker`, `controller` and `minion` as `nodeTypes`.
 :::
 
 ```yaml
- nodes:
+nodes:
     ## create a pinot-controller ie name of the node
     ## with a statefulset having single replica having
     ## nodeType as controller nodetype and k8s config controller
@@ -159,7 +156,6 @@ Pinot has `server`, `broker`, `controller` and `minion` as `nodeTypes`.
       nodeType: controller
       k8sConfig: controller
       pinotNodeConfig: controller
-
 ```
 
 :::info
@@ -199,13 +195,12 @@ Having 3 replicas of `nodeType` server isn't the same as having 3 instances of `
 Define the order of your deployment. Control plane upgrades the pinot nodes on the basis of the
 order defined.
 
-
 ```yaml
 deploymentOrder:
-  - controller
-  - broker
-  - server
-  - minion
+    - controller
+    - broker
+    - server
+    - minion
 ```
 
 ### Plugins
@@ -214,5 +209,5 @@ Define the plugins to be added to pinot nodes. This section is scoped at `spec.p
 
 ```yaml
 plugins:
-   - pinot-s3
+    - pinot-s3
 ```
