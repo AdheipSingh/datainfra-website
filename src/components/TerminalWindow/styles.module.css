@@ -1,6 +1,7 @@
-/* Code background */
+/* Code container */
 .main > div > div > pre {
     background-color: #262936;
+    border-radius: 16px;
 }
 
 /* Code text */

@@ -3,6 +3,7 @@ import React from "react"
 import MDXComponents from "@theme-original/MDXComponents"
 import { Purple } from "@site/src/components/DocMainSection/index.jsx"
 import TerminalWindow from "@site/src/components/TerminalWindow/index.jsx"
+import Installation from "@site/src/components/Installation/index.jsx"
 
 export default {
     // Re-use the default mapping
@@ -11,4 +12,5 @@ export default {
     // `Highlight` will receive all props that were passed to `<Highlight>` in MDX
     Purple,
     TerminalWindow,
+    Installation,
 }
