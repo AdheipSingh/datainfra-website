@@ -22,7 +22,7 @@ export default function DocPageWrapper(props) {
 
     return (
         <>
-            <div style={{ position: "fixed", zIndex: 999, top: "32px", left: "150px" }}>
+            <div style={{ position: "fixed", zIndex: 999, top: "31px", left: "150px" }}>
                 <NavLink to={pathname + "/documentation"} style={{ marginLeft: "18px" }}>
                     Documentation
                 </NavLink>
