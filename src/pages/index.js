@@ -32,7 +32,7 @@ export default function Home() {
                 <Container>
                     <LeftColumn>
                         <Title>
-                            Control Planes for  <Purple>Real-Time Analytics</Purple> Infrastructure
+                            Control Planes for <Purple>Real-Time Analytics</Purple> Infrastructure
                         </Title>
 
                         {/* Secure */}
@@ -42,7 +42,8 @@ export default function Home() {
                             <div style={{ marginLeft: "16px" }}>
                                 <H3>Secure:</H3>
                                 <Description>
-                                    Keep your data within your network by building an internal cloud data plaform.
+                                    Keep your data within your network by building an internal cloud
+                                    data plaform.
                                 </Description>
                             </div>
                         </ServiceContainer>
@@ -84,7 +85,9 @@ export default function Home() {
                     </LeftColumn>
 
                     {/* Right column */}
-                    <div style={{ flex: 1, background: "wheat", width: "800px" }}></div>
+                    <div style={{ flex: 1, minWidth: "565px" }}>
+                        <img src="/img/diagram.svg" alt="diagram-icon" />
+                    </div>
                 </Container>
             </Layout>
         </>
