@@ -68,10 +68,31 @@
     margin-left: -30px;
     top: 13px;
     padding-bottom: 30px;
+    top: 20px;
+    left: 16px;
+    transition: transform 0.2s ease-in-out;
+} /* Dropdown arrow */
+.navbar__item.dropdown::after {
+    content: "";
+    background-image: url("/img/arrowdown.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: -38px;
+    left: -8px;
+    bottom: 0px;
+    right: 0px;
+    transition: transform 0.2s ease-in-out;
+} /* Dropdown arrow - rotation animation */
+.navbar__item.dropdown:hover::after {
+    transform: rotate(180deg);
+} /* Disable default arrow */
+.navbar__item.dropdown a::after {
+    border: none;
 }
 .dropdown__menu {
-    top: 64px;
-    left: -100px;
+    top: 58px;
+    left: -114px;
 }
 
 /* Search */
