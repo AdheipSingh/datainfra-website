@@ -9,13 +9,13 @@ export default function DocPageWrapper(props) {
 
     // Clean path if necessary
     if (pathname.includes("/documentation")) {
-        pathname = pathname.replace("/documentation", "")
+        pathname = pathname.split("/documentation")[0]
     }
     if (pathname.includes("/tutorials")) {
-        pathname = pathname.replace("/tutorials", "")
+        pathname = pathname.split("/tutorials")[0]
     }
     if (pathname.includes("/installation")) {
-        pathname = pathname.replace("/installation", "")
+        pathname = pathname.split("/installation")[0]
     }
 
     let isDSOI = pathname.includes("distributed-systems-operator-interface")
