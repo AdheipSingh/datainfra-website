@@ -139,6 +139,14 @@
     /* background-color: none; */
     color: #4361ee;
 }
+/* .theme-doc-sidebar-menu.menu__list {
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+}
+.theme-doc-sidebar-menu.menu__list li:nth-last-of-type(4) {
+    margin-top: auto;
+} */
 
 /* Dropdown service icons */
 .dropdown__link {
