@@ -85,7 +85,7 @@ export default function Home() {
                     </LeftColumn>
 
                     {/* Right column */}
-                    <div style={{ flex: 1, minWidth: "565px" }}>
+                    <div style={{ flex: 2, minWidth: "565px" }}>
                         <img src="/img/diagram.svg" alt="diagram-icon" />
                     </div>
                 </Container>
@@ -245,3 +245,4 @@ function ActionButton({ to, children }) {
         </Link>
     )
 }
+//
