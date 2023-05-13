@@ -9,7 +9,10 @@ export default function Documentation() {
     const { siteConfig } = useDocusaurusContext()
 
     return (
-        <Layout title={`${siteConfig.title}`} description="Control Planes for Real-Time Analytics Infrastructure">
+        <Layout
+            title={`${siteConfig.title}`}
+            description="Control Planes for Real-Time Analytics Infrastructure"
+        >
             <NavBarLogo />
 
             <Main>
@@ -63,7 +66,7 @@ function Service({ name, icon }) {
                 MozBoxShadow: "0px 8px 16px rgba(0, 0, 0, 0.16)",
             }}
         >
-            <img src={`img/${icon}.png`} alt={`${icon}-icon`} />
+            <img style={{ height: "48px" }} src={`img/${icon}.png`} alt={`${icon}-icon`} />
             <span
                 style={{
                     color: "#131212",

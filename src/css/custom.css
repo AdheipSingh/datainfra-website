@@ -127,9 +127,17 @@
     background: rgba(94, 100, 112, 0.7) !important;
 }
 
-/* Docs page */
+/* Docs page sidebar */
 [data-theme="light"] .menu__link {
     color: #111;
+} /* Sidebar folder  */
+.menu__link.menu__link--sublist {
+    font-size: 1.125rem;
+    margin: 6px;
+} /* Sidebar items */
+.menu__link.menu__link--active {
+    /* background-color: none; */
+    color: #4361ee;
 }
 
 /* Dropdown service icons */
