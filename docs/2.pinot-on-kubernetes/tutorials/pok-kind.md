@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+description: Deploy a simple Apache Pinot cluster on KIND
 ---
 
 # Pinot on Kubernetes - KIND
@@ -33,7 +34,7 @@ kind create cluster --name pinot
 
 Let's first get the pinot control plane repo.
 
-#### Get Pinot Control Plane repo
+### Get Pinot Control Plane repo
 
 Clone the github repo and cd to the pinot-control-plane-k8s dir.
 
@@ -46,7 +47,7 @@ cd pinot-control-plane-k8s/
 
 </TerminalWindow>
 
-#### Deploy Zookeeper Using Zookeeper Operator
+### Deploy Zookeeper Using Zookeeper Operator
 
 This make command bootstraps zookeeper operator and zookeeper CR on a Kubernetes cluster using the [Helm](https://helm.sh/) package manager.
 
@@ -90,9 +91,9 @@ if already added using:
 `helm repo update datainfra`.
 :::
 
-### Installing the Chart
+### Install the Chart
 
-Install this chart using:
+Install pinot control plane chart with helm:
 
 <TerminalWindow>
 
@@ -109,17 +110,6 @@ pinot-control-plane datainfra/pinot-control-plane
 
 Let's install pinot custom resource:
 
-#### Export Storage Class
-
-Storage class is passed to the pinot custom resource yaml.
-
-<TerminalWindow>
-
-```
-export STORAGE_CLASS_NAME=standard
-```
-</TerminalWindow>
-
 :::info
 
 Pinot Control Plane supports creating statefulsets as well as deployments.  
@@ -128,29 +118,21 @@ By default Kind cluster has storage class `standard`
 To get the storage class of your cluster run `kubectl get storageclass`.
 :::
 
-#### Install Custom Resource
+### Install Custom Resource
 
+:::tip
+Make sure the control plane pods are up and running successfully.       
+```kubectl get pods -n pinot-control-plane```
+:::
 <TerminalWindow>
 
 ```
-envsubst <  examples/00-pinot-kind/pinot-basic.yaml | kubectl apply -f - -n pinot
+kubectl apply -f tutorials/00-pinot-kind/pinot-basic.yaml -n pinot
 ```
 
 </TerminalWindow>
 
-
-:::info
-
-Install envsubst on Mac
-
-```
-brew install gettext
-brew link --force gettext
-```
-
-:::
-
-#### View Pinot Control Plane Events
+### View Pinot Control Plane Events
 
 <TerminalWindow>
 
@@ -166,9 +148,9 @@ Run the following command to get the all resource created by the control plane.
 `kubectl get all -n pinot`
 :::
 
-#### Access Pinot Console
+### Access Pinot Console
 
-Pinot console can be accessed by port-forwarding pinot controller service
+Pinot console can be accessed by port-forwarding pinot controller service. Make sure all pods are up and running before port-forwarding.
 
 <TerminalWindow>
 

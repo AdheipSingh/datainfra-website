@@ -5,9 +5,11 @@ description: Deep Dive into Pinot Custom Resource
 
 # Pinot Cluster Management
 
--   This documentation cover's the `Pinot` custom resource and its fields.
--   `Pinot` CR holds the desired state of the pinot cluster.
--   Reference to [pinot CR](https://github.com/datainfrahq/pinot-control-plane-k8s/blob/main/examples/00-pinot-basic/pinot-basic.yaml)
+
+- This documentation cover's the ```Pinot``` custom resource and its fields.
+- ```Pinot``` CR holds the desired state of the pinot cluster.
+- Reference to [pinot CR](https://github.com/datainfrahq/pinot-control-plane-k8s/blob/main/tutorials/00-pinot-basic/pinot-basic.yaml)
+
 
 ### GVK - Group Version Kind
 
