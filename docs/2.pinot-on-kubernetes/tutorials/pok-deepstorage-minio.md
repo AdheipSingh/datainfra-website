@@ -4,7 +4,7 @@ description: Deploy an Apache Pinot cluster with minio as deepstorage on KIND.
 tags: [pinot on kubernetes, local setup, KIND]
 ---
 
-# Pinot on Kubernetes with Minio as Deepstorage - KIND
+# Pinot on Kubernetes - Deepstorage
 
 -   In this tutorial, we are going to deploy an [Apache Pinot](https://github.com/apache/pinot) cluster on [KIND](https://kind.sigs.k8s.io/) with [minio](https://github.com/minio/minio) as deepstorage.
 -   This tutorial can easily run on your local machine.

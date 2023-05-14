@@ -7,4 +7,8 @@ import DocCardList from '@theme/DocCardList';
 
 # Tutorials
 
-<DocCardList />
+### Manage Apache Pinot on Kubernetes using Pinot control plane.
+
+**Follow these guides to provision Apache Pinot cluster on kubernetes on AWS, Azure, GCP or local setup using Pinot Control Plane.**
+
+<DocCardList /> 
