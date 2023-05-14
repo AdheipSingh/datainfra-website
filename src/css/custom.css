@@ -150,6 +150,11 @@
     padding-top: 50px;
 }
 
+/* Doc Page main */
+.theme-doc-markdown h1 {
+    text-align: center;
+}
+
 /* Dropdown service icons */
 .dropdown__link {
     display: flex;
