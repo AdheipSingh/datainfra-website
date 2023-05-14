@@ -151,7 +151,7 @@
 }
 
 /* Doc Page main */
-.theme-doc-markdown h1 {
+.theme-doc-markdown > h1 {
     text-align: center;
 }
 
