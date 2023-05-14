@@ -1,0 +1,4 @@
+.navbar__link_hover:hover {
+    color: var(--ifm-color-primary) !important;
+    text-decoration: none;
+}

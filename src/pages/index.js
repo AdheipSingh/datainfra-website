@@ -26,7 +26,7 @@ export default function Home() {
 
                     <NavLink to="/blog">Blogs</NavLink>
 
-                    <ActionButton to="/">Book Demo</ActionButton>
+                    <ActionButton to="/demo">Book Demo</ActionButton>
                 </NavBar>
 
                 <Container>
