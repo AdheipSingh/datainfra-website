@@ -1,6 +1,6 @@
 import React from "react"
-import Layout from "@theme/Layout"
 import Link from "@docusaurus/Link"
+import Footer from "@theme/Footer"
 import styles from "./styles.module.css"
 
 export default function Demo() {
@@ -141,6 +141,8 @@ export default function Demo() {
                     </FormContainer>
                 </div>
             </Main>
+
+            <Footer />
         </>
     )
 }
