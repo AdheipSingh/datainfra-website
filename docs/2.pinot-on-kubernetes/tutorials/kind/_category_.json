@@ -1,8 +1,4 @@
 {
-  "label": "Tutorials",
-  "position": 2,
-  "link": {
-    "type": "doc",
-    "id": "pinot-on-kubernetes/tutorials/kind"
-  }
+  "label": "Kind",
+  "position": 2
 }
