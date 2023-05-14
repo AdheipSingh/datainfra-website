@@ -1,0 +1,27 @@
+.links {
+    width: fit-content;
+    font-weight: 800;
+    font-size: 20px;
+}
+
+.links::after {
+    border-bottom: 3px solid #fff;
+    content: "";
+    display: block;
+    width: 50%;
+    padding-top: 5px;
+}
+
+.contact {
+    width: fit-content;
+    font-weight: 800;
+    font-size: 20px;
+}
+
+.contact::after {
+    border-bottom: 3px solid #fff;
+    content: "";
+    display: block;
+    width: 72%;
+    padding-top: 5px;
+}
