@@ -1,4 +1,8 @@
 {
   "label": "KIND - Running Pinot Locally",
-  "position": 2
+  "position": 2,
+  "link": {
+    "type": "doc",
+    "id": "pinot-on-kubernetes/tutorials/kind"
+  }
 }
