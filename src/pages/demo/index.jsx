@@ -62,7 +62,7 @@ export default function Demo() {
                     <FormContainer>
                         <FormTitle>SCHEDULE A DEMO</FormTitle>
 
-                        <Form onSubmit={handleSubmit}>
+                        <Form action="https://formspree.io/f/mgebqzok" method="POST">
                             <Label htmlFor="firstName">
                                 First Name**
                                 <br />
