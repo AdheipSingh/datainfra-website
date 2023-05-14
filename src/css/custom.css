@@ -83,6 +83,7 @@
     bottom: 0px;
     right: 0px;
     transition: transform 0.2s ease-in-out;
+    rotate: 180deg;
 } /* Dropdown arrow - rotation animation */
 .navbar__item.dropdown:hover::after {
     transform: rotate(180deg);
@@ -138,6 +139,15 @@
 .menu__link.menu__link--active {
     /* background-color: none; */
     color: #4361ee;
+}
+.theme-doc-sidebar-menu.menu__list {
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+}
+.theme-doc-sidebar-menu.menu__list > li:nth-last-of-type(4) {
+    margin-top: auto;
+    padding-top: 50px;
 }
 
 /* Dropdown service icons */
