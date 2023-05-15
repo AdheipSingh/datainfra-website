@@ -1,10 +1,10 @@
 ---
 sidebar_position: 1
-description: Deploy a simple Apache Pinot cluster on KIND
+description: Deploy a Simple Apache Pinot cluster
 tags: [pinot on kubernetes, local setup, KIND]
 ---
 
-# Simple Pinot Cluster on KIND
+# Simple Pinot Cluster
 
 -   In this tutorial, we are going to deploy an [Apache Pinot](https://github.com/apache/pinot) cluster on [KIND](https://kind.sigs.k8s.io/).
 -   This tutorial can easily run on your local machine.

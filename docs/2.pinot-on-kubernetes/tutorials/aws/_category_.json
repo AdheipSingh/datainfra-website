@@ -1,0 +1,8 @@
+{
+    "label": "AWS - Running Pinot On AWS",
+    "position": 2,
+    "link": {
+        "type": "doc",
+        "id": "pinot-on-kubernetes/tutorials/aws"
+    }
+}
