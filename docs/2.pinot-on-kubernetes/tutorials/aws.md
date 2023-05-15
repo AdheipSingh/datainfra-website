@@ -1,5 +1,5 @@
 ---
-slug: tutorials
+slug: aws
 sidebar_class_name: "hide"
 ---
 

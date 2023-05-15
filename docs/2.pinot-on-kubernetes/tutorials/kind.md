@@ -1,5 +1,5 @@
 ---
-slug: tutorials
+slug: kind
 sidebar_class_name: "hide"
 ---
 
