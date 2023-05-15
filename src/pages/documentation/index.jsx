@@ -60,13 +60,14 @@ function Service({ name, icon }) {
                 textDecoration: "none",
                 height: "180px",
                 width: "314px",
+                fontWeight: 500,
                 borderRadius: "40px",
                 boxShadow: "0px 8px 16px rgba(0, 0, 0, 0.16)",
                 WebkitBoxShadow: "0px 8px 16px rgba(0, 0, 0, 0.16)",
                 MozBoxShadow: "0px 8px 16px rgba(0, 0, 0, 0.16)",
             }}
         >
-            <img style={{ height: "48px" }} src={`img/${icon}.png`} alt={`${icon}-icon`} />
+            <img style={{ height: "64px" }} src={`img/${icon}.png`} alt={`${icon}-icon`} />
             <span
                 style={{
                     color: "#131212",
