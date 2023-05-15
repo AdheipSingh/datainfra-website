@@ -2,11 +2,11 @@ import React from "react"
 import DocCard from "@theme-original/DocCard"
 
 export default function DocCardWrapper(props) {
-    return (
-        <>
-            {props.item.docId === "pinot-on-kubernetes/tutorials/kind" ? null : (
-                <DocCard {...props} />
-            )}
-        </>
-    )
+    return <>{cardsToIgnore.includes(props.item.docId) ? null : <DocCard {...props} />}</>
 }
+
+const cardsToIgnore = [
+    //
+    "pinot-on-kubernetes/tutorials/kind",
+    "pinot-on-kubernetes/tutorials/aws",
+]

@@ -1,10 +1,10 @@
 ---
-slug: kind
+slug: aws
 sidebar_class_name: "hide"
 ---
 
 import DocCardList from '@theme/DocCardList';
 
-# Kind
+# AWS
 
 <DocCardList />
