@@ -4,7 +4,7 @@ import Tabs from "@theme/Tabs"
 import TabItem from "@theme/TabItem"
 import TerminalWindow from "@site/src/components/TerminalWindow/index.jsx"
 
-export default function Installation({ children }) {
+export default function GoInstallation({ children }) {
     return (
         <div className={styles.main}>
             <div style={{ display: "flex", justifyContent: "center" }}>
@@ -13,7 +13,7 @@ export default function Installation({ children }) {
             </div>
 
             <Tabs className={styles.tabs}>
-                <TabItem className={styles.tab} value="helm" label="Helm" default>
+                <TabItem className={styles.tab} value="go" label="Go" default>
                     <hr />
                     <TerminalWindow>{children[1]}</TerminalWindow>
                 </TabItem>

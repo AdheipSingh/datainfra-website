@@ -4,6 +4,8 @@ import MDXComponents from "@theme-original/MDXComponents"
 import { Purple } from "@site/src/components/DocMainSection/index.jsx"
 import TerminalWindow from "@site/src/components/TerminalWindow/index.jsx"
 import Installation from "@site/src/components/Installation/index.jsx"
+import GoInstallation from "@site/src/components/GoInstallation/index.jsx"
+
 
 export default {
     // Re-use the default mapping
@@ -13,4 +15,5 @@ export default {
     Purple,
     TerminalWindow,
     Installation,
+    GoInstallation,
 }

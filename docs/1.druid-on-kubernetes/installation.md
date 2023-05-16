@@ -1,6 +1,6 @@
 ---
 sidebar_position: 4
-sidebar_label: Install
+sidebar_label: Installation
 hide_title: true
 ---
 
@@ -10,17 +10,7 @@ Install Control Plane For <Purple>Druid</Purple>
 
 ```
 helm repo add datainfra https://charts.datainfra.io
-helm upgrade --install druid-operator
-```
-
-```
-kustomize repo add datainfra https://charts.datainfra.io
-kustomize upgrade --install druid-operator
-```
-
-```
-kubectl repo add datainfra https://charts.datainfra.io
-kubectl upgrade --install druid-operator
+helm upgrade --install druid-operator datainfrahq/druid-operator
 ```
 
 </Installation>

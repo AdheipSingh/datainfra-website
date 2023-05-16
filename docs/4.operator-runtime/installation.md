@@ -1,25 +1,15 @@
 ---
 sidebar_position: 3
+sidebar_label: Installation
 hide_title: true
 ---
 
-<Installation>
+<GoInstallation>
 
-Install Control Plane For <Purple>Druid</Purple>
-
-```
-helm repo add datainfra https://charts.datainfra.io
-helm upgrade --install druid-operator
-```
+Install Operator <Purple>Runtime</Purple>
 
 ```
-kustomize repo add datainfra https://charts.datainfra.io
-kustomize upgrade --install druid-operator
+go get github.com/datainfrahq/operator-runtime
 ```
 
-```
-kubectl repo add datainfra https://charts.datainfra.io
-kubectl upgrade --install druid-operator
-```
-
-</Installation>
+</GoInstallation>
