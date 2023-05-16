@@ -21,7 +21,7 @@ export default function FooterWrapper() {
                 <img src="/img/logo-only-white.svg" alt="logo" style={{ height: "72px" }} />
 
                 <h5 style={{ fontWeight: 700, fontSize: "30px", marginTop: "6px" }}>
-                    Data<span style={{ fontWeight: 400 }}>Infra</span> Developer
+                    Data<span style={{ fontWeight: 400 }}>Infra</span>
                 </h5>
 
                 <p style={{ lineHeight: "25.1px", fontSize: "20px" }}>

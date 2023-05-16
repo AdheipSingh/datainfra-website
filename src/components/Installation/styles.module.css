@@ -5,6 +5,7 @@
     max-width: 850px;
     margin-top: 80px;
 }
+
 @media (min-width: 1000px) {
     .main {
         margin-left: 80px;
@@ -12,10 +13,11 @@
 }
 
 .tabs {
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
+
 /* Tab labels */
-.tabs > li {
+.tabs>li {
     border: 1px solid transparent;
     border-radius: 16px;
     justify-content: center;
@@ -23,7 +25,8 @@
     height: 50px;
     align-items: center;
 }
-.tabs > li[aria-selected="true"] {
+
+.tabs>li[aria-selected="true"] {
     background-color: #f4f6ff;
     border: 1px solid #4361ee;
     border-radius: 16px;

@@ -7,7 +7,7 @@ description: Deep Dive into Pinot Table Custom Resource
 
 - This documentation cover's the ```PinotTable``` custom resource and its fields.
 - ```PinotTable``` CR holds the desired state of a pinot table.
-- Reference to [Pinot Table CR](https://github.com/datainfrahq/pinot-control-plane-k8s/blob/main/examples/00-pinot-kind/pinottable-basic.yaml)
+- Reference to [Pinot Table CR](https://github.com/datainfrahq/pinot-control-plane-k8s/blob/main/tutorials/00-pinot-kind/pinottable-basic.yaml)
 
 :::info
 Pinot Table controller is responsible for creation, updation and

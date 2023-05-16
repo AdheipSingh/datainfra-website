@@ -7,7 +7,7 @@ description: Deep Dive into Pinot Schema Custom Resource
 
 - This documentation cover's the ```PinotSchema``` custom resource and its fields.
 - ```PinotSchema``` CR holds the desired state of pinot schema.
-- Reference to [Pinot Schema CR](https://github.com/datainfrahq/pinot-control-plane-k8s/blob/main/examples/00-pinot-kind/pinotschema-basic.yaml)
+- Reference to [Pinot Schema CR](https://github.com/datainfrahq/pinot-control-plane-k8s/blob/main/tutorials/00-pinot-kind/pinotschema-basic.yaml)
 
 :::info
 Pinot Schema controller is responsible for creation, updation and

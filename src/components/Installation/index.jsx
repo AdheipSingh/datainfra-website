@@ -7,28 +7,15 @@ import TerminalWindow from "@site/src/components/TerminalWindow/index.jsx"
 export default function Installation({ children }) {
     return (
         <div className={styles.main}>
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <div style={{ display: "flex", justifyContent: "center" }}>
                 {/* Title */}
                 <h1 style={{ fontSize: "2.25rem" }}>{children[0]}</h1>
-
-                {/* Version */}
-                <Select>
-                    <option value="0.0.1">Latest v0.0.1</option>
-                </Select>
             </div>
 
             <Tabs className={styles.tabs}>
                 <TabItem className={styles.tab} value="helm" label="Helm" default>
                     <hr />
                     <TerminalWindow>{children[1]}</TerminalWindow>
-                </TabItem>
-                <TabItem className={styles.tab} value="kustomize" label="Kustomize">
-                    <hr />
-                    <TerminalWindow>{children[2]}</TerminalWindow>
-                </TabItem>
-                <TabItem className={styles.tab} value="kubectl" label="Kubectl">
-                    <hr />
-                    <TerminalWindow>{children[3]}</TerminalWindow>
                 </TabItem>
             </Tabs>
         </div>

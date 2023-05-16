@@ -7,7 +7,7 @@ description: Deep Dive into Pinot Tenant Custom Resource
 
 - This documentation cover's the ```PinotTenant``` custom resource and its fields.
 - ```PinotTenant``` CR holds the desired state of a pinot table.
-- Reference to [Pinot Tenant CR](https://github.com/datainfrahq/pinot-control-plane-k8s/blob/main/examples/00-pinot-kind/pinottenant-basic.yaml)
+- Reference to [Pinot Tenant CR](https://github.com/datainfrahq/pinot-control-plane-k8s/blob/main/tutorials/02-pinot-tenant/pinottenant-broker.yaml)
 
 :::caution
 Pinot Tenant controller is in experimental phase.           

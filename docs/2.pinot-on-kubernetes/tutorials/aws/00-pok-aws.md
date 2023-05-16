@@ -4,7 +4,7 @@ description: Deploy a Apache Pinot cluster on AWS.
 tags: [pinot on kubernetes, AWS, S3 ]
 ---
 
-# Pinot Cluster On AWS with S3 as Deepstorage
+# Pinot Cluster On AWS with S3
 
 -   In this tutorial, we are going to deploy an [Apache Pinot](https://github.com/apache/pinot) cluster on AWS with s3 as deepstorage.
 -   [Apache Pinot](https://github.com/apache/pinot) needs zookeeper for metadata management and is a dependency to run pinot.

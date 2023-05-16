@@ -32,8 +32,3 @@ _At every point in the lifecycle of a Pinot cluster on Kubernetes, the cluster h
 
 This control plane is based on [Distributed System Operator Interface](../../3.distributed-systems-operator-interface/index.md) and is built using [operator-runtime](../../4.operator-runtime/index.md). This is a radical new approach that brings ease of use and decouples application and kubernetes in a way that it becomes easier for day 2 operations. The underlying controllers are built on observed state (conditions) and not state machines.
 
-:::note
-Apache®, Apache Druid, Druid® are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries.
-Apache™, Apache Pinot™, Pinot™ are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries.
-Presto, Presto DB are registered trademarks of The Linux Foundation & Presto Foundation.
-:::
