@@ -9,4 +9,5 @@ const cardsToIgnore = [
     //
     "pinot-on-kubernetes/tutorials/kind",
     "pinot-on-kubernetes/tutorials/aws",
+    "pinot-on-kubernetes/tutorials/heterogenous-pinot"
 ]

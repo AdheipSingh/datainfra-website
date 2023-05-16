@@ -1,15 +1,27 @@
 ---
 sidebar_position: 1
-description: Deploy a Simple Apache Pinot cluster
-tags: [pinot on kubernetes, local setup, KIND]
+description: Heterogenous Pinot Cluster - Minion Stateless
+tags: [pinot on kubernetes, heterogenous]
 ---
 
-# Simple Pinot Cluster
+# Hetero Pinot Cluster - Minion
 
--   In this tutorial, we are going to deploy an [Apache Pinot](https://github.com/apache/pinot) cluster on [KIND](https://kind.sigs.k8s.io/).
+-   In this tutorial, we are going to deploy an heterogenous [Apache Pinot](https://github.com/apache/pinot) cluster on [KIND](https://kind.sigs.k8s.io/).
 -   This tutorial can easily run on your local machine.
 -   [Apache Pinot](https://github.com/apache/pinot) needs zookeeper for metadata management and is a dependency to run pinot.
 -   In this tutorial we shall install zookeeper using [zookeeper-operator](https://github.com/pravega/zookeeper-operator).
+
+:::info
+What is a heterogenous pinot cluster ?
+
+The ability to define multiple instances of a nodetype      
+with different configs without changing the state of the cluster.
+```
+As an user i want to be able to define that 
+i want 2 instances of a broker nodeType in 2 az’s 
+with one with high mem config and the other with low mem config
+```
+:::
 
 ## Prerequisites
 
@@ -128,9 +140,24 @@ Make sure the control plane pods are up and running successfully.
 <TerminalWindow>
 
 ```
-kubectl apply -f tutorials/00-pinot-kind/pinot-basic.yaml -n pinot
+kubectl apply -f tutorials/01-pinot-hetero/pinot-stateless-minion.yaml -n pinot
 ```
 
+:::info
+Understanding the pinot hetero stateless minion spec:
+
+Check out the ```spec.nodes``` section, here we have a stateless minion instances as ```kind: Deployment```.
+```
+nodes:
+
+    - name: pinot-minion
+      kind: Deployment
+      replicas: 1
+      nodeType: minion
+      k8sConfig: minion
+      pinotNodeConfig: minion
+```
+:::
 </TerminalWindow>
 
 ### View Pinot Control Plane Events
