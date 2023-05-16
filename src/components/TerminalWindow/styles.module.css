@@ -1,0 +1,34 @@
+/* Code container */
+.main > div > div > pre {
+    background-color: #262936;
+    border-radius: 16px;
+}
+
+/* Code text */
+.main > div > div > pre > code span {
+    color: #fff;
+}
+
+/* Code text dollar icon */
+.main > div > div > pre > code > span::before {
+    content: "$";
+    color: #43eecf;
+    font-weight: 600;
+    padding-right: 10px;
+}
+
+/* Code buttons background */
+.main > div > div > div > button {
+    background-color: #4361ee;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+} /* Copy button */
+.main > div > div > div > button:last-child::before {
+    content: "Copy";
+    font-weight: 700;
+    padding-right: 10px;
+} /* Wrap button */
+.main > div > div > div > button:first-child svg:first-child {
+    color: #fff;
+}

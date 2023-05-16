@@ -1,44 +1,247 @@
 import React from "react"
-import clsx from "clsx"
-import Link from "@docusaurus/Link"
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
 import Layout from "@theme/Layout"
-import HomepageFeatures from "@site/src/components/HomepageFeatures"
-
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
+import Link from "@docusaurus/Link"
 import styles from "./index.module.css"
-import Header from "../components/Header"
-import HomepageHeader from "../components/HomePageHeader"
-import Product from "../components/Product"
-import About from "../components/About"
-import Mission from "../components/Mission"
-import Blogs from "../components/Blogs"
-import Footer from "../components/Footer"
-import Pricing from "../components/Pricing"
 
 export default function Home() {
     const { siteConfig } = useDocusaurusContext()
+
+    React.useLayoutEffect(() => {
+        // Hide navbar
+        document.querySelector(".navbar").style.display = "none"
+    }, [])
+
     return (
-        <div className="w-full ">
-            {/* <Header /> */}
-            <Layout>
-                <div className="relative ">
-                    <img src={"img/herobg.svg"} className="w-full" />
-                    <div className="absolute top-72 w-full flex flex-col items-center max-w-8xl mx-auto">
-                        <div className="text-center text-white px-3 leading-relaxed tracking-wide sm:text-3xl lg:text-5xl  font-bold">
-                            <div>
-                                "Control Planes for running Data on Kubernetes"
+        <>
+            <Layout
+                title={`${siteConfig.title}`}
+                description="Control Planes for Real-Time Analytics Infrastructure"
+                wrapperClassName={styles.wrapper}
+            >
+                <NavBar>
+                    <Logo />
+
+                    <NavLink to="/documentation">Documentation</NavLink>
+
+                    <NavLink to="/blog">Blogs</NavLink>
+
+                    <ActionButton to="/demo">Book Demo</ActionButton>
+                </NavBar>
+
+                <Container>
+                    <LeftColumn>
+                        <Title>
+                            Control Planes for <Purple>Real-Time Analytics</Purple> Infrastructure
+                        </Title>
+
+                        {/* Secure */}
+                        <ServiceContainer>
+                            <img src="/img/secure.svg" alt="secure-icon" />
+
+                            <div style={{ marginLeft: "16px" }}>
+                                <H3>Secure:</H3>
+                                <Description>
+                                    Keep your data within your network by building an internal cloud
+                                    data plaform.
+                                </Description>
                             </div>
-                            <div>We Handle the Infra, You Drive Insights."</div>
-                        </div>
-                        <div className="w-full max-w-2xl text-center px-3 text-white my-4 text-xl">
-                            With our products, organizations can build an
-                            internal open-source data cloud that keeps data
-                            within their network.
-                        </div>
-                        <div className="flex space-x-9 items-center justify-center mt-5"></div>
+                        </ServiceContainer>
+
+                        {/* Efficient */}
+                        <ServiceContainer>
+                            <img src="/img/efficient.svg" alt="efficient-icon" />
+
+                            <div style={{ marginLeft: "16px" }}>
+                                <H3>Efficient:</H3>
+                                <Description>
+                                    Streamline your data management with kubernetes native features.
+                                </Description>
+                            </div>
+                        </ServiceContainer>
+
+                        {/* Open */}
+                        <ServiceContainer>
+                            <img src="/img/open.svg" alt="open-icon" />
+
+                            <div style={{ marginLeft: "16px" }}>
+                                <H3>Open:</H3>
+                                <Description>
+                                    Utilize open source data analytics for flexibility and
+                                    transparency.
+                                </Description>
+                            </div>
+                        </ServiceContainer>
+
+                        {/* Cost-Effective */}
+                        <ServiceContainer>
+                            <img src="/img/costEffective.svg" alt="cost-effective-icon" />
+
+                            <div style={{ marginLeft: "16px" }}>
+                                <H3>Cost-Effective:</H3>
+                                <Description>Avoid costly SAAS vendors.</Description>
+                            </div>
+                        </ServiceContainer>
+                    </LeftColumn>
+
+                    {/* Right column */}
+                    <div style={{ flex: 2, minWidth: "565px" }}>
+                        <img src="/img/diagram.svg" alt="diagram-icon" />
                     </div>
-                </div>
+                </Container>
             </Layout>
+        </>
+    )
+}
+
+// ** Styled Components
+
+function Container({ children }) {
+    return (
+        <div
+            className={styles.wrapper}
+            style={{
+                padding: "180px 56px 95px 56px",
+                display: "flex",
+                gap: "40px",
+                maxWidth: "1440px",
+                margin: "auto",
+                background: " #f4f4f4",
+            }}
+        >
+            {children}
         </div>
+    )
+}
+
+function Title({ children }) {
+    return (
+        <h1
+            style={{
+                fontWeight: 700,
+                fontSize: "2.5rem",
+                lineHeight: "48.76px",
+                letterSpacing: "0.04em",
+                color: "#131212",
+                maxWidth: "450px",
+            }}
+        >
+            {children}
+        </h1>
+    )
+}
+
+function Purple({ children }) {
+    return (
+        <span
+            style={{
+                color: "#4361EE",
+            }}
+        >
+            {children}
+        </span>
+    )
+}
+
+function H3({ children }) {
+    return (
+        <h3
+            style={{
+                marginBottom: "0",
+                fontSize: "1.25rem",
+            }}
+        >
+            {children}
+        </h3>
+    )
+}
+
+function Description({ children }) {
+    return (
+        <p
+            style={{
+                fontSize: "1.25rem",
+                color: "#5c5c5c",
+                lineHeight: "24.38px",
+                marginTop: "4px",
+                marginBottom: 0,
+                maxWidth: "450px",
+            }}
+        >
+            {children}
+        </p>
+    )
+}
+
+function ServiceContainer({ children }) {
+    return <div style={{ display: "flex", marginTop: "56px" }}>{children}</div>
+}
+
+function LeftColumn({ children }) {
+    return <div style={{ flex: 1 }}>{children}</div>
+}
+
+function NavBar({ children }) {
+    return (
+        <nav
+            style={{
+                height: "90px",
+                background: "#fff",
+                position: "fixed",
+                width: "100%",
+                display: "flex",
+                alignItems: "center",
+                paddingLeft: "56px",
+                paddingRight: "56px",
+                marginRight: "auto",
+            }}
+        >
+            {children}
+        </nav>
+    )
+}
+
+function Logo() {
+    return <img src="/img/logo-text.svg" alt="secure-icon" style={{ marginRight: "auto" }} />
+}
+
+function NavLink({ to, children }) {
+    return (
+        <Link
+            className={styles.navbar__link_hover}
+            to={to}
+            style={{
+                color: " #131212",
+                marginLeft: "64px",
+                fontSize: "1.125rem",
+            }}
+        >
+            {children}
+        </Link>
+    )
+}
+
+function ActionButton({ to, children }) {
+    return (
+        <Link
+            to={to}
+            style={{
+                height: "56px",
+                width: "223px",
+                background: "#4361ee",
+                borderRadius: "40px",
+                border: "none",
+                color: "#fff",
+                fontWeight: 600,
+                fontSize: "1.25rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                textDecoration: "none",
+                marginLeft: "64px",
+            }}
+        >
+            {children}
+        </Link>
     )
 }

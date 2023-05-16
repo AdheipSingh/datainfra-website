@@ -5,40 +5,201 @@
  */
 
 /* You can override the default Infima variables here. */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
-
-html {
-    font-family: "Manrope", sans-serif;
-}
-
-body {
-    font-family: "Manrope", sans-serif;
-}
-
 :root {
-    --ifm-color-primary: #2e8555;
-    --ifm-color-primary-dark: #29784c;
-    --ifm-color-primary-darker: #277148;
-    --ifm-color-primary-darkest: #205d3b;
-    --ifm-color-primary-light: #33925d;
-    --ifm-color-primary-lighter: #359962;
-    --ifm-color-primary-lightest: #3cad6e;
+    --ifm-color-primary: #4361ee;
+    --ifm-color-primary-dark: #2749eb;
+    --ifm-color-primary-darker: #193eea;
+    --ifm-color-primary-darkest: #1231c4;
+    --ifm-color-primary-light: #5f79f1;
+    --ifm-color-primary-lighter: #6d84f2;
+    --ifm-color-primary-lightest: #97a8f6;
+    --ifm-navbar-background-color: #001eaa;
     --ifm-code-font-size: 95%;
     --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+    --ifm-heading-font-family: "Mulish", sans-serif;
+    --ifm-font-family-base: "Mulish", sans-serif;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme="dark"] {
-    --ifm-color-primary: #25c2a0;
-    --ifm-color-primary-dark: #21af90;
-    --ifm-color-primary-darker: #1fa588;
-    --ifm-color-primary-darkest: #1a8870;
-    --ifm-color-primary-light: #29d5b0;
-    --ifm-color-primary-lighter: #32d8b4;
-    --ifm-color-primary-lightest: #4fddbf;
+    --ifm-color-primary: #617af2;
+    --ifm-color-primary-dark: #4260ef;
+    --ifm-color-primary-darker: #3252ee;
+    --ifm-color-primary-darkest: #1235db;
+    --ifm-color-primary-light: #8094f5;
+    --ifm-color-primary-lighter: #90a2f6;
+    --ifm-color-primary-lightest: #bfc9fa;
     --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* Hides the extra tutorial.md file which is needed to make Tutorials folder work */
+.theme-doc-sidebar-item-link.hide {
+    display: none;
+}
+
+/* Navbar */
+.navbar {
+    height: 90px;
+    padding-left: 56px;
+}
+.navbar__logo {
+    height: 50px;
+}
+.navbar__item {
+    font-size: 1.125rem;
+    color: #fff;
+}
+.navbar__link {
+    color: #fff;
+}
+.clean-btn {
+    color: #fff;
+}
+[class*="toggleButton"]:hover {
+    background: var(--ifm-color-gray-800) !important;
+}
+.navbar-home-link {
+    margin-left: 56px;
+    margin-right: 16px;
+}
+
+/* Service dropdown */
+.navbar__item.dropdown {
+    margin-left: -30px;
+    top: 13px;
+    padding-bottom: 30px;
+    top: 20px;
+    left: 16px;
+    transition: transform 0.2s ease-in-out;
+} /* Dropdown arrow */
+.navbar__item.dropdown::after {
+    content: "";
+    background-image: url("/img/arrowdown.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: -38px;
+    left: -8px;
+    bottom: 0px;
+    right: 0px;
+    transition: transform 0.2s ease-in-out;
+    rotate: 180deg;
+} /* Dropdown arrow - rotation animation */
+.navbar__item.dropdown:hover::after {
+    transform: rotate(180deg);
+} /* Disable default arrow */
+.navbar__item.dropdown a::after {
+    border: none;
+}
+.dropdown__menu {
+    top: 58px;
+    left: -114px;
+}
+
+/* Search */
+[class*="searchBox"] {
+    position: absolute;
+    left: -310px;
+}
+.navbar__items {
+    position: relative;
+}
+.DocSearch {
+    background: linear-gradient(
+        94.48deg,
+        rgba(255, 255, 255, 0.24) 0%,
+        rgba(255, 255, 255, 0.32) 100%
+    ) !important;
+    color: #fff !important;
+    font-family: "Mulish", sans-serif;
+    border-radius: 16px !important;
+    height: 50px !important;
+    width: 245px;
+} /* Search text */
+.DocSearch span span {
+    font-size: 1.125rem;
+} /* Magnifying glass */
+.DocSearch span > svg {
+    color: #fff !important;
+    margin: 4px;
+} /* Search active backdrop */
+.DocSearch-Container {
+    height: 100% !important;
+    background: rgba(94, 100, 112, 0.7) !important;
+}
+
+/* Docs page sidebar */
+[data-theme="light"] .menu__link {
+    color: #111;
+} /* Sidebar folder  */
+.menu__link.menu__link--sublist {
+    font-size: 1.125rem;
+    margin: 6px;
+} /* Sidebar items */
+.menu__link.menu__link--active {
+    /* background-color: none; */
+    color: #4361ee;
+}
+.theme-doc-sidebar-menu.menu__list {
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+}
+.theme-doc-sidebar-menu.menu__list > li:nth-last-of-type(4) {
+    margin-top: auto;
+    padding-top: 50px;
+}
+
+/* Doc Page main */
+.theme-doc-markdown > h1 {
+    text-align: center;
+}
+
+/* Dropdown service icons */
+.dropdown__link {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+.druid::before {
+    background-image: url("/img/druid.png");
+    background-size: 20px 20px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    content: "";
+    margin-top: 2x;
+    margin-right: 10px;
+}
+.pinot::before {
+    background-image: url("/img/pinot.png");
+    background-size: 20px 20px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    content: "";
+    margin-top: 2x;
+    margin-right: 10px;
+}
+.dsoi::before {
+    background-image: url("/img/dsoi.png");
+    background-size: 20px 20px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    content: "";
+    margin-top: 2x;
+    margin-right: 10px;
+}
+.operator::before {
+    background-image: url("/img/operator.png");
+    background-size: 20px 20px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    content: "";
+    margin-top: 2x;
+    margin-right: 10px;
 }

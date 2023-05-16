@@ -7,19 +7,19 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula")
 /** @type {import('@docusaurus/types').Config} */
 const config = {
     title: "DataInfra",
-    tagline: "",
+    tagline: "Control Planes for Real-Time Analytics Infrastructure",
     favicon: "img/favicon.ico",
 
     // Set the production url of your site here
-    url: "https://your-docusaurus-test-site.com",
+    url: "https://datainfra-website.vercel.app/", // change to => https://datainfra-website.vercel.app/
     // Set the /<baseUrl>/ pathname under which your site is served
     // For GitHub pages deployment, it is often '/<projectName>/'
     baseUrl: "/",
 
     // GitHub pages deployment config.
     // If you aren't using GitHub pages, you don't need these.
-    organizationName: "facebook", // Usually your GitHub org/user name.
-    projectName: "docusaurus", // Usually your repo name.
+    organizationName: "DataInfra", // Usually your GitHub org/user name.
+    projectName: "DataInfra", // Usually your repo name.
 
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
@@ -31,17 +31,30 @@ const config = {
         defaultLocale: "en",
         locales: ["en"],
     },
-    plugins: [
-        async function myPlugin(context, options) {
-            return {
-                name: "docusaurus-tailwindcss",
-                configurePostCss(postcssOptions) {
-                    // Appends TailwindCSS and AutoPrefixer.
-                    postcssOptions.plugins.push(require("tailwindcss"))
-                    postcssOptions.plugins.push(require("autoprefixer"))
-                    return postcssOptions
-                },
-            }
+
+    // Google fonts
+    headTags: [
+        {
+            tagName: "link",
+            attributes: {
+                rel: "preconnect",
+                href: "https://fonts.googleapis.com",
+            },
+        },
+        {
+            tagName: "link",
+            attributes: {
+                rel: "preconnect",
+                href: "https://fonts.gstatic.com",
+                crossorigin: "anonymous",
+            },
+        },
+        {
+            tagName: "link",
+            attributes: {
+                rel: "stylesheet",
+                href: "https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600;700;800;900&display=swap",
+            },
         },
     ],
 
@@ -77,75 +90,134 @@ const config = {
             // Replace with your project's social card
             image: "img/docusaurus-social-card.jpg",
             navbar: {
-                title: "My Site",
+                // title: "DataInfra",
                 logo: {
-                    alt: "My Site Logo",
-                    src: "img/logo.svg",
+                    alt: "DataInfra Logo",
+                    src: "img/logo-only-white.svg",
                 },
                 items: [
                     {
-                        type: "docSidebar",
-                        sidebarId: "tutorialSidebar",
+                        type: "dropdown",
+                        // sidebarId: "tutorialSidebar",
                         position: "left",
-                        label: "Tutorial",
+                        label: "​",
+                        className: "service-dropdown",
+                        items: [
+                            {
+                                label: "Druid On Kubernetes",
+                                to: "docs/druid-on-kubernetes",
+                                className: "druid",
+                            },
+                            {
+                                label: "Pinot On Kubernetes",
+                                to: "docs/pinot-on-kubernetes",
+                                className: "pinot",
+                            },
+                            {
+                                label: "Distributed systems operator interface",
+                                to: "docs/distributed-systems-operator-interface",
+                                className: "dsoi",
+                            },
+
+                            {
+                                label: "Operator runtime",
+                                to: "docs/operator-runtime",
+                                className: "operator",
+                            },
+                        ],
                     },
-                    { to: "/blog", label: "Blog", position: "left" },
+                    // {
+                    //     to: "/documentation",
+                    //     label: "Documentation",
+                    //     position: "left",
+                    // },
+                    { to: "/blog", label: "Blogs", position: "right" },
                     {
-                        href: "https://github.com/facebook/docusaurus",
-                        label: "GitHub",
+                        to: "/",
+                        label: "Home",
                         position: "right",
+                        className: "navbar-home-link",
                     },
                 ],
             },
-            footer: {
-                style: "dark",
-                links: [
-                    {
-                        title: "Docs",
-                        items: [
-                            {
-                                label: "Tutorial",
-                                to: "/docs/intro",
-                            },
-                        ],
-                    },
-                    {
-                        title: "Community",
-                        items: [
-                            {
-                                label: "Stack Overflow",
-                                href: "https://stackoverflow.com/questions/tagged/docusaurus",
-                            },
-                            {
-                                label: "Discord",
-                                href: "https://discordapp.com/invite/docusaurus",
-                            },
-                            {
-                                label: "Twitter",
-                                href: "https://twitter.com/docusaurus",
-                            },
-                        ],
-                    },
-                    {
-                        title: "More",
-                        items: [
-                            {
-                                label: "Blog",
-                                to: "/blog",
-                            },
-                            {
-                                label: "GitHub",
-                                href: "https://github.com/facebook/docusaurus",
-                            },
-                        ],
-                    },
-                ],
-                copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
-            },
+            // footer: {
+            //     style: "dark",
+            //     links: [
+            //         {
+            //             title: "Docs",
+            //             items: [
+            //                 {
+            //                     label: "Tutorial",
+            //                     to: "/documentation",
+            //                 },
+            //             ],
+            //         },
+            //         {
+            //             title: "Community",
+            //             items: [
+            //                 {
+            //                     label: "Stack Overflow",
+            //                     href: "https://stackoverflow.com/questions/tagged/datainfra",
+            //                 },
+            //                 {
+            //                     label: "Discord",
+            //                     href: "https://discordapp.com/invite/docusaurus",
+            //                 },
+            //                 {
+            //                     label: "Twitter",
+            //                     href: "https://twitter.com/docusaurus",
+            //                 },
+            //             ],
+            //         },
+            //         {
+            //             title: "More",
+            //             items: [
+            //                 {
+            //                     label: "Blogs",
+            //                     to: "/blog",
+            //                 },
+            //                 {
+            //                     label: "GitHub",
+            //                     href: "https://github.com/facebook/docusaurus",
+            //                 },
+            //             ],
+            //         },
+            //     ],
+            //     copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+            // },
             prism: {
                 theme: lightCodeTheme,
                 darkTheme: darkCodeTheme,
             },
+            // algolia: {
+            //     // The application ID provided by Algolia
+            //     appId: "YOUR_APP_ID",
+
+            //     // Public API key: it is safe to commit it
+            //     apiKey: "YOUR_SEARCH_API_KEY",
+
+            //     indexName: "YOUR_INDEX_NAME",
+
+            //     // Optional: see doc section below
+            //     contextualSearch: true,
+
+            //     // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
+            //     externalUrlRegex: "external\\.com|domain\\.com",
+
+            //     // Optional: Replace parts of the item URLs from Algolia. Useful when using the same search index for multiple deployments using a different baseUrl. You can use regexp or string in the `from` param. For example: localhost:3000 vs myCompany.com/docs
+            //     replaceSearchResultPathname: {
+            //         from: "/docs/", // or as RegExp: /\/docs\//
+            //         to: "/",
+            //     },
+
+            //     // Optional: Algolia search parameters
+            //     searchParameters: {},
+
+            //     // Optional: path for search page that enabled by default (`false` to disable it)
+            //     searchPagePath: "search",
+
+            //     //... other Algolia params
+            // },
         }),
 }
 
