@@ -13,6 +13,8 @@ The need for real-time analytics has never been greater than it is today. With t
 
 Setting up and scaling a real-time analytics pipeline with current tooling can be challenging. Many of the available tools are complex, distributed, and not designed to run on Kubernetes. This has led to a lack of standard, scalable, and extensible ways to define distributed systems in a Kubernetes-native way.
 
+<!--truncate-->
+
 To effectively power real-time analytics, organizations must build a robust data infrastructure that supports multiple tooling options and encourages collaboration between data engineering and data operations teams. This infrastructure must be flexible enough to accommodate different streaming, streaming processing, OLAP and BI tools.
 
 *Examples for real-time analytics tooling is OLAP stores such as Apache Druid, Apache Pinot and query engines such as Trino*
