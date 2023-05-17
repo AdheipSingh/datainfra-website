@@ -22,6 +22,8 @@ export default function Demo() {
             <NavBar>
                 <Logo />
 
+                <NavLink to="https://github.com/orgs/datainfrahq/repositories">Github</NavLink>
+
                 <NavLink to="/documentation">Documentation</NavLink>
 
                 <NavLink to="/blog">Blogs</NavLink>
