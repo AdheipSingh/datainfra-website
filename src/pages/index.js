@@ -43,7 +43,7 @@ export default function Home() {
                                 <H3>Secure:</H3>
                                 <Description>
                                     Keep your data within your network by building an internal cloud
-                                    data plaform.
+                                    data platform.
                                 </Description>
                             </div>
                         </ServiceContainer>
