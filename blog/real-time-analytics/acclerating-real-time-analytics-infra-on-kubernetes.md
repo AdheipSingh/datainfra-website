@@ -1,6 +1,7 @@
 ---
-slug: Accelerating Real-Time Analytics Infrastructure On Kubernetes
+slug: accelerating-real-time-analytics-infrastructure-on-kubernetes
 title: Accelerating Real-Time Analytics Infrastructure On Kubernetes
+url: accelerating-real-time-analytics-infrastructure-on-kubernetes
 authors: [Adheip Singh]
 tags: [real-time analytics, control-planes]
 ---

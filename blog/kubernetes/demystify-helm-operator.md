@@ -1,5 +1,6 @@
 ---
-slug: Demystifying Helm and Operator pattern.
+slug: demystifying-helm-and-operator-pattern
+url: demystifying-helm-and-operator-pattern
 title: Demystifying Helm and Operator pattern.
 authors: [Adheip Singh]
 tags: [kubernetes, operator, control-planes]
