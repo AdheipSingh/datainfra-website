@@ -50,6 +50,19 @@ export default function FooterWrapper() {
                 </p>
             </div>
 
+            {/* LeftMiddle */}
+            <div style={{ flex: "1", marginTop: "24px" }}>
+                <div style={{ width: "fit-content", margin: "auto" }}>
+                    <h5 style={{ fontWeight: 700, fontSize: "30px", marginTop: "6px" }}>
+                        Data<span style={{ fontWeight: 400 }}>StreamIQ</span>
+                    </h5>
+
+                    <div style={{ display: "flex", flexDirection: "column" }}>
+                        <Navlink to="https://datastreamiq.com/">Consulting Partner</Navlink>
+                    </div>
+                </div>
+            </div>
+
             {/* Middle */}
             <div style={{ flex: "1", marginTop: "24px" }}>
                 <div style={{ width: "fit-content", margin: "auto" }}>
