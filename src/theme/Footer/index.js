@@ -49,7 +49,7 @@ export default function FooterWrapper() {
                 </p>
             </div>
 
-            {/* Left */}
+            {/* LeftMiddle */}
             <div style={{ flex: "1", marginTop: "24px" }}>
                 <div style={{ width: "fit-content", margin: "auto" }}>
                     <h5 style={{ fontWeight: 700, fontSize: "30px", marginTop: "6px" }}>
