@@ -1,5 +1,6 @@
 import React from "react"
 import Link from "@docusaurus/Link"
+import { Analytics } from "@vercel/analytics/react"
 import styles from "./styles.module.css"
 
 export default function FooterWrapper() {
@@ -136,6 +137,7 @@ export default function FooterWrapper() {
                     </form>
                 </div>
             </div>
+            <Analytics />
         </Footer>
     )
 }
