@@ -192,6 +192,8 @@ export default function Home() {
                             style={{
                                 display: "flex",
                                 justifyContent: "space-around",
+                                fontSize: "1.5rem",
+                                fontWeight: "600",
                                 marginTop: "50px",
                                 marginBottom: "70px",
                             }}
@@ -199,9 +201,17 @@ export default function Home() {
                             <div style={{ display: "flex", width: "auto", alignItems: "center" }}>
                                 <img src="/img/checkPurple.svg" alt="checkmark" />
                                 <span style={{ marginLeft: "16px" }}>
-                                    Stay in control of your Data
+                                    Own Your Data
                                 </span>
                             </div>
+
+                            <div style={{ display: "flex", width: "auto", alignItems: "center" }}>
+                                <img src="/img/checkPurple.svg" alt="checkmark" />
+                                <span style={{ marginLeft: "16px" }}>
+                                    Portable Infrastructure
+                                </span>
+                            </div>
+
 
                             <div style={{ display: "flex", width: "auto", alignItems: "center" }}>
                                 <img src="/img/checkPurple.svg" alt="checkmark" />
@@ -300,7 +310,7 @@ export default function Home() {
                                 Slack and GitHub
                             </p>
                             <div style={{ display: "flex" }}>
-                                <Link href="https://app.slack.com/">
+                                <Link href="https://launchpass.com/datainfra-workspace">
                                     <button
                                         style={{
                                             width: "240px",
