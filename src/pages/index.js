@@ -273,6 +273,7 @@ export default function Home() {
                             justifyContent: "space-between",
                             maxWidth: "1440px",
                             justifySelf: "center",
+                            marginBottom: "90px",
                         }}
                     >
                         {/* Left side */}
