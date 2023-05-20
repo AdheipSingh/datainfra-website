@@ -271,7 +271,6 @@ export default function Home() {
                             marginRight: "55px",
                             marginTop: "120px",
                             justifyContent: "space-between",
-                            maxWidth: "1440px",
                             justifySelf: "center",
                             marginBottom: "90px",
                         }}
