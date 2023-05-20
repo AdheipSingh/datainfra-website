@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-description: Introdcution to Druid On Kubernetes
+description: Introduction to Druid On Kubernetes
 ---
 
 # Introduction

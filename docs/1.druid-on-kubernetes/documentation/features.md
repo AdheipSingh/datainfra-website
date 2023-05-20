@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-description: Features
+description: Features for Druid Kubernetes Operator
 ---
 
 # Features
