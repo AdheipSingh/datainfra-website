@@ -13,12 +13,12 @@ This control plane is designed to accelerate deployment of pinot infrastructure 
 
 ## :rocket: Major Features
 
--   Installation of heterogeneous pinot clusters across mutiple AZ's.
--   Rolling Upgrades - Incremental
--   Ordered Deployment - Define order for upgrades
--   Table Management
--   Schema Management
--   Tenant Management (experimental)
+*   Installation of heterogeneous pinot clusters across mutiple AZ's.
+*   Rolling Upgrades - Incremental
+*   Ordered Deployment - Define order for upgrades
+*   Table Management
+*   Schema Management
+*   Tenant Management (experimental)
 
 ## :dart: Motivation
 
