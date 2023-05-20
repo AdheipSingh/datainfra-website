@@ -25,8 +25,8 @@ export default function Documentation() {
                 <Services>
                     <Service name="Druid On Kubernetes" icon="druid" />
                     <Service name="Pinot On Kubernetes" icon="pinot" />
-                    <Service name="Distributed Systems Operator Interface" icon="dsoi" />
-                    <Service name="Operator Runtime" icon="operator" />
+                    <Service name="Distributed Systems Operator Interface" icon="dsoiLarge" />
+                    <Service name="Operator Runtime" icon="operatorLarge" />
                 </Services>
             </Main>
         </Layout>
@@ -67,7 +67,14 @@ function Service({ name, icon }) {
                 MozBoxShadow: "0px 8px 16px rgba(0, 0, 0, 0.16)",
             }}
         >
-            <img style={{ height: "64px" }} src={`img/${icon}.png`} alt={`${icon}-icon`} />
+            <img
+                style={{
+                    height: "64px",
+                    ...(icon === "dsoiLarge" && { marginTop: "12px", marginBottom: "-12px" }),
+                }}
+                src={`img/${icon}.png`}
+                alt={`${icon}-icon`}
+            />
             <span
                 style={{
                     color: "#131212",

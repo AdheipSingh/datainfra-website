@@ -174,7 +174,7 @@ function Footer({ children }) {
     )
 }
 
-function SocialImg({ props }) {
+function SocialImg(props) {
     return <img {...props} style={{ height: "32px", marginRight: "16px" }} />
 }
 
