@@ -25,3 +25,25 @@
     width: 72%;
     padding-top: 5px;
 }
+
+@media screen and (max-width: 640px) {
+    .main {
+        flex-direction: column;
+        padding: 36px 16px 48px 16px !important;
+    }
+
+    .dataStreamIQ {
+        margin-right: auto;
+    }
+    .dataStreamIQ > div > div:nth-child(2) {
+        margin-top: -10px !important;
+    }
+
+    .importantLinks {
+        margin-right: auto;
+    }
+
+    .contactContainer {
+        width: 100% !important;
+    }
+}

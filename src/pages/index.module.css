@@ -3,11 +3,128 @@
  * and scoped locally.
  */
 
-.wrapper {
+.containerHero1 {
     background: #f4f4f4;
 }
 
 .navbar__link_hover:hover {
     color: var(--ifm-color-primary) !important;
     text-decoration: none;
+}
+
+.navbarMobile {
+    padding: 16px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100px !important;
+}
+@media screen and (min-width: 640px) {
+    .navbarMobile {
+        display: none !important;
+    }
+}
+.navbarMobile > div {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+.actionButton {
+    margin: 0 !important;
+    height: 36px !important;
+    width: 120px !important;
+    font-size: 1rem !important;
+}
+
+@media screen and (max-width: 640px) {
+    .navbar {
+        display: none !important;
+    }
+
+    .containerHero1 {
+        flex-direction: column;
+        padding: 60px 16px 50px 16px !important;
+    }
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .diagram::-webkit-scrollbar {
+        display: none;
+        overflow-x: auto;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .diagram {
+        overflow-x: auto;
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+
+        min-width: unset !important;
+    }
+    .diagram > img {
+        max-width: unset !important;
+    }
+
+    .h1Title {
+        text-align: center;
+    }
+
+    .containerHero2 {
+        border-radius: unset !important;
+        margin: 0 !important;
+    }
+
+    .container2H2,
+    .container2H3 {
+        padding: 16px !important;
+        font-size: 2.5rem !important;
+    }
+
+    .container2Charts {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        flex-direction: column !important;
+    }
+    .container2Charts > div {
+        align-items: unset !important;
+        text-align: center;
+    }
+
+    .container2Points {
+        flex-direction: column !important;
+        gap: 20px;
+    }
+
+    .container2Points > div {
+        margin-left: 10%;
+    }
+
+    .containerHero3 {
+        margin: 0 !important;
+        border-radius: unset !important;
+        padding: 100px 16px 100px 16px !important;
+        height: unset !important;
+    }
+
+    .containerHero3 > img {
+        display: none !important;
+    }
+
+    .containerHero4 {
+        flex-direction: column;
+        margin: 0 !important;
+        padding: 16px 16px 16px 16px;
+    }
+    .containerHero4 h3 {
+        margin-top: 36px !important;
+    }
+    .containerHero4 > div > div {
+        flex-direction: column !important;
+    }
+    .containerHero4 > div > div > a {
+        margin: auto;
+    }
+    .containerHero4 img {
+        height: unset !important;
+        margin-right: 16px;
+        margin-top: 32px;
+    }
 }

@@ -19,7 +19,7 @@ export default function Home() {
                 description="Control Planes for Real-Time Analytics Infrastructure"
                 wrapperClassName={styles.wrapper}
             >
-                <NavBar>
+                <NavBar className={styles.navbar}>
                     <Logo />
 
                     <NavLink to="https://github.com/orgs/datainfrahq/repositories">Github</NavLink>
@@ -31,11 +31,38 @@ export default function Home() {
                     <ActionButton to="/demo">Book Demo</ActionButton>
                 </NavBar>
 
+                {/* Navbar mobile */}
+                <NavBar className={styles.navbarMobile}>
+                    <div style={{ display: "flex" }}>
+                        <Logo />
+
+                        <ActionButton className={styles.actionButton} to="/demo">
+                            Book Demo
+                        </ActionButton>
+                    </div>
+                    <div style={{ display: "flex", justifyContent: "space-between" }}>
+                        <NavLink
+                            style={{ marginLeft: 0 }}
+                            to="https://github.com/orgs/datainfrahq/repositories"
+                        >
+                            Github
+                        </NavLink>
+
+                        <NavLink style={{ marginLeft: 0 }} to="/documentation">
+                            Documentation
+                        </NavLink>
+
+                        <NavLink style={{ marginLeft: 0 }} to="/blog">
+                            Blogs
+                        </NavLink>
+                    </div>
+                </NavBar>
+
                 {/* HERO 1 */}
-                <div style={{ maxWidth: "1440px", margin: "auto" }}>
+                <div style={{ maxWidth: "1440px", margin: "auto", width: "100%" }}>
                     <Container>
                         <LeftColumn>
-                            <Title>
+                            <Title classname={styles.h1Title}>
                                 <span style={{ display: "block" }}>Kubernetes</span> Control Planes
                                 For <Purple>Real-Time Analytics Infrastructure</Purple>
                             </Title>
@@ -91,13 +118,14 @@ export default function Home() {
                         </LeftColumn>
 
                         {/* Right column */}
-                        <div style={{ flex: 2, minWidth: "565px" }}>
+                        <div style={{ flex: 2, minWidth: "565px" }} className={styles.diagram}>
                             <img src="/img/diagram.svg" alt="diagram-icon" />
                         </div>
                     </Container>
 
                     {/* HERO 2 */}
                     <div
+                        className={styles.containerHero2}
                         style={{
                             background: "linear-gradient(108.31deg, #E9EDFF 0%, #E6F4FF 100%)",
                             borderRadius: "32px",
@@ -108,6 +136,7 @@ export default function Home() {
                         }}
                     >
                         <h2
+                            className={styles.container2H2}
                             style={{
                                 textAlign: "center",
                                 fontWeight: 800,
@@ -119,6 +148,7 @@ export default function Home() {
                             Choose Your Own <Purple>Real-Time Analytics</Purple> Database
                         </h2>
                         <div
+                            className={styles.container2Charts}
                             style={{
                                 display: "flex",
                                 flexDirection: "row",
@@ -178,6 +208,7 @@ export default function Home() {
                         </div>
 
                         <h3
+                            className={styles.container2H3}
                             style={{
                                 fontSize: "3rem",
                                 fontWeight: "800",
@@ -189,6 +220,7 @@ export default function Home() {
                         </h3>
 
                         <div
+                            className={styles.container2Points}
                             style={{
                                 display: "flex",
                                 justifyContent: "space-around",
@@ -200,18 +232,13 @@ export default function Home() {
                         >
                             <div style={{ display: "flex", width: "auto", alignItems: "center" }}>
                                 <img src="/img/checkPurple.svg" alt="checkmark" />
-                                <span style={{ marginLeft: "16px" }}>
-                                    Own Your Data
-                                </span>
+                                <span style={{ marginLeft: "16px" }}>Own Your Data</span>
                             </div>
 
                             <div style={{ display: "flex", width: "auto", alignItems: "center" }}>
                                 <img src="/img/checkPurple.svg" alt="checkmark" />
-                                <span style={{ marginLeft: "16px" }}>
-                                    Portable Infrastructure
-                                </span>
+                                <span style={{ marginLeft: "16px" }}>Portable Infrastructure</span>
                             </div>
-
 
                             <div style={{ display: "flex", width: "auto", alignItems: "center" }}>
                                 <img src="/img/checkPurple.svg" alt="checkmark" />
@@ -227,6 +254,7 @@ export default function Home() {
 
                     {/* HERO 3 */}
                     <div
+                        className={styles.containerHero3}
                         style={{
                             background: "linear-gradient(272.55deg, #001EAA 0%, #0023CA 100%)",
                             borderRadius: "32px",
@@ -275,6 +303,7 @@ export default function Home() {
 
                     {/* HERO 4 */}
                     <div
+                        className={styles.containerHero4}
                         style={{
                             display: "flex",
                             marginLeft: "55px",
@@ -309,7 +338,7 @@ export default function Home() {
                                 our global community of contributors, developers, and enthusiasts on
                                 Slack and GitHub
                             </p>
-                            <div style={{ display: "flex" }}>
+                            <div style={{ display: "flex", gap: "16px" }}>
                                 <Link href="https://launchpass.com/datainfra-workspace">
                                     <button
                                         style={{
@@ -334,7 +363,6 @@ export default function Home() {
                                             height: "64px",
                                             borderRadius: "40px",
                                             border: "1px solid #4361ee",
-                                            marginLeft: "16px",
                                             background: "#f4f4f4",
                                             color: "#4361EE",
                                             fontWeight: 600,
@@ -362,7 +390,7 @@ export default function Home() {
 function Container({ children }) {
     return (
         <div
-            className={styles.wrapper}
+            className={styles.containerHero1}
             style={{
                 padding: "180px 56px 95px 56px",
                 display: "flex",
@@ -376,9 +404,10 @@ function Container({ children }) {
     )
 }
 
-function Title({ children }) {
+function Title({ classname, children }) {
     return (
         <h1
+            className={classname}
             style={{
                 fontWeight: 800,
                 fontSize: "2.5rem",
@@ -443,9 +472,10 @@ function LeftColumn({ children }) {
     return <div style={{ flex: 1 }}>{children}</div>
 }
 
-function NavBar({ children }) {
+function NavBar({ className, children }) {
     return (
         <nav
+            className={className}
             style={{
                 height: "90px",
                 background: "#fff",
@@ -468,7 +498,7 @@ function Logo() {
     return <img src="/img/logo-text.svg" alt="secure-icon" style={{ marginRight: "auto" }} />
 }
 
-function NavLink({ to, children }) {
+function NavLink({ style, to, children }) {
     return (
         <Link
             className={styles.navbar__link_hover}
@@ -477,6 +507,7 @@ function NavLink({ to, children }) {
                 color: " #131212",
                 marginLeft: "64px",
                 fontSize: "1.125rem",
+                ...style,
             }}
         >
             {children}
@@ -484,9 +515,10 @@ function NavLink({ to, children }) {
     )
 }
 
-function ActionButton({ to, children }) {
+function ActionButton({ className, to, children }) {
     return (
         <Link
+            className={className}
             to={to}
             style={{
                 height: "56px",
