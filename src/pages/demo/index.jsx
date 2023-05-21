@@ -19,7 +19,7 @@ export default function Demo() {
 
     return (
         <>
-            <NavBar>
+            <NavBar className={styles.navbar}>
                 <Logo />
 
                 <NavLink to="https://github.com/orgs/datainfrahq/repositories">Github</NavLink>
@@ -29,6 +29,33 @@ export default function Demo() {
                 <NavLink to="/blog">Blogs</NavLink>
 
                 <ActionButton to="/">Book Demo</ActionButton>
+            </NavBar>
+
+            {/* Navbar mobile */}
+            <NavBar className={styles.navbarMobile}>
+                <div style={{ display: "flex" }}>
+                    <Logo />
+
+                    <ActionButton className={styles.actionButton} to="/demo">
+                        Book Demo
+                    </ActionButton>
+                </div>
+                <div style={{ display: "flex", justifyContent: "space-between" }}>
+                    <NavLink
+                        style={{ marginLeft: 0 }}
+                        to="https://github.com/orgs/datainfrahq/repositories"
+                    >
+                        Github
+                    </NavLink>
+
+                    <NavLink style={{ marginLeft: 0 }} to="/documentation">
+                        Documentation
+                    </NavLink>
+
+                    <NavLink style={{ marginLeft: 0 }} to="/blog">
+                        Blogs
+                    </NavLink>
+                </div>
             </NavBar>
 
             <Main>
@@ -150,9 +177,10 @@ export default function Demo() {
 }
 
 // ** Styled Components
-export function NavBar({ children }) {
+export function NavBar({ className, children }) {
     return (
         <nav
+            className={className}
             style={{
                 height: "90px",
                 background: "#001EAA",
@@ -177,7 +205,7 @@ export function Logo() {
     )
 }
 
-export function NavLink({ to, children }) {
+export function NavLink({ style, to, children }) {
     return (
         <Link
             className={styles.navbar__link_hover}
@@ -186,6 +214,7 @@ export function NavLink({ to, children }) {
                 color: " #fff",
                 marginLeft: "64px",
                 fontSize: "1.125rem",
+                ...style,
             }}
         >
             {children}
@@ -193,9 +222,10 @@ export function NavLink({ to, children }) {
     )
 }
 
-export function ActionButton({ to, children }) {
+export function ActionButton({ className, to, children }) {
     return (
         <Link
+            className={className}
             to={to}
             style={{
                 height: "56px",
@@ -221,6 +251,7 @@ export function ActionButton({ to, children }) {
 function Main({ children }) {
     return (
         <main
+            className={styles.main}
             style={{
                 background: "#001EAA",
                 color: "#fff",
@@ -285,6 +316,7 @@ function KeyPoint({ children }) {
 function FormContainer({ children }) {
     return (
         <div
+            className={styles.form}
             style={{
                 width: "538px",
                 background: "#fff",
