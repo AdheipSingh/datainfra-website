@@ -32,10 +32,10 @@ export default function Home() {
                 </NavBar>
 
                 {/* HERO 1 */}
-                <div style={{ maxWidth: "1440px", margin: "auto" }}>
+                <div style={{ maxWidth: "1440px", margin: "auto", width: "100%" }}>
                     <Container>
                         <LeftColumn>
-                            <Title>
+                            <Title classname={styles.h1Title}>
                                 <span style={{ display: "block" }}>Kubernetes</span> Control Planes
                                 For <Purple>Real-Time Analytics Infrastructure</Purple>
                             </Title>
@@ -91,7 +91,7 @@ export default function Home() {
                         </LeftColumn>
 
                         {/* Right column */}
-                        <div style={{ flex: 2, minWidth: "565px" }}>
+                        <div style={{ flex: 2, minWidth: "565px" }} className={styles.diagram}>
                             <img src="/img/diagram.svg" alt="diagram-icon" />
                         </div>
                     </Container>
@@ -200,18 +200,13 @@ export default function Home() {
                         >
                             <div style={{ display: "flex", width: "auto", alignItems: "center" }}>
                                 <img src="/img/checkPurple.svg" alt="checkmark" />
-                                <span style={{ marginLeft: "16px" }}>
-                                    Own Your Data
-                                </span>
+                                <span style={{ marginLeft: "16px" }}>Own Your Data</span>
                             </div>
 
                             <div style={{ display: "flex", width: "auto", alignItems: "center" }}>
                                 <img src="/img/checkPurple.svg" alt="checkmark" />
-                                <span style={{ marginLeft: "16px" }}>
-                                    Portable Infrastructure
-                                </span>
+                                <span style={{ marginLeft: "16px" }}>Portable Infrastructure</span>
                             </div>
-
 
                             <div style={{ display: "flex", width: "auto", alignItems: "center" }}>
                                 <img src="/img/checkPurple.svg" alt="checkmark" />
@@ -362,7 +357,7 @@ export default function Home() {
 function Container({ children }) {
     return (
         <div
-            className={styles.wrapper}
+            className={styles.containerHero1}
             style={{
                 padding: "180px 56px 95px 56px",
                 display: "flex",
@@ -376,9 +371,10 @@ function Container({ children }) {
     )
 }
 
-function Title({ children }) {
+function Title({ classname, children }) {
     return (
         <h1
+            className={classname}
             style={{
                 fontWeight: 800,
                 fontSize: "2.5rem",

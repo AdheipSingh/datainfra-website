@@ -3,11 +3,40 @@
  * and scoped locally.
  */
 
-.wrapper {
+.containerHero1 {
     background: #f4f4f4;
 }
 
 .navbar__link_hover:hover {
     color: var(--ifm-color-primary) !important;
     text-decoration: none;
+}
+
+@media screen and (max-width: 640px) {
+    .containerHero1 {
+        flex-direction: column;
+        padding: 50px 16px 95px 16px !important;
+    }
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .diagram::-webkit-scrollbar {
+        display: none;
+        overflow-x: auto;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .diagram {
+        overflow-x: auto;
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+
+        min-width: unset !important;
+    }
+    .diagram > img {
+        max-width: unset !important;
+    }
+
+    .h1Title {
+        text-align: center;
+    }
 }
