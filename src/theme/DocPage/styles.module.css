@@ -11,3 +11,9 @@
     color: var(--ifm-color-primary) !important;
     text-decoration: none;
 }
+
+@media screen and (max-width: 640px) {
+    .links {
+        display: none !important;
+    }
+}

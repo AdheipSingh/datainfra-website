@@ -42,6 +42,11 @@
     height: 90px;
     padding-left: 56px;
 }
+@media screen and (max-width: 640px) {
+    .navbar {
+        padding-left: 16px;
+    }
+}
 .navbar__logo {
     height: 50px;
 }
@@ -52,15 +57,21 @@
 .navbar__link {
     color: #fff;
 }
-.clean-btn {
+.navbar__toggle.clean-btn {
     color: #fff;
 }
 [class*="toggleButton"]:hover {
     background: var(--ifm-color-gray-800) !important;
 }
-.navbar-home-link {
-    margin-left: 56px;
-    margin-right: 16px;
+.navbar-sidebar {
+    background-color: #fff;
+}
+.navbar-sidebar__brand {
+    background-color: #001eaa;
+}
+.clean-btn.navbar-sidebar__back {
+    background-color: #2542ca;
+    color: #fff;
 }
 
 /* Service dropdown */
@@ -101,8 +112,11 @@
     position: absolute;
     left: -310px;
 }
-.navbar__items {
+.navbar__items.navbar__items--right {
     position: relative;
+    display: flex;
+    gap: 56px;
+    margin-right: 16px;
 }
 .DocSearch {
     background: linear-gradient(
