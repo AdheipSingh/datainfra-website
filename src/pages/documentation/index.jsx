@@ -2,8 +2,7 @@ import React from "react"
 import Layout from "@theme/Layout"
 import Link from "@docusaurus/Link"
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
-
-// import styles from "./index.module.css"
+import styles from "./styles.module.css"
 
 export default function Documentation() {
     const { siteConfig } = useDocusaurusContext()
@@ -126,6 +125,7 @@ function Title({ children }) {
 function Services({ children }) {
     return (
         <div
+            className={styles.services}
             style={{
                 display: "flex",
                 marginTop: "60px",
@@ -140,9 +140,10 @@ function Services({ children }) {
     )
 }
 
-function NavBarLogo() {
+function NavBarLogo({ className }) {
     return (
         <span
+            className={styles.logo}
             style={{
                 position: "fixed",
                 top: "26px",
