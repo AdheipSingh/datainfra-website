@@ -227,6 +227,7 @@ export default function Home() {
 
                     {/* HERO 3 */}
                     <div
+                        className={styles.containerHero3}
                         style={{
                             background: "linear-gradient(272.55deg, #001EAA 0%, #0023CA 100%)",
                             borderRadius: "32px",

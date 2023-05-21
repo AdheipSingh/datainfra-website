@@ -69,4 +69,14 @@
     .container2Points > div {
         margin-left: 10%;
     }
+
+    .containerHero3 {
+        margin: 0 !important;
+        border-radius: unset !important;
+        padding: 50px 16px 16px 16px !important;
+    }
+
+    .containerHero3 > img {
+        display: none !important;
+    }
 }
