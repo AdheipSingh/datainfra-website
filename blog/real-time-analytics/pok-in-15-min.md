@@ -6,7 +6,7 @@ authors: [Adheip Singh]
 tags: [pinot, kubernetes]
 ---
 
-*Learn how to install Pinot Control Plane on Kubernetes, configure your first Pinot cluster, and dive into the control plane features.*
+*Learn how to install [Pinot Control Plane](https://github.com/datainfrahq/pinot-control-plane-k8s) on Kubernetes, configure your first Pinot cluster, and dive into the control plane features.*
 
 **Introduction**
 
