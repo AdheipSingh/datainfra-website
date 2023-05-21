@@ -73,10 +73,31 @@
     .containerHero3 {
         margin: 0 !important;
         border-radius: unset !important;
-        padding: 50px 16px 16px 16px !important;
+        padding: 100px 16px 100px 16px !important;
+        height: unset !important;
     }
 
     .containerHero3 > img {
         display: none !important;
+    }
+
+    .containerHero4 {
+        flex-direction: column;
+        margin: 0 !important;
+        padding: 16px 16px 16px 16px;
+    }
+    .containerHero4 h3 {
+        margin-top: 36px !important;
+    }
+    .containerHero4 > div > div {
+        flex-direction: column !important;
+    }
+    .containerHero4 > div > div > a {
+        margin: auto;
+    }
+    .containerHero4 img {
+        height: unset !important;
+        margin-right: 16px;
+        margin-top: 32px;
     }
 }

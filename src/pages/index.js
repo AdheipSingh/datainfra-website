@@ -276,6 +276,7 @@ export default function Home() {
 
                     {/* HERO 4 */}
                     <div
+                        className={styles.containerHero4}
                         style={{
                             display: "flex",
                             marginLeft: "55px",
@@ -310,7 +311,7 @@ export default function Home() {
                                 our global community of contributors, developers, and enthusiasts on
                                 Slack and GitHub
                             </p>
-                            <div style={{ display: "flex" }}>
+                            <div style={{ display: "flex", gap: "16px" }}>
                                 <Link href="https://launchpass.com/datainfra-workspace">
                                     <button
                                         style={{
@@ -335,7 +336,6 @@ export default function Home() {
                                             height: "64px",
                                             borderRadius: "40px",
                                             border: "1px solid #4361ee",
-                                            marginLeft: "16px",
                                             background: "#f4f4f4",
                                             color: "#4361EE",
                                             fontWeight: 600,
