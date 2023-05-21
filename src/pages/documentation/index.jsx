@@ -125,6 +125,7 @@ function Title({ children }) {
 function Services({ children }) {
     return (
         <div
+            className={styles.services}
             style={{
                 display: "flex",
                 marginTop: "60px",
