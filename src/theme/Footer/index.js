@@ -16,7 +16,7 @@ export default function FooterWrapper() {
     }
 
     return (
-        <Footer>
+        <Footer className={styles.main}>
             {/* Left */}
             <div style={{ flex: "1" }}>
                 <img src="/img/logo-only-white.svg" alt="logo" style={{ height: "72px" }} />
@@ -51,7 +51,7 @@ export default function FooterWrapper() {
             </div>
 
             {/* LeftMiddle */}
-            <div style={{ flex: "1", marginTop: "24px" }}>
+            <div className={styles.dataStreamIQ} style={{ flex: "1", marginTop: "24px" }}>
                 <div style={{ width: "fit-content", margin: "auto" }}>
                     <h5 style={{ fontWeight: 700, fontSize: "30px", marginTop: "6px" }}>
                         Data<span style={{ fontWeight: 400 }}>StreamIQ</span>
@@ -64,7 +64,7 @@ export default function FooterWrapper() {
             </div>
 
             {/* Middle */}
-            <div style={{ flex: "1", marginTop: "24px" }}>
+            <div className={styles.importantLinks} style={{ flex: "1", marginTop: "24px" }}>
                 <div style={{ width: "fit-content", margin: "auto" }}>
                     <h5 className={styles.links} style={{ fontWeight: 800, fontSize: "20px" }}>
                         Important Links
@@ -80,7 +80,10 @@ export default function FooterWrapper() {
 
             {/* Right */}
             <div style={{ flex: "1" }}>
-                <div style={{ margin: "auto", width: "314px", marginTop: "24px" }}>
+                <div
+                    className={styles.contactContainer}
+                    style={{ margin: "auto", width: "314px", marginTop: "24px" }}
+                >
                     <h5 className={styles.contact} style={{ fontWeight: 800, fontSize: "20px" }}>
                         Contact Us
                     </h5>
@@ -156,9 +159,10 @@ export default function FooterWrapper() {
 }
 
 // ** Styled Components
-function Footer({ children }) {
+function Footer({ className, children }) {
     return (
         <footer
+            className={className}
             style={{
                 display: "flex",
                 gap: "10px",
