@@ -98,6 +98,7 @@ export default function Home() {
 
                     {/* HERO 2 */}
                     <div
+                        className={styles.containerHero2}
                         style={{
                             background: "linear-gradient(108.31deg, #E9EDFF 0%, #E6F4FF 100%)",
                             borderRadius: "32px",
@@ -108,6 +109,7 @@ export default function Home() {
                         }}
                     >
                         <h2
+                            className={styles.container2H2}
                             style={{
                                 textAlign: "center",
                                 fontWeight: 800,
@@ -119,6 +121,7 @@ export default function Home() {
                             Choose Your Own <Purple>Real-Time Analytics</Purple> Database
                         </h2>
                         <div
+                            className={styles.container2Charts}
                             style={{
                                 display: "flex",
                                 flexDirection: "row",
@@ -178,6 +181,7 @@ export default function Home() {
                         </div>
 
                         <h3
+                            className={styles.container2H3}
                             style={{
                                 fontSize: "3rem",
                                 fontWeight: "800",
@@ -189,6 +193,7 @@ export default function Home() {
                         </h3>
 
                         <div
+                            className={styles.container2Points}
                             style={{
                                 display: "flex",
                                 justifyContent: "space-around",
