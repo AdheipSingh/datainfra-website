@@ -19,7 +19,7 @@ export default function Home() {
                 description="Control Planes for Real-Time Analytics Infrastructure"
                 wrapperClassName={styles.wrapper}
             >
-                <NavBar>
+                <NavBar className={styles.navbar}>
                     <Logo />
 
                     <NavLink to="https://github.com/orgs/datainfrahq/repositories">Github</NavLink>
@@ -29,6 +29,33 @@ export default function Home() {
                     <NavLink to="/blog">Blogs</NavLink>
 
                     <ActionButton to="/demo">Book Demo</ActionButton>
+                </NavBar>
+
+                {/* Navbar mobile */}
+                <NavBar className={styles.navbarMobile}>
+                    <div style={{ display: "flex" }}>
+                        <Logo />
+
+                        <ActionButton className={styles.actionButton} to="/demo">
+                            Book Demo
+                        </ActionButton>
+                    </div>
+                    <div style={{ display: "flex", justifyContent: "space-between" }}>
+                        <NavLink
+                            style={{ marginLeft: 0 }}
+                            to="https://github.com/orgs/datainfrahq/repositories"
+                        >
+                            Github
+                        </NavLink>
+
+                        <NavLink style={{ marginLeft: 0 }} to="/documentation">
+                            Documentation
+                        </NavLink>
+
+                        <NavLink style={{ marginLeft: 0 }} to="/blog">
+                            Blogs
+                        </NavLink>
+                    </div>
                 </NavBar>
 
                 {/* HERO 1 */}
@@ -445,9 +472,10 @@ function LeftColumn({ children }) {
     return <div style={{ flex: 1 }}>{children}</div>
 }
 
-function NavBar({ children }) {
+function NavBar({ className, children }) {
     return (
         <nav
+            className={className}
             style={{
                 height: "90px",
                 background: "#fff",
@@ -470,7 +498,7 @@ function Logo() {
     return <img src="/img/logo-text.svg" alt="secure-icon" style={{ marginRight: "auto" }} />
 }
 
-function NavLink({ to, children }) {
+function NavLink({ style, to, children }) {
     return (
         <Link
             className={styles.navbar__link_hover}
@@ -479,6 +507,7 @@ function NavLink({ to, children }) {
                 color: " #131212",
                 marginLeft: "64px",
                 fontSize: "1.125rem",
+                ...style,
             }}
         >
             {children}
@@ -486,9 +515,10 @@ function NavLink({ to, children }) {
     )
 }
 
-function ActionButton({ to, children }) {
+function ActionButton({ className, to, children }) {
     return (
         <Link
+            className={className}
             to={to}
             style={{
                 height: "56px",
