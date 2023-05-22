@@ -145,7 +145,7 @@ export default function Home() {
                                 paddingLeft: "10px",
                             }}
                         >
-                            Choose Your Own <Purple>Real-Time Analytics</Purple> Database
+                            Choose Your <Purple>Real-Time Analytics</Purple> Database
                         </h2>
                         <div
                             className={styles.container2Charts}
