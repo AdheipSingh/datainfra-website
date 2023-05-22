@@ -10,6 +10,7 @@ export default function Home() {
     React.useLayoutEffect(() => {
         // Hide navbar
         document.querySelector(".navbar").style.display = "none"
+        document.querySelector(".main-wrapper").style.background = "#f4f4f4"
     }, [])
 
     return (
