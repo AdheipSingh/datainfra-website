@@ -1,11 +1,15 @@
 import React from "react"
 import Link from "@docusaurus/Link"
 import { useLocation } from "@docusaurus/router"
+import styles from "./styles.module.css"
 
 export default function DocMainSection({ children }) {
     return (
         <Container>
-            <HeroBackground />
+            <div style={{ position: "relative" }}>
+                <HeroBackground />
+                <TitleMobile>{children[0]}</TitleMobile>
+            </div>
 
             <ContentWrapper>
                 <Title>{children[0]}</Title>
@@ -25,7 +29,10 @@ export default function DocMainSection({ children }) {
 // ** Styled Components
 function Container({ children }) {
     return (
-        <div style={{ position: "relative", marginTop: "50px", marginLeft: "50px" }}>
+        <div
+            className={styles.container}
+            style={{ position: "relative", marginTop: "50px", marginLeft: "50px" }}
+        >
             {children}
         </div>
     )
@@ -34,6 +41,7 @@ function Container({ children }) {
 function HeroBackground() {
     return (
         <img
+            className={styles.img}
             src="/img/doc-hero-background.svg"
             alt="doc-hero-background"
             style={{ position: "absolute", zIndex: -1 }}
@@ -42,14 +50,34 @@ function HeroBackground() {
 }
 
 function ContentWrapper({ children }) {
-    return <div style={{ height: "280px" }}>{children}</div>
+    return (
+        <div className={styles.contentWrapper} style={{ height: "280px" }}>
+            {children}
+        </div>
+    )
 }
 
 function Title({ children }) {
     return (
         <h1
+            className={styles.h1}
             style={{
                 paddingTop: "40px",
+                paddingLeft: "42px",
+                fontSize: "2.5rem",
+                color: "#111",
+            }}
+        >
+            {children}
+        </h1>
+    )
+}
+
+function TitleMobile({ children }) {
+    return (
+        <h1
+            className={styles.titleMobile}
+            style={{
                 paddingLeft: "42px",
                 fontSize: "2.5rem",
                 color: "#111",
@@ -75,6 +103,7 @@ export function Purple({ children }) {
 function Content({ children }) {
     return (
         <p
+            className={styles.content}
             style={{
                 paddingLeft: "50px",
                 maxWidth: "53ch",
@@ -90,6 +119,7 @@ function Content({ children }) {
 function Pages({ children }) {
     return (
         <div
+            className={styles.pages}
             style={{
                 display: "flex",
                 marginTop: "80px",
@@ -111,6 +141,7 @@ function Page({ name, icon }) {
     return isDSOI && name !== "Documentation" ? null : (
         <Link
             to={pathname + "/" + name.toLowerCase()}
+            className={styles.page}
             style={{
                 display: "flex",
                 flexDirection: "column",
