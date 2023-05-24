@@ -20,7 +20,7 @@ The Pinot control plane operates based on three key states: the original state, 
 
 ## How Pinot Schema Controller detect's state change ?
 
-Pinot Schema Controller is watches and reacts to custom resource with 
+Pinot Schema Controller watches and reacts to custom resource with:
 
 ```
 Group: datainfra.io
@@ -200,9 +200,11 @@ pinot-baseballstat-job-qq9br    0/1     Completed   0          27m
 ```
 :::
 
+
 ```
 select * from baseballStats limit 10
 ```
+
 
 ![image](../../static/img/pinotschemacorrectquery.png)
 
@@ -231,6 +233,15 @@ kubectl apply -f tutorials/06-pinot-schema-evolution/pinotschemaupdate-simple.ya
 
 The table controller udpates the custom resource status with Segment reload details.
 
+<TerminalWindow>
+
+```
+kubectl get pinottable baseballstats -n pinot -o yaml
+```
+
+</TerminalWindow>
+
+
 ![image](../../static/img/pinottablesuccessreload.png)
 
 ### Run query 
@@ -242,3 +253,7 @@ select playerID, yearsOfExperience from baseballStats limit 10
 ```
 
 ![image](../../static/img/pinotschemaupdatequerysuccess.png)
+
+## Summary
+
+[Pinot Control Plane](https://github.com/datainfrahq/pinot-control-plane-k8s) can auto detect schema changes and initate reload of segments based on state change. 
