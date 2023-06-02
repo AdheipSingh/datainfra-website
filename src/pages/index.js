@@ -64,8 +64,7 @@ export default function Home() {
                     <Container>
                         <LeftColumn>
                             <Title classname={styles.h1Title}>
-                                <span style={{ display: "block" }}>Kubernetes</span> Control Planes
-                                For <Purple>Real-Time Analytics Infrastructure</Purple>
+                                <span style={{ display: "block" }}>Kubernetes </span> Control Planes for <Purple>SAAS Infrastructure</Purple>
                             </Title>
 
                             {/* Secure */}
@@ -73,10 +72,9 @@ export default function Home() {
                                 <img src="/img/secure.svg" alt="secure-icon" />
 
                                 <div style={{ marginLeft: "16px" }}>
-                                    <H3>Secure:</H3>
+                                    <H3>Multi-Tenant:</H3>
                                     <Description>
-                                        Keep your data within your network by building an internal
-                                        cloud data platform.
+                                        Manage multiple cloud applications and clients within a single k8s control plane.
                                     </Description>
                                 </div>
                             </ServiceContainer>
@@ -86,10 +84,9 @@ export default function Home() {
                                 <img src="/img/efficient.svg" alt="efficient-icon" />
 
                                 <div style={{ marginLeft: "16px" }}>
-                                    <H3>Efficient:</H3>
+                                    <H3>Multi-Cloud:</H3>
                                     <Description>
-                                        Streamline your data management with kubernetes native
-                                        features.
+                                        Deploy your SAAS Infrastructure across multiple clouds.
                                     </Description>
                                 </div>
                             </ServiceContainer>
@@ -99,10 +96,10 @@ export default function Home() {
                                 <img src="/img/open.svg" alt="open-icon" />
 
                                 <div style={{ marginLeft: "16px" }}>
-                                    <H3>Open:</H3>
+                                    <H3>Security and Isolation:</H3>
                                     <Description>
-                                        Utilize open source data analytics for flexibility and
-                                        transparency.
+                                        Prioritized security and isolation b/w tenants to safeguard
+                                        your data.
                                     </Description>
                                 </div>
                             </ServiceContainer>
@@ -113,145 +110,16 @@ export default function Home() {
 
                                 <div style={{ marginLeft: "16px" }}>
                                     <H3>Cost-Effective:</H3>
-                                    <Description>Avoid costly SAAS vendors.</Description>
+                                    <Description>Tailored infrastructure for your application, reducing costs.</Description>
                                 </div>
                             </ServiceContainer>
                         </LeftColumn>
 
                         {/* Right column */}
                         <div style={{ flex: 2, minWidth: "565px" }} className={styles.diagram}>
-                            <img src="/img/diagram.svg" alt="diagram-icon" />
+                            <img src="/img/lpdiagram.svg" alt="diagram-icon" />
                         </div>
                     </Container>
-
-                    {/* HERO 2 */}
-                    <div
-                        className={styles.containerHero2}
-                        style={{
-                            background: "linear-gradient(108.31deg, #E9EDFF 0%, #E6F4FF 100%)",
-                            borderRadius: "32px",
-                            paddingTop: "48px",
-                            paddingBottom: "2px",
-                            margin: "56px",
-                            marginTop: 0,
-                        }}
-                    >
-                        <h2
-                            className={styles.container2H2}
-                            style={{
-                                textAlign: "center",
-                                fontWeight: 800,
-                                fontSize: "3rem",
-                                paddingRight: "10px",
-                                paddingLeft: "10px",
-                            }}
-                        >
-                            Choose Your <Purple>Real-Time Analytics</Purple> Database
-                        </h2>
-                        <div
-                            className={styles.container2Charts}
-                            style={{
-                                display: "flex",
-                                flexDirection: "row",
-                                justifyContent: "space-around",
-                                marginTop: "36px",
-                                paddingRight: "20px",
-                                paddingLeft: "20px",
-                            }}
-                        >
-                            {/* Left */}
-                            <div
-                                style={{
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    alignItems: "flex-end",
-                                }}
-                            >
-                                <img
-                                    src="/img/pinotLarge.svg"
-                                    alt="pinot-large"
-                                    style={{ marginRight: "auto" }}
-                                />
-                                <p
-                                    style={{
-                                        fontSize: "1.5rem",
-                                        fontWeight: 600,
-                                        marginTop: "16px",
-                                    }}
-                                >
-                                    Apache Pinot on Kubernetes
-                                </p>
-                            </div>
-
-                            {/* Right */}
-                            <div
-                                style={{
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    // alignItems: "flex-end",
-                                }}
-                            >
-                                <img
-                                    src="/img/druidLarge.svg"
-                                    alt="pinot-large"
-                                    style={{ marginRight: "auto" }}
-                                />
-                                <p
-                                    style={{
-                                        fontSize: "1.5rem",
-                                        fontWeight: 600,
-                                        marginTop: "16px",
-                                    }}
-                                >
-                                    Apache Druid on Kubernetes
-                                </p>
-                            </div>
-                        </div>
-
-                        <h3
-                            className={styles.container2H3}
-                            style={{
-                                fontSize: "3rem",
-                                fontWeight: "800",
-                                textAlign: "center",
-                                marginTop: "20px",
-                            }}
-                        >
-                            We build Infra , You drive Insights
-                        </h3>
-
-                        <div
-                            className={styles.container2Points}
-                            style={{
-                                display: "flex",
-                                justifyContent: "space-around",
-                                fontSize: "1.5rem",
-                                fontWeight: "600",
-                                marginTop: "50px",
-                                marginBottom: "70px",
-                            }}
-                        >
-                            <div style={{ display: "flex", width: "auto", alignItems: "center" }}>
-                                <img src="/img/checkPurple.svg" alt="checkmark" />
-                                <span style={{ marginLeft: "16px" }}>Own Your Data</span>
-                            </div>
-
-                            <div style={{ display: "flex", width: "auto", alignItems: "center" }}>
-                                <img src="/img/checkPurple.svg" alt="checkmark" />
-                                <span style={{ marginLeft: "16px" }}>Portable Infrastructure</span>
-                            </div>
-
-                            <div style={{ display: "flex", width: "auto", alignItems: "center" }}>
-                                <img src="/img/checkPurple.svg" alt="checkmark" />
-                                <span style={{ marginLeft: "16px" }}>100% Open Source</span>
-                            </div>
-
-                            <div style={{ display: "flex", width: "auto", alignItems: "center" }}>
-                                <img src="/img/checkPurple.svg" alt="checkmark" />
-                                <span style={{ marginLeft: "16px" }}>Zero Vendor Locks</span>
-                            </div>
-                        </div>
-                    </div>
 
                     {/* HERO 3 */}
                     <div
