@@ -73,7 +73,7 @@ export default function FooterWrapper() {
                     <div style={{ display: "flex", flexDirection: "column" }}>
                         <Navlink to="/">Home</Navlink>
                         <Navlink to="/blog">Blogs</Navlink>
-                        <Navlink to="/documentation">Documentation</Navlink>
+                        <Navlink to="/documentation">OSS</Navlink>
                     </div>
                 </div>
             </div>
