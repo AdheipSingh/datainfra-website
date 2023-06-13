@@ -125,7 +125,7 @@ export default function Home() {
 
                         {/* Right column */}
                         <div style={{ flex: 2, minWidth: "565px" }} className={styles.diagram}>
-                            <img src="/img/12.svg" alt="diagram-icon" />
+                            <img src="/img/ballast.svg" alt="diagram-icon" />
                         </div>
                     </Container>
 
