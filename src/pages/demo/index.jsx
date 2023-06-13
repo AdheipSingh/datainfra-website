@@ -22,9 +22,7 @@ export default function Demo() {
             <NavBar className={styles.navbar}>
                 <Logo />
 
-                <NavLink to="https://github.com/orgs/datainfrahq/repositories">Github</NavLink>
-
-                <NavLink to="/documentation">Documentation</NavLink>
+                <NavLink to="/documentation">OSS</NavLink>
 
                 <NavLink to="/blog">Blogs</NavLink>
 
@@ -41,15 +39,9 @@ export default function Demo() {
                     </ActionButton>
                 </div>
                 <div style={{ display: "flex", justifyContent: "space-between" }}>
-                    <NavLink
-                        style={{ marginLeft: 0 }}
-                        to="https://github.com/orgs/datainfrahq/repositories"
-                    >
-                        Github
-                    </NavLink>
 
                     <NavLink style={{ marginLeft: 0 }} to="/documentation">
-                        Documentation
+                        OSS
                     </NavLink>
 
                     <NavLink style={{ marginLeft: 0 }} to="/blog">
@@ -67,7 +59,7 @@ export default function Demo() {
 
                     <KeyPoint>
                         <img src="/img/ticksquare.svg" alt="square-icon" />
-                        Accelerate Real-Time Anaytics Infrastructure on Kubernetes
+                        Accelerate Your SAAS Infrastructure on Kubernetes
                     </KeyPoint>
 
                     <KeyPoint>
@@ -77,7 +69,7 @@ export default function Demo() {
 
                     <KeyPoint>
                         <img src="/img/ticksquare.svg" alt="square-icon" />
-                        Avoid Costly SAAS vendors, Enable your teams by the right tooling
+                        Onboard your application to BallastData Control Plane
                     </KeyPoint>
                 </div>
 

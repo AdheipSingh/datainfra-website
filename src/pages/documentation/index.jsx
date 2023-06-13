@@ -18,7 +18,7 @@ export default function Documentation() {
                 <img src="img/analytics.png" alt="analytics-image" height="163px" />
 
                 <Title>
-                    Accelerate <Purple>Real-Time Analytics</Purple> Infrastructure on Kubernetes
+                    Open Source Projects Maintained<Purple> At DataInfra</Purple>
                 </Title>
 
                 <Services>

@@ -17,15 +17,13 @@ export default function Home() {
         <>
             <Layout
                 title={`${siteConfig.title}`}
-                description="Control Planes for Real-Time Analytics Infrastructure"
+                description="Control Planes for SAAS Infrastructure"
                 wrapperClassName={styles.wrapper}
             >
                 <NavBar className={styles.navbar}>
                     <Logo />
 
-                    <NavLink to="https://github.com/orgs/datainfrahq/repositories">Github</NavLink>
-
-                    <NavLink to="/documentation">Documentation</NavLink>
+                    <NavLink to="/documentation">OSS</NavLink>
 
                     <NavLink to="/blog">Blogs</NavLink>
 
@@ -64,7 +62,7 @@ export default function Home() {
                     <Container>
                         <LeftColumn>
                             <Title classname={styles.h1Title}>
-                                <span style={{ display: "block" }}>Kubernetes </span> Control Planes for <Purple>SAAS Infrastructure</Purple>
+                                <span>Control Planes For</span> <Purple>SAAS Infrastructure</Purple>
                             </Title>
 
                             {/* Secure */}
@@ -72,9 +70,9 @@ export default function Home() {
                                 <img src="/img/secure.svg" alt="secure-icon" />
 
                                 <div style={{ marginLeft: "16px" }}>
-                                    <H3>Multi-Tenant:</H3>
+                                    <H3>Data Security and Privacy:</H3>
                                     <Description>
-                                        Manage multiple cloud applications and clients within a single k8s control plane.
+                                        Complete Data and Network Isolation per Tenant.
                                     </Description>
                                 </div>
                             </ServiceContainer>
@@ -84,9 +82,9 @@ export default function Home() {
                                 <img src="/img/efficient.svg" alt="efficient-icon" />
 
                                 <div style={{ marginLeft: "16px" }}>
-                                    <H3>Multi-Cloud:</H3>
+                                    <H3>Application Aware Infrastructure :</H3>
                                     <Description>
-                                        Deploy your SAAS Infrastructure across multiple clouds.
+                                        No Generic Control Planes, Create Tailored Infra for your application.
                                     </Description>
                                 </div>
                             </ServiceContainer>
@@ -96,33 +94,43 @@ export default function Home() {
                                 <img src="/img/open.svg" alt="open-icon" />
 
                                 <div style={{ marginLeft: "16px" }}>
-                                    <H3>Security and Isolation:</H3>
+                                    <H3>Mutli Tenant & Multi Cloud :</H3>
                                     <Description>
-                                        Prioritized security and isolation b/w tenants to safeguard
-                                        your data.
+                                        Portable Infrastructure with physical and logical tenancy.
                                     </Description>
                                 </div>
                             </ServiceContainer>
 
-                            {/* Cost-Effective */}
+                            {/* BYOA - Bring Your Own Application */}
+                            <ServiceContainer>
+                                <img src="/img/open.svg" alt="open-icon" />
+
+                                <div style={{ marginLeft: "16px" }}>
+                                    <H3>BYOA - Bring Your Own Application:</H3>
+                                    <Description>Onboard your app, bundle other apps together and ship on any environment</Description>
+                                </div>
+                            </ServiceContainer>
+
+                            {/* BYOA - Bring Your Own Application */}
                             <ServiceContainer>
                                 <img src="/img/costEffective.svg" alt="cost-effective-icon" />
 
                                 <div style={{ marginLeft: "16px" }}>
-                                    <H3>Cost-Effective:</H3>
-                                    <Description>Tailored infrastructure for your application, reducing costs.</Description>
+                                    <H3>Cost Insights:</H3>
+                                    <Description>Cost Insights Per Tenant</Description>
                                 </div>
                             </ServiceContainer>
+
                         </LeftColumn>
 
                         {/* Right column */}
                         <div style={{ flex: 2, minWidth: "565px" }} className={styles.diagram}>
-                            <img src="/img/lpdiagram.svg" alt="diagram-icon" />
+                            <img src="/img/ballast.svg" alt="diagram-icon" />
                         </div>
                     </Container>
 
                     {/* HERO 3 */}
-                    <div
+                    {/* <div
                         className={styles.containerHero3}
                         style={{
                             background: "linear-gradient(272.55deg, #001EAA 0%, #0023CA 100%)",
@@ -168,7 +176,7 @@ export default function Home() {
                             src="/img/infraGroup.svg"
                             alt="infra-group-logo"
                         />
-                    </div>
+                    </div> */}
 
                     {/* HERO 4 */}
                     <div
