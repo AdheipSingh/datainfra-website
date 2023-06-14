@@ -42,6 +42,12 @@
     height: 90px;
     padding-left: 56px;
 }
+
+/* Hide docs navbar on landing page */
+#__docusaurus-base-url-issue-banner-container ~ div ~ nav {
+    display: none;
+}
+
 @media screen and (max-width: 640px) {
     .navbar {
         padding-left: 16px;
