@@ -8,8 +8,6 @@ export default function Home() {
     const { siteConfig } = useDocusaurusContext()
 
     React.useLayoutEffect(() => {
-        // Hide navbar
-        document.querySelector(".navbar").style.display = "none"
         document.querySelector(".main-wrapper").style.background = "#f4f4f4"
     }, [])
 
