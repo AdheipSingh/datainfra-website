@@ -78,6 +78,7 @@ export default function Home() {
 
                             <RequestDemo>
                                 <RequestDemoInput
+                                    className={styles.input}
                                     placeholder="Type your Email Address..."
                                     name="email"
                                     id="email"
@@ -218,7 +219,6 @@ function RequestDemo({ children }) {
 function RequestDemoInput({ props }) {
     return (
         <input
-            className={styles.input}
             style={{
                 maxWidth: 780,
                 width: "100%",
