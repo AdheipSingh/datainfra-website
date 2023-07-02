@@ -97,14 +97,14 @@ export default function Home() {
                 </div>
 
                 {/* Section 2 */}
-                <div>
+                {/* <div>
                     <Section2Header>We can add some text here</Section2Header>
                     <img
                         style={{ maxWidth: "1183px", margin: "auto", display: "block" }}
                         src="/img/landingDiagram.png"
                         alt="diagram"
                     />
-                </div>
+                </div> */}
 
                 {/* Section 3 */}
                 <div style={{ padding: "60px 20px 60px 20px" }}>
