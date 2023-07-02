@@ -123,6 +123,74 @@ export default function Home() {
                 </div>
 
                 {/* Section 4 */}
+                <div
+                    className={styles.containerHero4}
+                    style={{
+                        display: "flex",
+                        margin: "auto",
+                        marginTop: "160px",
+                        justifyContent: "space-between",
+                        justifySelf: "center",
+                        marginBottom: "90px",
+                        maxWidth: 1200,
+                        width: "100%",
+                    }}
+                >
+                    {/* Left side */}
+                    <div>
+                        <h3
+                            style={{
+                                fontSize: "3.5rem",
+                                fontWeight: 800,
+                                marginTop: "96px",
+                            }}
+                        >
+                            Community
+                        </h3>
+                        <p
+                            style={{
+                                fontSize: "1.5rem",
+                                maxWidth: "500px",
+                                marginTop: "20px",
+                                lineHeight: "1.25",
+                                marginBottom: "40px",
+                            }}
+                        >
+                            DataInfra is built on the principles of open and free software. Join our
+                            global community of contributors, developers, and enthusiasts on Slack
+                            and GitHub.
+                        </p>
+                        <div style={{ display: "flex", gap: "16px" }}>
+                            <ActionButton
+                                style={{ marginLeft: 0 }}
+                                href="https://launchpass.com/datainfra-workspace"
+                            >
+                                Join Slack
+                            </ActionButton>
+
+                            <Link href="https://github.com/orgs/datainfrahq/repositories">
+                                <button
+                                    style={{
+                                        width: "240px",
+                                        height: "64px",
+                                        borderRadius: "40px",
+                                        background: "#4361EE",
+                                        border: "none",
+                                        color: "#fff",
+                                        fontWeight: 600,
+                                        fontSize: "1.25rem",
+                                        cursor: "pointer",
+                                    }}
+                                >
+                                    Star On Github
+                                </button>
+                            </Link>
+                        </div>
+                    </div>
+
+                    {/* Chart */}
+                    <img style={{ height: "507px" }} src="/img/community.png" alt="community" />
+                </div>
             </Layout>
         </>
     )
@@ -206,7 +274,7 @@ function NavLink({ style, to, children }) {
     )
 }
 
-function ActionButton({ className, href, children }) {
+function ActionButton({ className, href, style, children }) {
     return (
         <Link
             className={className}
@@ -225,6 +293,7 @@ function ActionButton({ className, href, children }) {
                 fontFamily: "Inter, sans-serif",
                 boxShadow: "0px 4px 16px 0px rgba(0, 0, 0, 0.12)",
                 padding: "12px 32px",
+                ...style,
             }}
         >
             <img style={{ marginRight: "16px", height: "24px" }} src="/img/slack.svg" alt="slack" />
