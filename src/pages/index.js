@@ -107,7 +107,7 @@ export default function Home() {
                 </div> */}
 
                 {/* Section 3 */}
-                <div style={{ padding: "60px 20px 60px 20px" }}>
+                {/* <div style={{ padding: "60px 20px 60px 20px" }}>
                     <Section3Container>
                         <p style={{ fontSize: "1.125rem", fontWeight: 700, marginBottom: 0 }}>
                             Are You Interested ?
@@ -120,7 +120,7 @@ export default function Home() {
                         <Section3OrnamentRight />
                         <Section3OrnamentLeft />
                     </Section3Container>
-                </div>
+                </div> */}
 
                 {/* Section 4 */}
                 <div
