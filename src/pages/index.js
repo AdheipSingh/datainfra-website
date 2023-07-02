@@ -385,22 +385,24 @@ function Section3OrnamentLeft() {
 
 function RequestDemoButton2({ children }) {
     return (
-        <button
-            style={{
-                width: "200px",
-                height: "48px",
-                borderRadius: "36px",
-                background: "#fff",
-                border: "none",
-                color: "#4361ee",
-                fontSize: "1rem",
-                fontWeight: 700,
-                cursor: "pointer",
-            }}
-            type="submit"
-        >
-            {children}
-        </button>
+        <Link to="/demo">
+            <button
+                style={{
+                    width: "200px",
+                    height: "48px",
+                    borderRadius: "36px",
+                    background: "#fff",
+                    border: "none",
+                    color: "#4361ee",
+                    fontSize: "1rem",
+                    fontWeight: 700,
+                    cursor: "pointer",
+                }}
+                type="submit"
+            >
+                {children}
+            </button>
+        </Link>
     )
 }
 
