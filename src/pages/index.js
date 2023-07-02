@@ -97,13 +97,32 @@ export default function Home() {
                 </div>
 
                 {/* Section 2 */}
-                {/* <div>
+                <div>
+                    <Section2Header>We can add some text here</Section2Header>
                     <img
                         style={{ maxWidth: "1183px", margin: "auto", display: "block" }}
                         src="/img/landingDiagram.png"
                         alt="diagram"
                     />
-                </div> */}
+                </div>
+
+                {/* Section 3 */}
+                <div style={{ padding: "60px 20px 60px 20px" }}>
+                    <Section3Container>
+                        <p style={{ fontSize: "1.125rem", fontWeight: 700, marginBottom: 0 }}>
+                            Are You Interested ?
+                        </p>
+                        <Section3Header>
+                            Our Control Planes are easy to deploy. Try it out Today !
+                        </Section3Header>
+                        <RequestDemoButton2>Request for Demo</RequestDemoButton2>
+
+                        <Section3OrnamentRight />
+                        <Section3OrnamentLeft />
+                    </Section3Container>
+                </div>
+
+                {/* Section 4 */}
             </Layout>
         </>
     )
@@ -291,5 +310,112 @@ function Title({ children }) {
         >
             {children}
         </h1>
+    )
+}
+
+function Section2Header({ children }) {
+    return (
+        <h2
+            style={{
+                fontSize: "2rem",
+                fontWeight: 800,
+                textAlign: "center",
+                marginBottom: "40px",
+            }}
+        >
+            {children}
+        </h2>
+    )
+}
+
+function Section3Container({ children }) {
+    return (
+        <div
+            style={{
+                height: "210px",
+                width: "100%",
+                maxWidth: "1184px",
+                margin: "auto",
+                background: "#4361EE",
+                borderRadius: "24px",
+                position: "relative",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "flex-start",
+                alignItems: "center",
+                color: "#fff",
+                padding: "32px 130px",
+            }}
+        >
+            {children}
+        </div>
+    )
+}
+
+function Section3OrnamentRight({ style }) {
+    return (
+        <img
+            style={{
+                right: 10,
+                top: 8,
+                position: "absolute",
+                ...style,
+            }}
+            src="/img/containerOrnament.png"
+            alt="ornament"
+            height={121}
+        />
+    )
+}
+
+function Section3OrnamentLeft() {
+    return (
+        <img
+            style={{
+                left: 10,
+                bottom: 8,
+                position: "absolute",
+                rotate: "180deg",
+            }}
+            src="/img/containerOrnament.png"
+            alt="ornament"
+            height={121}
+        />
+    )
+}
+
+function RequestDemoButton2({ children }) {
+    return (
+        <button
+            style={{
+                width: "200px",
+                height: "48px",
+                borderRadius: "36px",
+                background: "#fff",
+                border: "none",
+                color: "#4361ee",
+                fontSize: "1rem",
+                fontWeight: 700,
+                cursor: "pointer",
+            }}
+            type="submit"
+        >
+            {children}
+        </button>
+    )
+}
+
+function Section3Header({ children }) {
+    return (
+        <h3
+            style={{
+                fontSize: "2rem",
+                fontWeight: 900,
+                marginTop: 8,
+                marginBottom: 20,
+            }}
+        >
+            {children}
+        </h3>
     )
 }
