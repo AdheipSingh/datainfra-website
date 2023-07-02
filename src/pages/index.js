@@ -128,7 +128,7 @@ export default function Home() {
                     style={{
                         display: "flex",
                         margin: "auto",
-                        marginTop: "160px",
+                        marginTop: "50px",
                         justifyContent: "space-between",
                         justifySelf: "center",
                         marginBottom: "90px",
@@ -168,7 +168,7 @@ export default function Home() {
                                 Join Slack
                             </ActionButton>
 
-                            <Link href="https://github.com/orgs/datainfrahq/repositories">
+                            {/* <Link href="https://github.com/orgs/datainfrahq/repositories">
                                 <button
                                     style={{
                                         width: "240px",
@@ -184,7 +184,7 @@ export default function Home() {
                                 >
                                     Star On Github
                                 </button>
-                            </Link>
+                            </Link> */}
                         </div>
                     </div>
 
