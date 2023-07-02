@@ -332,7 +332,6 @@ function Section3Container({ children }) {
     return (
         <div
             style={{
-                height: "210px",
                 width: "100%",
                 maxWidth: "1184px",
                 margin: "auto",
