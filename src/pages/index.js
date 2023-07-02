@@ -64,30 +64,27 @@ export default function Home() {
                 <div>
                     <Container>
                         {/* Left decoration */}
-                        <img src="/img/heroLeft.svg" alt="left" />
+                        <img src="/img/leftOrnament.svg" alt="left" />
 
                         <div
                             style={{ textAlign: "center", marginRight: "10px", marginLeft: "10px" }}
                         >
-                            <h1 style={{ fontSize: "4.5rem", fontWeight: 500, color: "#131212" }}>
-                                <Purple>Centralised</Purple> Control Plane for <Purple>SAAS</Purple> Infrastructure
-                            </h1>
-                            <p style={{ fontSize: "1.75rem", fontWeight: 500, color: "#000" }}>
+                            <Title>
+                                <Purple>Centralised</Purple> Control Plane for <Purple>SAAS</Purple>{" "}
+                                Infrastructure
+                            </Title>
+                            <p style={{ fontSize: "1.375rem", fontWeight: 500, color: "#000" }}>
                                 Unified Management for Shared, Dedicated and BYOC SAAS.
                             </p>
 
                             <RequestDemo>
-                                <RequestDemoInput
-                                    placeholder="Type your Email Address..."
-                                    name="email"
-                                    id="email"
-                                />
+                                <RequestDemoInput />
                                 <RequestDemoButton>Request for Demo</RequestDemoButton>
                             </RequestDemo>
                         </div>
 
                         {/* Right decoration */}
-                        <img src="/img/heroRight.svg" alt="right" />
+                        <img src="/img/rightOrnament.svg" alt="right" />
                     </Container>
                 </div>
             </Layout>
@@ -205,9 +202,9 @@ function RequestDemo({ children }) {
         <div
             style={{
                 position: "relative",
-                maxWidth: "780px",
+                maxWidth: "620px",
                 margin: "auto",
-                marginTop: "46px",
+                marginTop: "36px",
             }}
         >
             {children}
@@ -215,22 +212,24 @@ function RequestDemo({ children }) {
     )
 }
 
-function RequestDemoInput(props) {
+function RequestDemoInput() {
     return (
         <input
+            placeholder="Type your Email Address..."
+            name="email"
+            id="email"
             className={styles.input}
             style={{
-                maxWidth: 780,
+                maxWidth: 620,
                 width: "100%",
-                height: 72,
+                height: 58,
                 borderRadius: 36,
                 background: "#fff",
                 boxShadow: "0px 4px 16px 0px rgba(0, 0, 0, 0.12)",
                 border: "none",
                 paddingLeft: "30px",
-                fontSize: "1.25rem",
+                fontSize: "1rem",
             }}
-            {...props}
         />
     )
 }
@@ -243,14 +242,14 @@ function RequestDemoButton({ children }) {
                 right: "0px",
                 transform: "translateY(-50%)",
                 top: "50%",
-                right: "4px",
-                width: "244px",
-                height: "64px",
+                right: "2px",
+                width: "200px",
+                height: "55px",
                 borderRadius: "36px",
                 background: "#4361ee",
                 border: "none",
                 color: "#fff",
-                fontSize: "1.25rem",
+                fontSize: "1rem",
                 fontWeight: 700,
                 cursor: "pointer",
             }}
@@ -258,5 +257,22 @@ function RequestDemoButton({ children }) {
         >
             {children}
         </button>
+    )
+}
+
+function Title({ children }) {
+    return (
+        <h1
+            style={{
+                fontSize: "3.5625rem",
+                fontWeight: 500,
+                maxWidth: "20ch",
+                color: "#131212",
+                margin: "auto",
+                marginBottom: "16px",
+            }}
+        >
+            {children}
+        </h1>
     )
 }
