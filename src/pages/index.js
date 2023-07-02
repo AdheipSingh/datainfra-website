@@ -60,7 +60,7 @@ export default function Home() {
                     </div>
                 </NavBar>
 
-                {/* HERO 1 */}
+                {/* Section 1 */}
                 <div>
                     <Container>
                         {/* Left decoration */}
@@ -78,8 +78,16 @@ export default function Home() {
                             </p>
 
                             <RequestDemo>
-                                <RequestDemoInput />
-                                <RequestDemoButton>Request for Demo</RequestDemoButton>
+                                <form action="https://formspree.io/f/mgebqzok" method="POST">
+                                    {/* Hidden message */}
+                                    <input
+                                        defaultValue="Request for Demo"
+                                        name="message"
+                                        style={{ display: "none" }}
+                                    />
+                                    <RequestDemoInput />
+                                    <RequestDemoButton>Request for Demo</RequestDemoButton>
+                                </form>
                             </RequestDemo>
                         </div>
 
@@ -87,6 +95,15 @@ export default function Home() {
                         <img src="/img/rightOrnament.svg" alt="right" />
                     </Container>
                 </div>
+
+                {/* Section 2 */}
+                {/* <div>
+                    <img
+                        style={{ maxWidth: "1183px", margin: "auto", display: "block" }}
+                        src="/img/landingDiagram.png"
+                        alt="diagram"
+                    />
+                </div> */}
             </Layout>
         </>
     )
