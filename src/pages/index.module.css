@@ -19,13 +19,13 @@
     height: 100px !important;
 }
 
-@media screen and (min-width: 641px) {
+@media screen and (min-width: 900px) {
     .navbarMobile {
         display: none !important;
     }
 }
 
-.navbarMobile>div {
+.navbarMobile > div {
     display: flex;
     width: 100%;
     align-items: center;
@@ -35,7 +35,13 @@
     margin: 0 !important;
     height: 36px !important;
     width: 120px !important;
-    font-size: 1rem !important;
+    font-size: 0.875rem !important;
+    padding: 12px 12px !important;
+}
+
+.actionButton img {
+    height: 16px !important;
+    margin-right: 8px !important;
 }
 
 @media screen and (max-width: 640px) {
@@ -65,7 +71,7 @@
         min-width: unset !important;
     }
 
-    .diagram>img {
+    .diagram > img {
         max-width: unset !important;
     }
 
@@ -90,7 +96,7 @@
         flex-direction: column !important;
     }
 
-    .container2Charts>div {
+    .container2Charts > div {
         align-items: unset !important;
         text-align: center;
     }
@@ -100,7 +106,7 @@
         gap: 20px;
     }
 
-    .container2Points>div {
+    .container2Points > div {
         margin-left: 10%;
     }
 
@@ -111,7 +117,7 @@
         height: unset !important;
     }
 
-    .containerHero3>img {
+    .containerHero3 > img {
         display: none !important;
     }
 
@@ -125,11 +131,11 @@
         margin-top: 36px !important;
     }
 
-    .containerHero4>div>div {
+    .containerHero4 > div > div {
         flex-direction: column !important;
     }
 
-    .containerHero4>div>div>a {
+    .containerHero4 > div > div > a {
         margin: auto;
     }
 
@@ -138,4 +144,10 @@
         margin-right: 16px;
         margin-top: 32px;
     }
+}
+
+.input::placeholder {
+    color: #858585;
+    font-style: italic;
+    font-size: 1rem;
 }

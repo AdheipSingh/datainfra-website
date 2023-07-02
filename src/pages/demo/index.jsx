@@ -39,7 +39,6 @@ export default function Demo() {
                     </ActionButton>
                 </div>
                 <div style={{ display: "flex", justifyContent: "space-between" }}>
-
                     <NavLink style={{ marginLeft: 0 }} to="/documentation">
                         OSS
                     </NavLink>
