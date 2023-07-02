@@ -21,7 +21,7 @@ export default function Home() {
                 <NavBar className={styles.navbar}>
                     <Logo />
 
-                    <NavLink to="/documentation">Documentation</NavLink>
+                    <NavLink to="/documentation">OSS</NavLink>
 
                     <NavLink to="/blog">Blogs</NavLink>
 
@@ -69,11 +69,11 @@ export default function Home() {
                         <div
                             style={{ textAlign: "center", marginRight: "10px", marginLeft: "10px" }}
                         >
-                            <h1 style={{ fontSize: "4.5rem", fontWeight: 900, color: "#131212" }}>
-                                Centralized Control Plane for <Purple>SAAS</Purple> Infrastructure
+                            <h1 style={{ fontSize: "4.5rem", fontWeight: 500, color: "#131212" }}>
+                                <Purple>Centralised</Purple> Control Plane for <Purple>SAAS</Purple> Infrastructure
                             </h1>
                             <p style={{ fontSize: "1.75rem", fontWeight: 500, color: "#000" }}>
-                                Unified Management for shared, dedicated and BYOC SAAS.
+                                Unified Management for Shared, Dedicated and BYOC SAAS.
                             </p>
 
                             <RequestDemo>
