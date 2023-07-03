@@ -48,7 +48,7 @@ export default function BlogListPage(props) {
 
 function BlogPostItems({ items }) {
     return (
-        <div id="hiiiiiiiiiiii" className={styles.blogWrapper}>
+        <div className={styles.blogWrapper}>
             {/* First blog post */}
             <BlogPost post={items[0].content.metadata} />
 
@@ -108,7 +108,7 @@ function BlogPost({ post, top = true }) {
     }, [])
 
     return (
-        <div style={{ marginBottom: "5rem" }} className={styles.blog}>
+        <div style={{ marginBottom: "5rem", width: top ? "100%" : "46%" }} className={styles.blog}>
             <div style={{ position: "relative" }}>
                 <Link href={"/blog/" + url}>
                     <img
