@@ -6,7 +6,7 @@ authors: [Adheip Singh]
 tags: [SAAS, control-planes]
 ---
 
-*For the past five years, my journey has revolved around constructing control planes for data infrastructure startups, with a particular focus on the OLAP space. As an engineer I have been fortunate to gained invaluable insights into the challenges and intricacies of developing successful SAAS products. Drawing from my firsthand experiences, this series of blog post's delves into the lessons learned and shares my goals at DataInfra, where I am building centralised control plane for SAAS infrastructure. Join me as we explore the critical aspects and key considerations of constructing effective control planes in the dynamic and competitive SAAS industry.*
+*For a couple of years, my journey has revolved around constructing control planes for data infrastructure startups. As an engineer I have been fortunate to gained invaluable insights into the challenges and intricacies of developing successful SAAS products. Drawing from my firsthand experiences, this series of blog post's delves into the lessons learned and shares my goals at DataInfra, where I am building centralised control plane for SAAS infrastructure. Join me as we explore the critical aspects and key considerations of constructing effective control planes in the dynamic and competitive SAAS industry.*
 
 # Introduction
 
@@ -101,23 +101,39 @@ The service provisioning layer creates the infra and deploys agents, which pull 
 
 ## Problem Statements
 
-- How can a SAAS provider create a centralized control plane system design that effectively supports all three business models (Shared, Dedicated, and BYOC SAAS) while catering to customer needs ?
+### Achieving a Centralized Control Plane Design for SAAS Infrastructure Supporting All Business Models
 
-- In the context of shared/dedicated SAAS, how can the provider establish both physical and logical isolation at the infrastructure level, ensuring that tenancy is not solely a logical concept ?
+The challenge lies in creating a centralized control plane system that effectively caters to the diverse needs of SAAS providers, accommodating the three major business models: Shared, Dedicated, and BYOC SAAS. The objective is to design a control plane that seamlessly handles the unique requirements of each model while ensuring optimal performance and customer satisfaction.
 
-- How can we build a control plane that effectively manages two abstractions, infrastructure and application, to ensure the efficient lifecycle management of network, storage, compute resources, and applications ?
+### Establishing Comprehensive Mutli Tenancy and Data Isolation in SAAS Infrastructures
 
-- To address the ease of governance, the following questions need resolution:
+In shared and dedicated SAAS environments, it is crucial to go beyond mere logical isolation and establish both physical and logical isolation at the infrastructure level. The aim is to overcome the limitations of purely logical tenancy, ensuring robust data security, privacy, and enhanced customer trust.
 
-  1. Who should be responsible for applying configurations ?
-  2. Who should be responsible for reconciling configurations ?
-  3. Who should be responsible for maintaining the desired state, current state, and original state ?
+### Efficient Lifecycle Management of Infrastructure and Applications in a Control Plane
 
-- How can the control plane assist in calculating costs per tenant in a SAAS billing model that combines both usage-based and subscription-based billing ?
+To streamline operations, it is essential to design a control plane capable of effectively managing two critical abstractions: infrastructure and application. The challenge is to ensure seamless coordination and orchestration between these abstractions to optimize the lifecycle management of network, storage, compute resources, and applications.
 
-- How can a lightweight stateless control plane be designed to effectively handle event at scale in a SAAS platform, avoiding issues such as cluster creation going into an unknown state or missed events, without relying on heavy message queues or persisting events to DB's.
+### Addressing Governance Challenges in SAAS Control Plane
 
-- How can we simplify the process of bundling applications with logging platforms, monitoring agents, and network proxies when shipping them to data planes, while also defining the scope of applications deployed ?
+To enhance governance in SAAS environments, certain crucial questions need resolution:
+
+- Determining the responsible party for applying configurations
+- Identifying the entity accountable for reconciling configurations
+- Establishing the appropriate ownership for maintaining the desired state, current state, and original state. 
+
+Finding solutions to these questions will enhance governance practices and ensure consistency and compliance in the control plane.
+
+### Enabling Cost Calculation per Tenant in a Hybrid SAAS Billing Model
+
+The challenge lies in developing a control plane that can accurately calculate costs per tenant in a SAAS billing model that combines both usage-based and subscription-based approaches. By providing transparency and visibility into costs, this solution will enable fair billing practices and facilitate better financial management for both SAAS providers and their customers.
+
+### Designing a Lightweight Stateless Control Plane for Event Handling in SAAS Platforms
+
+Creating a lightweight, stateless control plane capable of efficiently handling events at scale is crucial in SAAS platforms. The objective is to address challenges such as preventing cluster creation from entering unknown states or missing critical events. This solution aims to ensure smooth event processing without relying on resource-intensive message queues or persisting events in databases.
+
+### Streamlining Application Bundling and Scope Definition in Data Plane Deployments
+
+Simplifying the process of bundling applications with logging platforms, monitoring agents, and network proxies during their deployment to data planes is a key challenge. Additionally, defining the scope of applications deployed becomes essential for effective resource utilization and optimized performance. The goal is to develop streamlined approaches for application bundling and scope definition to enhance deployment efficiency and ease of management in SAAS infrastructures.
 
 ## Summary
 
