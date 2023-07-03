@@ -102,6 +102,10 @@ function BlogPost({ post, top = true }) {
 
         window.addEventListener("resize", handleResize)
 
+        if (imageRef.current.offsetWidth === 0) {
+            setTimeout(handleResize, 100)
+        }
+
         return () => {
             window.removeEventListener("resize", handleResize)
         }
