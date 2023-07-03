@@ -58,17 +58,17 @@ export default function Demo() {
 
                     <KeyPoint>
                         <img src="/img/ticksquare.svg" alt="square-icon" />
-                        Accelerate Your SAAS Infrastructure on Kubernetes
+                        Accelerate your SAAS product development using our control plane.
                     </KeyPoint>
 
                     <KeyPoint>
                         <img src="/img/ticksquare.svg" alt="square-icon" />
-                        Completely Own your Data, Cost and Security
+                        Unified Management for Shared, Dedicated and BYOC SAAS.
                     </KeyPoint>
 
                     <KeyPoint>
                         <img src="/img/ticksquare.svg" alt="square-icon" />
-                        Onboard your application to BallastData Control Plane
+                        Bring your own application to control plane.
                     </KeyPoint>
                 </div>
 
