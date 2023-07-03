@@ -109,7 +109,7 @@ The challenge lies in creating a centralized control plane system that effective
 
 In shared and dedicated SAAS environments, it is crucial to go beyond mere logical isolation and establish both physical and logical isolation at the infrastructure level. The aim is to overcome the limitations of purely logical tenancy, ensuring robust data security, privacy, and enhanced customer trust.
 
-### Efficient Lifecycle Management of Infrastructure and Applications in a Control Plane
+### Efficient Lifecycle Management of Infrastructure and Applications
 
 To streamline operations, it is essential to design a control plane capable of effectively managing two critical abstractions: infrastructure and application. The challenge is to ensure seamless coordination and orchestration between these abstractions to optimize the lifecycle management of network, storage, compute resources, and applications.
 
