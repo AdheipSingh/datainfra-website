@@ -228,7 +228,7 @@ function ActionButton({ className, href, style, children }) {
                 fontFamily: "Inter, sans-serif",
                 boxShadow: "0px 4px 16px 0px rgba(0, 0, 0, 0.12)",
                 padding: "12px 32px",
-                position: "absolute",
+                position: "fixed",
                 top: "17px",
                 right: "56px",
                 zIndex: 999,

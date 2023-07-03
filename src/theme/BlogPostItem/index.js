@@ -47,7 +47,7 @@ export function ActionButton({ className, to, children }) {
                 justifyContent: "center",
                 textDecoration: "none",
                 marginLeft: "64px",
-                position: "absolute",
+                position: "fixed",
                 top: "17px",
                 right: "56px",
                 zIndex: 999,
