@@ -26,7 +26,7 @@ export default function Demo() {
 
                 <NavLink to="/blog">Blogs</NavLink>
 
-                <ActionButton to="/">Book Demo</ActionButton>
+                <ActionButton to="/demo">Book Demo</ActionButton>
             </NavBar>
 
             {/* Navbar mobile */}

@@ -29,6 +29,9 @@ function BlogListPageContent(props) {
     const { metadata, items, sidebar } = props
     return (
         <BlogLayout>
+            <ActionButton href="https://launchpass.com/datainfra-workspace">
+                Join Slack
+            </ActionButton>
             <BlogPostItems items={items} />
             <BlogListPaginator metadata={metadata} />
         </BlogLayout>
@@ -36,6 +39,23 @@ function BlogListPageContent(props) {
 }
 
 export default function BlogListPage(props) {
+    React.useEffect(() => {
+        // Delete default content: Dropdown and logo
+        document.querySelector(".navbar__items > a").style.display = "none"
+        document.querySelector(".navbar__items > div").style.display = "none"
+
+        // Prepare img element with new logo
+        const imgElement = document.createElement("img")
+        imgElement.src = "/img/logo-text-light.svg"
+        imgElement.alt = "logo"
+
+        // Append the img element to nav element
+        document.querySelector(".navbar__items").appendChild(imgElement)
+
+        // Add padding to right side to make room for Join Slack
+        document.querySelector(".navbar__items.navbar__items--right").style.marginRight = "290px"
+    }, [])
+
     return (
         <HtmlClassNameProvider
             className={clsx(ThemeClassNames.wrapper.blogPages, ThemeClassNames.page.blogListPage)}
@@ -186,5 +206,37 @@ function BlogPost({ post, top = true }) {
                 </div>
             )}
         </div>
+    )
+}
+
+function ActionButton({ className, href, style, children }) {
+    return (
+        <Link
+            className={className}
+            href={href}
+            style={{
+                background: "#fff",
+                borderRadius: "28px",
+                border: "none",
+                color: "#000",
+                fontSize: "1.25rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                textDecoration: "none",
+                marginLeft: "64px",
+                fontFamily: "Inter, sans-serif",
+                boxShadow: "0px 4px 16px 0px rgba(0, 0, 0, 0.12)",
+                padding: "12px 32px",
+                position: "fixed",
+                top: "17px",
+                right: "56px",
+                zIndex: 999,
+                ...style,
+            }}
+        >
+            <img style={{ marginRight: "16px", height: "24px" }} src="/img/slack.svg" alt="slack" />
+            {children}
+        </Link>
     )
 }
