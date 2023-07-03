@@ -133,11 +133,11 @@ const config = {
                             },
                         ],
                     },
-                    // {
-                    //     to: "/documentation",
-                    //     label: "Documentation",
-                    //     position: "left",
-                    // },
+                    {
+                        to: "/documentation",
+                        label: "OSS",
+                        position: "right",
+                    },
                     { to: "/blog", label: "Blogs", position: "right" },
                     {
                         to: "/",
