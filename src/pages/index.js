@@ -124,20 +124,20 @@ export default function Home() {
 
                 {/* Section 4 */}
                 <div
-                    className={styles.containerHero4}
-                    style={{
-                        display: "flex",
-                        margin: "auto",
-                        marginTop: "50px",
-                        justifyContent: "space-between",
-                        justifySelf: "center",
-                        marginBottom: "90px",
-                        maxWidth: 1200,
-                        width: "100%",
-                    }}
+                // className={styles.containerHero4}
+                // style={{
+                //     display: "flex",
+                //     margin: "auto",
+                //     marginTop: "50px",
+                //     justifyContent: "space-between",
+                //     justifySelf: "center",
+                //     marginBottom: "90px",
+                //     maxWidth: 1200,
+                //     width: "100%",
+                // }}
                 >
-                    {/* Left side */}
-                    <div>
+                    {/*{/* Left side */}
+                    {/* <div>
                         <h3
                             style={{
                                 fontSize: "3.5rem",
@@ -168,7 +168,7 @@ export default function Home() {
                                 Join Slack
                             </ActionButton>
 
-                            {/* <Link href="https://github.com/orgs/datainfrahq/repositories">
+                            <Link href="https://github.com/orgs/datainfrahq/repositories">
                                 <button
                                     style={{
                                         width: "240px",
@@ -184,12 +184,12 @@ export default function Home() {
                                 >
                                     Star On Github
                                 </button>
-                            </Link> */}
+                            </Link>
                         </div>
-                    </div>
+                    </div> */}
 
                     {/* Chart */}
-                    <img style={{ height: "507px" }} src="/img/community.png" alt="community" />
+                    {/* <img style={{ height: "507px" }} src="/img/community.png" alt="community" /> */}
                 </div>
             </Layout>
         </>
@@ -203,7 +203,7 @@ function Container({ children }) {
         <div
             className={styles.containerHero1}
             style={{
-                padding: "180px 0 160px",
+                padding: "180px 0 210px",
                 display: "flex",
                 background: " #f4f4f4",
                 justifyContent: "space-between",
