@@ -58,7 +58,7 @@ export default function Demo() {
 
                     <KeyPoint>
                         <img src="/img/ticksquare.svg" alt="square-icon" />
-                        Accelerate your SAAS product development using our control plane.
+                        Centralised Control Plane for SAAS Infrastructure.
                     </KeyPoint>
 
                     <KeyPoint>
@@ -68,7 +68,7 @@ export default function Demo() {
 
                     <KeyPoint>
                         <img src="/img/ticksquare.svg" alt="square-icon" />
-                        Bring your own application to control plane.
+                        Easing Onboarding of your Application and Data Plane.
                     </KeyPoint>
                 </div>
 

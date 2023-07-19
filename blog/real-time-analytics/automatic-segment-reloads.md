@@ -2,6 +2,7 @@
 slug: dynamic-data-schemas-pinot-schema-evolution-state-management-on-kubernetes
 title: "Dynamic Data Schemas: Pinot Schema Evolution & State Management on Kubernetes"
 url: dynamic-data-schemas-pinot-schema-evolution-state-management-on-kubernetes
+description: Discover dynamic data schemas, Pinot schema evolution, and state management on Kubernetes. Efficiently manage evolving data schemas in Pinot for enhanced real-time analytics capabilities.
 authors: [Adheip Singh]
 tags: [pinot, kubernetes]
 ---

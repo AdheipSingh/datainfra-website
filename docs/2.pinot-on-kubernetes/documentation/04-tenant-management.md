@@ -1,6 +1,9 @@
 ---
 sidebar_position: 1
-description: Deep Dive into Pinot Tenant Custom Resource
+description: "Streamline tenant management for Pinot on Kubernetes with DataInfra.io's documentation. Discover best practices and resources for efficient and scalable Pinot tenant management."
+title: "Pinot on Kubernetes Tenant Management Documentation"
+hide_title: "true"
+sidebar_label: "Pinot Tenant Management"
 ---
 
 # Pinot Tenant Management

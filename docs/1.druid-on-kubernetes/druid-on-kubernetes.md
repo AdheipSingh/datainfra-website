@@ -5,6 +5,8 @@ hide_table_of_contents: true
 custom_edit_url: null
 hide_title: true
 sidebar_label: Druid On Kubernetes
+title: "Control Plane for Druid on Kubernetes: Streamline Real-Time Analytics"
+description: "Streamline real-time analytics with Apache Druid on Kubernetes using DataInfra.io's Control Plane. Access comprehensive documentation and optimize your data processing and analysis capabilities for efficient infrastructure management."
 slug: /druid-on-kubernetes
 ---
 

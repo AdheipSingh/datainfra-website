@@ -1,5 +1,8 @@
 ---
 sidebar_position: 1
+title: "Pinot Control Plane Documentation: Simplify and Scale Pinot on Kubernetes"
+hide_title: true
+sidebar_label: "Pinot Control Plane"
 description: Access the Pinot Control Plane documentation to simplify and scale your Pinot deployment on Kubernetes. Learn how DataInfra.io's comprehensive guides and best practices empower efficient Pinot management, improving real-time analytics capabilities.
 ---
 

@@ -1,6 +1,8 @@
 ---
 sidebar_position: 1
-description: Deploy a Simple Apache Pinot cluster
+sidebar_label: Simple Pinot Cluster
+title: "Deploying Pinot on Kind: Tutorial"
+description: "Learn how to deploy Pinot on Kind with our comprehensive tutorial. Discover the potential of distributed data systems and optimize performance for your analytics workloads."
 tags: [pinot on kubernetes, local setup, KIND]
 ---
 
