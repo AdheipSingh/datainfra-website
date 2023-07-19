@@ -1,13 +1,13 @@
 ---
 slug: centralised-control-planes-for-saas-infra-part-1
-title: Centralised Control Planes for SAAS Infra - Part 1
+title: "Centralised Control Planes for SAAS Infra - Part 1: SAAS Buisness Models"
 url: Centralised-Control-Planes-for-SAAS-Infra-Part-1
 description: Gain valuable insights into centralized control planes for SAAS infrastructure in Part 1 of the DataInfra.io blog series. Optimize and streamline your SAAS infrastructure management for enhanced efficiency and scalability.
 authors: [Adheip Singh]
 tags: [SAAS, control-planes]
 ---
 
-*For a couple of years, my journey has revolved around constructing control planes for data infrastructure startups. As an engineer I have been fortunate to gained invaluable insights into the challenges and intricacies of developing successful SAAS products. Drawing from my firsthand experiences, this series of blog post's delves into the lessons learned and shares my goals at DataInfra, where I am building centralised control plane for SAAS infrastructure. Join me as we explore the critical aspects and key considerations of constructing effective control planes in the dynamic and competitive SAAS industry.*
+*For a couple of years, my journey has revolved around constructing control planes for data infrastructure startups. As an engineer I have been fortunate to gain invaluable insights into the challenges and intricacies of developing successful SAAS products. Drawing from my firsthand experiences, this series of blog post's delves into the lessons learned and shares my goals at DataInfra, where I am building a centralised control plane for SAAS infrastructure. Join me as we explore the critical aspects and key considerations of constructing effective control planes in the dynamic and competitive SAAS industry.*
 
 # Introduction
 
@@ -25,26 +25,26 @@ Let's discuss a high level approach of SAAS architecture layers.
 <!--truncate-->
 
 ### Application Layer:
-The application layer encompasses the UI/UX design, onboarding workflows, and user management aspects. This layer focuses on delivering a seamless user experience, tailored to the unique requirements of each application. Workflows can define mapping of a single orgranisations to a workspace or multiple workspaces.
+The application layer encompasses the UI/UX design, onboarding workflows, and user management aspects. This layer focuses on delivering a seamless user experience, tailored to the unique requirements of each application. Workflows can define mapping of a single organisation to a workspace or multiple workspaces.
 
 
-### Data Integeration Layer:
+### Data Integration Layer:​
 
 The data integration layer handles tasks such as data persistence to relational databases, authentication mechanisms, and data-related operations. It ensures efficient data management and integration and acts as a middleware. 
 
 ### Service Provisioning Layer:
 
-The service provisioning layer is responsible for managing the lifecycle of applications deployed to data planes and most of cases it is also responsible for lifecycle of data planes. It involves tasks like application deployment, scaling, monitoring, and health checks.
+The service provisioning layer is responsible for managing the lifecycle of applications deployed to data planes and in most cases it is also responsible for the lifecycle of data planes. It involves tasks like application deployment, scaling, monitoring, and health checks.
 
 *As we delve deeper we are focused on the service provisioning layer. The service provisioning layer should always be decoupled from the App and DI layers. This layer can be ported to any cloud on any network.*
 
-## SAAS Buisness Models
+## SAAS Business Models
 
 Organisations have the flexibility to adopt various SaaS deployment models based on their requirements and customer expectations. Here are three major models:
 
 ### Shared SAAS
 :::note
-This diagram shows a single kubernetes clusters where each customer has its own logical namespace where applications are deployed. Here we can also assume that the underlying Infra creation is a one time operation. In such cases, two customer pods can run on the same kubernetes nodes. So isolation is at the logical level only.
+This diagram shows a single kubernetes cluster where each customer has its own logical namespace where applications are deployed. Here we can also assume that the underlying Infra creation is a one time operation. In such cases, two customer pods can run on the same kubernetes nodes. So isolation is at the logical level only.
 :::
 
 -----------------------------------------------------------------------------------------------
@@ -63,7 +63,7 @@ This diagram shows a single kubernetes clusters where each customer has its own 
 
 ### Dedicated SAAS
 :::note
-This diagram shows mutiple kubernetes clusters where each customer has its own dedicated kubernetes cluster where applications are deployed. Here we also assume that the underlying network infra is isolated ie each k8s cluster has its own VPC and the service provisioning layer is responsible for creating this. The underlying data planes ( k8s cluster) are within the SAAS providers network.
+This diagram shows multiple kubernetes clusters where each customer has its own dedicated kubernetes cluster where applications are deployed. Here we also assume that the underlying network infra is isolated i.e. each k8s cluster has its own VPC and the service provisioning layer is responsible for creating this. The underlying data plane ( k8s cluster) is within the SAAS providers network.
 :::
 
 -----------------------------------------------------------------------------------------------
