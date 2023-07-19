@@ -2,6 +2,7 @@
 slug: setting-up-apache-pinot-on-kubernetes-in-under-15-minutes
 title: Setting up Apache Pinot on Kubernetes in Under 15 Minutes
 url: setting-up-apache-pinot-on-kubernetes-in-under-15-minutes
+description: Learn how to quickly set up Apache Pinot on Kubernetes in under 15 minutes with DataInfra.io's expert guidance. Streamline your real-time analytics infrastructure with step-by-step instructions and best practices.
 authors: [Adheip Singh]
 tags: [pinot, kubernetes]
 ---
