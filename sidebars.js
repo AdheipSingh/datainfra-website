@@ -30,7 +30,7 @@ const sidebars = {
         {
             type: "link",
             label: "Support",
-            href: "https://github.com/datainfrahq",
+            href: "https://www.datainfra.io/demo",
         },
         {
             type: "link",
@@ -54,7 +54,7 @@ const sidebars = {
         {
             type: "link",
             label: "Support",
-            href: "https://github.com/datainfrahq",
+            href: "https://www.datainfra.io/demo",
         },
         {
             type: "link",
@@ -81,7 +81,7 @@ const sidebars = {
         {
             type: "link",
             label: "Support",
-            href: "https://github.com/datainfrahq",
+            href: "https://www.datainfra.io/demo",
         },
         {
             type: "link",
@@ -105,7 +105,7 @@ const sidebars = {
         {
             type: "link",
             label: "Support",
-            href: "https://github.com/datainfrahq",
+            href: "https://www.datainfra.io/demo",
         },
         {
             type: "link",

@@ -1,6 +1,8 @@
 ---
-sidebar_position: 1
-description: Introduction to Druid On Kubernetes
+hide_title: true
+sidebar_label: Introduction
+title: "Druid on Kubernetes Introduction: Empowering Real-Time Analytics"
+description: "Explore the introduction documentation for running Druid on Kubernetes. Discover how DataInfra.io provides valuable insights and resources to enhance real-time analytics capabilities with Druid, optimizing your data processing and analysis."
 ---
 
 # Introduction

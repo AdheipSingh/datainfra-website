@@ -1,6 +1,9 @@
 ---
 sidebar_position: 1
-description: Deep Dive into Pinot Custom Resource
+description: "Access Pinot on Kubernetes Cluster Management documentation to optimize your Pinot cluster. Learn best practices for efficient cluster management in Pinot on Kubernetes with DataInfra.io's comprehensive resources."
+title: "Pinot on Kubernetes Cluster Management Documentation"
+hide_title: "true"
+sidebar_label: "Pinot Cluster Management"
 ---
 
 # Pinot Cluster Management

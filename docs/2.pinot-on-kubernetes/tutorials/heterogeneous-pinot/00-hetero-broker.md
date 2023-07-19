@@ -1,10 +1,13 @@
 ---
 sidebar_position: 1
-description: Heterogenous Pinot Cluster - Broker
+description: Learn how to deploy a Heterogeneous Pinot Broker with our detailed tutorial. Explore the power of distributed data systems and optimize performance for your analytics workloads.
+title: "Heterogeneous Pinot Broker Tutorial"
+sidebar_label: "Heterogeneous Pinot Cluster - Brokers"
+hide_title: "true"
 tags: [pinot on kubernetes, heterogenous]
 ---
 
-# Hetero Pinot Cluster - Brokers
+# Heterogeneous Pinot Cluster - Brokers
 
 -   In this tutorial, we are going to deploy an heterogenous [Apache Pinot](https://github.com/apache/pinot) cluster on [KIND](https://kind.sigs.k8s.io/).
 -   This tutorial can easily run on your local machine.

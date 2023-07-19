@@ -12,7 +12,7 @@ hide_table_of_contents: false
 
 **Introduction**
 
-In the realm of software development, the principle of separation of concerns holds great significance. It emphasizes the need to divide a system into distinct parts, each responsible for a specific aspect of functionality. This approach promotes modularity, maintainability, and scalability, allowing developers to focus on specific areas without unnecessary dependencies. When it comes to managing Kubernetes deployments, the Helm tool and the operator pattern play crucial roles in adhering to this principle. In this blog post, we will explore the separation of concerns in Helm and the benefits of using operators in Kubernetes deployments.
+In the realm of software development, the principle of separation of concerns holds great significance. It emphasises the need to divide a system into distinct parts, each responsible for a specific aspect of functionality. This approach promotes modularity, maintainability, and scalability, allowing developers to focus on specific areas without unnecessary dependencies. When it comes to managing Kubernetes deployments, the Helm tool and the operator pattern play crucial roles in adhering to this principle. In this blog post, we will explore the separation of concerns in Helm and the benefits of using operators in Kubernetes deployments.
 
 <!--truncate-->
 
@@ -26,9 +26,9 @@ Kubernetes treats an application as a pod in its most basic state, oblivious to 
 
 **Introducing the Operator Pattern**
 
-Custom Resource Definitions (CRDs) enable the creation of custom Kubernetes groups, versions, and kinds. Operators, in essence, are specialized controllers that watch specific CRs and reconcile their state. These custom controllers possess application-specific knowledge and act as a bridge between your application and the Kubernetes cluster.
+Custom Resource Definitions (CRDs) enable the creation of custom Kubernetes groups, versions, and kinds. Operators, in essence, are specialised controllers that watch specific CRs and reconcile their state. These custom controllers possess application-specific knowledge and act as a bridge between your application and the Kubernetes cluster.
 
-By utilizing operators, we can encapsulate the intricate details of an application within a dedicated controller. This approach allows Kubernetes to interact with the operator instead of directly managing the application itself. Operators provide a higher level of abstraction, enabling seamless integration of legacy applications into Kubernetes environments. They bring application-specific logic, automation capabilities, and domain-specific intelligence to the Kubernetes platform.
+By utilising operators, we can encapsulate the intricate details of an application within a dedicated controller. This approach allows Kubernetes to interact with the operator instead of directly managing the application itself. Operators provide a higher level of abstraction, enabling seamless integration of legacy applications into Kubernetes environments. They bring application-specific logic, automation capabilities, and domain-specific intelligence to the Kubernetes platform.
 
 **Benefits of Operators**
 
@@ -42,4 +42,4 @@ By utilizing operators, we can encapsulate the intricate details of an applicati
 
 **Summary**
 
-In an ideal scenario, it is recommended to use both Helm and Operators together for Kubernetes deployments. Helm's templating capabilities and features such as rollbacks and versioning make it a powerful tool for managing Kubernetes manifests. By utilizing Helm, you can template out custom resources and take advantage of its functionality while allowing Operators to reconcile the state of the application.
+In an ideal scenario, it is recommended to use both Helm and Operators together for Kubernetes deployments. Helm's templating capabilities and features such as rollbacks and versioning make it a powerful tool for managing Kubernetes manifests. By utilising Helm, you can template out custom resources and take advantage of its functionality while allowing Operators to reconcile the state of the application.

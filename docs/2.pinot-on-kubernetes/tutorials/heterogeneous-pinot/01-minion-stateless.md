@@ -1,10 +1,13 @@
 ---
 sidebar_position: 1
-description: Heterogenous Pinot Cluster - Minion Stateless
+description: Explore our step-by-step tutorial on deploying a Heterogeneous Pinot Minion in a stateless mode. Learn how to optimize Pinot for your distributed data systems and boost performance in your analytics workloads.
+title: "Heterogeneous Pinot Minion Stateless Tutorial"
+sidebar_label: "Heterogeneous Pinot Cluster - Minion"
+hide_title: "true"
 tags: [pinot on kubernetes, heterogenous]
 ---
 
-# Hetero Pinot Cluster - Minion
+# Heterogeneous Pinot Cluster - Minion
 
 -   In this tutorial, we are going to deploy an heterogenous [Apache Pinot](https://github.com/apache/pinot) cluster on [KIND](https://kind.sigs.k8s.io/).
 -   This tutorial can easily run on your local machine.
