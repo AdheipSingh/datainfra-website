@@ -2,6 +2,7 @@
 slug: demystifying-helm-and-operator-pattern
 url: demystifying-helm-and-operator-pattern
 title: Demystifying Helm and Operator pattern.
+description: Discover insights and explanations about Helm and Operator Pattern in the DataInfra.io blog. Gain a clearer understanding of these tools and patterns used for efficient infrastructure management.
 authors: [Adheip Singh]
 tags: [kubernetes, operator, control-planes]
 hide_table_of_contents: false
