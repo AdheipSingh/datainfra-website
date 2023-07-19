@@ -11,7 +11,7 @@ const config = {
     favicon: "img/favicon.ico",
 
     // Set the production url of your site here
-    url: "https://datainfra-website.vercel.app/", // change to => https://datainfra-website.vercel.app/
+    url: "https://datainfra.io/", // change to => https://datainfra-website.vercel.app/
     // Set the /<baseUrl>/ pathname under which your site is served
     // For GitHub pages deployment, it is often '/<projectName>/'
     baseUrl: "/",

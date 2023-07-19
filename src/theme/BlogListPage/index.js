@@ -14,12 +14,12 @@ function BlogListPageMetadata(props) {
     const {
         siteConfig: { title: siteTitle },
     } = useDocusaurusContext()
-    const { blogDescription, blogTitle, permalink } = metadata
+    const { blogDescription, permalink } = metadata
     const isBlogOnlyMode = permalink === "/"
-    const title = isBlogOnlyMode ? siteTitle : blogTitle
+    const title = "DataInfra Blogs | Insights, Trends, and Best Practices for SAAS Infrastructure Management"
     return (
         <>
-            <PageMetadata title={title} description={blogDescription} />
+            <PageMetadata title={title} description="Explore DataInfra blogs for valuable insights, latest trends, and best practices in SAAS infrastructure management. Stay informed about industry developments, optimization techniques, and strategies to enhance the performance and scalability of your SAAS infrastructure." />
             <SearchMetadata tag="blog_posts_list" />
         </>
     )
