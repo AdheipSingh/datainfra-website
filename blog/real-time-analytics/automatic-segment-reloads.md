@@ -1,12 +1,12 @@
 ---
 slug: dynamic-data-schemas-pinot-schema-evolution-state-management-on-kubernetes
-title: Dynamic Data Schemas - Pinot Schema Evolution & State Management on Kubernetes
+title: "Dynamic Data Schemas: Pinot Schema Evolution & State Management on Kubernetes"
 url: dynamic-data-schemas-pinot-schema-evolution-state-management-on-kubernetes
 authors: [Adheip Singh]
 tags: [pinot, kubernetes]
 ---
 
-*In this exploration, we will dive deep into the [Pinot Control Plane](https://github.com/datainfrahq/pinot-control-plane-k8s) and its process of updating the Pinot schema and reloading segments based on state change on kubernetes*
+*Discover dynamic data schemas, Pinot schema evolution, and state management on Kubernetes. Efficiently manage evolving data schemas in Pinot for enhanced real-time analytics capabilities.*
 
 # Introduction
 

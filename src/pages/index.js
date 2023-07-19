@@ -14,8 +14,8 @@ export default function Home() {
     return (
         <>
             <Layout
-                title={`${siteConfig.title}`}
-                description="Control Planes for SAAS Infrastructure"
+                title="Control Plane for SAAS Infrastructure | DataInfra"
+                description="Discover the remote control plane and unified management options for your SAAS infrastructure at DataInfra.io. Explore dedicated, shared, and BYOC choices for optimised SAAS infrastructure management with a centralized control plane."
                 wrapperClassName={styles.wrapper}
             >
                 <NavBar className={styles.navbar}>
