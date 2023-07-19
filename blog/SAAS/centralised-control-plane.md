@@ -2,6 +2,7 @@
 slug: centralised-control-planes-for-saas-infra-part-1
 title: Centralised Control Planes for SAAS Infra - Part 1
 url: Centralised-Control-Planes-for-SAAS-Infra-Part-1
+description: Gain valuable insights into centralized control planes for SAAS infrastructure in Part 1 of the DataInfra.io blog series. Optimize and streamline your SAAS infrastructure management for enhanced efficiency and scalability.
 authors: [Adheip Singh]
 tags: [SAAS, control-planes]
 ---
