@@ -7,7 +7,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula")
 /** @type {import('@docusaurus/types').Config} */
 const config = {
     title: "DataInfra",
-    tagline: "Control Planes for Real-Time Analytics Infrastructure",
+    tagline: "Control Planes for SAAS Infrastructure",
     favicon: "img/favicon.ico",
 
     // Set the production url of your site here
