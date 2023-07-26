@@ -50,7 +50,7 @@ This diagram shows a single kubernetes cluster where each customer has its own l
 -----------------------------------------------------------------------------------------------
 
 
-![image](../../static/img/shared-SaaS.png)
+![image](../../static/img/shared-saas.png)
 
 -----------------------------------------------------------------------------------------------
 
@@ -69,7 +69,7 @@ This diagram shows multiple kubernetes clusters where each customer has its own 
 -----------------------------------------------------------------------------------------------
 
 
-![image](../../static/img/dedicated-SaaS.png)
+![image](../../static/img/dedicated-saas.png)
 
 -----------------------------------------------------------------------------------------------
 
@@ -89,7 +89,7 @@ The service provisioning layer creates the infra and deploys agents, which pull 
 
 -----------------------------------------------------------------------------------------------
 
-![image](../../static/img/byoc-SaaS.png)
+![image](../../static/img/byoc-saas.png)
 
 -----------------------------------------------------------------------------------------------
 
