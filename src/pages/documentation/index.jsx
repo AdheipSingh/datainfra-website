@@ -9,7 +9,7 @@ export default function Documentation() {
 
     return (
         <Layout
-            title="Comprehensive Guides for SAAS Infrastructure Management |  DataInfra.io Documentation"
+            title="Comprehensive Guides for SaaS Infrastructure Management |  DataInfra.io Documentation"
             description="Access the DataInfra.io documentation to learn about control planes for real-time analytics infrastructure. Discover comprehensive guides, best practices, and technical resources to effectively manage and optimize your real-time analytics infrastructure for enhanced data processing and analysis."
         >
             <NavBarLogo />
