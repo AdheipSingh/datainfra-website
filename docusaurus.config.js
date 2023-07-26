@@ -228,6 +228,9 @@ const config = {
             // },
 
             metadata: [{ name: 'google-site-verification', content: 'KLUSfWP6Co7sfLB1CVWQ8CgSnXxLNDtRNntqpchbKEA' }],
+
+            sitemap: {},
+
         }),
 }
 
