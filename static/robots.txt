@@ -7,4 +7,4 @@ Disallow: /https://www.datainfra.io/docs/operator-runtime/tutorials/
 Disallow: /https://www.datainfra.io/docs/operator-runtime/documentation/
 Disallow: /https://www.datainfra.io/docs/operator-runtime/installation/
 Disallow: /https://www.datainfra.io/docs/operator-runtime/documentation/introduction/
-Sitemap: https://www.datainfra.io/sitemap.xml
+Sitemap:  https://www.datainfra.io/sitemap.xml
