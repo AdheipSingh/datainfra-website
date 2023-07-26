@@ -58,12 +58,12 @@ export default function Demo() {
 
                     <KeyPoint>
                         <img src="/img/ticksquare.svg" alt="square-icon" />
-                        Centralised Control Plane for SAAS Infrastructure.
+                        Centralised Control Plane for SaaS Infrastructure.
                     </KeyPoint>
 
                     <KeyPoint>
                         <img src="/img/ticksquare.svg" alt="square-icon" />
-                        Unified Management for Shared, Dedicated and BYOC SAAS.
+                        Unified Management for Shared, Dedicated and BYOC SaaS.
                     </KeyPoint>
 
                     <KeyPoint>

@@ -10,7 +10,7 @@ sidebar_label: Introduction
 
 Pinot control plane for Kubernetes, is a solution that bridges the gap between Pinot's requirements and Kubernetes infrastructure.
 
-With Pinot control plane for Kubernetes, data engineers and data ops can build their internal pinot cloud platform, knowing that their data remains within their network. Thus, avoiding costly SAAS vendors. The control plane ensures configuration and data management for pinot and reconciles them with ease, ensuring a seamless user experience.
+With Pinot control plane for Kubernetes, data engineers and data ops can build their internal pinot cloud platform, knowing that their data remains within their network. Thus, avoiding costly SaaS vendors. The control plane ensures configuration and data management for pinot and reconciles them with ease, ensuring a seamless user experience.
 
 This control plane is designed to accelerate deployment of pinot infrastructure on Kubernetes. This project provides the right set of tooling to data engineers and data ops, making it easier to run Pinot clusters on Kubernetes without any challenges. A single control plane can manage N number of pinot clusters.
 

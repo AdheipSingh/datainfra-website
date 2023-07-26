@@ -14,8 +14,8 @@ export default function Home() {
     return (
         <>
             <Layout
-                title="Control Plane for SAAS Infrastructure"
-                description="Discover the remote control plane and unified management options for your SAAS infrastructure at DataInfra.io. Explore dedicated, shared, and BYOC choices for optimised SAAS infrastructure management with a centralized control plane."
+                title="Control Plane for SaaS Infrastructure"
+                description="Discover the remote control plane and unified management options for your SaaS infrastructure at DataInfra.io. Explore dedicated, shared, and BYOC choices for optimised SaaS infrastructure management with a centralized control plane."
                 wrapperClassName={styles.wrapper}
             >
                 <NavBar className={styles.navbar}>
@@ -70,11 +70,11 @@ export default function Home() {
                             style={{ textAlign: "center", marginRight: "10px", marginLeft: "10px" }}
                         >
                             <Title>
-                                <Purple>Centralised</Purple> Control Plane for <Purple>SAAS</Purple>{" "}
+                                <Purple>Centralised</Purple> Control Plane for <Purple>SaaS</Purple>{" "}
                                 Infrastructure
                             </Title>
                             <p style={{ fontSize: "1.375rem", fontWeight: 500, color: "#000" }}>
-                                Unified Management for Shared, Dedicated and BYOC SAAS.
+                                Unified Management for Shared, Dedicated and BYOC SaaS.
                             </p>
 
                             <RequestDemo>
