@@ -11,7 +11,7 @@ const config = {
     favicon: "img/favicon.ico",
 
     // Set the production url of your site here
-    url: "https://datainfra.io/", // change to => https://datainfra-website.vercel.app/
+    url: "https://www.datainfra.io/", // change to => https://datainfra-website.vercel.app/
     // Set the /<baseUrl>/ pathname under which your site is served
     // For GitHub pages deployment, it is often '/<projectName>/'
     baseUrl: "/",
@@ -45,6 +45,21 @@ const config = {
         {
             tagName: "link",
             attributes: {
+                rel: "canonical",
+                href: "https://www.datainfra.io/",
+            },
+        },
+        {
+            tagName: "link",
+            attributes: {
+                'data-rh': 'true',
+                rel: "canonical",
+                href: "https://www.datainfra.io/",
+            },
+        },
+        {
+            tagName: "link",
+            attributes: {
                 rel: "preconnect",
                 href: "https://fonts.gstatic.com",
                 crossorigin: "anonymous",
@@ -70,7 +85,6 @@ const config = {
             "classic",
             /** @type {import('@docusaurus/preset-classic').Options} */
             ({
-                sitemap: {},
                 docs: {
                     sidebarPath: require.resolve("./sidebars.js"),
                     // Please change this to your repo.
@@ -229,6 +243,8 @@ const config = {
             // },
 
             metadata: [{ name: 'google-site-verification', content: 'KLUSfWP6Co7sfLB1CVWQ8CgSnXxLNDtRNntqpchbKEA' }],
+
+
 
         }),
 }
