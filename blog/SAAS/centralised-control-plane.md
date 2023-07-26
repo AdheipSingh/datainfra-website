@@ -20,7 +20,7 @@ By SaaS Infra, I specifically mean the service provisioning layer in a SaaS prod
 
 Let's discuss a high level approach of SaaS architecture layers.
 
-![image](../../static/img/SaaS-layers.png)
+![image](../../static/img/saas-layers.png)
 
 <!--truncate-->
 
