@@ -1,10 +1,10 @@
 ---
-slug: centralised-control-planes-for-SaaS-infra-part-1
-title: "Centralised Control Planes for SaaS Infra - Part 1: SaaS Buisness Models"
-url: Centralised-Control-Planes-for-SaaS-Infra-Part-1
-description: Gain valuable insights into centralized control planes for SaaS infrastructure in Part 1 of the DataInfra.io blog series. Optimize and streamline your SaaS infrastructure management for enhanced efficiency and scalability.
+slug: centralised-control-planes-for-saas-infra-part-1
+title: "Centralised Control Planes for SAAS Infra - Part 1: SAAS Buisness Models"
+url: Centralised-Control-Planes-for-SAAS-Infra-Part-1
+description: Gain valuable insights into centralized control planes for SAAS infrastructure in Part 1 of the DataInfra.io blog series. Optimize and streamline your SAAS infrastructure management for enhanced efficiency and scalability.
 authors: [Adheip Singh]
-tags: [SaaS, control-planes]
+tags: [SAAS, control-planes]
 ---
 
 *For a couple of years, my journey has revolved around constructing control planes for data infrastructure startups. As an engineer I have been fortunate to gain invaluable insights into the challenges and intricacies of developing successful SaaS products. Drawing from my firsthand experiences, this series of blog post's delves into the lessons learned and shares my goals at DataInfra, where I am building a centralised control plane for SaaS infrastructure. Join me as we explore the critical aspects and key considerations of constructing effective control planes in the dynamic and competitive SaaS industry.*
