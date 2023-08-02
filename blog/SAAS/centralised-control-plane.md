@@ -1,7 +1,7 @@
 ---
 slug: centralised-control-planes-for-saas-infra-part-1
-title: "Centralised Control Planes for SAAS Infra - Part 1: SaaS business Models"
-url: Centralised-Control-Planes-for-SAAS-Infra-Part-1
+title: "Centralised Control Planes for SAAS Infra - Part 1: SaaS Business Models"
+url: centralised-control-planes-for-saas-infra-part-1
 description: Gain valuable insights into centralized control planes for SAAS infrastructure in Part 1 of the DataInfra.io blog series. Optimize and streamline your SAAS infrastructure management for enhanced efficiency and scalability.
 authors: [Adheip Singh]
 tags: [SAAS, control-planes]
@@ -81,7 +81,7 @@ This diagram shows multiple kubernetes clusters where each customer has its own 
 - **Design Pattern:** Push Based
 - **End Users:** Buyers who trust the SaaS platform and are willing to share their data.
 
-### BYOC ( Bring Your Own Cloud ) SaaS
+### Private SaaS ( Bring Your Own Cloud )
 :::note
 This diagram shows mutiple kubernetes clusters where each customer has its own kubernetes clusters where applications are deployed but here the data planes are on the customer network. 
 The service provisioning layer creates the infra and deploys agents, which pull configs and deploy applications on the cluster.
@@ -104,7 +104,7 @@ The service provisioning layer creates the infra and deploys agents, which pull 
 
 ### Achieving a Centralized Control Plane Design for SaaS Infrastructure Supporting All Business Models
 
-The challenge lies in creating a centralized control plane system that effectively caters to the diverse needs of SaaS providers, accommodating the three major business models: Shared, Dedicated, and BYOC SaaS. The objective is to design a control plane that seamlessly handles the unique requirements of each model while ensuring optimal performance and customer satisfaction.
+The challenge lies in creating a centralized control plane system that effectively caters to the diverse needs of SaaS providers, accommodating the three major business models: Shared, Dedicated, and Private SaaS. The objective is to design a control plane that seamlessly handles the unique requirements of each model while ensuring optimal performance and customer satisfaction.
 
 ### Establishing Comprehensive Mutli Tenancy and Data Isolation in SaaS Infrastructures
 
@@ -138,7 +138,7 @@ Simplifying the process of bundling applications with logging platforms, monitor
 
 ## Summary
 
-This blog post provides insights into building centralized control planes for SaaS infrastructure. It discusses the layers of SaaS architecture and explores three major SaaS business models: Shared SaaS, Dedicated SaaS, and BYOC (Bring Your Own Cloud) SaaS. The post highlights various problem statements, including achieving physical and logical isolation, efficient resource and application lifecycle management, governance, cost calculation, event handling, and application bundling. It serves as a valuable resource for SaaS infrastructure builders and stakeholders.
+This blog post provides insights into building centralized control planes for SaaS infrastructure. It discusses the layers of SaaS architecture and explores three major SaaS business models: Shared SaaS, Dedicated SaaS, and Private (Bring Your Own Cloud) SaaS. The post highlights various problem statements, including achieving physical and logical isolation, efficient resource and application lifecycle management, governance, cost calculation, event handling, and application bundling. It serves as a valuable resource for SaaS infrastructure builders and stakeholders.
 
 In the next blog i will cover how we are solving these problems with our product.    
 If these problem statements look familar to you, feel free to get [connected](https://datainfra.io) with us.

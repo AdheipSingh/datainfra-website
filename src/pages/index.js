@@ -70,11 +70,10 @@ export default function Home() {
                             style={{ textAlign: "center", marginRight: "10px", marginLeft: "10px" }}
                         >
                             <Title>
-                                <Purple>Centralised</Purple> Control Plane for <Purple>SaaS</Purple>{" "}
-                                Infrastructure
+                                <Purple>Centralised</Purple> Control Plane for <Purple>SaaS</Purple>
                             </Title>
                             <p style={{ fontSize: "1.375rem", fontWeight: 500, color: "#000" }}>
-                                Unified Management for Shared, Dedicated and BYOC SaaS.
+                                Unified Management for Shared, Dedicated and Private SaaS.
                             </p>
 
                             <RequestDemo>
@@ -371,7 +370,7 @@ function Title({ children }) {
             style={{
                 fontSize: "3.5625rem",
                 fontWeight: 500,
-                maxWidth: "20ch",
+                maxWidth: "27ch",
                 color: "#131212",
                 margin: "auto",
                 marginBottom: "16px",
