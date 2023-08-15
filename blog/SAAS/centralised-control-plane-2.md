@@ -176,7 +176,7 @@ Open source libraries [operator-runtime](https://github.com/datainfrahq/operator
 ***Private SaaS***:                
 To run your SaaS on customer network, you can easily ship your Custom Resources spec and run the control plane for SaaS, what you really need is just a Kubernetes Cluster.
 
-***Utilizing Custom Resource Status for Effective Controller State Management***"
+***Utilizing Custom Resource Status for Effective Controller State Management***:              
 Kubernetes controllers have traditionally adhered to a stateless paradigm. However, as system complexities grow, the maintenance of complete statelessness can pose challenges. To overcome these challenges, controllers can strategically harness the power of Status fields, inherent within every Kubernetes object.
 
 ## Summary                  
