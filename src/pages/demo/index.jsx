@@ -26,7 +26,7 @@ export default function Demo() {
 
                 <NavLink to="/blog">Blogs</NavLink>
 
-                <ActionButton to="/demo">Book Demo</ActionButton>
+                <ActionButton to="/demo">Join Our Waitlist</ActionButton>
             </NavBar>
 
             {/* Navbar mobile */}
@@ -35,7 +35,7 @@ export default function Demo() {
                     <Logo />
 
                     <ActionButton className={styles.actionButton} to="/demo">
-                        Book Demo
+                        Join the Waitlist Now!
                     </ActionButton>
                 </div>
                 <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -52,7 +52,6 @@ export default function Demo() {
             <Main>
                 {/* Left side */}
                 <div style={{ flex: 1, paddingTop: "150px" }}>
-                    <H2>GET A DEMO</H2>
 
                     <H1>Talk to DataInfra</H1>
 
@@ -75,7 +74,7 @@ export default function Demo() {
                 {/* Right side */}
                 <div style={{ flex: 1 }}>
                     <FormContainer>
-                        <FormTitle>SCHEDULE A DEMO</FormTitle>
+                        <FormTitle>JOIN OUR WAITLIST</FormTitle>
 
                         <Form action="https://formspree.io/f/mgebqzok" method="POST">
                             <Label htmlFor="firstName">

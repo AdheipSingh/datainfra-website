@@ -80,12 +80,12 @@ export default function Home() {
                                 <form action="https://formspree.io/f/mgebqzok" method="POST">
                                     {/* Hidden message */}
                                     <input
-                                        defaultValue="Request for Demo"
+                                        defaultValue="Join the Waitlist Now!"
                                         name="message"
                                         style={{ display: "none" }}
                                     />
                                     <RequestDemoInput />
-                                    <RequestDemoButton>Request for Demo</RequestDemoButton>
+                                    <RequestDemoButton>Join the Waitlist Now!</RequestDemoButton>
                                 </form>
                             </RequestDemo>
                         </div>
