@@ -158,11 +158,27 @@ At regular intervals, a comprehensive state assessment is conducted. If the exis
 
 
 :::info
-This original diagram can be found [here](https://github.com/kubernetes/sample-controller/blob/master/docs/controller-client-go.md).
+This original diagram can be found [here](https://github.com/kubernetes/sample-controller/blob/master/docs/controller-client-go.md). This diagram shows how to build an event driven system leveraging Kubernetes API's.
 :::
 ![image](../../static/img/client-go.png)
 
-## Summary
+### Next-Gen SaaS: The Kubernetes Control Plane Advantage
 
+***Efficient ETCD Utilization***:                 
+Kubernetes' utilization of ETCD for state storage simplifies event triggering and state management, enhancing overall system efficiency.
+
+***Dynamic State Assessment***:                  
+The level-driven trigger ensures periodic state assessments, allowing the control plane to promptly detect and correct any deviations from the desired state.
+
+***Community Support and Libraries***:                           
+Open source libraries [operator-runtime](https://github.com/datainfrahq/operator-runtime) and [controller-runtime](https://github.com/kubernetes-sigs/controller-runtime) have abstracted out the complexity of the Kubernetes API and helping users focus embedding application logic into Kubernetes.
+
+***Private SaaS***:                
+To run your SaaS on customer network, you can easily ship your Custom Resources spec and run the control plane for SaaS, what you really need is just a Kubernetes Cluster.
+
+***Utilizing Custom Resource Status for Effective Controller State Management***"
+Kubernetes controllers have traditionally adhered to a stateless paradigm. However, as system complexities grow, the maintenance of complete statelessness can pose challenges. To overcome these challenges, controllers can strategically harness the power of Status fields, inherent within every Kubernetes object.
+
+## Summary                  
 Beyond being a mere orchestrator, Kubernetes emerges as the comprehensive control plane for applications. In this dynamic landscape, the marriage of Kubernetes controllers with the stateless, event-driven paradigm ushers in a new era of infrastructure development for the SaaS control plane. 
 If you are building a SaaS, and want to build a stateless control plane, feel free to get [connected](https://www.datainfra.io/) with us.
