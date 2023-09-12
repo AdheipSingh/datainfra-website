@@ -2,7 +2,6 @@
 slug: centralised-control-planes-for-saas-part-3
 title: "Centralised Control Planes for SaaS - Part 3: Logical and Physical Models"
 url: centralised-control-planes-for-saas-part-3
-description: Gain valuable insights into centralised control planes for SaaS infrastructure in Part 3 of the DataInfra.io blog series. Optimise and streamline your SaaS infrastructure management for enhanced efficiency and scalability.
 authors: [Adheip Singh]
 tags: [SAAS, control-planes]
 ---

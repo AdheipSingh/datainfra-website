@@ -2,7 +2,6 @@
 slug: centralised-control-planes-for-saas-part-2
 title: "Centralised Control Planes for SaaS - Part 2: Stateless Async Event Handling"
 url: centralised-control-planes-for-saas-part-2
-description: Gain valuable insights into centralised control planes for SaaS infrastructure in Part 2 of the DataInfra.io blog series. Optimise and streamline your SaaS infrastructure management for enhanced efficiency and scalability.
 image: https://github.com/datainfrahq/.github/blob/main/images/stateful-saas.png
 authors: [Adheip Singh]
 tags: [SAAS, control-planes]
