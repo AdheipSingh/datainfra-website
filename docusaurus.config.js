@@ -127,12 +127,12 @@ const config = {
                         className: "service-dropdown",
                         items: [
                             {
-                                label: "Druid On Kubernetes",
+                                label: "Druid Kubernetes Operator",
                                 to: "docs/druid-on-kubernetes",
                                 className: "druid",
                             },
                             {
-                                label: "Pinot On Kubernetes",
+                                label: "Pinot Kubernetes Operator",
                                 to: "docs/pinot-on-kubernetes",
                                 className: "pinot",
                             },
@@ -141,7 +141,6 @@ const config = {
                                 to: "docs/distributed-systems-operator-interface",
                                 className: "dsoi",
                             },
-
                             {
                                 label: "Operator runtime",
                                 to: "docs/operator-runtime",

@@ -30,12 +30,12 @@ const sidebars = {
         {
             type: "link",
             label: "Support",
-            href: "https://www.datainfra.io/demo",
+            href: "https://www.datainfra.io/demo-druid",
         },
         {
             type: "link",
             label: "Github",
-            href: "https://github.com/datainfrahq",
+            href: "https://github.com/datainfrahq/druid-operator",
         },
     ],
     pinotSidebar: [

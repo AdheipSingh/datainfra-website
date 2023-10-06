@@ -6,7 +6,7 @@ hide_title: true
 
 <Installation>
 
-Install Control Plane For <Purple>Druid</Purple>
+Install Druid Kubernetes <Purple>Operator</Purple>
 
 ```
 helm repo add datainfra https://charts.datainfra.io

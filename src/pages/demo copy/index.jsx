@@ -3,7 +3,7 @@ import Link from "@docusaurus/Link"
 import Footer from "@theme/Footer"
 import styles from "./styles.module.css"
 
-export default function Demo() {
+export default function DemoDruid() {
     const [formData, setFormData] = React.useState({
         firstName: "",
         lastName: "",
@@ -22,11 +22,6 @@ export default function Demo() {
             <NavBar className={styles.navbar}>
                 <Logo />
 
-                <NavLink to="/documentation">Kubernetes Operators</NavLink>
-
-                <NavLink to="/blog">Blogs</NavLink>
-
-                <ActionButton to="/demo">Join Our Waitlist</ActionButton>
             </NavBar>
 
             {/* Navbar mobile */}
@@ -34,13 +29,13 @@ export default function Demo() {
                 <div style={{ display: "flex" }}>
                     <Logo />
 
-                    <ActionButton className={styles.actionButton} to="/demo">
+                    <ActionButton className={styles.actionButton} to="/demo-druid">
                         Join the Waitlist Now!
                     </ActionButton>
                 </div>
                 <div style={{ display: "flex", justifyContent: "space-between" }}>
                     <NavLink style={{ marginLeft: 0 }} to="/documentation">
-                        Kubernetes Operators
+                        OSS
                     </NavLink>
 
                     <NavLink style={{ marginLeft: 0 }} to="/blog">
@@ -53,28 +48,28 @@ export default function Demo() {
                 {/* Left side */}
                 <div style={{ flex: 1, paddingTop: "150px" }}>
 
-                    <H1>Talk to DataInfra</H1>
+                    <H1>Commercial Support</H1>
 
                     <KeyPoint>
                         <img src="/img/ticksquare.svg" alt="square-icon" />
-                        Centralised Control Plane for SaaS Infrastructure.
+                        Solution Architecture and Consultation on Druid Operator.
                     </KeyPoint>
 
                     <KeyPoint>
                         <img src="/img/ticksquare.svg" alt="square-icon" />
-                        Unified Management for Shared, Dedicated and BYOC SaaS.
+                        SLA Support for Druid Kubernetes Operator.
                     </KeyPoint>
 
                     <KeyPoint>
                         <img src="/img/ticksquare.svg" alt="square-icon" />
-                        Easing Onboarding of your Application and Data Plane.
+                        Custom Development and Training for Druid on Kubernetes.
                     </KeyPoint>
                 </div>
 
                 {/* Right side */}
                 <div style={{ flex: 1 }}>
                     <FormContainer>
-                        <FormTitle>JOIN OUR WAITLIST</FormTitle>
+                        <FormTitle>TALK TO DATAINFRA</FormTitle>
 
                         <Form action="https://formspree.io/f/mgebqzok" method="POST">
                             <Label htmlFor="firstName">

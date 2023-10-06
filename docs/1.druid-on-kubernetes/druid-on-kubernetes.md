@@ -14,8 +14,8 @@ import DocMainSection from '/src/components/DocMainSection/index.jsx'
 
 <DocMainSection>
 
-Control Plane For <Purple>Druid</Purple>
+Druid Kubernetes <Purple>Operator</Purple>
 
-The Control Plane for Druid on Kubernetes is an open-source tool that facilitates the creation and management of Apache Druid clusters and their associated data management operations on a Kubernetes platform. This tool is designed using the Kubernetes operator.
+Druid Operator provisions and manages Apache Druid cluster on kubernetes. Druid Operator is designed to provision and manage Apache Druid in distributed mode only. It is written in golang.
 
 </DocMainSection>

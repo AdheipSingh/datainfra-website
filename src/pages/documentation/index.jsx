@@ -18,7 +18,7 @@ export default function Documentation() {
                 <img src="img/analytics.png" alt="analytics-image" height="163px" />
 
                 <Title>
-                    Open Source Projects Maintained<Purple> At DataInfra</Purple>
+                    Open Source Products <Purple> By DataInfra</Purple>
                 </Title>
 
                 <Services>
@@ -26,9 +26,12 @@ export default function Documentation() {
                     <Service name="Pinot On Kubernetes" icon="pinot" />
                     <Service name="Distributed Systems Operator Interface" icon="dsoiLarge" />
                     <Service name="Operator Runtime" icon="operatorLarge" />
+
                 </Services>
+
+
             </Main>
-        </Layout>
+        </Layout >
     )
 }
 
