@@ -2,10 +2,11 @@
 hide_title: true
 sidebar_label: Introduction
 title: "Druid on Kubernetes Introduction: Empowering Real-Time Analytics"
-description: "Explore the introduction documentation for running Druid on Kubernetes. Discover how DataInfra.io provides valuable insights and resources to enhance real-time analytics capabilities with Druid, optimizing your data processing and analysis."
+description: "Introduction to Druid Kubernetes Operator"
 ---
-
 # Introduction
+
+Druid Operator is a Kubernetes controller that manages the lifecycle of Apache Druid clusters. The operator simplifies the management of Druid clusters with its custom logic that is configurable via custom API (Kubernetes CRD).
 
 The Druid on Kubernetes project aims to provide a seamless and efficient way to run Apache Druid on Kubernetes. This project is based on the Kubernetes operator pattern, although it is not limited to this approach.
 
@@ -14,11 +15,6 @@ Developed using GoLang and bootstrapped using Kubebuilder, this project provisio
 We believe that Kubernetes can serve as a control plane for any application, including those with data and stateful sets. While Helm charts are useful for configuration management, they don't maintain the state of the application. Druid Operator acts as a bridge between your application's requirements and Kubernetes infrastructure.
 
 As a distributed database, Druid can be challenging to run on Kubernetes without the right tools. Druid isn't designed to run on kubernetes, it belongs to the JVM ecosystem. Helm solves the problem of configuration management, its responsible for applying configuration, the druid operator is responsible for state management and reconciling configurations.
-
-# Supported CR
-
-The operator supports CR of type Druid.
-Druid CR belongs to api Group ```druid.apache.org``` and version ```v1alpha1```
 
 
 ## :dart: Major Features
