@@ -69,7 +69,7 @@ export default function Home() {
                             style={{ textAlign: "center", marginRight: "10px", marginLeft: "10px" }}
                         >
                             <Title>
-                                <Purple>Centralised</Purple> Control Plane for <Purple>SaaS</Purple>
+                                <Purple>Centralised</Purple> Control Plane for <Purple>Infrastructure SaaS</Purple>
                             </Title>
                             <p style={{ fontSize: "1.375rem", fontWeight: 500, color: "#000" }}>
                                 Unified Management for Shared, Dedicated and Private SaaS.

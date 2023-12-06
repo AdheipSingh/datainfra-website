@@ -57,7 +57,7 @@ export default function Demo() {
 
                     <KeyPoint>
                         <img src="/img/ticksquare.svg" alt="square-icon" />
-                        Centralised Control Plane for SaaS Infrastructure.
+                        Centralised Control Plane for Infrastructure SaaS.
                     </KeyPoint>
 
                     <KeyPoint>
