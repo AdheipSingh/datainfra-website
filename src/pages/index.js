@@ -21,7 +21,6 @@ export default function Home() {
                 <NavBar className={styles.navbar}>
                     <Logo />
 
-                    <NavLink to="/documentation">Products</NavLink>
 
                     <NavLink to="/blog">Blogs</NavLink>
 
