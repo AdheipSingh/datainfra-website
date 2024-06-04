@@ -4,7 +4,6 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Link from "@docusaurus/Link";
 import styles from "./index.module.css";
 
-
 export default function Home() {
     const { siteConfig } = useDocusaurusContext();
 
@@ -15,16 +14,21 @@ export default function Home() {
     return (
         <>
             <Layout
-                title="Control Plane for SaaS Infrastructure"
-                description="Discover the remote control plane and unified management options for your SaaS infrastructure at DataInfra.io. Explore dedicated, shared, and BYOC choices for optimised SaaS infrastructure management with a centralized control plane."
+                title="Control Plane for SaaS"
+                description="Centralised control plane and unified management options for SaaS infrastructure. Build managed services, infra saas, and serverless choices for SaaS infrastructure management."
                 wrapperClassName={styles.wrapper}
             >
                 <NavBar className={styles.navbar}>
-                    <Logo />
+                    {/* <Logo /> */}
+                    {/* <NavLink to="/blog">Features</NavLink>
+                    <NavLink to="/documentation">Documentations</NavLink>
                     <NavLink to="/blog">Blogs</NavLink>
+                    <Gitbutton href="https://github.com/baazhq/baaz">
+                        Star on GitHub
+                    </Gitbutton>
                     <ActionButton href="https://launchpass.com/datainfra-workspace">
                         Join Slack
-                    </ActionButton>
+                    </ActionButton> */}
                 </NavBar>
 
                 {/* Navbar mobile */}
@@ -73,36 +77,138 @@ export default function Home() {
                 </div>
 
                 {/* New Section */}
-                <div style={{ textAlign: "center", marginTop: "-50px", backgroundColor: "#f4f4f4" }}>
+                <div style={{ textAlign: "center", marginTop: "-60px", backgroundColor: "#f4f4f4" }}>
                     <Title>
-                        Focus on your <Purple>Product </Purple>Layer
+                        Accelerate your <Purple>SaaS </Purple>Journey
                     </Title>
                     <p
                         style={{
                             fontSize: "1.25rem",
                             fontWeight: 100,
-                            marginBottom: "100px",
+                            marginBottom: "20px",
                             marginTop: "0px",
                             color: "#1a202c",
                         }}
                     >
                         BaaZ Platform streamlines infrastructure setup,
                         reduces costs,<br></br> accelerates GTM and ensures security and compliance.
+
                     </p>
-                    <div style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
-                        <div style={{ marginRight: "10px" }}>
-                            <h3>WITHOUT BAAZ</h3>
-                            <img src="/img/saas-layers.png" alt="Without BaaZ" style={{ maxWidth: "700px" }} />
-                        </div>
-                        <div style={{ marginLeft: "20px" }}>
-                            <h3>WITH BAAZ</h3>
-                            <img src="/img/saas-layers.png" alt="With BaaZ" style={{ maxWidth: "700px" }} />
+                    <div style={{ display: "flex", justifyContent: "center", marginTop: "10px" }}>
+                        <div style={{
+                            border: "2px solid #FFD700", // gold border
+                            borderRadius: "10px", // rounded corners
+                            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", // subtle shadow for highlighting
+                            overflow: "hidden" // hide overflow content
+                        }}>
+                            <img
+                                src="/img/baazplatform.png"
+                                alt="Without BaaZ"
+                                style={{ height: "700px" }}
+                            />
                         </div>
                     </div>
+
+                    {/* Features Title */}
+                    <h1 id="features" style={{ marginTop: "40px" }}>
+                        Deploy on any K8s cluster on cloud or on-prem. <br />
+                        Launch <Purple>Dataplanes</Purple>, Create <Purple>Tenants</Purple> and Deploy <Purple>Apps</Purple>
+                    </h1>
+
+                    {/* Highlighted Boxes for Baaz Features */}
+
+                    <div style={{ display: "flex", justifyContent: "center", marginTop: "20px", flexWrap: "wrap" }}>
+                        {baazFeatures.map((feature, index) => (
+                            <HighlightedBox key={index} title={feature.title} description={feature.description} logo={feature.logo} />
+                        ))}
+                    </div>
                 </div>
+
+                {/* Join Our Community Section */}
+                <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "center", padding: "40px 20px", marginTop: "40px" }}>
+                    <div style={{ flex: 1, textAlign: "left", marginLeft: "200px" }}>
+                        <h2 style={{ fontSize: "2.5rem", fontWeight: 700, marginBottom: "16px", color: "#1a202c" }}>
+                            Join Our <Purple>Community</Purple>
+                        </h2>
+                        <p style={{ fontSize: "1.5rem", fontWeight: 100, color: "#1a202c" }}>
+                            BaaZ thrives on the ethos of open-source collaboration. Become a part of our worldwide network of innovators, engineers, and advocates on Slack and GitHub.
+                        </p>
+                        <div style={{ display: "flex", gap: "16px", marginTop: "16px" }}>
+                            <Gitbutton href="https://github.com/baazhq/baaz">
+                                Star on GitHub
+                            </Gitbutton>
+                            <ActionButton href="https://launchpass.com/datainfra-workspace">
+                                Join Slack
+                            </ActionButton>
+                        </div>
+                    </div>
+                    <div style={{ flex: 1, textAlign: "center", maxWidth: "50%" }}>
+                        <img src="/img/bzcommunity.png" alt="Community" style={{ width: "100%", maxWidth: "400px" }} />
+                    </div>
+                </div>
+
+
                 {/* Rest of the content... */}
             </Layout>
         </>
+    );
+}
+
+const baazFeatures = [
+    {
+        title: "Unified Multi-Cloud Design",
+        description: "A comprehensive system architecture supporting shared, dedicated, and BYOC infrastructures across multiple cloud environments.",
+        logo: "/img/multicloud.png" // Replace with the correct logo path
+    },
+    {
+        title: "Robust Security",
+        description: "Implement secure access to customer networks using a pull-based model, eliminating the need for VPC peering in BYOC scenarios.",
+        logo: "/img/security.png" // Replace with the correct logo path
+    },
+    {
+        title: "Optimized Cost Efficiency",
+        description: "Leverage built-in Kubernetes deployment and scheduling strategies to significantly reduce cloud expenditure.",
+        logo: "/img/cost.png" // Replace with the correct logo path
+    },
+    {
+        title: "Rapid Go-to-Market",
+        description: "Accelerate your SaaS launch and start monetizing within days.",
+        logo: "/img/gtm.png" // Replace with the correct logo path
+    },
+    {
+        title: "Enhanced Sales Enablement",
+        description: "Facilitate seamless deployments in both customer and SaaS provider networks, removing engineering roadblocks for sales.",
+        logo: "/img/sales.png" // Replace with the correct logo path
+    },
+    {
+        title: "Stateless Control Plane",
+        description: "Deploy a stateless control plane on any Kubernetes cluster, whether on-premises or in the cloud.",
+        logo: "/img/statelesscp.png" // Replace with the correct logo path
+    }
+];
+
+function HighlightedBox({ title, description, logo }) {
+    const [isHovered, setIsHovered] = React.useState(false);
+
+    return (
+        <div
+            style={{
+                width: "300px",
+                padding: "20px",
+                background: "#fff",
+                border: `2px solid ${isHovered ? "#FFA500" : "#FFD700"}`, // Change border color when hovered
+                borderRadius: "10px",
+                margin: "40px",
+                textAlign: "center",
+                boxSizing: "border-box",
+            }}
+            onMouseEnter={() => setIsHovered(true)} // Set isHovered to true when mouse enters
+            onMouseLeave={() => setIsHovered(false)} // Set isHovered to false when mouse leaves
+        >
+            <img src={logo} alt={`${title} logo`} style={{ height: "50px", marginBottom: "10px" }} />
+            <h3 style={{ fontWeight: "bold", marginBottom: "10px" }}>{title}</h3>
+            <p>{description}</p>
+        </div>
     );
 }
 
@@ -142,6 +248,7 @@ function Purple({ children }) {
     );
 }
 
+
 function NavBar({ className, children }) {
     return (
         <nav
@@ -153,23 +260,38 @@ function NavBar({ className, children }) {
                 width: "100%",
                 display: "flex",
                 alignItems: "center",
+                justifyContent: "space-between", // Adjusted justifyContent
                 paddingLeft: "56px",
-                paddingRight: "56px",
-                marginRight: "auto",
+                paddingRight: "20px", // Adjusted paddingRight
                 zIndex: 99,
             }}
         >
-            {children}
+            <div style={{ display: "flex", alignItems: "center" }}>
+                <Logo />
+                <NavLink to="/#features">Features</NavLink>
+                <NavLink to="/documentation">Documentation</NavLink>
+                <NavLink to="/blog">Blog</NavLink>
+            </div>
+            <div style={{ display: "flex" }}>
+                <Gitbutton href="https://github.com/baazhq/baaz">
+                    Star on GitHub
+                </Gitbutton>
+                <ActionButton href="https://launchpass.com/datainfra-workspace">
+                    Join Slack
+                </ActionButton>
+            </div>
         </nav>
     );
 }
 
+
+
 function Logo() {
     return (
         <img
-            src="/img/logo-text.svg"
+            src="/img/logo.png"
             alt="secure-icon"
-            style={{ marginRight: "auto" }}
+            style={{ width: "250px", height: "auto", marginRight: "auto" }}
         />
     );
 }
@@ -182,7 +304,8 @@ function NavLink({ style, to, children }) {
             style={{
                 color: " #131212",
                 marginLeft: "64px",
-                fontSize: "1.125rem",
+                fontSize: "1.5rem",
+                fontWeight: "bold", // Added fontWeight
                 ...style,
             }}
         >
@@ -190,41 +313,6 @@ function NavLink({ style, to, children }) {
         </Link>
     );
 }
-
-function Screen2() {
-    return (
-        <div style={{ backgroundColor: "rgba(244, 244, 244, 0.5)", paddingTop: "50px" }}>
-            <div style={{ textAlign: "center" }}>
-                <Title>
-                    Focus on your <Purple>Product </Purple>Layer
-                </Title>
-                <p
-                    style={{
-                        fontSize: "1.25rem",
-                        fontWeight: 100,
-                        marginBottom: "100px",
-                        marginTop: "0px",
-                        color: "#1a202c",
-                    }}
-                >
-                    BaaZ Platform streamlines infrastructure setup,
-                    reduces costs,<br></br> accelerates GTM and ensures security and compliance.
-                </p>
-                <div style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
-                    <div style={{ marginRight: "10px" }}>
-                        <h3>WITHOUT BAAZ</h3>
-                        <img src="/img/saas-layers.png" alt="Without BaaZ" style={{ maxWidth: "700px" }} />
-                    </div>
-                    <div style={{ marginLeft: "20px" }}>
-                        <h3>WITH BAAZ</h3>
-                        <img src="/img/saas-layers.png" alt="With BaaZ" style={{ maxWidth: "700px" }} />
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
-}
-
 function ActionButton({ className, href, style, children }) {
     return (
         <Link
@@ -240,12 +328,22 @@ function ActionButton({ className, href, style, children }) {
                 alignItems: "center",
                 justifyContent: "center",
                 textDecoration: "none",
-                marginLeft: "64px",
+                marginLeft: "16px", // Adjusted marginLeft
                 fontFamily: "Inter, sans-serif",
                 boxShadow: "0px 4px 16px 0px rgba(0, 0, 0, 0.12)",
-                padding: "12px 32px",
-                transition: "background 0.3s ease, color 0.3s ease",
+                padding: "10px 10px",
+                transition: "background 0.3s ease, color 0.3s ease, border-color 0.3s ease",
                 ...style,
+            }}
+            onMouseEnter={(e) => {
+                e.target.style.background = "#4361ee";
+                e.target.style.color = "#fff";
+                e.target.style.borderColor = "#4361ee";
+            }}
+            onMouseLeave={(e) => {
+                e.target.style.background = "#fff";
+                e.target.style.color = "#4361ee";
+                e.target.style.borderColor = "#4361ee";
             }}
         >
             <img
@@ -257,7 +355,6 @@ function ActionButton({ className, href, style, children }) {
         </Link>
     );
 }
-
 
 function RequestDemo({ children }) {
     return (
@@ -291,3 +388,45 @@ function Title({ children }) {
     );
 }
 
+function Gitbutton({ className, href, style, children }) {
+    return (
+        <Link
+            className={className}
+            href={href}
+            style={{
+                background: "#fff",
+                borderRadius: "28px",
+                border: "2px solid #4361ee",
+                color: "#4361ee",
+                fontSize: "1.25rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                textDecoration: "none",
+                marginLeft: "16px", // Adjusted marginLeft
+                fontFamily: "Inter, sans-serif",
+                boxShadow: "0px 4px 16px 0px rgba(0, 0, 0, 0.12)",
+                padding: "10px 10px",
+                transition: "background 0.3s ease, color 0.3s ease, border-color 0.3s ease",
+                ...style,
+            }}
+            onMouseEnter={(e) => {
+                e.target.style.background = "#4361ee";
+                e.target.style.color = "#fff";
+                e.target.style.borderColor = "#4361ee";
+            }}
+            onMouseLeave={(e) => {
+                e.target.style.background = "#fff";
+                e.target.style.color = "#4361ee";
+                e.target.style.borderColor = "#4361ee";
+            }}
+        >
+            <img
+                style={{ height: "32px", marginRight: "16px" }}
+                src="/img/github-mark.png"
+                alt="Star-on-Github"
+            />
+            {children}
+        </Link>
+    );
+}
