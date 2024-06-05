@@ -117,10 +117,8 @@ export default function Home() {
 
                     {/* Highlighted Boxes for Baaz Features */}
 
-                    <div style={{ display: "flex", justifyContent: "center", marginTop: "20px", flexWrap: "wrap" }}>
-                        {baazFeatures.map((feature, index) => (
-                            <HighlightedBox key={index} title={feature.title} description={feature.description} logo={feature.logo} />
-                        ))}
+                    <div>
+                        <BaazFeatures />
                     </div>
                 </div>
 
@@ -158,32 +156,32 @@ const baazFeatures = [
     {
         title: "Unified Multi-Cloud Design",
         description: "A comprehensive system architecture supporting shared, dedicated, and BYOC infrastructures across multiple cloud environments.",
-        logo: "/img/multicloud.png" // Replace with the correct logo path
+        logo: "/img/multicloud.png"
     },
     {
         title: "Robust Security",
         description: "Implement secure access to customer networks using a pull-based model, eliminating the need for VPC peering in BYOC scenarios.",
-        logo: "/img/security.png" // Replace with the correct logo path
+        logo: "/img/security.png"
     },
     {
         title: "Optimized Cost Efficiency",
         description: "Leverage built-in Kubernetes deployment and scheduling strategies to significantly reduce cloud expenditure.",
-        logo: "/img/cost.png" // Replace with the correct logo path
+        logo: "/img/cost.png"
     },
     {
         title: "Rapid Go-to-Market",
         description: "Accelerate your SaaS launch and start monetizing within days.",
-        logo: "/img/gtm.png" // Replace with the correct logo path
+        logo: "/img/gtm.png"
     },
     {
         title: "Enhanced Sales Enablement",
         description: "Facilitate seamless deployments in both customer and SaaS provider networks, removing engineering roadblocks for sales.",
-        logo: "/img/sales.png" // Replace with the correct logo path
+        logo: "/img/sales.png"
     },
     {
         title: "Stateless Control Plane",
         description: "Deploy a stateless control plane on any Kubernetes cluster, whether on-premises or in the cloud.",
-        logo: "/img/statelesscp.png" // Replace with the correct logo path
+        logo: "/img/statelesscp.png"
     }
 ];
 
@@ -193,17 +191,19 @@ function HighlightedBox({ title, description, logo }) {
     return (
         <div
             style={{
-                width: "300px",
+                width: "calc(33.3333% - 40px)", // Adjusted width to accommodate three boxes with spacing
+                height: "200px", // Fixed height for square boxes
                 padding: "20px",
                 background: "#fff",
-                border: `2px solid ${isHovered ? "#FFA500" : "#FFD700"}`, // Change border color when hovered
+                border: `2px solid ${isHovered ? "#FFA500" : "#FFD700"}`,
                 borderRadius: "10px",
-                margin: "40px",
+                margin: "10px", // Adjusted margin for equal spacing
                 textAlign: "center",
                 boxSizing: "border-box",
+                display: "inline-block" // Added to ensure boxes appear in a row
             }}
-            onMouseEnter={() => setIsHovered(true)} // Set isHovered to true when mouse enters
-            onMouseLeave={() => setIsHovered(false)} // Set isHovered to false when mouse leaves
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
         >
             <img src={logo} alt={`${title} logo`} style={{ height: "50px", marginBottom: "10px" }} />
             <h3 style={{ fontWeight: "bold", marginBottom: "10px" }}>{title}</h3>
@@ -211,6 +211,18 @@ function HighlightedBox({ title, description, logo }) {
         </div>
     );
 }
+
+function BaazFeatures() {
+    return (
+        <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", marginTop: "20px" }}>
+            {baazFeatures.map((feature, index) => (
+                <HighlightedBox key={index} title={feature.title} description={feature.description} logo={feature.logo} />
+            ))}
+        </div>
+    );
+}
+
+
 
 // ** Styled Components
 
