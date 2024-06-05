@@ -194,7 +194,7 @@ function HighlightedBox({ title, description, logo }) {
                 width: "calc(33.3333% - 40px)", // Adjusted width to accommodate three boxes with spacing
                 height: "200px", // Fixed height for square boxes
                 padding: "20px",
-                paddingBottom: "20px", // Added bottom padding
+                paddingBottom: "200px", // Added bottom padding
                 background: "#fff",
                 border: `2px solid ${isHovered ? "#FFA500" : "#FFD700"}`,
                 borderRadius: "10px",
