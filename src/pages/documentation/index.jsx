@@ -9,8 +9,8 @@ export default function Documentation() {
 
     return (
         <Layout
-            title="Comprehensive Guides for SaaS Infrastructure Management |  DataInfra.io Documentation"
-            description="Access the DataInfra.io documentation to learn about control planes for real-time analytics infrastructure. Discover comprehensive guides, best practices, and technical resources to effectively manage and optimize your real-time analytics infrastructure for enhanced data processing and analysis."
+            title="BaaZ Docs: All about BaaZ."
+            description="BaaZ Docs."
         >
             <NavBarLogo />
 
@@ -18,14 +18,14 @@ export default function Documentation() {
                 <img src="img/analytics.png" alt="analytics-image" height="163px" />
 
                 <Title>
-                    Open Source Products <Purple> By DataInfra</Purple>
+                    <Purple>BaaZ </Purple> Documentation
                 </Title>
 
                 <Services>
-                    <Service name="Druid On Kubernetes" icon="druid" />
-                    <Service name="Pinot On Kubernetes" icon="pinot" />
-                    <Service name="Distributed Systems Operator Interface" icon="dsoiLarge" />
-                    <Service name="Operator Runtime" icon="operatorLarge" />
+                    <Service name="Developer Documentation" icon="docs" />
+                    {/* <Service name="Tutorials" icon="pinot" /> */}
+                    {/* <Service name="Distributed Systems Operator Interface" icon="dsoiLarge" />
+                    <Service name="Operator Runtime" icon="operatorLarge" /> */}
 
                 </Services>
 
@@ -133,7 +133,7 @@ function Services({ children }) {
                 display: "flex",
                 marginTop: "60px",
                 marginBottom: "200px",
-                maxWidth: "1328px",
+                maxWidth: "800px",
                 width: "100%",
                 justifyContent: "space-between",
             }}
@@ -156,7 +156,7 @@ function NavBarLogo({ className }) {
                 color: "#fff",
             }}
         >
-            <b>Data</b>Infra <b>Developer</b>
+            <b></b> <b></b>
         </span>
     )
 }

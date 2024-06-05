@@ -1,9 +1,0 @@
-{
-  "label": "Documentation",
-  "position": 2,
-  "collapsed": false,
-  "link": {
-    "type": "doc",
-    "id": "druid-on-kubernetes/documentation"
-  }
-}

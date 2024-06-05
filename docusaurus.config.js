@@ -116,41 +116,41 @@ const config = {
                 // title: "DataInfra",
                 logo: {
                     alt: "BaaZ Logo",
-                    src: "img/logo-single.png",
+                    src: "img/logo-white.png",
                 },
                 items: [
+                    // {
+                    //     type: "dropdown",
+                    //     // sidebarId: "tutorialSidebar",
+                    //     position: "left",
+                    //     label: "​",
+                    //     className: "service-dropdown",
+                    //     items: [
+                    //         {
+                    //             label: "Druid Kubernetes Operator",
+                    //             to: "docs/druid-on-kubernetes",
+                    //             className: "druid",
+                    //         },
+                    //         {
+                    //             label: "Pinot Kubernetes Operator",
+                    //             to: "docs/pinot-on-kubernetes",
+                    //             className: "pinot",
+                    //         },
+                    //         {
+                    //             label: "Distributed systems operator interface",
+                    //             to: "docs/distributed-systems-operator-interface",
+                    //             className: "dsoi",
+                    //         },
+                    //         {
+                    //             label: "Operator runtime",
+                    //             to: "docs/operator-runtime",
+                    //             className: "operator",
+                    //         },
+                    //     ],
+                    // },
                     {
-                        type: "dropdown",
-                        // sidebarId: "tutorialSidebar",
-                        position: "left",
-                        label: "​",
-                        className: "service-dropdown",
-                        items: [
-                            {
-                                label: "Druid Kubernetes Operator",
-                                to: "docs/druid-on-kubernetes",
-                                className: "druid",
-                            },
-                            {
-                                label: "Pinot Kubernetes Operator",
-                                to: "docs/pinot-on-kubernetes",
-                                className: "pinot",
-                            },
-                            {
-                                label: "Distributed systems operator interface",
-                                to: "docs/distributed-systems-operator-interface",
-                                className: "dsoi",
-                            },
-                            {
-                                label: "Operator runtime",
-                                to: "docs/operator-runtime",
-                                className: "operator",
-                            },
-                        ],
-                    },
-                    {
-                        to: "/documentation",
-                        label: "OSS",
+                        to: "/#features",
+                        label: "Features",
                         position: "right",
                     },
                     { to: "/blog", label: "Blogs", position: "right" },
