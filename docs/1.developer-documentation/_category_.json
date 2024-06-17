@@ -1,8 +1,8 @@
 {
-  "label": "Distributed sytem operator interface",
-  "position": 3,
+  "label": "Developer Documentation",
+  "position": 1,
   "link": {
     "type": "generated-index",
-    "description": "Distributed sytem operator interface"
+    "description": "Developer Documentation"
   }
 }

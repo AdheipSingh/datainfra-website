@@ -6,7 +6,7 @@ hide_title: true
 
 <Installation>
 
-Install Control Plane For <Purple>Pinot</Purple>
+Install BaaZ Control Plane for <Purple>SaaS</Purple>
 
 ```
 helm repo add datainfra https://charts.datainfra.io

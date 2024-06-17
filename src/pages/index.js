@@ -104,7 +104,7 @@ export default function Home() {
                             <img
                                 src="/img/baazplatform.png"
                                 alt="Without BaaZ"
-                                style={{ height: "700px" }}
+                                style={{ height: "900px" }}
                             />
                         </div>
                     </div>

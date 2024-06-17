@@ -81,7 +81,7 @@ const sidebars = {
         {
             type: "link",
             label: "Support",
-            href: "https://www.datainfra.io/demo",
+            href: "https://www.baaz.dev/demo",
         },
         {
             type: "link",
