@@ -31,7 +31,6 @@ If you recollect SaaS Architectures, we make sure the service provisioning layer
 </div>
 
 :::info
-In BaaZ, tenant infrastructure is kubernetes nodepools/nodegroups. A dataplane can consist of N no of tenant infrastructure. Tenant infrastructure is abstracted based on application type and not on each tenant.
+In BaaZ, tenant infrastructure is k8s nodepools/nodegroups. A dataplane can consist of N no of tenant infrastructure. Tenant infrastructure is abstracted based on application type and not on each tenant.
 What this basically means is BaaZ does not create tenant infra for each tenant. Example: If you are building Postgres as a Service, we create tenant infra ie pg-small-tenant-infra which a single nodepool. 
-Free tier User > Shared Dataplane > Pg-Small-Tenant-Infra Nodepool.
 :::

@@ -58,3 +58,56 @@ In BaaZ, Dataplane can be deployed within a customer network or within a SaaS pr
 <div style={{ textAlign: 'center' }}>
   <img src={require('../../../static/img/dedicated-dp.png').default} alt="Dataplane" style={{ width: '50%', height: 'auto' }} />
 </div>
+
+## Product to Infrastructure - Dataplanes
+
+In a real-world scenario for SaaS (Software as a Service), users are typically not aware of the specific type of dataplane their workloads run on. What users are aware of are the subscription plans or tiers they have subscribed to. To abstract away the complexity and provide a seamless experience, it is essential to map the subscription plans/tiers to different dataplane types.
+
+- Free tier and Startup tier user workloads are deployed on a shared dataplane hosted on the SaaS provider's network.
+- Business tier user workloads are deployed on dedicated dataplanes hosted on the SaaS provider's network.
+- Enterprise tier user workloads are deployed on dedicated dataplanes hosted on the customer's network.
+
+
+<div style={{ textAlign: 'center' }}>
+  <img src={require('../../../static/img/mapdataplane.png').default} alt="Dataplane" style={{ width: '100%', height: 'auto' }} />
+</div>
+
+## Dataplanes in BaaZ
+
+Dataplane is a first-class concept in BaaZ. Here's a sample config for deploying a shared dataplane. Let's look at the important keys for deploying a dataplane:
+
+- ```saasType```: SaaS type can be ```shared```, ```dedicated```, or ```private```.
+- ```provisionNetwork```: If set to true, the underlying dataplane controller creates the network, i.e., VPC, subnets, NAT, IG, etc.
+- ```applicationConfig```: Application Config bootstraps the dataplane with applications. In SaaS, every dataplane has common app configs such as Nginx, Prometheus, etc. The underlying dataplane controller bootstraps the dataplane with the Helm configs provided.
+
+```yaml
+dataplane:
+  cloudType: aws
+  cloudRegion: us-east-1
+  saasType: shared
+  cloudAuth:
+    awsAuth:
+      awsAccessKey: <kidapaji>
+      awsSecretKey: <sabvdya>
+  provisionNetwork: true
+  kubernetesConfig:
+    eks:
+      version: '1.27'
+  applicationConfig:
+  - name: "nginx"
+    namespace: nginx-ingress
+    chartName: "ingress-nginx"
+    repoName: "ingress-nginx"
+    repoUrl: "https://kubernetes.github.io/ingress-nginx"
+    version: "1.9.4"
+    values:
+    - controller.nodeSelector.nodeType=system
+  - name: "zookeeper-operator"
+    namespace: zk-operator
+    chartName: "zookeeper-operator"
+    repoName: "pravega"
+    repoUrl: "https://charts.pravega.io"
+    version: "0.2.15"
+    values:
+    - nodeSelector.nodeType=system
+```
