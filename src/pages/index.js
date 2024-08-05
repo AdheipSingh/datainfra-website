@@ -58,8 +58,8 @@ export default function Home() {
 
                             <RequestDemo>
                                 <RequestDemoButtons>
-                                    <Link to="/demo" className={styles.requestDemoButton}>
-                                        Book Demo
+                                    <Link to="https://cal.com/baazhq" className={styles.requestDemoButton}>
+                                        Book a Call
                                     </Link>
                                     <Link
                                         to="/documentation"

@@ -16,10 +16,10 @@ function BlogListPageMetadata(props) {
     } = useDocusaurusContext()
     const { blogDescription, permalink } = metadata
     const isBlogOnlyMode = permalink === "/"
-    const title = "DataInfra Blogs | Insights, Trends, and Best Practices for SaaS Infrastructure Management"
+    const title = "BaaZ Blogs | Insights, Trends, and Best Practices for SaaS Infrastructure Management"
     return (
         <>
-            <PageMetadata title={title} description="Explore DataInfra blogs for valuable insights, latest trends, and best practices in SaaS infrastructure management. Stay informed about industry developments, optimization techniques, and strategies to enhance the performance and scalability of your SaaS infrastructure." />
+            <PageMetadata title={title} description="BaaZ blogs for valuable insights, latest trends, and best practices in SaaS infrastructure management. Stay informed about industry developments, optimization techniques, and strategies to enhance the performance and scalability of your SaaS infrastructure." />
             <SearchMetadata tag="blog_posts_list" />
         </>
     )
@@ -46,8 +46,8 @@ export default function BlogListPage(props) {
 
         // Prepare img element with new logo
         const imgElement = document.createElement("img")
-        imgElement.src = "/img/logo-text-light.svg"
-        imgElement.alt = "logo"
+        //imgElement.src = "/img/logo-text-light.svg"
+        //imgElement.alt = "logo"
 
         // Append the img element to nav element
         document.querySelector(".navbar__items").appendChild(imgElement)

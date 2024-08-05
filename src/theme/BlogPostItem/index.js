@@ -10,8 +10,8 @@ export default function BlogPostItemWrapper(props) {
 
         // Prepare img element with new logo
         const imgElement = document.createElement("img")
-        imgElement.src = "/img/logo-text-light.svg"
-        imgElement.alt = "logo"
+        //  imgElement.src = "/img/logo-text-light.svg"
+        //  imgElement.alt = "logo"
 
         // Append the img element to nav element
         document.querySelector(".navbar__items").appendChild(imgElement)
@@ -22,7 +22,7 @@ export default function BlogPostItemWrapper(props) {
 
     return (
         <>
-            <ActionButton to="/demo">Join Our Waitlist</ActionButton>
+            <ActionButton to="/demo">Book a Call</ActionButton>
             <BlogPostItem {...props} />
         </>
     )
