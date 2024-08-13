@@ -9,7 +9,7 @@ tags: [kubernetes, operator, control-planes]
 hide_table_of_contents: false
 ---
 
-*In this article, we explore the use cases of Helm and Kubernetes operators, demystifying when to use each tool, based on DataInfra's experience in developing and maintaining Kubernetes operators, controllers, and libraries*
+*In this article, we explore the use cases of Helm and Kubernetes operators, demystifying when to use each tool, based on BaaZ's experience in developing and maintaining Kubernetes operators, controllers, and libraries*
 
 **Introduction**
 

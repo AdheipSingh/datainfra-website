@@ -25,7 +25,7 @@
     }
 }
 
-.navbarMobile > div {
+.navbarMobile>div {
     display: flex;
     width: 100%;
     align-items: center;
@@ -71,7 +71,7 @@
         min-width: unset !important;
     }
 
-    .diagram > img {
+    .diagram>img {
         max-width: unset !important;
     }
 
@@ -96,7 +96,7 @@
         flex-direction: column !important;
     }
 
-    .container2Charts > div {
+    .container2Charts>div {
         align-items: unset !important;
         text-align: center;
     }
@@ -106,7 +106,7 @@
         gap: 20px;
     }
 
-    .container2Points > div {
+    .container2Points>div {
         margin-left: 10%;
     }
 
@@ -117,7 +117,7 @@
         height: unset !important;
     }
 
-    .containerHero3 > img {
+    .containerHero3>img {
         display: none !important;
     }
 
@@ -131,11 +131,11 @@
         margin-top: 36px !important;
     }
 
-    .containerHero4 > div > div {
+    .containerHero4>div>div {
         flex-direction: column !important;
     }
 
-    .containerHero4 > div > div > a {
+    .containerHero4>div>div>a {
         margin: auto;
     }
 
@@ -150,4 +150,89 @@
     color: #858585;
     font-style: italic;
     font-size: 1rem;
+}
+
+/* index.module.css */
+
+.requestDemoButton {
+    background: #fff;
+    border-radius: 28px;
+    border: 2px solid #4361ee;
+    color: #4361ee;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 12px 32px;
+    box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.12);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.requestDemoButton:hover {
+    background: #4361ee;
+    color: #fff;
+}
+
+.navbar__link_hover:hover {
+    color: #4361ee;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    padding-left: 56px;
+    padding-right: 56px;
+    background: #fff;
+    height: 90px;
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+}
+
+.navbarMobile {
+    display: none;
+    /* Add responsive design for mobile view */
+}
+
+.containerHero1 {
+    padding: 180px 0 210px;
+    display: flex;
+    background: #f4f4f4;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.requestDemoButton:hover {
+    background: #4361ee;
+    color: #fff;
+}
+
+.navbar__link_hover:hover {
+    color: #4361ee;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    padding-left: 56px;
+    padding-right: 56px;
+    background: #fff;
+    height: 90px;
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+}
+
+.navbarMobile {
+    display: none;
+    /* Add responsive design for mobile view */
+}
+
+.containerHero1 {
+    padding: 180px 0 210px;
+    display: flex;
+    background: #f4f4f4;
+    justify-content: space-between;
+    align-items: center;
 }

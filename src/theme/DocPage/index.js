@@ -27,12 +27,11 @@ export default function DocPageWrapper(props) {
                 style={{ position: "fixed", zIndex: 999, top: "31px", left: "150px" }}
             >
                 <NavLink to={pathname + "/documentation"} style={{ marginLeft: "18px" }}>
-                    Documentation
                 </NavLink>
                 {!isDSOI ? (
                     <>
-                        <NavLink to={pathname + "/tutorials"}>Tutorials</NavLink>
-                        <NavLink to={pathname + "/installation"}>Installation</NavLink>
+                        <NavLink to={pathname + "/tutorials"}></NavLink>
+                        <NavLink to={pathname + "/installation"}></NavLink>
                     </>
                 ) : null}
             </div>

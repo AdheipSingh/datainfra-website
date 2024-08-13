@@ -6,12 +6,12 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula")
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-    title: "DataInfra",
+    title: "BaaZ",
     tagline: "Control Planes for SaaS Infrastructure",
-    favicon: "img/favicon.ico",
+    favicon: "img/logo-vector.png",
 
     // Set the production url of your site here
-    url: "https://www.datainfra.io/", // change to => https://datainfra-website.vercel.app/
+    url: "https://www.baaz.dev/", // change to => https://datainfra-website.vercel.app/
     // Set the /<baseUrl>/ pathname under which your site is served
     // For GitHub pages deployment, it is often '/<projectName>/'
     baseUrl: "/",
@@ -19,8 +19,8 @@ const config = {
     staticDirectories: ['static'],
     // GitHub pages deployment config.
     // If you aren't using GitHub pages, you don't need these.
-    organizationName: "DataInfra", // Usually your GitHub org/user name.
-    projectName: "DataInfra", // Usually your repo name.
+    organizationName: "BaaZ", // Usually your GitHub org/user name.
+    projectName: "BaaZ", // Usually your repo name.
 
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
@@ -46,7 +46,7 @@ const config = {
             tagName: "link",
             attributes: {
                 rel: "canonical",
-                href: "https://www.datainfra.io/",
+                href: "https://www.baaz.dev/",
             },
         },
         {
@@ -54,7 +54,7 @@ const config = {
             attributes: {
                 'data-rh': 'true',
                 rel: "canonical",
-                href: "https://www.datainfra.io/",
+                href: "https://www.baaz.dev/",
             },
         },
         {
@@ -115,42 +115,42 @@ const config = {
             navbar: {
                 // title: "DataInfra",
                 logo: {
-                    alt: "DataInfra Logo",
-                    src: "img/logo-only-white.svg",
+                    alt: "BaaZ Logo",
+                    src: "img/logo-white.png",
                 },
                 items: [
+                    // {
+                    //     type: "dropdown",
+                    //     // sidebarId: "tutorialSidebar",
+                    //     position: "left",
+                    //     label: "​",
+                    //     className: "service-dropdown",
+                    //     items: [
+                    //         {
+                    //             label: "Druid Kubernetes Operator",
+                    //             to: "docs/druid-on-kubernetes",
+                    //             className: "druid",
+                    //         },
+                    //         {
+                    //             label: "Pinot Kubernetes Operator",
+                    //             to: "docs/pinot-on-kubernetes",
+                    //             className: "pinot",
+                    //         },
+                    //         {
+                    //             label: "Distributed systems operator interface",
+                    //             to: "docs/distributed-systems-operator-interface",
+                    //             className: "dsoi",
+                    //         },
+                    //         {
+                    //             label: "Operator runtime",
+                    //             to: "docs/operator-runtime",
+                    //             className: "operator",
+                    //         },
+                    //     ],
+                    // },
                     {
-                        type: "dropdown",
-                        // sidebarId: "tutorialSidebar",
-                        position: "left",
-                        label: "​",
-                        className: "service-dropdown",
-                        items: [
-                            {
-                                label: "Druid Kubernetes Operator",
-                                to: "docs/druid-on-kubernetes",
-                                className: "druid",
-                            },
-                            {
-                                label: "Pinot Kubernetes Operator",
-                                to: "docs/pinot-on-kubernetes",
-                                className: "pinot",
-                            },
-                            {
-                                label: "Distributed systems operator interface",
-                                to: "docs/distributed-systems-operator-interface",
-                                className: "dsoi",
-                            },
-                            {
-                                label: "Operator runtime",
-                                to: "docs/operator-runtime",
-                                className: "operator",
-                            },
-                        ],
-                    },
-                    {
-                        to: "/documentation",
-                        label: "OSS",
+                        to: "/#features",
+                        label: "Features",
                         position: "right",
                     },
                     { to: "/blog", label: "Blogs", position: "right" },

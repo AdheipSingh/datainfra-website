@@ -71,7 +71,7 @@ export default function DemoDruid() {
                     <FormContainer>
                         <FormTitle>TALK TO DATAINFRA</FormTitle>
 
-                        <Form action="https://formspree.io/f/mgebqzok" method="POST">
+                        <Form action="https://formspree.io/f/mvgpryap" method="POST">
                             <Label htmlFor="firstName">
                                 First Name**
                                 <br />

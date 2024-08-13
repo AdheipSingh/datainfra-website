@@ -19,19 +19,12 @@ export default function FooterWrapper() {
         <Footer className={styles.main}>
             {/* Left */}
             <div style={{ flex: "1" }}>
-                <img src="/img/logo-only-white.svg" alt="logo" style={{ height: "72px" }} />
+                <img src="/img/logo-white.png" alt="logo" style={{ height: "72px" }} />
 
                 <h5 style={{ fontWeight: 700, fontSize: "30px", marginTop: "6px" }}>
-                    Data<span style={{ fontWeight: 400 }}>Infra</span>
                 </h5>
 
-                <p style={{ lineHeight: "25.1px", fontSize: "20px" }}>
-                    Apache, Apache Druid, Druid, the Apache Druid logo, Apache Kafka, Kafka, the
-                    Apache Kafka logo, Apache Pinot, Pinot, the Apache Superset logo are registered
-                    trademarks or trademarks of Apache Software Foundation.
-                </p>
-
-                <div style={{ display: "flex", marginTop: "32px" }}>
+                {/* <div style={{ display: "flex", marginTop: "32px" }}>
                     <Link to="/">
                         <SocialImg src="/img/logo-only-white.svg" alt="logo" />
                     </Link>
@@ -43,42 +36,29 @@ export default function FooterWrapper() {
                     <Link to="https://github.com/datainfrahq">
                         <SocialImg src="/img/github.png" alt="github-logo" />
                     </Link>
-                </div>
+                </div> */}
 
                 <p style={{ fontSize: "20px", marginTop: "64px" }}>
-                    @Copyright by DataInfra. All rights reserved
+                    @Copyright by Sadhrao Software Consulting. All rights reserved.
                 </p>
-            </div>
-
-            {/* LeftMiddle */}
-            <div className={styles.dataStreamIQ} style={{ flex: "1", marginTop: "24px" }}>
-                <div style={{ width: "fit-content", margin: "auto" }}>
-                    <h5 style={{ fontWeight: 700, fontSize: "30px", marginTop: "6px" }}>
-                        Data<span style={{ fontWeight: 400 }}>StreamIQ</span>
-                    </h5>
-
-                    <div style={{ display: "flex", flexDirection: "column" }}>
-                        <Navlink to="https://datastreamiq.com/">Consulting Partner</Navlink>
-                    </div>
-                </div>
             </div>
 
             {/* Middle */}
             <div className={styles.importantLinks} style={{ flex: "1", marginTop: "24px" }}>
                 <div style={{ width: "fit-content", margin: "auto" }}>
                     <h5 className={styles.links} style={{ fontWeight: 800, fontSize: "20px" }}>
-                        Important Links
+                        Useful Links
                     </h5>
 
                     <div style={{ display: "flex", flexDirection: "column" }}>
                         <Navlink to="/">Home</Navlink>
                         <Navlink to="/blog">Blogs</Navlink>
-                        <Navlink to="/documentation">OSS</Navlink>
+                        <Navlink to="/documentation">Documentation</Navlink>
                     </div>
                 </div>
             </div>
 
-            {/* Right */}
+
             <div style={{ flex: "1" }}>
                 <div
                     className={styles.contactContainer}
@@ -89,7 +69,7 @@ export default function FooterWrapper() {
                     </h5>
 
                     <form
-                        action="https://formspree.io/f/mgebqzok"
+                        action="https://formspree.io/f/mvgpryap"
                         method="POST"
                         style={{ marginTop: "30px" }}
                     >
@@ -153,7 +133,7 @@ export default function FooterWrapper() {
                     </form>
                 </div>
             </div>
-            <Analytics />
+
         </Footer>
     )
 }
@@ -168,9 +148,11 @@ function Footer({ className, children }) {
                 gap: "10px",
                 justifyContent: "space-between",
                 background: "#001EAA",
-                padding: "48px",
-                paddingBottom: "64px",
-                color: "#fff",
+                padding: "32px",
+                paddingBottom: "32px",
+                fontSize: "14px",
+                color: "#B0C4DE",
+                marginTop: "30px", // Added margin top
             }}
         >
             {children}

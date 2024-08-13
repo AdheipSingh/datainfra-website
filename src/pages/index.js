@@ -1,198 +1,229 @@
-import React from "react"
-import Layout from "@theme/Layout"
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
-import Link from "@docusaurus/Link"
-import styles from "./index.module.css"
+import React from "react";
+import Layout from "@theme/Layout";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import Link from "@docusaurus/Link";
+import styles from "./index.module.css";
 
 export default function Home() {
-    const { siteConfig } = useDocusaurusContext()
+    const { siteConfig } = useDocusaurusContext();
 
     React.useLayoutEffect(() => {
-        document.querySelector(".main-wrapper").style.background = "#f4f4f4"
-    }, [])
+        document.querySelector(".main-wrapper").style.background = "#f4f4f4";
+    }, []);
 
     return (
         <>
             <Layout
-                title="Control Plane for SaaS Infrastructure"
-                description="Discover the remote control plane and unified management options for your SaaS infrastructure at DataInfra.io. Explore dedicated, shared, and BYOC choices for optimised SaaS infrastructure management with a centralized control plane."
+                title="Control Plane for SaaS"
+                description="Centralised control plane and unified management options for SaaS infrastructure. Build managed services, infra saas, and serverless choices for SaaS infrastructure management."
                 wrapperClassName={styles.wrapper}
             >
                 <NavBar className={styles.navbar}>
-                    <Logo />
-
-
+                    {/* <Logo /> */}
+                    {/* <NavLink to="/blog">Features</NavLink>
+                    <NavLink to="/documentation">Documentations</NavLink>
                     <NavLink to="/blog">Blogs</NavLink>
-
+                    <Gitbutton href="https://github.com/baazhq/baaz">
+                        Star on GitHub
+                    </Gitbutton>
                     <ActionButton href="https://launchpass.com/datainfra-workspace">
                         Join Slack
-                    </ActionButton>
+                    </ActionButton> */}
                 </NavBar>
 
                 {/* Navbar mobile */}
-                <NavBar className={styles.navbarMobile}>
-                    <div style={{ display: "flex" }}>
-                        <Logo />
-
-                        <ActionButton
-                            className={styles.actionButton}
-                            href="https://launchpass.com/datainfra-workspace"
-                        >
-                            Join Slack
-                        </ActionButton>
-                    </div>
-                    <div style={{ display: "flex", justifyContent: "space-between" }}>
-                        <NavLink
-                            style={{ marginLeft: 0 }}
-                            to="https://github.com/orgs/datainfrahq/repositories"
-                        >
-                            Github
-                        </NavLink>
-
-                        <NavLink style={{ marginLeft: 0 }} to="/documentation">
-                            Documentation
-                        </NavLink>
-
-                        <NavLink style={{ marginLeft: 0 }} to="/blog">
-                            Blogs
-                        </NavLink>
-                    </div>
-                </NavBar>
+                {/* Navbar mobile content here */}
 
                 {/* Section 1 */}
                 <div>
                     <Container>
                         {/* Left decoration */}
                         <img src="/img/leftOrnament.svg" alt="left" />
-
                         <div
-                            style={{ textAlign: "center", marginRight: "10px", marginLeft: "10px" }}
+                            style={{
+                                textAlign: "center",
+                                marginRight: "10px",
+                                marginLeft: "10px",
+                            }}
                         >
                             <Title>
-                                <Purple>Centralised</Purple> Control Plane for <Purple>Infrastructure SaaS</Purple>
+                                <Purple>Centralised</Purple> Control Plane for <Purple>SaaS</Purple>
                             </Title>
-                            <p style={{ fontSize: "1.375rem", fontWeight: 500, color: "#000" }}>
-                                Unified Management for Shared, Dedicated and Private SaaS.
+                            <p
+                                style={{ fontSize: "1.375rem", fontWeight: 500, color: "#000" }}
+                            >
+                                Unified Management Plane for Managed Services, Infra SaaS and
+                                Serverless SaaS.
                             </p>
 
                             <RequestDemo>
-                                <form action="https://formspree.io/f/mgebqzok" method="POST">
-                                    {/* Hidden message */}
-                                    <input
-                                        defaultValue="Join the Waitlist Now!"
-                                        name="message"
-                                        style={{ display: "none" }}
-                                    />
-                                    <RequestDemoInput />
-                                    <RequestDemoButton>Join the Waitlist Now!</RequestDemoButton>
-                                </form>
+                                <RequestDemoButtons>
+                                    <Link to="https://cal.com/baazhq" className={styles.requestDemoButton}>
+                                        Book a Call
+                                    </Link>
+                                    <Link
+                                        to="/documentation"
+                                        className={styles.requestDemoButton}
+                                        style={{ marginRight: "10px" }}
+                                    >
+                                        Read Docs
+                                    </Link>
+                                </RequestDemoButtons>
                             </RequestDemo>
                         </div>
-
                         {/* Right decoration */}
                         <img src="/img/rightOrnament.svg" alt="right" />
                     </Container>
                 </div>
 
-                {/* Section 2 */}
-                {/* <div>
-                    <Section2Header>We can add some text here</Section2Header>
-                    <img
-                        style={{ maxWidth: "1183px", margin: "auto", display: "block" }}
-                        src="/img/landingDiagram.png"
-                        alt="diagram"
-                    />
-                </div> */}
+                {/* New Section */}
+                <div style={{ textAlign: "center", marginTop: "-60px", backgroundColor: "#f4f4f4" }}>
+                    <Title>
+                        Accelerate your <Purple>SaaS </Purple>Journey
+                    </Title>
+                    <p
+                        style={{
+                            fontSize: "1.25rem",
+                            fontWeight: 100,
+                            marginBottom: "20px",
+                            marginTop: "0px",
+                            color: "#1a202c",
+                        }}
+                    >
+                        BaaZ Platform streamlines infrastructure setup,
+                        reduces costs,<br></br> accelerates GTM and ensures security and compliance.
 
-                {/* Section 3 */}
-                {/* <div style={{ padding: "60px 20px 60px 20px" }}>
-                    <Section3Container>
-                        <p style={{ fontSize: "1.125rem", fontWeight: 700, marginBottom: 0 }}>
-                            Are You Interested ?
+                    </p>
+                    <div style={{ display: "flex", justifyContent: "center", marginTop: "10px" }}>
+                        <div style={{
+                            border: "2px solid #FFD700", // gold border
+                            borderRadius: "10px", // rounded corners
+                            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", // subtle shadow for highlighting
+                            overflow: "hidden" // hide overflow content
+                        }}>
+                            <img
+                                src="/img/indeximage.png"
+                                alt="Without BaaZ"
+                                style={{ height: "900px" }}
+                            />
+                        </div>
+                    </div>
+
+                    {/* Features Title */}
+                    <h1 id="features" style={{ marginTop: "40px" }}>
+                        Deploy on any K8s cluster on cloud or on-prem. <br />
+                        Launch <Purple>Dataplanes</Purple>, Create <Purple>Tenants</Purple> and Deploy <Purple>Apps</Purple>
+                    </h1>
+
+                    {/* Highlighted Boxes for Baaz Features */}
+
+                    <div>
+                        <BaazFeatures />
+                    </div>
+                </div>
+
+                {/* Join Our Community Section */}
+                <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "center", padding: "40px 20px", marginTop: "40px" }}>
+                    <div style={{ flex: 1, textAlign: "left", marginLeft: "200px" }}>
+                        <h2 style={{ fontSize: "2.5rem", fontWeight: 700, marginBottom: "16px", color: "#1a202c" }}>
+                            Join Our <Purple>Community</Purple>
+                        </h2>
+                        <p style={{ fontSize: "1.5rem", fontWeight: 100, color: "#1a202c" }}>
+                            BaaZ thrives on the ethos of open-source collaboration. Become a part of our worldwide network of innovators, engineers, and advocates on Slack and GitHub.
                         </p>
-                        <Section3Header>
-                            Our Control Planes are easy to deploy. Try it out Today !
-                        </Section3Header>
-                        <RequestDemoButton2>Request for Demo</RequestDemoButton2>
-
-                        <Section3OrnamentRight />
-                        <Section3OrnamentLeft />
-                    </Section3Container>
-                </div> */}
-
-                {/* Section 4 */}
-                <div
-                // className={styles.containerHero4}
-                // style={{
-                //     display: "flex",
-                //     margin: "auto",
-                //     marginTop: "50px",
-                //     justifyContent: "space-between",
-                //     justifySelf: "center",
-                //     marginBottom: "90px",
-                //     maxWidth: 1200,
-                //     width: "100%",
-                // }}
-                >
-                    {/*{/* Left side */}
-                    {/* <div>
-                        <h3
-                            style={{
-                                fontSize: "3.5rem",
-                                fontWeight: 800,
-                                marginTop: "96px",
-                            }}
-                        >
-                            Community
-                        </h3>
-                        <p
-                            style={{
-                                fontSize: "1.5rem",
-                                maxWidth: "500px",
-                                marginTop: "20px",
-                                lineHeight: "1.25",
-                                marginBottom: "40px",
-                            }}
-                        >
-                            DataInfra is built on the principles of open and free software. Join our
-                            global community of contributors, developers, and enthusiasts on Slack
-                            and GitHub.
-                        </p>
-                        <div style={{ display: "flex", gap: "16px" }}>
-                            <ActionButton
-                                style={{ marginLeft: 0 }}
-                                href="https://launchpass.com/datainfra-workspace"
-                            >
+                        <div style={{ display: "flex", gap: "16px", marginTop: "16px" }}>
+                            <Gitbutton href="https://github.com/baazhq/baaz">
+                                Star on GitHub
+                            </Gitbutton>
+                            <ActionButton href="https://www.launchpass.com/baaz">
                                 Join Slack
                             </ActionButton>
-
-                            <Link href="https://github.com/orgs/datainfrahq/repositories">
-                                <button
-                                    style={{
-                                        width: "240px",
-                                        height: "64px",
-                                        borderRadius: "40px",
-                                        background: "#4361EE",
-                                        border: "none",
-                                        color: "#fff",
-                                        fontWeight: 600,
-                                        fontSize: "1.25rem",
-                                        cursor: "pointer",
-                                    }}
-                                >
-                                    Star On Github
-                                </button>
-                            </Link>
                         </div>
-                    </div> */}
-
-                    {/* Chart */}
-                    {/* <img style={{ height: "507px" }} src="/img/community.png" alt="community" /> */}
+                    </div>
+                    <div style={{ flex: 1, textAlign: "center", maxWidth: "50%" }}>
+                        <img src="/img/bzcommunity.png" alt="Community" style={{ width: "100%", maxWidth: "400px" }} />
+                    </div>
                 </div>
+
+
+                {/* Rest of the content... */}
             </Layout>
         </>
-    )
+    );
 }
+
+const baazFeatures = [
+    {
+        title: "Unified Multi-Cloud Design",
+        description: "A comprehensive system architecture supporting shared, dedicated, and BYOC infrastructures across multiple cloud environments.",
+        logo: "/img/multicloud.png"
+    },
+    {
+        title: "Robust Security",
+        description: "Implement secure access to customer networks using a pull-based model, eliminating the need for VPC peering in BYOC scenarios.",
+        logo: "/img/security.png"
+    },
+    {
+        title: "Optimized Cost Efficiency",
+        description: "Leverage built-in Kubernetes deployment and scheduling strategies to significantly reduce cloud expenditure.",
+        logo: "/img/cost.png"
+    },
+    {
+        title: "Rapid Go-to-Market",
+        description: "Accelerate your SaaS launch and start monetizing within days.",
+        logo: "/img/gtm.png"
+    },
+    {
+        title: "Enhanced Sales Enablement",
+        description: "Facilitate seamless deployments in both customer and SaaS provider networks, removing engineering roadblocks for sales.",
+        logo: "/img/sales.png"
+    },
+    {
+        title: "Stateless Control Plane",
+        description: "Deploy a stateless control plane on any Kubernetes cluster, whether on-premises or in the cloud.",
+        logo: "/img/statelesscp.png"
+    }
+];
+
+function HighlightedBox({ title, description, logo }) {
+    const [isHovered, setIsHovered] = React.useState(false);
+
+    return (
+        <div
+            style={{
+                width: "calc(33.3333% - 40px)", // Adjusted width to accommodate three boxes with spacing
+                height: "200px", // Fixed height for square boxes
+                padding: "20px",
+                paddingBottom: "200px", // Added bottom padding
+                background: "#fff",
+                border: `2px solid ${isHovered ? "#FFA500" : "#FFD700"}`,
+                borderRadius: "10px",
+                margin: "10px", // Adjusted margin for equal spacing
+                textAlign: "center",
+                boxSizing: "border-box",
+                display: "inline-block" // Added to ensure boxes appear in a row
+            }}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+        >
+            <img src={logo} alt={`${title} logo`} style={{ height: "50px", marginBottom: "10px" }} />
+            <h3 style={{ fontWeight: "bold", marginBottom: "10px" }}>{title}</h3>
+            <p>{description}</p>
+        </div>
+    );
+}
+
+function BaazFeatures() {
+    return (
+        <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", marginTop: "20px" }}>
+            {baazFeatures.map((feature, index) => (
+                <HighlightedBox key={index} title={feature.title} description={feature.description} logo={feature.logo} />
+            ))}
+        </div>
+    );
+}
+
+
 
 // ** Styled Components
 
@@ -206,11 +237,12 @@ function Container({ children }) {
                 background: " #f4f4f4",
                 justifyContent: "space-between",
                 alignItems: "center",
+                paddingBottom: "180px"
             }}
         >
             {children}
         </div>
-    )
+    );
 }
 
 function Purple({ children }) {
@@ -226,8 +258,9 @@ function Purple({ children }) {
         >
             {children}
         </span>
-    )
+    );
 }
+
 
 function NavBar({ className, children }) {
     return (
@@ -240,19 +273,40 @@ function NavBar({ className, children }) {
                 width: "100%",
                 display: "flex",
                 alignItems: "center",
+                justifyContent: "space-between", // Adjusted justifyContent
                 paddingLeft: "56px",
-                paddingRight: "56px",
-                marginRight: "auto",
+                paddingRight: "20px", // Adjusted paddingRight
                 zIndex: 99,
             }}
         >
-            {children}
+            <div style={{ display: "flex", alignItems: "center" }}>
+                <Logo />
+                <NavLink to="/#features">Features</NavLink>
+                <NavLink to="/documentation">Documentation</NavLink>
+                <NavLink to="/blog">Blog</NavLink>
+            </div>
+            <div style={{ display: "flex" }}>
+                <Gitbutton href="https://github.com/baazhq/baaz">
+                    Star on GitHub
+                </Gitbutton>
+                <ActionButton href="https://www.launchpass.com/baaz">
+                    Join Slack
+                </ActionButton>
+            </div>
         </nav>
-    )
+    );
 }
 
+
+
 function Logo() {
-    return <img src="/img/logo-text.svg" alt="secure-icon" style={{ marginRight: "auto" }} />
+    return (
+        <img
+            src="/img/logo.png"
+            alt="secure-icon"
+            style={{ width: "250px", height: "auto", marginRight: "auto" }}
+        />
+    );
 }
 
 function NavLink({ style, to, children }) {
@@ -263,15 +317,15 @@ function NavLink({ style, to, children }) {
             style={{
                 color: " #131212",
                 marginLeft: "64px",
-                fontSize: "1.125rem",
+                fontSize: "1.5rem",
+                fontWeight: "bold", // Added fontWeight
                 ...style,
             }}
         >
             {children}
         </Link>
-    )
+    );
 }
-
 function ActionButton({ className, href, style, children }) {
     return (
         <Link
@@ -280,210 +334,112 @@ function ActionButton({ className, href, style, children }) {
             style={{
                 background: "#fff",
                 borderRadius: "28px",
-                border: "none",
-                color: "#000",
+                border: "2px solid #4361ee",
+                color: "#4361ee",
                 fontSize: "1.25rem",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 textDecoration: "none",
-                marginLeft: "64px",
+                marginLeft: "16px", // Adjusted marginLeft
                 fontFamily: "Inter, sans-serif",
                 boxShadow: "0px 4px 16px 0px rgba(0, 0, 0, 0.12)",
-                padding: "12px 32px",
+                padding: "10px 10px",
+                transition: "background 0.3s ease, color 0.3s ease, border-color 0.3s ease",
                 ...style,
             }}
+            onMouseEnter={(e) => {
+                e.target.style.background = "#4361ee";
+                e.target.style.color = "#fff";
+                e.target.style.borderColor = "#4361ee";
+            }}
+            onMouseLeave={(e) => {
+                e.target.style.background = "#fff";
+                e.target.style.color = "#4361ee";
+                e.target.style.borderColor = "#4361ee";
+            }}
         >
-            <img style={{ marginRight: "16px", height: "24px" }} src="/img/slack.svg" alt="slack" />
+            <img
+                style={{ marginRight: "16px", height: "24px" }}
+                src="/img/slack.svg"
+                alt="join-slack"
+            />
             {children}
         </Link>
-    )
+    );
 }
 
 function RequestDemo({ children }) {
     return (
-        <div
-            style={{
-                position: "relative",
-                maxWidth: "620px",
-                margin: "auto",
-                marginTop: "36px",
-            }}
-        >
+        <div style={{ display: "flex", justifyContent: "center", marginTop: "40px" }}>
             {children}
         </div>
-    )
+    );
 }
 
-function RequestDemoInput() {
+function RequestDemoButtons({ children }) {
     return (
-        <input
-            placeholder="Type your Email Address..."
-            name="email"
-            id="email"
-            className={styles.input}
-            style={{
-                maxWidth: 620,
-                width: "100%",
-                height: 58,
-                borderRadius: 36,
-                background: "#fff",
-                boxShadow: "0px 4px 16px 0px rgba(0, 0, 0, 0.12)",
-                border: "none",
-                paddingLeft: "30px",
-                fontSize: "1rem",
-            }}
-        />
-    )
-}
-
-function RequestDemoButton({ children }) {
-    return (
-        <button
-            style={{
-                position: "absolute",
-                right: "0px",
-                transform: "translateY(-50%)",
-                top: "50%",
-                right: "2px",
-                width: "200px",
-                height: "55px",
-                borderRadius: "36px",
-                background: "#4361ee",
-                border: "none",
-                color: "#fff",
-                fontSize: "1rem",
-                fontWeight: 700,
-                cursor: "pointer",
-            }}
-            type="submit"
-        >
+        <div style={{ display: "flex", gap: "16px" }}>
             {children}
-        </button>
-    )
+        </div>
+    );
 }
 
 function Title({ children }) {
     return (
         <h1
             style={{
-                fontSize: "3.5625rem",
-                fontWeight: 500,
-                maxWidth: "27ch",
-                color: "#131212",
-                margin: "auto",
+                fontSize: "3rem",
+                fontWeight: 700,
                 marginBottom: "16px",
+                marginTop: "32px",
+                color: "#1a202c",
             }}
         >
             {children}
         </h1>
-    )
+    );
 }
 
-function Section2Header({ children }) {
+function Gitbutton({ className, href, style, children }) {
     return (
-        <h2
+        <Link
+            className={className}
+            href={href}
             style={{
-                fontSize: "2rem",
-                fontWeight: 800,
-                textAlign: "center",
-                marginBottom: "40px",
-            }}
-        >
-            {children}
-        </h2>
-    )
-}
-
-function Section3Container({ children }) {
-    return (
-        <div
-            style={{
-                width: "100%",
-                maxWidth: "1184px",
-                margin: "auto",
-                background: "#4361EE",
-                borderRadius: "24px",
-                position: "relative",
+                background: "#fff",
+                borderRadius: "28px",
+                border: "2px solid #4361ee",
+                color: "#4361ee",
+                fontSize: "1.25rem",
                 display: "flex",
-                flexDirection: "column",
-                justifyContent: "flex-start",
                 alignItems: "center",
-                color: "#fff",
-                padding: "32px 130px",
-            }}
-        >
-            {children}
-        </div>
-    )
-}
-
-function Section3OrnamentRight({ style }) {
-    return (
-        <img
-            style={{
-                right: 10,
-                top: 8,
-                position: "absolute",
+                justifyContent: "center",
+                textDecoration: "none",
+                marginLeft: "16px", // Adjusted marginLeft
+                fontFamily: "Inter, sans-serif",
+                boxShadow: "0px 4px 16px 0px rgba(0, 0, 0, 0.12)",
+                padding: "10px 10px",
+                transition: "background 0.3s ease, color 0.3s ease, border-color 0.3s ease",
                 ...style,
             }}
-            src="/img/containerOrnament.png"
-            alt="ornament"
-            height={121}
-        />
-    )
-}
-
-function Section3OrnamentLeft() {
-    return (
-        <img
-            style={{
-                left: 10,
-                bottom: 8,
-                position: "absolute",
-                rotate: "180deg",
+            onMouseEnter={(e) => {
+                e.target.style.background = "#4361ee";
+                e.target.style.color = "#fff";
+                e.target.style.borderColor = "#4361ee";
             }}
-            src="/img/containerOrnament.png"
-            alt="ornament"
-            height={121}
-        />
-    )
-}
-
-function RequestDemoButton2({ children }) {
-    return (
-        <Link to="/demo">
-            <button
-                style={{
-                    width: "200px",
-                    height: "48px",
-                    borderRadius: "36px",
-                    background: "#fff",
-                    border: "none",
-                    color: "#4361ee",
-                    fontSize: "1rem",
-                    fontWeight: 700,
-                    cursor: "pointer",
-                }}
-                type="submit"
-            >
-                {children}
-            </button>
-        </Link>
-    )
-}
-
-function Section3Header({ children }) {
-    return (
-        <h3
-            style={{
-                fontSize: "2rem",
-                fontWeight: 900,
-                marginTop: 8,
-                marginBottom: 20,
+            onMouseLeave={(e) => {
+                e.target.style.background = "#fff";
+                e.target.style.color = "#4361ee";
+                e.target.style.borderColor = "#4361ee";
             }}
         >
+            <img
+                style={{ height: "32px", marginRight: "16px" }}
+                src="/img/github-mark.png"
+                alt="Star-on-Github"
+            />
             {children}
-        </h3>
-    )
+        </Link>
+    );
 }
