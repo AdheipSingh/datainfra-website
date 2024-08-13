@@ -29,7 +29,7 @@ function BlogListPageContent(props) {
     const { metadata, items, sidebar } = props
     return (
         <BlogLayout>
-            <ActionButton href="https://launchpass.com/datainfra-workspace">
+            <ActionButton href="https://www.launchpass.com/baaz">
                 Join Slack
             </ActionButton>
             <BlogPostItems items={items} />

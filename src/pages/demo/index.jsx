@@ -76,7 +76,7 @@ export default function Demo() {
                     <FormContainer>
                         <FormTitle>BOOK A CALL</FormTitle>
 
-                        <Form action="https://formspree.io/f/mgebqzok" method="POST">
+                        <Form action="https://formspree.io/f/mvgpryap" method="POST">
                             <Label htmlFor="firstName">
                                 First Name**
                                 <br />

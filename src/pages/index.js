@@ -135,7 +135,7 @@ export default function Home() {
                             <Gitbutton href="https://github.com/baazhq/baaz">
                                 Star on GitHub
                             </Gitbutton>
-                            <ActionButton href="https://launchpass.com/datainfra-workspace">
+                            <ActionButton href="https://www.launchpass.com/baaz">
                                 Join Slack
                             </ActionButton>
                         </div>
@@ -289,7 +289,7 @@ function NavBar({ className, children }) {
                 <Gitbutton href="https://github.com/baazhq/baaz">
                     Star on GitHub
                 </Gitbutton>
-                <ActionButton href="https://launchpass.com/datainfra-workspace">
+                <ActionButton href="https://www.launchpass.com/baaz">
                     Join Slack
                 </ActionButton>
             </div>

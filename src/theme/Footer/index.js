@@ -69,7 +69,7 @@ export default function FooterWrapper() {
                     </h5>
 
                     <form
-                        action="https://formspree.io/f/mgebqzok"
+                        action="https://formspree.io/f/mvgpryap"
                         method="POST"
                         style={{ marginTop: "30px" }}
                     >
