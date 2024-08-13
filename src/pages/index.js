@@ -102,7 +102,7 @@ export default function Home() {
                             overflow: "hidden" // hide overflow content
                         }}>
                             <img
-                                src="/img/central1.png"
+                                src="/img/indeximage.png"
                                 alt="Without BaaZ"
                                 style={{ height: "900px" }}
                             />
