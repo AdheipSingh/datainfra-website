@@ -80,11 +80,6 @@ const sidebars = {
         },
         {
             type: "link",
-            label: "Support",
-            href: "https://www.baaz.dev/demo",
-        },
-        {
-            type: "link",
             label: "Github",
             href: "https://github.com/baazhq/baaz",
         },
