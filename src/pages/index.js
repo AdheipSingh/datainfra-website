@@ -50,7 +50,7 @@ export default function Home() {
                                 <Purple>Centralised</Purple> Control Plane for <Purple>SaaS</Purple>
                             </Title>
                             <p
-                                style={{ fontSize: "1.375rem", fontWeight: 500, color: "#000" }}
+                                style={{ fontSize: "1.25rem", fontWeight: 500, color: "#000" }}
                             >
                                 Unified Management Plane for Managed Services, Infra SaaS and
                                 Serverless SaaS.
@@ -77,7 +77,7 @@ export default function Home() {
                 </div>
 
                 {/* New Section */}
-                <div style={{ textAlign: "center", marginTop: "-60px", backgroundColor: "#f4f4f4" }}>
+                <div style={{ textAlign: "center", backgroundColor: "#f4f4f4" }}>
                     <Title>
                         Accelerate your <Purple>SaaS </Purple>Journey
                     </Title>
@@ -96,21 +96,21 @@ export default function Home() {
                     </p>
                     <div style={{ display: "flex", justifyContent: "center", marginTop: "10px" }}>
                         <div style={{
-                            border: "2px solid #FFD700", // gold border
-                            borderRadius: "10px", // rounded corners
-                            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", // subtle shadow for highlighting
-                            overflow: "hidden" // hide overflow content
+                            // border: "2px solid #FFD700", // gold border
+                            // borderRadius: "10px", // rounded corners
+                            // boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", // subtle shadow for highlighting
+                            // overflow: "hidden" // hide overflow content
                         }}>
                             <img
                                 src="/img/indeximage.png"
                                 alt="Without BaaZ"
-                                style={{ height: "900px" }}
+                                className="img-fluid"
                             />
                         </div>
                     </div>
 
                     {/* Features Title */}
-                    <h1 id="features" style={{ marginTop: "40px" }}>
+                    <h1 id="features" style={{ marginTop: "48px", marginBottom: "20px", fontWeight: 800, fontSize: "2.5rem" }}>
                         Deploy on any K8s cluster on cloud or on-prem. <br />
                         Launch <Purple>Dataplanes</Purple>, Create <Purple>Tenants</Purple> and Deploy <Purple>Apps</Purple>
                     </h1>
@@ -124,7 +124,7 @@ export default function Home() {
 
                 {/* Join Our Community Section */}
                 <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "center", padding: "40px 20px", marginTop: "40px" }}>
-                    <div style={{ flex: 1, textAlign: "left", marginLeft: "200px" }}>
+                    <div style={{ flex: 1, textAlign: "left", marginLeft: "100px", marginRight: "100px" }}>
                         <h2 style={{ fontSize: "2.5rem", fontWeight: 700, marginBottom: "16px", color: "#1a202c" }}>
                             Join Our <Purple>Community</Purple>
                         </h2>
@@ -141,7 +141,7 @@ export default function Home() {
                         </div>
                     </div>
                     <div style={{ flex: 1, textAlign: "center", maxWidth: "50%" }}>
-                        <img src="/img/bzcommunity.png" alt="Community" style={{ width: "100%", maxWidth: "400px" }} />
+                        <img src="/img/bzcommunity.png" alt="Community" style={{ width: "100%", maxWidth: "400px", borderRadius: "50%" }} />
                     </div>
                 </div>
 
@@ -192,22 +192,22 @@ function HighlightedBox({ title, description, logo }) {
         <div
             style={{
                 width: "calc(33.3333% - 40px)", // Adjusted width to accommodate three boxes with spacing
-                height: "200px", // Fixed height for square boxes
-                padding: "20px",
-                paddingBottom: "200px", // Added bottom padding
+                // height: "200px", // Fixed height for square boxes
+                padding: "32px 24px 24px 24px",
+                // paddingBottom: "200px", // Added bottom padding
                 background: "#fff",
-                border: `2px solid ${isHovered ? "#FFA500" : "#FFD700"}`,
-                borderRadius: "10px",
-                margin: "10px", // Adjusted margin for equal spacing
+                // border: `2px solid ${isHovered ? "#FFA500" : "#FFD700"}`,
+                borderRadius: "16px",
+                margin: "10px",
                 textAlign: "center",
                 boxSizing: "border-box",
-                display: "inline-block" // Added to ensure boxes appear in a row
+                display: "inline-block"
             }}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
             <img src={logo} alt={`${title} logo`} style={{ height: "50px", marginBottom: "10px" }} />
-            <h3 style={{ fontWeight: "bold", marginBottom: "10px" }}>{title}</h3>
+            <h3 style={{ fontWeight: 800, marginBottom: "10px" }}>{title}</h3>
             <p>{description}</p>
         </div>
     );
@@ -279,8 +279,10 @@ function NavBar({ className, children }) {
                 zIndex: 99,
             }}
         >
-            <div style={{ display: "flex", alignItems: "center" }}>
+            <div style={{ display: "flex", alignItems: "center", minWidth: 420 }}>
                 <Logo />
+            </div>
+            <div>
                 <NavLink to="/#features">Features</NavLink>
                 <NavLink to="/documentation">Documentation</NavLink>
                 <NavLink to="/blog">Blog</NavLink>
@@ -316,8 +318,9 @@ function NavLink({ style, to, children }) {
             to={to}
             style={{
                 color: " #131212",
-                marginLeft: "64px",
-                fontSize: "1.5rem",
+                marginLeft: "32px",
+                marginRight: "32px",
+                fontSize: "1.2rem",
                 fontWeight: "bold", // Added fontWeight
                 ...style,
             }}
@@ -336,7 +339,7 @@ function ActionButton({ className, href, style, children }) {
                 borderRadius: "28px",
                 border: "2px solid #4361ee",
                 color: "#4361ee",
-                fontSize: "1.25rem",
+                fontSize: "1.2rem",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -344,7 +347,7 @@ function ActionButton({ className, href, style, children }) {
                 marginLeft: "16px", // Adjusted marginLeft
                 fontFamily: "Inter, sans-serif",
                 boxShadow: "0px 4px 16px 0px rgba(0, 0, 0, 0.12)",
-                padding: "10px 10px",
+                padding: "8px 24px",
                 transition: "background 0.3s ease, color 0.3s ease, border-color 0.3s ease",
                 ...style,
             }}
@@ -390,7 +393,7 @@ function Title({ children }) {
         <h1
             style={{
                 fontSize: "3rem",
-                fontWeight: 700,
+                fontWeight: 800,
                 marginBottom: "16px",
                 marginTop: "32px",
                 color: "#1a202c",
@@ -411,15 +414,15 @@ function Gitbutton({ className, href, style, children }) {
                 borderRadius: "28px",
                 border: "2px solid #4361ee",
                 color: "#4361ee",
-                fontSize: "1.25rem",
+                fontSize: "1.2rem",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 textDecoration: "none",
-                marginLeft: "16px", // Adjusted marginLeft
+                // marginLeft: "16px", // Adjusted marginLeft
                 fontFamily: "Inter, sans-serif",
                 boxShadow: "0px 4px 16px 0px rgba(0, 0, 0, 0.12)",
-                padding: "10px 10px",
+                padding: "8px 24px",
                 transition: "background 0.3s ease, color 0.3s ease, border-color 0.3s ease",
                 ...style,
             }}

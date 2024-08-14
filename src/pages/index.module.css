@@ -153,18 +153,22 @@
 }
 
 /* index.module.css */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
 
 .requestDemoButton {
     background: #fff;
     border-radius: 28px;
     border: 2px solid #4361ee;
     color: #4361ee;
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    padding: 12px 32px;
+    padding: 10px 30px;
     box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.12);
     transition: background 0.3s ease, color 0.3s ease;
 }
@@ -172,6 +176,7 @@
 .requestDemoButton:hover {
     background: #4361ee;
     color: #fff;
+    text-decoration: none;
 }
 
 .navbar__link_hover:hover {

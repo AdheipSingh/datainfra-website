@@ -4,16 +4,6 @@ import { Analytics } from "@vercel/analytics/react"
 import styles from "./styles.module.css"
 
 export default function FooterWrapper() {
-    const [formData, setFormData] = React.useState({
-        name: "",
-        email: "",
-        message: "",
-    })
-
-    function handleChange(event) {
-        const { name, value } = event.target
-        setFormData((prevFormData) => ({ ...prevFormData, [name]: value }))
-    }
 
     return (
         <Footer className={styles.main}>
@@ -21,8 +11,8 @@ export default function FooterWrapper() {
             <div style={{ flex: "1" }}>
                 <img src="/img/logo-white.png" alt="logo" style={{ height: "72px" }} />
 
-                <h5 style={{ fontWeight: 700, fontSize: "30px", marginTop: "6px" }}>
-                </h5>
+                {/* <h5 style={{ fontWeight: 700, fontSize: "30px", marginTop: "6px" }}>
+                </h5> */}
 
                 {/* <div style={{ display: "flex", marginTop: "32px" }}>
                     <Link to="/">
@@ -38,7 +28,7 @@ export default function FooterWrapper() {
                     </Link>
                 </div> */}
 
-                <p style={{ fontSize: "20px", marginTop: "64px" }}>
+                <p style={{ fontSize: "20px", marginTop: "24px" }}>
                     @Copyright by Sadhrao Software Consulting. All rights reserved.
                 </p>
             </div>
@@ -46,93 +36,23 @@ export default function FooterWrapper() {
             {/* Middle */}
             <div className={styles.importantLinks} style={{ flex: "1", marginTop: "24px" }}>
                 <div style={{ width: "fit-content", margin: "auto" }}>
-                    <h5 className={styles.links} style={{ fontWeight: 800, fontSize: "20px" }}>
+                    <h5 className={styles.links} style={{ fontWeight: 800, fontSize: "20px", marginBottom: 36 }}>
                         Useful Links
                     </h5>
 
-                    <div style={{ display: "flex", flexDirection: "column" }}>
+                    <div style={{ display: "flex", flexDirection: "row", gap: 30 }}>
                         <Navlink to="/">Home</Navlink>
                         <Navlink to="/blog">Blogs</Navlink>
                         <Navlink to="/documentation">Documentation</Navlink>
+                        <Navlink to="/contact-us">Contact Us</Navlink>
                     </div>
                 </div>
             </div>
 
 
-            <div style={{ flex: "1" }}>
-                <div
-                    className={styles.contactContainer}
-                    style={{ margin: "auto", width: "314px", marginTop: "24px" }}
-                >
-                    <h5 className={styles.contact} style={{ fontWeight: 800, fontSize: "20px" }}>
-                        Contact Us
-                    </h5>
+            {/* <div style={{ flex: "1" }}>
 
-                    <form
-                        action="https://formspree.io/f/mvgpryap"
-                        method="POST"
-                        style={{ marginTop: "30px" }}
-                    >
-                        <label htmlFor="name" style={{ fontWeight: 700 }}>
-                            Name**
-                            <br />
-                            <input
-                                type="text"
-                                name="name"
-                                id="name"
-                                value={formData.name}
-                                onChange={handleChange}
-                                required
-                                style={inputStyle}
-                            />
-                        </label>
-
-                        <label htmlFor="email" style={{ fontWeight: 700 }}>
-                            Email Addess**
-                            <br />
-                            <input
-                                type="text"
-                                name="email"
-                                id="email"
-                                value={formData.email}
-                                onChange={handleChange}
-                                required
-                                style={inputStyle}
-                            />
-                        </label>
-
-                        <label htmlFor="message" style={{ fontWeight: 700 }}>
-                            Message**
-                            <br />
-                            <textarea
-                                type="message"
-                                name="message"
-                                id="message"
-                                value={formData.message}
-                                onChange={handleChange}
-                                required
-                                style={{ ...inputStyle, height: "96px", padding: "10px" }}
-                            />
-                        </label>
-
-                        <button
-                            style={{
-                                border: "none",
-                                width: "100%",
-                                height: "56px",
-                                color: "#001EAA",
-                                borderRadius: "16px",
-                                background: "#49FF9D",
-                                fontSize: "18px",
-                                fontWeight: 800,
-                                marginTop: "5px",
-                            }}
-                        >
-                            SEND
-                        </button>
-                    </form>
-                </div>
-            </div>
+            </div> */}
 
         </Footer>
     )
@@ -152,7 +72,7 @@ function Footer({ className, children }) {
                 paddingBottom: "32px",
                 fontSize: "14px",
                 color: "#B0C4DE",
-                marginTop: "30px", // Added margin top
+                // marginTop: "30px", // Added margin top
             }}
         >
             {children}
