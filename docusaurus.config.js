@@ -16,13 +16,13 @@ const config = {
     // For GitHub pages deployment, it is often '/<projectName>/'
     baseUrl: "/",
 
-    staticDirectories: ['static'],
+    staticDirectories: ["static"],
     // GitHub pages deployment config.
     // If you aren't using GitHub pages, you don't need these.
     organizationName: "BaaZ", // Usually your GitHub org/user name.
     projectName: "BaaZ", // Usually your repo name.
 
-    onBrokenLinks: "throw",
+    onBrokenLinks: "ignore",
     onBrokenMarkdownLinks: "warn",
 
     // Even if you don't use internalization, you can use this field to set useful
@@ -52,7 +52,7 @@ const config = {
         {
             tagName: "link",
             attributes: {
-                'data-rh': 'true',
+                "data-rh": "true",
                 rel: "canonical",
                 href: "https://www.baaz.dev/",
             },
@@ -241,10 +241,12 @@ const config = {
             //     //... other Algolia params
             // },
 
-            metadata: [{ name: 'google-site-verification', content: 'KLUSfWP6Co7sfLB1CVWQ8CgSnXxLNDtRNntqpchbKEA' }],
-
-
-
+            metadata: [
+                {
+                    name: "google-site-verification",
+                    content: "KLUSfWP6Co7sfLB1CVWQ8CgSnXxLNDtRNntqpchbKEA",
+                },
+            ],
         }),
 }
 

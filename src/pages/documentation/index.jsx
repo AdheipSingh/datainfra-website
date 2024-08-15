@@ -8,10 +8,7 @@ export default function Documentation() {
     const { siteConfig } = useDocusaurusContext()
 
     return (
-        <Layout
-            title="BaaZ Docs: All about BaaZ."
-            description="BaaZ Docs."
-        >
+        <Layout title="BaaZ Docs: All about BaaZ." description="BaaZ Docs.">
             <NavBarLogo />
 
             <Main>
@@ -26,12 +23,9 @@ export default function Documentation() {
                     {/* <Service name="Tutorials" icon="pinot" /> */}
                     {/* <Service name="Distributed Systems Operator Interface" icon="dsoiLarge" />
                     <Service name="Operator Runtime" icon="operatorLarge" /> */}
-
                 </Services>
-
-
             </Main>
-        </Layout >
+        </Layout>
     )
 }
 

@@ -4,7 +4,6 @@ import { Analytics } from "@vercel/analytics/react"
 import styles from "./styles.module.css"
 
 export default function FooterWrapper() {
-
     return (
         <Footer className={styles.main}>
             {/* Left */}
@@ -36,7 +35,10 @@ export default function FooterWrapper() {
             {/* Middle */}
             <div className={styles.importantLinks} style={{ flex: "1", marginTop: "24px" }}>
                 <div style={{ width: "fit-content", margin: "auto" }}>
-                    <h5 className={styles.links} style={{ fontWeight: 800, fontSize: "20px", marginBottom: 36 }}>
+                    <h5
+                        className={styles.links}
+                        style={{ fontWeight: 800, fontSize: "20px", marginBottom: 36 }}
+                    >
                         Useful Links
                     </h5>
 
@@ -44,16 +46,14 @@ export default function FooterWrapper() {
                         <Navlink to="/">Home</Navlink>
                         <Navlink to="/blog">Blogs</Navlink>
                         <Navlink to="/documentation">Documentation</Navlink>
-                        <Navlink to="/contact-us">Contact Us</Navlink>
+                        {/* <Navlink to="/contact-us">Contact Us</Navlink> */}
                     </div>
                 </div>
             </div>
 
-
             {/* <div style={{ flex: "1" }}>
 
             </div> */}
-
         </Footer>
     )
 }
