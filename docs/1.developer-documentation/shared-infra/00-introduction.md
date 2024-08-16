@@ -10,4 +10,4 @@ slug: /shared-infra/introduction
 
 ## Shared Infrastructure
 
-In this doc, we are going to demonstrate how to use BaaZ to build shared infrastructure and deploy apps for various customers. 
+In this doc, we are going to demonstrate how to use BaaZ to build shared infrastructure and deploy apps for various customers.

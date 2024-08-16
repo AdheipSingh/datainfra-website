@@ -26,7 +26,7 @@ export default function Demo() {
 
                 <NavLink to="/blog">Blogs</NavLink>
 
-                <ActionButton to="/demo">Book a Call</ActionButton>
+                {/* <ActionButton to="/demo">Book a Call</ActionButton> */}
             </NavBar>
 
             {/* Navbar mobile */}
@@ -73,7 +73,7 @@ export default function Demo() {
                 {/* Right side */}
                 <div style={{ flex: 1 }}>
                     <FormContainer>
-                        <FormTitle>BOOK A CALL</FormTitle>
+                        {/* <FormTitle>BOOK A CALL</FormTitle> */}
 
                         <Form action="https://formspree.io/f/mvgpryap" method="POST">
                             <Label htmlFor="firstName">
