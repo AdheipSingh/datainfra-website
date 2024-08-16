@@ -46,7 +46,13 @@ export default function FooterWrapper() {
                         <Navlink to="/">Home</Navlink>
                         <Navlink to="/blog">Blogs</Navlink>
                         <Navlink to="/documentation">Documentation</Navlink>
-                        {/* <Navlink to="/contact-us">Contact Us</Navlink> */}
+                        <a
+                            href="https://cal.com/baazhq"
+                            target="_blank"
+                            style={{ color: "white", fontSize: "20px", marginTop: "10px" }}
+                        >
+                            Contact Us
+                        </a>
                     </div>
                 </div>
             </div>

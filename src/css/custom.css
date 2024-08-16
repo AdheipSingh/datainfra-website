@@ -166,8 +166,12 @@
     flex-direction: column;
 }
 .theme-doc-sidebar-menu.menu__list > li:nth-last-of-type(4) {
-    margin-top: auto;
-    padding-top: 50px;
+    /* margin-top: auto; */
+    /* padding-top: 50px; */
+}
+
+.p {
+    font-size: 1.125rem;
 }
 
 /* Doc Page main */
@@ -222,4 +226,21 @@
     content: "";
     margin-top: 2x;
     margin-right: 10px;
+}
+
+
+p {
+    font-size: 1.25rem;
+    margin: 0 0 var(--ifm-paragraph-margin-bottom);
+}
+
+
+markdown li  {
+    font-size: 1.25rem;
+    margin-top: var(--ifm-list-item-margin);
+}
+
+.markdown > pre, .markdown > ul, .markdown > p {
+    font-size: 1.25rem;
+    margin-bottom: var(--ifm-leading);
 }

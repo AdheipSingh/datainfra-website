@@ -1,15 +1,15 @@
-import React from "react";
-import Layout from "@theme/Layout";
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import Link from "@docusaurus/Link";
-import styles from "./index.module.css";
+import React from "react"
+import Layout from "@theme/Layout"
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
+import Link from "@docusaurus/Link"
+import styles from "./index.module.css"
 
 export default function Home() {
-    const { siteConfig } = useDocusaurusContext();
+    const { siteConfig } = useDocusaurusContext()
 
     React.useLayoutEffect(() => {
-        document.querySelector(".main-wrapper").style.background = "#f4f4f4";
-    }, []);
+        document.querySelector(".main-wrapper").style.background = "#f4f4f4"
+    }, [])
 
     return (
         <>
@@ -49,17 +49,24 @@ export default function Home() {
                             <Title>
                                 <Purple>Centralised</Purple> Control Plane for <Purple>SaaS</Purple>
                             </Title>
-                            <p
-                                style={{ fontSize: "1.25rem", fontWeight: 500, color: "#000" }}
-                            >
+                            <p style={{ fontSize: "1.25rem", fontWeight: 500, color: "#000" }}>
                                 Unified Management Plane for Managed Services, Infra SaaS and
                                 Serverless SaaS.
                             </p>
 
                             <RequestDemo>
                                 <RequestDemoButtons>
-                                    <Link to="https://cal.com/baazhq" className={styles.requestDemoButton}>
-                                        Book a Call
+                                    <Link
+                                        to="https://cal.com/baazhq"
+                                        className={styles.requestDemoButton}
+                                    >
+                                        Book a Call{" "}
+                                        <div className={styles.arrowContainer}>
+                                            <img
+                                                src="/img/arrow_forward.svg"
+                                                className="img-fluid"
+                                            />
+                                        </div>
                                     </Link>
                                     <Link
                                         to="/documentation"
@@ -90,17 +97,20 @@ export default function Home() {
                             color: "#1a202c",
                         }}
                     >
-                        BaaZ Platform streamlines infrastructure setup,
-                        reduces costs,<br></br> accelerates GTM and ensures security and compliance.
-
+                        BaaZ Platform streamlines infrastructure setup, reduces costs,<br></br>{" "}
+                        accelerates GTM and ensures security and compliance.
                     </p>
                     <div style={{ display: "flex", justifyContent: "center", marginTop: "10px" }}>
-                        <div style={{
-                            // border: "2px solid #FFD700", // gold border
-                            // borderRadius: "10px", // rounded corners
-                            // boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", // subtle shadow for highlighting
-                            // overflow: "hidden" // hide overflow content
-                        }}>
+                        <div
+                            style={
+                                {
+                                    // border: "2px solid #FFD700", // gold border
+                                    // borderRadius: "10px", // rounded corners
+                                    // boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", // subtle shadow for highlighting
+                                    // overflow: "hidden" // hide overflow content
+                                }
+                            }
+                        >
                             <img
                                 src="/img/indeximage.png"
                                 alt="Without BaaZ"
@@ -110,9 +120,18 @@ export default function Home() {
                     </div>
 
                     {/* Features Title */}
-                    <h1 id="features" style={{ marginTop: "48px", marginBottom: "20px", fontWeight: 800, fontSize: "2.5rem" }}>
+                    <h1
+                        id="features"
+                        style={{
+                            marginTop: "48px",
+                            marginBottom: "20px",
+                            fontWeight: 800,
+                            fontSize: "2.5rem",
+                        }}
+                    >
                         Deploy on any K8s cluster on cloud or on-prem. <br />
-                        Launch <Purple>Dataplanes</Purple>, Create <Purple>Tenants</Purple> and Deploy <Purple>Apps</Purple>
+                        Launch <Purple>Dataplanes</Purple>, Create <Purple>Tenants</Purple> and
+                        Deploy <Purple>Apps</Purple>
                     </h1>
 
                     {/* Highlighted Boxes for Baaz Features */}
@@ -123,13 +142,37 @@ export default function Home() {
                 </div>
 
                 {/* Join Our Community Section */}
-                <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "center", padding: "40px 20px", marginTop: "40px" }}>
-                    <div style={{ flex: 1, textAlign: "left", marginLeft: "100px", marginRight: "100px" }}>
-                        <h2 style={{ fontSize: "2.5rem", fontWeight: 700, marginBottom: "16px", color: "#1a202c" }}>
+                <div
+                    style={{
+                        display: "flex",
+                        justifyContent: "flex-end",
+                        alignItems: "center",
+                        padding: "40px 20px",
+                        marginTop: "40px",
+                    }}
+                >
+                    <div
+                        style={{
+                            flex: 1,
+                            textAlign: "left",
+                            marginLeft: "100px",
+                            marginRight: "100px",
+                        }}
+                    >
+                        <h2
+                            style={{
+                                fontSize: "2.5rem",
+                                fontWeight: 700,
+                                marginBottom: "16px",
+                                color: "#1a202c",
+                            }}
+                        >
                             Join Our <Purple>Community</Purple>
                         </h2>
                         <p style={{ fontSize: "1.5rem", fontWeight: 100, color: "#1a202c" }}>
-                            BaaZ thrives on the ethos of open-source collaboration. Become a part of our worldwide network of innovators, engineers, and advocates on Slack and GitHub.
+                            BaaZ thrives on the ethos of open-source collaboration. Become a part of
+                            our worldwide network of innovators, engineers, and advocates on Slack
+                            and GitHub.
                         </p>
                         <div style={{ display: "flex", gap: "16px", marginTop: "16px" }}>
                             <Gitbutton href="https://github.com/baazhq/baaz">
@@ -141,52 +184,60 @@ export default function Home() {
                         </div>
                     </div>
                     <div style={{ flex: 1, textAlign: "center", maxWidth: "50%" }}>
-                        <img src="/img/bzcommunity.png" alt="Community" style={{ width: "100%", maxWidth: "400px", borderRadius: "50%" }} />
+                        <img
+                            src="/img/bzcommunity.png"
+                            alt="Community"
+                            style={{ width: "100%", maxWidth: "400px", borderRadius: "50%" }}
+                        />
                     </div>
                 </div>
-
 
                 {/* Rest of the content... */}
             </Layout>
         </>
-    );
+    )
 }
 
 const baazFeatures = [
     {
         title: "Unified Multi-Cloud Design",
-        description: "A comprehensive system architecture supporting shared, dedicated, and BYOC infrastructures across multiple cloud environments.",
-        logo: "/img/multicloud.png"
+        description:
+            "A comprehensive system architecture supporting shared, dedicated, and BYOC infrastructures across multiple cloud environments.",
+        logo: "/img/multicloud.png",
     },
     {
         title: "Robust Security",
-        description: "Implement secure access to customer networks using a pull-based model, eliminating the need for VPC peering in BYOC scenarios.",
-        logo: "/img/security.png"
+        description:
+            "Implement secure access to customer networks using a pull-based model, eliminating the need for VPC peering in BYOC scenarios.",
+        logo: "/img/security.png",
     },
     {
         title: "Optimized Cost Efficiency",
-        description: "Leverage built-in Kubernetes deployment and scheduling strategies to significantly reduce cloud expenditure.",
-        logo: "/img/cost.png"
+        description:
+            "Leverage built-in Kubernetes deployment and scheduling strategies to significantly reduce cloud expenditure.",
+        logo: "/img/cost.png",
     },
     {
         title: "Rapid Go-to-Market",
         description: "Accelerate your SaaS launch and start monetizing within days.",
-        logo: "/img/gtm.png"
+        logo: "/img/gtm.png",
     },
     {
         title: "Enhanced Sales Enablement",
-        description: "Facilitate seamless deployments in both customer and SaaS provider networks, removing engineering roadblocks for sales.",
-        logo: "/img/sales.png"
+        description:
+            "Facilitate seamless deployments in both customer and SaaS provider networks, removing engineering roadblocks for sales.",
+        logo: "/img/sales.png",
     },
     {
         title: "Stateless Control Plane",
-        description: "Deploy a stateless control plane on any Kubernetes cluster, whether on-premises or in the cloud.",
-        logo: "/img/statelesscp.png"
-    }
-];
+        description:
+            "Deploy a stateless control plane on any Kubernetes cluster, whether on-premises or in the cloud.",
+        logo: "/img/statelesscp.png",
+    },
+]
 
 function HighlightedBox({ title, description, logo }) {
-    const [isHovered, setIsHovered] = React.useState(false);
+    const [isHovered, setIsHovered] = React.useState(false)
 
     return (
         <div
@@ -201,29 +252,43 @@ function HighlightedBox({ title, description, logo }) {
                 margin: "10px",
                 textAlign: "center",
                 boxSizing: "border-box",
-                display: "inline-block"
+                display: "inline-block",
             }}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
-            <img src={logo} alt={`${title} logo`} style={{ height: "50px", marginBottom: "10px" }} />
+            <img
+                src={logo}
+                alt={`${title} logo`}
+                style={{ height: "50px", marginBottom: "10px" }}
+            />
             <h3 style={{ fontWeight: 800, marginBottom: "10px" }}>{title}</h3>
             <p>{description}</p>
         </div>
-    );
+    )
 }
 
 function BaazFeatures() {
     return (
-        <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", marginTop: "20px" }}>
+        <div
+            style={{
+                display: "flex",
+                justifyContent: "center",
+                flexWrap: "wrap",
+                marginTop: "20px",
+            }}
+        >
             {baazFeatures.map((feature, index) => (
-                <HighlightedBox key={index} title={feature.title} description={feature.description} logo={feature.logo} />
+                <HighlightedBox
+                    key={index}
+                    title={feature.title}
+                    description={feature.description}
+                    logo={feature.logo}
+                />
             ))}
         </div>
-    );
+    )
 }
-
-
 
 // ** Styled Components
 
@@ -237,12 +302,12 @@ function Container({ children }) {
                 background: " #f4f4f4",
                 justifyContent: "space-between",
                 alignItems: "center",
-                paddingBottom: "180px"
+                paddingBottom: "180px",
             }}
         >
             {children}
         </div>
-    );
+    )
 }
 
 function Purple({ children }) {
@@ -258,9 +323,8 @@ function Purple({ children }) {
         >
             {children}
         </span>
-    );
+    )
 }
-
 
 function NavBar({ className, children }) {
     return (
@@ -279,27 +343,35 @@ function NavBar({ className, children }) {
                 zIndex: 99,
             }}
         >
-            <div style={{ display: "flex", alignItems: "center", minWidth: 420 }}>
+            <div style={{ display: "flex", alignItems: "center", minWidth: 310 }}>
                 <Logo />
             </div>
             <div>
                 <NavLink to="/#features">Features</NavLink>
                 <NavLink to="/documentation">Documentation</NavLink>
                 <NavLink to="/blog">Blog</NavLink>
+                <a
+                    className="navbar__link_hover_src-pages-index-module"
+                    style={{
+                        color: "rgb(19, 18, 18)",
+                        marginLeft: "32px",
+                        marginRight: "32px",
+                        fontSize: "1.2rem",
+                        fontWeight: "bold",
+                    }}
+                    href="https://saasinfra.substack.com/"
+                    target="_blank"
+                >
+                    Newsletter
+                </a>
             </div>
             <div style={{ display: "flex" }}>
-                <Gitbutton href="https://github.com/baazhq/baaz">
-                    Star on GitHub
-                </Gitbutton>
-                <ActionButton href="https://www.launchpass.com/baaz">
-                    Join Slack
-                </ActionButton>
+                <Gitbutton href="https://github.com/baazhq/baaz">Star on GitHub</Gitbutton>
+                <ActionButton href="https://www.launchpass.com/baaz">Join Slack</ActionButton>
             </div>
         </nav>
-    );
+    )
 }
-
-
 
 function Logo() {
     return (
@@ -308,7 +380,7 @@ function Logo() {
             alt="secure-icon"
             style={{ width: "250px", height: "auto", marginRight: "auto" }}
         />
-    );
+    )
 }
 
 function NavLink({ style, to, children }) {
@@ -327,7 +399,7 @@ function NavLink({ style, to, children }) {
         >
             {children}
         </Link>
-    );
+    )
 }
 function ActionButton({ className, href, style, children }) {
     return (
@@ -352,14 +424,14 @@ function ActionButton({ className, href, style, children }) {
                 ...style,
             }}
             onMouseEnter={(e) => {
-                e.target.style.background = "#4361ee";
-                e.target.style.color = "#fff";
-                e.target.style.borderColor = "#4361ee";
+                e.target.style.background = "#4361ee"
+                e.target.style.color = "#fff"
+                e.target.style.borderColor = "#4361ee"
             }}
             onMouseLeave={(e) => {
-                e.target.style.background = "#fff";
-                e.target.style.color = "#4361ee";
-                e.target.style.borderColor = "#4361ee";
+                e.target.style.background = "#fff"
+                e.target.style.color = "#4361ee"
+                e.target.style.borderColor = "#4361ee"
             }}
         >
             <img
@@ -369,7 +441,7 @@ function ActionButton({ className, href, style, children }) {
             />
             {children}
         </Link>
-    );
+    )
 }
 
 function RequestDemo({ children }) {
@@ -377,15 +449,11 @@ function RequestDemo({ children }) {
         <div style={{ display: "flex", justifyContent: "center", marginTop: "40px" }}>
             {children}
         </div>
-    );
+    )
 }
 
 function RequestDemoButtons({ children }) {
-    return (
-        <div style={{ display: "flex", gap: "16px" }}>
-            {children}
-        </div>
-    );
+    return <div style={{ display: "flex", gap: "16px" }}>{children}</div>
 }
 
 function Title({ children }) {
@@ -401,7 +469,7 @@ function Title({ children }) {
         >
             {children}
         </h1>
-    );
+    )
 }
 
 function Gitbutton({ className, href, style, children }) {
@@ -427,14 +495,14 @@ function Gitbutton({ className, href, style, children }) {
                 ...style,
             }}
             onMouseEnter={(e) => {
-                e.target.style.background = "#4361ee";
-                e.target.style.color = "#fff";
-                e.target.style.borderColor = "#4361ee";
+                e.target.style.background = "#4361ee"
+                e.target.style.color = "#fff"
+                e.target.style.borderColor = "#4361ee"
             }}
             onMouseLeave={(e) => {
-                e.target.style.background = "#fff";
-                e.target.style.color = "#4361ee";
-                e.target.style.borderColor = "#4361ee";
+                e.target.style.background = "#fff"
+                e.target.style.color = "#4361ee"
+                e.target.style.borderColor = "#4361ee"
             }}
         >
             <img
@@ -444,5 +512,5 @@ function Gitbutton({ className, href, style, children }) {
             />
             {children}
         </Link>
-    );
+    )
 }

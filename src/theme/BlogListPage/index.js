@@ -16,10 +16,14 @@ function BlogListPageMetadata(props) {
     } = useDocusaurusContext()
     const { blogDescription, permalink } = metadata
     const isBlogOnlyMode = permalink === "/"
-    const title = "BaaZ Blogs | Insights, Trends, and Best Practices for SaaS Infrastructure Management"
+    const title =
+        "BaaZ Blogs | Insights, Trends, and Best Practices for SaaS Infrastructure Management"
     return (
         <>
-            <PageMetadata title={title} description="BaaZ blogs for valuable insights, latest trends, and best practices in SaaS infrastructure management. Stay informed about industry developments, optimization techniques, and strategies to enhance the performance and scalability of your SaaS infrastructure." />
+            <PageMetadata
+                title={title}
+                description="BaaZ blogs for valuable insights, latest trends, and best practices in SaaS infrastructure management. Stay informed about industry developments, optimization techniques, and strategies to enhance the performance and scalability of your SaaS infrastructure."
+            />
             <SearchMetadata tag="blog_posts_list" />
         </>
     )
@@ -29,9 +33,7 @@ function BlogListPageContent(props) {
     const { metadata, items, sidebar } = props
     return (
         <BlogLayout>
-            <ActionButton href="https://www.launchpass.com/baaz">
-                Join Slack
-            </ActionButton>
+            <ActionButton href="https://www.launchpass.com/baaz">Join Slack</ActionButton>
             <BlogPostItems items={items} />
             <BlogListPaginator metadata={metadata} />
         </BlogLayout>
@@ -82,7 +84,7 @@ function BlogPostItems({ items }) {
                 }}
             >
                 {items.slice(1).map((item) => (
-                    <BlogPost post={item.content.metadata} top={false} />
+                    <BlogPost post={item.content.metadata} key={Math.random()} top={false} />
                 ))}
             </div>
         </div>
@@ -197,7 +199,7 @@ function BlogPost({ post, top = true }) {
                 <h2 style={{ marginTop: "20px", fontSize: top ? "2rem" : "1.5rem" }}>{title}</h2>
             </Link>
 
-            <p>{description}...</p>
+            <p style={{ fontSize: "1.25rem", color: "rgb(26, 32, 44)" }}>{description}...</p>
 
             {/* Tags */}
             {tagsExists && (

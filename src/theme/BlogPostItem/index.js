@@ -22,7 +22,7 @@ export default function BlogPostItemWrapper(props) {
 
     return (
         <>
-            <ActionButton to="/demo">Book a Call</ActionButton>
+            <ActionButton to="https://cal.com/baazhq">Book a Call</ActionButton>
             <BlogPostItem {...props} />
         </>
     )

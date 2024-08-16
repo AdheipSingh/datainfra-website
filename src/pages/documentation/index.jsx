@@ -128,7 +128,7 @@ function Services({ children }) {
                 marginTop: "60px",
                 marginBottom: "200px",
                 maxWidth: "800px",
-                width: "100%",
+                // width: "100%",
                 justifyContent: "space-between",
             }}
         >
