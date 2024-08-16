@@ -52,7 +52,6 @@ export default function Demo() {
             <Main>
                 {/* Left side */}
                 <div style={{ flex: 1, paddingTop: "150px" }}>
-
                     <H1>Talk to DataInfra</H1>
 
                     <KeyPoint>

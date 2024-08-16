@@ -22,7 +22,7 @@ BaaZ can be leveraged to build **SaaS products**. Using BaaZ users can launch:
 
 All with a single control plane architecture.
 <div style={{ textAlign: 'center' }}>
-  <img src={require('../../static/img/baaz-e2e.png').default} alt="SaaS Architecture Layers" />
+  <img src={require('../../static/img/indeximage.png').default} alt="SaaS Architecture Layers" />
 </div>
 
 ## Why BaaZ ?

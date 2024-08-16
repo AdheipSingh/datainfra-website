@@ -1,8 +1,0 @@
-{
-    "label": "Pinot on AWS",
-    "position": 2,
-    "link": {
-        "type": "doc",
-        "id": "pinot-on-kubernetes/tutorials/aws"
-    }
-}

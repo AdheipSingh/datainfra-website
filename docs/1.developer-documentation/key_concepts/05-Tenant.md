@@ -5,7 +5,6 @@ hide_table_of_contents: true
 custom_edit_url: null
 hide_title: true
 sidebar_label: Tenants
-slug: /concepts/tenants
 ---
 
 ## Tenants
