@@ -4,13 +4,13 @@
     font-size: 20px;
 }
 
-.links::after {
+/* .links::after {
     border-bottom: 3px solid #fff;
     content: "";
     display: block;
     width: 50%;
     padding-top: 5px;
-}
+} */
 
 .contact {
     width: fit-content;
@@ -25,11 +25,34 @@
     width: 72%;
     padding-top: 5px;
 }
-
+footer{
+    font-size: 16px;
+}
+footer .footerLink a{
+    color: white;
+    font-size: 16px;
+    margin-bottom: 1.25rem;
+    display: inline-block;
+    margin-left: 30px;
+}
+footer{
+    background: linear-gradient(94.89deg, #4361EE -17.47%, #002DFF 100%);
+    color: white;
+}
+.main {
+    padding: 96px 16px 48px 16px !important;
+    display: flex;
+}
+.socialIcon a{
+    max-width: 24px;
+}
+.borderDiv{
+    border: 1px solid #7C90EE
+}
 @media screen and (max-width: 640px) {
     .main {
         flex-direction: column;
-        padding: 36px 16px 48px 16px !important;
+        padding: 72px 16px 48px 16px !important;
     }
 
     .dataStreamIQ {
