@@ -228,7 +228,7 @@ export default function Home() {
                                 // onChange={(e) => setEmail(e.target.value)}
                                 required
                             />
-                            <button type="submit">
+                            <button type="submit cursor-pointer">
                                 Subscribe <img src="/img/arrow-narrow-right.png" alt="" />
                             </button>
                         </div>
