@@ -11,6 +11,24 @@ export default function Home() {
         document.querySelector(".main-wrapper").style.background = "#f4f4f4"
     }, [])
 
+    // const [email, setEmail] = React.useState("")
+    // const [error, setError] = React.useState("")
+
+    // const validateEmail = (email) => {
+    //     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    //     return emailPattern.test(email)
+    // }
+
+    // const handleSubmit = (e) => {
+    //     e.preventDefault()
+    //     if (validateEmail(email)) {
+    //         setError("")
+    //         e.target.submit()
+    //     } else {
+    //         setError("Please enter a valid email address.")
+    //     }
+    // }
+
     return (
         <>
             <Layout
@@ -190,6 +208,32 @@ export default function Home() {
                             style={{ width: "100%", maxWidth: "400px", borderRadius: "50%" }}
                         />
                     </div>
+                </div>
+                <div className={styles.newsletter}>
+                    <h2>
+                        Subscribe to our <span>Newsletter</span>
+                    </h2>
+                    <p>The BaaZ newsletter goes out every other week, don’t miss out!</p>
+                    <form action="https://formspree.io/f/mvgpryap" method="POST">
+                        <div
+                            className={styles.inputBox}
+                            style={{ display: "flex", position: "relative" }}
+                        >
+                            <input
+                                type="email"
+                                name="email"
+                                className="form-control"
+                                placeholder="Enter your email ID"
+                                // value={email}
+                                // onChange={(e) => setEmail(e.target.value)}
+                                required
+                            />
+                            <button type="submit cursor-pointer">
+                                Subscribe <img src="/img/arrow-narrow-right.png" alt="" />
+                            </button>
+                        </div>
+                    </form>
+                    {/* {error && <p style={{ color: "red" }}>{error}</p>} */}
                 </div>
 
                 {/* Rest of the content... */}
