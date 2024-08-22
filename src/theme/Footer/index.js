@@ -30,9 +30,8 @@ export default function FooterWrapper() {
                 </div> */}
 
                         <p style={{ fontSize: "18px", marginTop: "24px" }}>
-                            BaaZ is a registered trademark of BaaZ, Inc. We are not affiliated,
-                            associated, authorized, endorsed by, or in any way officially connected
-                            with MongoDB Inc., or any of its affiliates.
+                            BaaZ is a centralised control plane for building SaaS. We provide services to
+                            build custom control plane solutions.
                         </p>
                     </div>
 
@@ -73,7 +72,7 @@ export default function FooterWrapper() {
 
                             <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
                                 <Navlink to="/">About</Navlink>
-                                <Navlink to="/blog">Careers</Navlink>
+                                {/* <Navlink to="/blog">Careers</Navlink> */}
                                 <Navlink to="/documentation">Services</Navlink>
                             </div>
                         </div>
@@ -98,28 +97,28 @@ export default function FooterWrapper() {
                                 }}
                                 className={styles.socialIcon}
                             >
-                                <a href="/">
+                                {/* <a href="/">
                                     <img
                                         src="/img/social-icon.png"
                                         alt="logo"
                                         style={{ maxWidth: "100%", height: "auto" }}
                                     />
-                                </a>
-                                <a href="/">
+                                </a> */}
+                                <a href="https://www.linkedin.com/company/baazhq">
                                     <img
                                         src="/img/social-icon-1.png"
                                         alt="logo"
                                         style={{ maxWidth: "100%", height: "auto" }}
                                     />
                                 </a>
-                                <a href="/">
+                                {/* <a href="/">
                                     <img
                                         src="/img/social-icon-2.png"
                                         alt="logo"
                                         style={{ maxWidth: "100%", height: "auto" }}
                                     />
-                                </a>
-                                <a href="/">
+                                </a> */}
+                                <a href="https://github.com/baazhq">
                                     <img
                                         src="/img/social-icon-3.png"
                                         alt="logo"
@@ -139,10 +138,10 @@ export default function FooterWrapper() {
                         padding: "0px 20px",
                     }}
                 >
-                    <p style={{ fontSize: 16 }}>© 2024 BaaZ. All rights reserved.</p>
+                    <p style={{ fontSize: 16 }}>© 2024 Sadhrao Software Consulting. All rights reserved.</p>
                     <div className={styles.footerLink}>
-                        <a href="">Terms & Conditions</a>
-                        <a href="">Privacy Policy</a>
+                        {/* <a href="">Terms & Conditions</a>
+                        <a href="">Privacy Policy</a> */}
                     </div>
                 </div>
             </footer>

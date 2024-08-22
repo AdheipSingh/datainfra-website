@@ -214,7 +214,7 @@ export default function Home() {
                         Subscribe to our <span>Newsletter</span>
                     </h2>
                     <p>The BaaZ newsletter goes out every other week, don’t miss out!</p>
-                    <form action="https://formspree.io/f/xnnabrpw" method="POST">
+                    <form action="https://formspree.io/f/mvgpryap" method="POST">
                         <div
                             className={styles.inputBox}
                             style={{ display: "flex", position: "relative" }}
