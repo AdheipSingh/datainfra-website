@@ -22,4 +22,5 @@ Data planes are where the software is deployed. They can be located either in th
 - [Get Dataplane](https://www.postman.com/baaz99/workspace/baaz/request/37749754-95bb3ecd-3c9b-418b-9442-1a7de9b8a21a)
 - [List all Dataplane](https://www.postman.com/baaz99/workspace/baaz/request/37749754-c76d1af0-6f5a-43e9-a687-bbf7ccf6a34e)
 - [Update Dataplane](https://www.postman.com/baaz99/workspace/baaz/request/37749754-753dc50e-96c7-4c65-b404-d7d6a562451b)
+- [Add or Remove Dataplane](https://www.postman.com/baaz99/workspace/baaz/request/37749754-a8bf1756-cecf-46ed-81a1-947406eb3dd4)
 - [Delete Dataplane](https://www.postman.com/baaz99/workspace/baaz/request/37749754-50af99a6-1ba0-42d4-a23a-af70dabfe69f)
