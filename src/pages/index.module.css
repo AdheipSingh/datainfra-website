@@ -263,7 +263,12 @@
 }
 .newsletter{
     max-width: 1200px;
-    background: #F5F3FF;
+    /* background: #F5F3FF; */
+    background: url('../../static/img/newsletter-bg.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 1px solid #DFDEFC;
     text-align: center;
     margin: 0px auto;
     width: 100%;
@@ -273,6 +278,7 @@
     border-radius: 16px;
     margin-bottom: -24px;
     z-index: 1;
+    overflow: hidden;
 }
 .newsletter h2{
     font-size: 48px;
