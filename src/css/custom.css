@@ -41,6 +41,7 @@
 .navbar {
     height: 90px;
     padding-left: 56px;
+    background: linear-gradient(94.89deg, #4361EE -17.47%, #002DFF 100%) !important;
 }
 
 /* Hide docs navbar on landing page */
