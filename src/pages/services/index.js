@@ -49,7 +49,7 @@ const Services = () => {
                             <div className={styles.col3}>
                                 <div className={styles.serviceCard}>
                                     <h3>
-                                        Control Plane <br /> System
+                                        Control Plane Architecture
                                     </h3>
                                     <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
                                         <li>
@@ -82,7 +82,7 @@ const Services = () => {
                                                 alt=""
                                                 style={{ maxWidth: 16, marginRight: 12 }}
                                             />{" "}
-                                            Stateless & Stateful Architecture
+                                            Stateless & Statefull Architecture
                                         </li>
                                         <li>
                                             <img
@@ -90,7 +90,7 @@ const Services = () => {
                                                 alt=""
                                                 style={{ maxWidth: 16, marginRight: 12 }}
                                             />{" "}
-                                            Push & Pull Architectures
+                                            Push & Pull Architecture
                                         </li>
                                     </ul>
                                     <img
@@ -108,7 +108,7 @@ const Services = () => {
                             <div className={styles.col3}>
                                 <div className={styles.serviceCard}>
                                     <h3>
-                                        State Machines & <br /> Controllers Design
+                                        State Management
                                     </h3>
                                     <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
                                         <li>
@@ -125,7 +125,7 @@ const Services = () => {
                                                 alt=""
                                                 style={{ maxWidth: 16, marginRight: 12 }}
                                             />{" "}
-                                            Controllers
+                                            Cloud Controllers
                                         </li>
                                         <li>
                                             <img
@@ -133,7 +133,7 @@ const Services = () => {
                                                 alt=""
                                                 style={{ maxWidth: 16, marginRight: 12 }}
                                             />{" "}
-                                            Autoscalers
+                                            Infrastructure Autoscalers
                                         </li>
                                         <li>
                                             <img
@@ -141,7 +141,15 @@ const Services = () => {
                                                 alt=""
                                                 style={{ maxWidth: 16, marginRight: 12 }}
                                             />{" "}
-                                            State Reconcilers
+                                            Event Driven Infrastructure Design
+                                        </li>
+                                        <li>
+                                            <img
+                                                src="img/star.png"
+                                                alt=""
+                                                style={{ maxWidth: 16, marginRight: 12 }}
+                                            />{" "}
+                                            Orchestrators
                                         </li>
                                     </ul>
                                     <img
@@ -158,7 +166,7 @@ const Services = () => {
                             </div>
                             <div className={styles.col3}>
                                 <div className={styles.serviceCard}>
-                                    <h3>Kubernetes</h3>
+                                    <h3>Kubernetes  </h3>
                                     <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
                                         <li>
                                             <img
@@ -166,7 +174,7 @@ const Services = () => {
                                                 alt=""
                                                 style={{ maxWidth: 16, marginRight: 12 }}
                                             />{" "}
-                                            Custom K8s Controllers
+                                            Kubernetes as a Control Plane
                                         </li>
                                         <li>
                                             <img
@@ -182,7 +190,7 @@ const Services = () => {
                                                 alt=""
                                                 style={{ maxWidth: 16, marginRight: 12 }}
                                             />{" "}
-                                            Extending K8s API
+                                            Kubernetes Controllers
                                         </li>
                                         <li>
                                             <img
@@ -190,7 +198,67 @@ const Services = () => {
                                                 alt=""
                                                 style={{ maxWidth: 16, marginRight: 12 }}
                                             />{" "}
-                                            K8s API Internals
+                                            Kubernetes API Development
+                                        </li>
+                                        <li>
+                                            <img
+                                                src="img/star.png"
+                                                alt=""
+                                                style={{ maxWidth: 16, marginRight: 12 }}
+                                            />{" "}
+                                            Kubernetes Autoscalers
+                                        </li>
+
+                                    </ul>
+                                    <img
+                                        src="img/saas.png"
+                                        style={{
+                                            position: "absolute",
+                                            maxWidth: 220,
+                                            right: 0,
+                                            top: 0,
+                                        }}
+                                        alt=""
+                                    />
+                                </div>
+                            </div>
+                            <div className={styles.col3}>
+                                <div className={styles.serviceCard}>
+                                    <h3>
+                                        Cost Optimization
+                                    </h3>
+                                    <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                                        <li>
+                                            <img
+                                                src="img/star.png"
+                                                alt=""
+                                                style={{ maxWidth: 16, marginRight: 12 }}
+                                            />{" "}
+                                            Scheduling Strategies
+                                        </li>
+                                        <li>
+                                            <img
+                                                src="img/star.png"
+                                                alt=""
+                                                style={{ maxWidth: 16, marginRight: 12 }}
+                                            />{" "}
+                                            Spot Node Controllers
+                                        </li>
+                                        <li>
+                                            <img
+                                                src="img/star.png"
+                                                alt=""
+                                                style={{ maxWidth: 16, marginRight: 12 }}
+                                            />{" "}
+                                            Infra Cost Modules
+                                        </li>
+                                        <li>
+                                            <img
+                                                src="img/star.png"
+                                                alt=""
+                                                style={{ maxWidth: 16, marginRight: 12 }}
+                                            />{" "}
+                                            Bin Packing
                                         </li>
                                     </ul>
                                     <img
@@ -208,7 +276,7 @@ const Services = () => {
                             <div className={styles.col3}>
                                 <div className={styles.serviceCard}>
                                     <h3>
-                                        Cost <br /> Optimization
+                                        Security
                                     </h3>
                                     <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
                                         <li>
@@ -217,7 +285,7 @@ const Services = () => {
                                                 alt=""
                                                 style={{ maxWidth: 16, marginRight: 12 }}
                                             />{" "}
-                                            Scheduling and Bin Packing
+                                            Compliant Infrastructure
                                         </li>
                                         <li>
                                             <img
@@ -225,7 +293,7 @@ const Services = () => {
                                                 alt=""
                                                 style={{ maxWidth: 16, marginRight: 12 }}
                                             />{" "}
-                                            Spot Node Controllers
+                                            Secure Control Plane Architecture
                                         </li>
                                         <li>
                                             <img
@@ -233,7 +301,15 @@ const Services = () => {
                                                 alt=""
                                                 style={{ maxWidth: 16, marginRight: 12 }}
                                             />{" "}
-                                            Infra Cost Modules
+                                            Air-Gapped Infrastructure
+                                        </li>
+                                        <li>
+                                            <img
+                                                src="img/star.png"
+                                                alt=""
+                                                style={{ maxWidth: 16, marginRight: 12 }}
+                                            />{" "}
+                                            Kubernetes Security
                                         </li>
                                     </ul>
                                     <img
@@ -250,9 +326,7 @@ const Services = () => {
                             </div>
                             <div className={styles.col3}>
                                 <div className={styles.serviceCard}>
-                                    <h3>
-                                        Consulting & <br /> Contracts
-                                    </h3>
+                                    <h3>Consutling</h3>
                                     <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
                                         <li>
                                             <img
@@ -260,7 +334,7 @@ const Services = () => {
                                                 alt=""
                                                 style={{ maxWidth: 16, marginRight: 12 }}
                                             />{" "}
-                                            Scheduling and Bin Packing
+                                            Onsite Consultations
                                         </li>
                                         <li>
                                             <img
@@ -268,7 +342,7 @@ const Services = () => {
                                                 alt=""
                                                 style={{ maxWidth: 16, marginRight: 12 }}
                                             />{" "}
-                                            Spot Node Controllers
+                                            Hands-On Implementations
                                         </li>
                                         <li>
                                             <img
@@ -276,32 +350,7 @@ const Services = () => {
                                                 alt=""
                                                 style={{ maxWidth: 16, marginRight: 12 }}
                                             />{" "}
-                                            Infra Cost Modules
-                                        </li>
-                                    </ul>
-                                    <img
-                                        src="img/saas.png"
-                                        style={{
-                                            position: "absolute",
-                                            maxWidth: 220,
-                                            right: 0,
-                                            top: 0,
-                                        }}
-                                        alt=""
-                                    />
-                                </div>
-                            </div>
-                            <div className={styles.col3}>
-                                <div className={styles.serviceCard}>
-                                    <h3>Security</h3>
-                                    <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-                                        <li>
-                                            <img
-                                                src="img/star.png"
-                                                alt=""
-                                                style={{ maxWidth: 16, marginRight: 12 }}
-                                            />{" "}
-                                            Scheduling and Bin Packing
+                                            Technical Advisory on Control Planes
                                         </li>
                                         <li>
                                             <img
@@ -309,15 +358,7 @@ const Services = () => {
                                                 alt=""
                                                 style={{ maxWidth: 16, marginRight: 12 }}
                                             />{" "}
-                                            Spot Node Controllers
-                                        </li>
-                                        <li>
-                                            <img
-                                                src="img/star.png"
-                                                alt=""
-                                                style={{ maxWidth: 16, marginRight: 12 }}
-                                            />{" "}
-                                            Infra Cost Modules
+                                            Long Term Contactor Engadements
                                         </li>
                                     </ul>
                                     <img
