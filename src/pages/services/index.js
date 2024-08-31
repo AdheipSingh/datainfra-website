@@ -1,24 +1,29 @@
 import Layout from "@theme/Layout"
 import React from "react"
 import styles from "../index.module.css"
+import Link from "@docusaurus/Link"
 
 const Services = () => {
     return (
         <>
             <Layout>
+
+
                 <div>
+                    <NavBar className={styles.navbar}>
+                    </NavBar>
                     <div className={styles.heroSection}>
                         <Container>
                             <div>
                                 <h2 style={{ fontSize: "4.4vw", fontWeight: 800 }}>
-                                    Custom Control Planes for <span>Target Solutions</span>
+                                    Custom Control Planes for <span>Targeted Solutions</span>
                                 </h2>
                                 <p style={{ maxWidth: "68%" }}>
                                     We help companies adopt control plane architectures specific for
-                                    their businesses
+                                    their businesses.
                                 </p>
-                                <a href="">
-                                    Schedule Control Plane Consultation{" "}
+                                <a href="https://cal.com/baazhq">
+                                    Talk to Us{" "}
                                     <img
                                         src="img/arrow-right.png"
                                         style={{ maxWidth: 24 }}
@@ -375,7 +380,7 @@ const Services = () => {
                             </div>
                         </div>
                     </div>
-                    <div style={{ padding: "80px 24px" }}>
+                    <div style={{ padding: "80px 240px" }}>
                         <div className={styles.whyChooseUsContainer}>
                             <div>
                                 <h2
@@ -393,11 +398,14 @@ const Services = () => {
                                     We are not your typical services partner. We’re a small team of
                                     niche software consultants and contractors, hands-on <br />{" "}
                                     engineers whose careers are built on open-source contributions.
+
                                 </p>
                                 <p>
-                                    As maintainers of widely adopted OSS projects used by leading
-                                    tech companies, we bring deep technical <br /> expertise and
-                                    industry insight.
+                                    As Infrastructure developers having deep expertise in building state driven
+                                    infrastructure platforms, <br /> we can help you build robust control planes.
+                                    <p>
+                                        <br /> We don't just talk architecture, we code and build systems hands-on from scratch.
+                                    </p>
                                 </p>
                             </div>
                             <div className={styles.wrapBody}>
@@ -409,7 +417,7 @@ const Services = () => {
                                 </div>
                                 <div className={styles.col3}>
                                     <div className={styles.counterBox}>
-                                        <div className={styles.count}>500+</div>
+                                        <div className={styles.count}>300+</div>
                                         <div className={styles.counterText}>Commits to Open Source Projects</div>
                                     </div>
                                 </div>
@@ -423,13 +431,13 @@ const Services = () => {
                             <div>
                                 <p>
                                     We offer system design, hands-on implementation, and support. To
-                                    learn more about <br /> working with us, feel free to{" "}
-                                    <b>Contact Us</b>
+                                    learn more about <br /> working with us, feel free to { }
+                                    <a href="https://cal.com/baazhq" target="_blank"><b>Contact Us</b></a>.
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <div style={{ padding: "80px 24px" }}>
+                    {/* <div style={{ padding: "80px 24px" }}>
                         <div className={styles.ourInsights}>
                             <div>
                                 <h2
@@ -588,8 +596,8 @@ const Services = () => {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div className={styles.col3}>
+                                </div> */}
+                    {/* <div className={styles.col3}>
                                     <div className={styles.blogImg}>
                                         <img
                                             src="img/blog1.jpg"
@@ -879,7 +887,7 @@ const Services = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                     <div style={{ padding: "80px 0px 80px 24px" }} className={styles.contactUs}>
                         <div className={styles.wrapBody}>
                             <div className={styles.col5}>
@@ -978,10 +986,10 @@ const Services = () => {
                                         />
                                         <h6>Need to know more?</h6>
                                         <a
-                                            href=""
+                                            href="https://cal.com/baazhq"
                                             style={{ display: "inline-flex", alignItems: "center" }}
                                         >
-                                            Talk to an expert{" "}
+                                            Talk to an expert{""}
                                             <img
                                                 src="img/arrow-right.png"
                                                 style={{ maxWidth: 24 }}
@@ -1012,5 +1020,171 @@ function Container({ children }) {
         </div>
     )
 }
+
+function NavBar({ className, children }) {
+    return (
+        <nav
+            className={className}
+            style={{
+                height: "90px",
+                background: "#fff",
+                position: "fixed",
+                width: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between", // Adjusted justifyContent
+                paddingLeft: "56px",
+                paddingRight: "20px", // Adjusted paddingRight
+                zIndex: 99,
+            }}
+        >
+            <div style={{ display: "flex", alignItems: "center", minWidth: 310 }}>
+                <Logo />
+            </div>
+            <div>
+                <NavLink to="/#features">Features</NavLink>
+                <NavLink to="/documentation">Documentation</NavLink>
+                <NavLink to="/services">Services</NavLink>
+                <NavLink to="/blog">Blog</NavLink>
+                <a
+                    className="navbar__link_hover_src-pages-index-module"
+                    style={{
+                        color: "rgb(19, 18, 18)",
+                        marginLeft: "32px",
+                        marginRight: "32px",
+                        fontSize: "1.2rem",
+                        fontWeight: "bold",
+                    }}
+                    href="https://saasinfra.substack.com/"
+                    target="_blank"
+                >
+                    Newsletter
+                </a>
+            </div>
+            <div style={{ display: "flex" }}>
+                <Gitbutton href="https://github.com/baazhq/baaz">Star on GitHub</Gitbutton>
+                <ActionButton href="https://www.launchpass.com/baaz">Join Slack</ActionButton>
+            </div>
+        </nav>
+    )
+}
+
+function Logo() {
+    return (
+        <Link to="/">
+            <img
+                src="/img/logo.png"
+                alt="secure-icon"
+                style={{ width: "250px", height: "auto", marginRight: "auto" }}
+            />
+        </Link>
+    )
+}
+
+function NavLink({ style, to, children }) {
+    return (
+        <Link
+            className={styles.navbar__link_hover}
+            to={to}
+            style={{
+                color: " #131212",
+                marginLeft: "32px",
+                marginRight: "32px",
+                fontSize: "1.2rem",
+                fontWeight: "bold", // Added fontWeight
+                ...style,
+            }}
+        >
+            {children}
+        </Link>
+    )
+}
+
+function ActionButton({ className, href, style, children }) {
+    return (
+        <Link
+            className={className}
+            href={href}
+            style={{
+                background: "#fff",
+                borderRadius: "28px",
+                border: "2px solid #4361ee",
+                color: "#4361ee",
+                fontSize: "1.2rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                textDecoration: "none",
+                marginLeft: "16px", // Adjusted marginLeft
+                fontFamily: "Inter, sans-serif",
+                boxShadow: "0px 4px 16px 0px rgba(0, 0, 0, 0.12)",
+                padding: "8px 24px",
+                transition: "background 0.3s ease, color 0.3s ease, border-color 0.3s ease",
+                ...style,
+            }}
+            onMouseEnter={(e) => {
+                e.target.style.background = "#4361ee"
+                e.target.style.color = "#fff"
+                e.target.style.borderColor = "#4361ee"
+            }}
+            onMouseLeave={(e) => {
+                e.target.style.background = "#fff"
+                e.target.style.color = "#4361ee"
+                e.target.style.borderColor = "#4361ee"
+            }}
+        >
+            <img
+                style={{ marginRight: "16px", height: "24px" }}
+                src="/img/slack.svg"
+                alt="join-slack"
+            />
+            {children}
+        </Link>
+    )
+}
+
+function Gitbutton({ className, href, style, children }) {
+    return (
+        <Link
+            className={className}
+            href={href}
+            style={{
+                background: "#fff",
+                borderRadius: "28px",
+                border: "2px solid #4361ee",
+                color: "#4361ee",
+                fontSize: "1.2rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                textDecoration: "none",
+                // marginLeft: "16px", // Adjusted marginLeft
+                fontFamily: "Inter, sans-serif",
+                boxShadow: "0px 4px 16px 0px rgba(0, 0, 0, 0.12)",
+                padding: "8px 24px",
+                transition: "background 0.3s ease, color 0.3s ease, border-color 0.3s ease",
+                ...style,
+            }}
+            onMouseEnter={(e) => {
+                e.target.style.background = "#4361ee"
+                e.target.style.color = "#fff"
+                e.target.style.borderColor = "#4361ee"
+            }}
+            onMouseLeave={(e) => {
+                e.target.style.background = "#fff"
+                e.target.style.color = "#4361ee"
+                e.target.style.borderColor = "#4361ee"
+            }}
+        >
+            <img
+                style={{ height: "32px", marginRight: "16px" }}
+                src="/img/github-mark.png"
+                alt="Star-on-Github"
+            />
+            {children}
+        </Link>
+    )
+}
+
 
 export default Services

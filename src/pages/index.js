@@ -37,16 +37,6 @@ export default function Home() {
                 wrapperClassName={styles.wrapper}
             >
                 <NavBar className={styles.navbar}>
-                    {/* <Logo /> */}
-                    {/* <NavLink to="/blog">Features</NavLink>
-                    <NavLink to="/documentation">Documentations</NavLink>
-                    <NavLink to="/blog">Blogs</NavLink>
-                    <Gitbutton href="https://github.com/baazhq/baaz">
-                        Star on GitHub
-                    </Gitbutton>
-                    <ActionButton href="https://launchpass.com/datainfra-workspace">
-                        Join Slack
-                    </ActionButton> */}
                 </NavBar>
 
                 {/* Navbar mobile */}
@@ -367,6 +357,7 @@ function NavBar({ className, children }) {
             <div>
                 <NavLink to="/#features">Features</NavLink>
                 <NavLink to="/documentation">Documentation</NavLink>
+                <NavLink to="/services">Services</NavLink>
                 <NavLink to="/blog">Blog</NavLink>
                 <a
                     className="navbar__link_hover_src-pages-index-module"
