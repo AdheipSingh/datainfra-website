@@ -99,7 +99,9 @@ export default function FooterWrapper() {
                             <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
                                 <Navlink to="/">About</Navlink>
                                 {/* <Navlink to="/blog">Careers</Navlink> */}
+
                                 <Navlink to="/services">Services</Navlink>
+
                             </div>
                         </div>
                     </div>
@@ -167,6 +169,7 @@ export default function FooterWrapper() {
                     <p style={{ fontSize: 16 }}>
                         © 2024 Sadhrao Software Consulting. All rights reserved.
                     </p>
+
                     <div className={styles.footerLink}>
                         {/* <a href="">Terms & Conditions</a>
                         <a href="">Privacy Policy</a> */}
