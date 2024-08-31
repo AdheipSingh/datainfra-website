@@ -39,12 +39,13 @@
 
 /* Navbar */
 .navbar {
+    display: none;
     height: 90px;
     padding-left: 56px;
 }
 
 /* Hide docs navbar on landing page */
-#__docusaurus-base-url-issue-banner-container ~ div ~ nav {
+#__docusaurus-base-url-issue-banner-container~div~nav {
     display: none;
 }
 
@@ -53,28 +54,36 @@
         padding-left: 16px;
     }
 }
+
 .navbar__logo {
     height: 50px;
 }
+
 .navbar__item {
     font-size: 1.125rem;
     color: #fff;
 }
+
 .navbar__link {
     color: #fff;
 }
+
 .navbar__toggle.clean-btn {
     color: #fff;
 }
+
 [class*="toggleButton"]:hover {
     background: var(--ifm-color-gray-800) !important;
 }
+
 .navbar-sidebar {
     background-color: #fff;
 }
+
 .navbar-sidebar__brand {
     background-color: #001eaa;
 }
+
 .clean-btn.navbar-sidebar__back {
     background-color: #2542ca;
     color: #fff;
@@ -88,7 +97,9 @@
     top: 20px;
     left: 16px;
     transition: transform 0.2s ease-in-out;
-} /* Dropdown arrow */
+}
+
+/* Dropdown arrow */
 .navbar__item.dropdown::after {
     content: "";
     background-image: url("/img/arrowdown.svg");
@@ -101,13 +112,18 @@
     right: 0px;
     transition: transform 0.2s ease-in-out;
     rotate: 180deg;
-} /* Dropdown arrow - rotation animation */
+}
+
+/* Dropdown arrow - rotation animation */
 .navbar__item.dropdown:hover::after {
     transform: rotate(180deg);
-} /* Disable default arrow */
+}
+
+/* Disable default arrow */
 .navbar__item.dropdown a::after {
     border: none;
 }
+
 .dropdown__menu {
     top: 58px;
     left: -114px;
@@ -118,31 +134,37 @@
     position: absolute;
     left: -310px;
 }
+
 .navbar__items.navbar__items--right {
     position: relative;
     display: flex;
     gap: 56px;
     margin-right: 16px;
 }
+
 .DocSearch {
-    background: linear-gradient(
-        94.48deg,
-        rgba(255, 255, 255, 0.24) 0%,
-        rgba(255, 255, 255, 0.32) 100%
-    ) !important;
+    background: linear-gradient(94.48deg,
+            rgba(255, 255, 255, 0.24) 0%,
+            rgba(255, 255, 255, 0.32) 100%) !important;
     color: #fff !important;
     font-family: "Mulish", sans-serif;
     border-radius: 16px !important;
     height: 50px !important;
     width: 245px;
-} /* Search text */
+}
+
+/* Search text */
 .DocSearch span span {
     font-size: 1.125rem;
-} /* Magnifying glass */
-.DocSearch span > svg {
+}
+
+/* Magnifying glass */
+.DocSearch span>svg {
     color: #fff !important;
     margin: 4px;
-} /* Search active backdrop */
+}
+
+/* Search active backdrop */
 .DocSearch-Container {
     height: 100% !important;
     background: rgba(94, 100, 112, 0.7) !important;
@@ -151,21 +173,27 @@
 /* Docs page sidebar */
 [data-theme="light"] .menu__link {
     color: #111;
-} /* Sidebar folder  */
+}
+
+/* Sidebar folder  */
 .menu__link.menu__link--sublist {
     font-size: 1.125rem;
     margin: 6px;
-} /* Sidebar items */
+}
+
+/* Sidebar items */
 .menu__link.menu__link--active {
     /* background-color: none; */
     color: #4361ee;
 }
+
 .theme-doc-sidebar-menu.menu__list {
     height: 90%;
     display: flex;
     flex-direction: column;
 }
-.theme-doc-sidebar-menu.menu__list > li:nth-last-of-type(4) {
+
+.theme-doc-sidebar-menu.menu__list>li:nth-last-of-type(4) {
     /* margin-top: auto; */
     /* padding-top: 50px; */
 }
@@ -175,7 +203,7 @@
 }
 
 /* Doc Page main */
-.theme-doc-markdown > h1 {
+.theme-doc-markdown>h1 {
     text-align: center;
 }
 
@@ -187,6 +215,7 @@
     font-size: 1rem;
     font-weight: 500;
 }
+
 .druid::before {
     background-image: url("/img/druid.png");
     background-size: 20px 20px;
@@ -197,6 +226,7 @@
     margin-top: 2x;
     margin-right: 10px;
 }
+
 .pinot::before {
     background-image: url("/img/pinot.png");
     background-size: 20px 20px;
@@ -207,6 +237,7 @@
     margin-top: 2x;
     margin-right: 10px;
 }
+
 .dsoi::before {
     background-image: url("/img/dsoi.png");
     background-size: 20px 20px;
@@ -217,6 +248,7 @@
     margin-top: 2x;
     margin-right: 10px;
 }
+
 .operator::before {
     background-image: url("/img/operator.png");
     background-size: 20px 20px;
@@ -235,12 +267,14 @@ p {
 }
 
 
-markdown li  {
+markdown li {
     font-size: 1.25rem;
     margin-top: var(--ifm-list-item-margin);
 }
 
-.markdown > pre, .markdown > ul, .markdown > p {
+.markdown>pre,
+.markdown>ul,
+.markdown>p {
     font-size: 1.25rem;
     margin-bottom: var(--ifm-leading);
 }

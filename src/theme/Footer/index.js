@@ -6,6 +6,32 @@ import styles from "./styles.module.css"
 export default function FooterWrapper() {
     return (
         <>
+            <div className={styles.newsletter}>
+                <h2>
+                    Subscribe to our <span>Newsletter</span>
+                </h2>
+                <p>The BaaZ newsletter goes out every other week, don’t miss out !</p>
+                <form action="https://formspree.io/f/mvgpryap" method="POST">
+                    <div
+                        className={styles.inputBox}
+                        style={{ display: "flex", position: "relative" }}
+                    >
+                        <input
+                            type="email"
+                            name="email"
+                            className="form-control"
+                            placeholder="Enter your email ID"
+                            // value={email}
+                            // onChange={(e) => setEmail(e.target.value)}
+                            required
+                        />
+                        <button type="submit cursor-pointer">
+                            Subscribe <img src="/img/arrow-narrow-right.png" alt="" />
+                        </button>
+                    </div>
+                </form>
+                {/* {error && <p style={{ color: "red" }}>{error}</p>} */}
+            </div>
             <footer>
                 <div className={styles.main}>
                     {/* Left */}
@@ -30,8 +56,8 @@ export default function FooterWrapper() {
                 </div> */}
 
                         <p style={{ fontSize: "18px", marginTop: "24px" }}>
-                            BaaZ is a centralised control plane for building SaaS. We provide services to
-                            build custom control plane solutions.
+                            BaaZ is a centralised control plane for building SaaS. We also provide
+                            services to build custom control plane solutions.
                         </p>
                     </div>
 
@@ -73,7 +99,9 @@ export default function FooterWrapper() {
                             <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
                                 <Navlink to="/">About</Navlink>
                                 {/* <Navlink to="/blog">Careers</Navlink> */}
-                                <Navlink to="/documentation">Services</Navlink>
+
+                                <Navlink to="/services">Services</Navlink>
+
                             </div>
                         </div>
                     </div>
@@ -138,7 +166,10 @@ export default function FooterWrapper() {
                         padding: "0px 20px",
                     }}
                 >
-                    <p style={{ fontSize: 16 }}>© 2024 Sadhrao Software Consulting. All rights reserved.</p>
+                    <p style={{ fontSize: 16 }}>
+                        © 2024 Sadhrao Software Consulting. All rights reserved.
+                    </p>
+
                     <div className={styles.footerLink}>
                         {/* <a href="">Terms & Conditions</a>
                         <a href="">Privacy Policy</a> */}

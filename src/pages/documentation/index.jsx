@@ -3,16 +3,19 @@ import Layout from "@theme/Layout"
 import Link from "@docusaurus/Link"
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
 import styles from "./styles.module.css"
+import newstyles from "../index.module.css"
+
 
 export default function Documentation() {
     const { siteConfig } = useDocusaurusContext()
 
     return (
         <Layout title="BaaZ Docs: All about BaaZ." description="BaaZ Docs.">
-            <NavBarLogo />
+            <NavBar className={newstyles.navbar}>
+            </NavBar>
 
             <Main>
-                <img src="img/analytics.png" alt="analytics-image" height="163px" />
+                <img src="img/analytics.png" alt="analytics-image" height="163px" style={{ marginTop: '50px' }} />
 
                 <Title>
                     <Purple>BaaZ </Purple> Documentation
@@ -152,5 +155,170 @@ function NavBarLogo({ className }) {
         >
             <b></b> <b></b>
         </span>
+    )
+}
+
+function NavBar({ className, children }) {
+    return (
+        <nav
+            className={className}
+            style={{
+                height: "90px",
+                background: "#fff",
+                position: "fixed",
+                width: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between", // Adjusted justifyContent
+                paddingLeft: "56px",
+                paddingRight: "20px", // Adjusted paddingRight
+                zIndex: 99,
+            }}
+        >
+            <div style={{ display: "flex", alignItems: "center", minWidth: 310 }}>
+                <Logo />
+            </div>
+            <div>
+                <NavLink to="/#features">Features</NavLink>
+                <NavLink to="/documentation">Documentation</NavLink>
+                <NavLink to="/services">Services</NavLink>
+                <NavLink to="/blog">Blog</NavLink>
+                <a
+                    className="navbar__link_hover_src-pages-index-module"
+                    style={{
+                        color: "rgb(19, 18, 18)",
+                        marginLeft: "32px",
+                        marginRight: "32px",
+                        fontSize: "1.2rem",
+                        fontWeight: "bold",
+                    }}
+                    href="https://saasinfra.substack.com/"
+                    target="_blank"
+                >
+                    Newsletter
+                </a>
+            </div>
+            <div style={{ display: "flex" }}>
+                <Gitbutton href="https://github.com/baazhq/baaz">Star on GitHub</Gitbutton>
+                <ActionButton href="https://www.launchpass.com/baaz">Join Slack</ActionButton>
+            </div>
+        </nav>
+    )
+}
+
+function Logo() {
+    return (
+        <Link to="/">
+            <img
+                src="/img/logo.png"
+                alt="secure-icon"
+                style={{ width: "250px", height: "auto", marginRight: "auto" }}
+            />
+        </Link>
+    )
+}
+
+function NavLink({ style, to, children }) {
+    return (
+        <Link
+            className={styles.navbar__link_hover}
+            to={to}
+            style={{
+                color: " #131212",
+                marginLeft: "32px",
+                marginRight: "32px",
+                fontSize: "1.2rem",
+                fontWeight: "bold", // Added fontWeight
+                ...style,
+            }}
+        >
+            {children}
+        </Link>
+    )
+}
+
+function ActionButton({ className, href, style, children }) {
+    return (
+        <Link
+            className={className}
+            href={href}
+            style={{
+                background: "#fff",
+                borderRadius: "28px",
+                border: "2px solid #4361ee",
+                color: "#4361ee",
+                fontSize: "1.2rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                textDecoration: "none",
+                marginLeft: "16px", // Adjusted marginLeft
+                fontFamily: "Inter, sans-serif",
+                boxShadow: "0px 4px 16px 0px rgba(0, 0, 0, 0.12)",
+                padding: "8px 24px",
+                transition: "background 0.3s ease, color 0.3s ease, border-color 0.3s ease",
+                ...style,
+            }}
+            onMouseEnter={(e) => {
+                e.target.style.background = "#4361ee"
+                e.target.style.color = "#fff"
+                e.target.style.borderColor = "#4361ee"
+            }}
+            onMouseLeave={(e) => {
+                e.target.style.background = "#fff"
+                e.target.style.color = "#4361ee"
+                e.target.style.borderColor = "#4361ee"
+            }}
+        >
+            <img
+                style={{ marginRight: "16px", height: "24px" }}
+                src="/img/slack.svg"
+                alt="join-slack"
+            />
+            {children}
+        </Link>
+    )
+}
+
+function Gitbutton({ className, href, style, children }) {
+    return (
+        <Link
+            className={className}
+            href={href}
+            style={{
+                background: "#fff",
+                borderRadius: "28px",
+                border: "2px solid #4361ee",
+                color: "#4361ee",
+                fontSize: "1.2rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                textDecoration: "none",
+                // marginLeft: "16px", // Adjusted marginLeft
+                fontFamily: "Inter, sans-serif",
+                boxShadow: "0px 4px 16px 0px rgba(0, 0, 0, 0.12)",
+                padding: "8px 24px",
+                transition: "background 0.3s ease, color 0.3s ease, border-color 0.3s ease",
+                ...style,
+            }}
+            onMouseEnter={(e) => {
+                e.target.style.background = "#4361ee"
+                e.target.style.color = "#fff"
+                e.target.style.borderColor = "#4361ee"
+            }}
+            onMouseLeave={(e) => {
+                e.target.style.background = "#fff"
+                e.target.style.color = "#4361ee"
+                e.target.style.borderColor = "#4361ee"
+            }}
+        >
+            <img
+                style={{ height: "32px", marginRight: "16px" }}
+                src="/img/github-mark.png"
+                alt="Star-on-Github"
+            />
+            {children}
+        </Link>
     )
 }

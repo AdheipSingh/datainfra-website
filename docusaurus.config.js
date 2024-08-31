@@ -94,6 +94,7 @@ const config = {
                 },
                 blog: {
                     showReadingTime: true,
+                    blogSidebarCount: 0,
                     // Please change this to your repo.
                     // Remove this to remove the "edit this page" links.
                     editUrl:
@@ -112,56 +113,57 @@ const config = {
         ({
             // Replace with your project's social card
             image: "img/docusaurus-social-card.jpg",
-            navbar: {
-                // title: "DataInfra",
-                logo: {
-                    alt: "BaaZ Logo",
-                    src: "img/logo-white.png",
-                },
-                items: [
-                    // {
-                    //     type: "dropdown",
-                    //     // sidebarId: "tutorialSidebar",
-                    //     position: "left",
-                    //     label: "​",
-                    //     className: "service-dropdown",
-                    //     items: [
-                    //         {
-                    //             label: "Druid Kubernetes Operator",
-                    //             to: "docs/druid-on-kubernetes",
-                    //             className: "druid",
-                    //         },
-                    //         {
-                    //             label: "Pinot Kubernetes Operator",
-                    //             to: "docs/pinot-on-kubernetes",
-                    //             className: "pinot",
-                    //         },
-                    //         {
-                    //             label: "Distributed systems operator interface",
-                    //             to: "docs/distributed-systems-operator-interface",
-                    //             className: "dsoi",
-                    //         },
-                    //         {
-                    //             label: "Operator runtime",
-                    //             to: "docs/operator-runtime",
-                    //             className: "operator",
-                    //         },
-                    //     ],
-                    // },
-                    {
-                        to: "/#features",
-                        label: "Features",
-                        position: "right",
-                    },
-                    { to: "/blog", label: "Blogs", position: "right" },
-                    {
-                        to: "/",
-                        label: "Home",
-                        position: "right",
-                        className: "navbar-home-link",
-                    },
-                ],
-            },
+            // navbar: {
+            //     title: "BaaZ",
+            //     hideOnScroll: true,
+            //     logo: {
+            //         alt: "BaaZ Logo",
+            //         src: "img/logo-white.png",
+            //     },
+            //     items: [
+            //         // {
+            //         //     type: "dropdown",
+            //         //     // sidebarId: "tutorialSidebar",
+            //         //     position: "left",
+            //         //     label: "​",
+            //         //     className: "service-dropdown",
+            //         //     items: [
+            //         //         {
+            //         //             label: "Druid Kubernetes Operator",
+            //         //             to: "docs/druid-on-kubernetes",
+            //         //             className: "druid",
+            //         //         },
+            //         //         {
+            //         //             label: "Pinot Kubernetes Operator",
+            //         //             to: "docs/pinot-on-kubernetes",
+            //         //             className: "pinot",
+            //         //         },
+            //         //         {
+            //         //             label: "Distributed systems operator interface",
+            //         //             to: "docs/distributed-systems-operator-interface",
+            //         //             className: "dsoi",
+            //         //         },
+            //         //         {
+            //         //             label: "Operator runtime",
+            //         //             to: "docs/operator-runtime",
+            //         //             className: "operator",
+            //         //         },
+            //         //     ],
+            //         // },
+            //         {
+            //             to: "/#features",
+            //             label: "Features",
+            //             position: "right",
+            //         },
+            //         { to: "/blog", label: "Blogs", position: "right" },
+            //         {
+            //             to: "/",
+            //             label: "Home",
+            //             position: "right",
+            //             className: "navbar-home-link",
+            //         },
+            //     ],
+            // },
             // footer: {
             //     style: "dark",
             //     links: [
