@@ -201,11 +201,11 @@ export default function Home() {
                 </div>
 
                 <div className={styles.newsletter}>
-                    <h2>
+                    {/* <h2>
                         Subscribe to our <span>Newsletter</span>
-                    </h2>
-                    <p>The BaaZ newsletter goes out every other week, don’t miss out!</p>
-                    <form action="https://formspree.io/f/mvgpryap" method="POST">
+                    </h2> */}
+                    {/* <p>The BaaZ newsletter goes out every other week, don’t miss out!</p> */}
+                    {/* <form action="https://formspree.io/f/mvgpryap" method="POST">
                         <div
                             className={styles.inputBox}
                             style={{ display: "flex", position: "relative" }}
@@ -214,7 +214,7 @@ export default function Home() {
                                 type="email"
                                 name="email"
                                 className="form-control"
-                                placeholder="Enter your email ID"
+                                // placeholder="Enter your email ID"
                                 // value={email}
                                 // onChange={(e) => setEmail(e.target.value)}
                                 required
@@ -222,8 +222,8 @@ export default function Home() {
                             <button type="submit cursor-pointer">
                                 Subscribe <img src="/img/arrow-narrow-right.png" alt="" />
                             </button>
-                        </div>
-                    </form>
+                        </div> */}
+                    {/* </form> */}
                     {/* {error && <p style={{ color: "red" }}>{error}</p>} */}
                 </div>
 
