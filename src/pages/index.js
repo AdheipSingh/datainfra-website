@@ -394,6 +394,7 @@ function NavBar({ className, children }) {
                 <NavLink to="/#features">Features</NavLink>
                 <NavLink to="/documentation">Documentation</NavLink>
                 <NavLink to="/blog">Blog</NavLink>
+                {/* <NavLink to="/blog">Blog</NavLink> */}
                 <a
                     className="navbar__link_hover_src-pages-index-module"
                     style={{
