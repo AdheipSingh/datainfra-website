@@ -326,7 +326,7 @@ const Services = () => {
                             </div>
                             <div className={styles.col3}>
                                 <div className={styles.serviceCard}>
-                                    <h3>Consutling</h3>
+                                    <h3>Consulting</h3>
                                     <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
                                         <li>
                                             <img
@@ -403,20 +403,20 @@ const Services = () => {
                             <div className={styles.wrapBody}>
                                 <div className={styles.col3}>
                                     <div className={styles.counterBox}>
+                                        <div className={styles.countPurple}>5+</div>
+                                        <div className={styles.counterText}>Control Plane</div>
+                                    </div>
+                                </div>
+                                <div className={styles.col3}>
+                                    <div className={styles.counterBox}>
+                                        <div className={styles.count}>500+</div>
+                                        <div className={styles.counterText}>Commits to Open Source Projects</div>
+                                    </div>
+                                </div>
+                                <div className={styles.col3}>
+                                    <div className={styles.counterBox}>
                                         <div className={styles.countPurple}>10+</div>
-                                        <div className={styles.counterText}>Control Plane</div>
-                                    </div>
-                                </div>
-                                <div className={styles.col3}>
-                                    <div className={styles.counterBox}>
-                                        <div className={styles.count}>250+</div>
-                                        <div className={styles.counterText}>Control Plane</div>
-                                    </div>
-                                </div>
-                                <div className={styles.col3}>
-                                    <div className={styles.counterBox}>
-                                        <div className={styles.countPurple}>250+</div>
-                                        <div className={styles.counterText}>Control Plane</div>
+                                        <div className={styles.counterText}>Kubernetes Operators</div>
                                     </div>
                                 </div>
                             </div>

@@ -56,7 +56,7 @@ export default function FooterWrapper() {
                 </div> */}
 
                         <p style={{ fontSize: "18px", marginTop: "24px" }}>
-                            BaaZ is a centralised control plane for building SaaS. We provide
+                            BaaZ is a centralised control plane for building SaaS. We also provide
                             services to build custom control plane solutions.
                         </p>
                     </div>
