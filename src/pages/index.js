@@ -34,6 +34,7 @@ export default function Home() {
             <Layout
                 title="Control Plane for SaaS"
                 description="Centralised control plane and unified management options for SaaS infrastructure. Build managed services, infra saas, and serverless choices for SaaS infrastructure management."
+
                 wrapperClassName={styles.wrapper}
             >
                 <NavBar className={styles.navbar}>

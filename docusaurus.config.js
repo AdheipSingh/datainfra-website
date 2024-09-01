@@ -246,7 +246,7 @@ const config = {
             metadata: [
                 {
                     name: "google-site-verification",
-                    content: "KLUSfWP6Co7sfLB1CVWQ8CgSnXxLNDtRNntqpchbKEA",
+                    content: "F-amoPl8NKGeeJ6Si2xDPtfin2HE6TR9mbIYKKedFDw",
                 },
             ],
         }),
