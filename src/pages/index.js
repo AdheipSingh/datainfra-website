@@ -1,8 +1,9 @@
-import React from "react"
+import React, { useState } from "react"
 import Layout from "@theme/Layout"
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
 import Link from "@docusaurus/Link"
 import styles from "./index.module.css"
+import "../css/v-main.css"
 
 export default function Home() {
     const { siteConfig } = useDocusaurusContext()
@@ -34,63 +35,46 @@ export default function Home() {
             <Layout
                 title="Control Plane for SaaS"
                 description="Centralised control plane and unified management options for SaaS infrastructure. Build managed services, infra saas, and serverless choices for SaaS infrastructure management."
-
                 wrapperClassName={styles.wrapper}
             >
-                <NavBar className={styles.navbar}>
-                </NavBar>
+                <NavBar className={styles.navbar} />
 
-                {/* Navbar mobile */}
-                {/* Navbar mobile content here */}
+                <Container>
+                    <img src="/img/leftOrnament.svg" alt="left" />
+                    <div
+                        style={{
+                            textAlign: "center",
+                            marginRight: "10px",
+                            marginLeft: "10px",
+                        }}
+                    >
+                        <Title>
+                            <Purple>Centralised</Purple> Control Plane for <Purple>SaaS</Purple>
+                        </Title>
+                        <p style={{ fontSize: "1.25rem", fontWeight: 500, color: "#000" }}>
+                            Unified Management Plane for Managed Services, Infra SaaS and Serverless
+                            SaaS.
+                        </p>
 
-                {/* Section 1 */}
-                <div>
-                    <Container>
-                        {/* Left decoration */}
-                        <img src="/img/leftOrnament.svg" alt="left" />
-                        <div
-                            style={{
-                                textAlign: "center",
-                                marginRight: "10px",
-                                marginLeft: "10px",
-                            }}
-                        >
-                            <Title>
-                                <Purple>Centralised</Purple> Control Plane for <Purple>SaaS</Purple>
-                            </Title>
-                            <p style={{ fontSize: "1.25rem", fontWeight: 500, color: "#000" }}>
-                                Unified Management Plane for Managed Services, Infra SaaS and
-                                Serverless SaaS.
-                            </p>
-
-                            <RequestDemo>
-                                <RequestDemoButtons>
-                                    <Link
-                                        to="https://cal.com/baazhq"
-                                        className={styles.requestDemoButton}
-                                    >
-                                        Book a Call{" "}
-                                        <div className={styles.arrowContainer}>
-                                            <img
-                                                src="/img/arrow_forward.svg"
-                                                className="img-fluid"
-                                            />
-                                        </div>
-                                    </Link>
-                                    <Link
-                                        to="/documentation"
-                                        className={styles.requestDemoButton}
-                                        style={{ marginRight: "10px" }}
-                                    >
-                                        Read Docs
-                                    </Link>
-                                </RequestDemoButtons>
-                            </RequestDemo>
-                        </div>
-                        {/* Right decoration */}
-                        <img src="/img/rightOrnament.svg" alt="right" />
-                    </Container>
-                </div>
+                        <RequestDemo>
+                            <RequestDemoButtons>
+                                <Link
+                                    to="https://cal.com/baazhq"
+                                    className={styles.requestDemoButton}
+                                >
+                                    Book a Call{" "}
+                                    <div className={styles.arrowContainer}>
+                                        <img src="/img/arrow_forward.svg" className="img-fluid" />
+                                    </div>
+                                </Link>
+                                <Link to="/documentation" className={styles.requestDemoButton}>
+                                    Read Docs
+                                </Link>
+                            </RequestDemoButtons>
+                        </RequestDemo>
+                    </div>
+                    <img src="/img/rightOrnament.svg" alt="right" />
+                </Container>
 
                 {/* New Section */}
                 <div style={{ textAlign: "center", backgroundColor: "#f4f4f4" }}>
@@ -150,22 +134,11 @@ export default function Home() {
                     </div>
                 </div>
 
-                {/* Join Our Community Section */}
-                <div
-                    style={{
-                        display: "flex",
-                        justifyContent: "flex-end",
-                        alignItems: "center",
-                        padding: "40px 20px",
-                        marginTop: "40px",
-                    }}
-                >
+                <div className="v-join-community">
                     <div
                         style={{
                             flex: 1,
                             textAlign: "left",
-                            marginLeft: "100px",
-                            marginRight: "100px",
                         }}
                     >
                         <h2
@@ -183,7 +156,7 @@ export default function Home() {
                             our worldwide network of innovators, engineers, and advocates on Slack
                             and GitHub.
                         </p>
-                        <div style={{ display: "flex", gap: "16px", marginTop: "16px" }}>
+                        <div className="v-social-links">
                             <Gitbutton href="https://github.com/baazhq/baaz">
                                 Star on GitHub
                             </Gitbutton>
@@ -192,7 +165,7 @@ export default function Home() {
                             </ActionButton>
                         </div>
                     </div>
-                    <div style={{ flex: 1, textAlign: "center", maxWidth: "50%" }}>
+                    <div style={{ flex: 1, textAlign: "center" }}>
                         <img
                             src="/img/bzcommunity.png"
                             alt="Community"
@@ -277,19 +250,7 @@ function HighlightedBox({ title, description, logo }) {
 
     return (
         <div
-            style={{
-                width: "calc(33.3333% - 40px)", // Adjusted width to accommodate three boxes with spacing
-                // height: "200px", // Fixed height for square boxes
-                padding: "32px 24px 24px 24px",
-                // paddingBottom: "200px", // Added bottom padding
-                background: "#fff",
-                // border: `2px solid ${isHovered ? "#FFA500" : "#FFD700"}`,
-                borderRadius: "16px",
-                margin: "10px",
-                textAlign: "center",
-                boxSizing: "border-box",
-                display: "inline-block",
-            }}
+            className="v-home-feature"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
@@ -306,14 +267,7 @@ function HighlightedBox({ title, description, logo }) {
 
 function BaazFeatures() {
     return (
-        <div
-            style={{
-                display: "flex",
-                justifyContent: "center",
-                flexWrap: "wrap",
-                marginTop: "20px",
-            }}
-        >
+        <div className="v-home-features">
             {baazFeatures.map((feature, index) => (
                 <HighlightedBox
                     key={index}
@@ -329,21 +283,7 @@ function BaazFeatures() {
 // ** Styled Components
 
 function Container({ children }) {
-    return (
-        <div
-            className={styles.containerHero1}
-            style={{
-                padding: "180px 0 210px",
-                display: "flex",
-                background: " #f4f4f4",
-                justifyContent: "space-between",
-                alignItems: "center",
-                paddingBottom: "180px",
-            }}
-        >
-            {children}
-        </div>
-    )
+    return <div className={`${styles.containerHero1} v-home-banner`}>{children}</div>
 }
 
 function Purple({ children }) {
@@ -362,27 +302,13 @@ function Purple({ children }) {
     )
 }
 
-function NavBar({ className, children }) {
+function NavBar({ className }) {
+    const [isOpen, setIsOpen] = useState(false)
+
     return (
-        <nav
-            className={className}
-            style={{
-                height: "90px",
-                background: "#fff",
-                position: "fixed",
-                width: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between", // Adjusted justifyContent
-                paddingLeft: "56px",
-                paddingRight: "20px", // Adjusted paddingRight
-                zIndex: 99,
-            }}
-        >
-            <div style={{ display: "flex", alignItems: "center", minWidth: 310 }}>
-                <Logo />
-            </div>
-            <div>
+        <nav className={`${className} v-navbar`}>
+            <Logo />
+            <div className="v-links">
                 <NavLink to="/#features">Features</NavLink>
                 <NavLink to="/documentation">Documentation</NavLink>
                 <NavLink to="/services">Services</NavLink>
@@ -402,22 +328,65 @@ function NavBar({ className, children }) {
                     Newsletter
                 </a>
             </div>
-            <div style={{ display: "flex" }}>
-                <Gitbutton href="https://github.com/baazhq/baaz">Star on GitHub</Gitbutton>
-                <ActionButton href="https://www.launchpass.com/baaz">Join Slack</ActionButton>
+            <div className="v-social-links">
+                <Gitbutton href="https://github.com/baazhq/baaz">
+                    <span>Star on GitHub</span>
+                </Gitbutton>
+                <ActionButton href="https://www.launchpass.com/baaz">
+                    <span>Join Slack</span>
+                </ActionButton>
             </div>
+            <button onClick={() => setIsOpen(true)}>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    x="0px"
+                    y="0px"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 50 50"
+                >
+                    <path d="M 5 8 A 2.0002 2.0002 0 1 0 5 12 L 45 12 A 2.0002 2.0002 0 1 0 45 8 L 5 8 z M 5 23 A 2.0002 2.0002 0 1 0 5 27 L 45 27 A 2.0002 2.0002 0 1 0 45 23 L 5 23 z M 5 38 A 2.0002 2.0002 0 1 0 5 42 L 45 42 A 2.0002 2.0002 0 1 0 45 38 L 5 38 z"></path>
+                </svg>
+            </button>
+            {isOpen && (
+                <div className="v-navbar_phone">
+                    <div className="v-links_phone">
+                        <span onClick={() => setIsOpen(false)}>&#10006;</span>
+                        <NavLink to="/#features">Features</NavLink>
+                        <NavLink to="/documentation">Documentation</NavLink>
+                        <NavLink to="/services">Services</NavLink>
+                        <NavLink to="/blog">Blog</NavLink>
+                        <a
+                            className="navbar__link_hover_src-pages-index-module"
+                            style={{
+                                color: "rgb(19, 18, 18)",
+                                marginLeft: "32px",
+                                marginRight: "32px",
+                                fontSize: "1.2rem",
+                                fontWeight: "bold",
+                            }}
+                            href="https://saasinfra.substack.com/"
+                            target="_blank"
+                        >
+                            Newsletter
+                        </a>
+                    </div>
+                    <div className="v-social-links_phone">
+                        <Gitbutton href="https://github.com/baazhq/baaz">
+                            <span>Star on GitHub</span>
+                        </Gitbutton>
+                        <ActionButton href="https://www.launchpass.com/baaz">
+                            <span>Join Slack</span>
+                        </ActionButton>
+                    </div>
+                </div>
+            )}
         </nav>
     )
 }
 
 function Logo() {
-    return (
-        <img
-            src="/img/logo.png"
-            alt="secure-icon"
-            style={{ width: "250px", height: "auto", marginRight: "auto" }}
-        />
-    )
+    return <img src="/img/logo.png" alt="secure-icon" style={{ width: "250px", height: "auto" }} />
 }
 
 function NavLink({ style, to, children }) {
@@ -453,11 +422,11 @@ function ActionButton({ className, href, style, children }) {
                 alignItems: "center",
                 justifyContent: "center",
                 textDecoration: "none",
-                marginLeft: "16px", // Adjusted marginLeft
                 fontFamily: "Inter, sans-serif",
                 boxShadow: "0px 4px 16px 0px rgba(0, 0, 0, 0.12)",
                 padding: "8px 24px",
                 transition: "background 0.3s ease, color 0.3s ease, border-color 0.3s ease",
+                gap: "16px",
                 ...style,
             }}
             onMouseEnter={(e) => {
@@ -471,11 +440,7 @@ function ActionButton({ className, href, style, children }) {
                 e.target.style.borderColor = "#4361ee"
             }}
         >
-            <img
-                style={{ marginRight: "16px", height: "24px" }}
-                src="/img/slack.svg"
-                alt="join-slack"
-            />
+            <img style={{ height: "24px" }} src="/img/slack.svg" alt="join-slack" />
             {children}
         </Link>
     )
@@ -490,7 +455,7 @@ function RequestDemo({ children }) {
 }
 
 function RequestDemoButtons({ children }) {
-    return <div style={{ display: "flex", gap: "16px" }}>{children}</div>
+    return <div className="request-demo-btns">{children}</div>
 }
 
 function Title({ children }) {
@@ -524,11 +489,11 @@ function Gitbutton({ className, href, style, children }) {
                 alignItems: "center",
                 justifyContent: "center",
                 textDecoration: "none",
-                // marginLeft: "16px", // Adjusted marginLeft
                 fontFamily: "Inter, sans-serif",
                 boxShadow: "0px 4px 16px 0px rgba(0, 0, 0, 0.12)",
                 padding: "8px 24px",
                 transition: "background 0.3s ease, color 0.3s ease, border-color 0.3s ease",
+                gap: "16px",
                 ...style,
             }}
             onMouseEnter={(e) => {
@@ -542,11 +507,7 @@ function Gitbutton({ className, href, style, children }) {
                 e.target.style.borderColor = "#4361ee"
             }}
         >
-            <img
-                style={{ height: "32px", marginRight: "16px" }}
-                src="/img/github-mark.png"
-                alt="Star-on-Github"
-            />
+            <img style={{ height: "32px" }} src="/img/github-mark.png" alt="Star-on-Github" />
             {children}
         </Link>
     )
