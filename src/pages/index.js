@@ -3,7 +3,6 @@ import Layout from "@theme/Layout"
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
 import Link from "@docusaurus/Link"
 import styles from "./index.module.css"
-import "../css/v-main.css"
 
 export default function Home() {
     const { siteConfig } = useDocusaurusContext()
