@@ -426,8 +426,8 @@ function NavLink({ style, to, children }) {
             to={to}
             style={{
                 color: " #131212",
-                marginLeft: "32px",
-                marginRight: "32px",
+                marginLeft: "15px",
+                marginRight: "15px",
                 fontSize: "1.2rem",
                 fontWeight: "bold", // Added fontWeight
                 ...style,
@@ -455,7 +455,7 @@ function ActionButton({ className, href, style, children }) {
                 marginLeft: "16px", // Adjusted marginLeft
                 fontFamily: "Inter, sans-serif",
                 boxShadow: "0px 4px 16px 0px rgba(0, 0, 0, 0.12)",
-                padding: "8px 24px",
+                padding: "8px 22px",
                 transition: "background 0.3s ease, color 0.3s ease, border-color 0.3s ease",
                 ...style,
             }}
@@ -526,7 +526,7 @@ function Gitbutton({ className, href, style, children }) {
                 // marginLeft: "16px", // Adjusted marginLeft
                 fontFamily: "Inter, sans-serif",
                 boxShadow: "0px 4px 16px 0px rgba(0, 0, 0, 0.12)",
-                padding: "8px 24px",
+                padding: "8px 22px",
                 transition: "background 0.3s ease, color 0.3s ease, border-color 0.3s ease",
                 ...style,
             }}

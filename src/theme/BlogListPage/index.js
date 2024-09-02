@@ -202,7 +202,7 @@ function BlogPost({ post, top = true }) {
                 <h2 style={{ marginTop: "20px", fontSize: top ? "2rem" : "1.5rem" }}>{title}</h2>
             </Link>
 
-            <p style={{ fontSize: "1.25rem", color: "rgb(26, 32, 44)" }}>{description}...</p>
+            <p style={{ fontSize: "1rem", color: "rgb(26, 32, 44)" }}>{description}...</p>
 
             {/* Tags */}
             {tagsExists && (
