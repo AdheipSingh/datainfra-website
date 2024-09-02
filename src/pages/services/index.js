@@ -7,11 +7,8 @@ const Services = () => {
     return (
         <>
             <Layout>
-
-
                 <div>
-                    <NavBar className={styles.navbar}>
-                    </NavBar>
+                    <NavBar className={styles.navbar}></NavBar>
                     <div className={styles.heroSection}>
                         <Container>
                             <div>
@@ -53,9 +50,7 @@ const Services = () => {
                         <div className={styles.wrapBody}>
                             <div className={styles.col3}>
                                 <div className={styles.serviceCard}>
-                                    <h3>
-                                        Control Plane Architecture
-                                    </h3>
+                                    <h3>Control Plane Architecture</h3>
                                     <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
                                         <li>
                                             <img
@@ -112,9 +107,7 @@ const Services = () => {
                             </div>
                             <div className={styles.col3}>
                                 <div className={styles.serviceCard}>
-                                    <h3>
-                                        State Management
-                                    </h3>
+                                    <h3>State Management</h3>
                                     <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
                                         <li>
                                             <img
@@ -171,7 +164,7 @@ const Services = () => {
                             </div>
                             <div className={styles.col3}>
                                 <div className={styles.serviceCard}>
-                                    <h3>Kubernetes  </h3>
+                                    <h3>Kubernetes </h3>
                                     <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
                                         <li>
                                             <img
@@ -213,7 +206,6 @@ const Services = () => {
                                             />{" "}
                                             Kubernetes Autoscalers
                                         </li>
-
                                     </ul>
                                     <img
                                         src="img/saas.png"
@@ -229,9 +221,7 @@ const Services = () => {
                             </div>
                             <div className={styles.col3}>
                                 <div className={styles.serviceCard}>
-                                    <h3>
-                                        Cost Optimization
-                                    </h3>
+                                    <h3>Cost Optimization</h3>
                                     <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
                                         <li>
                                             <img
@@ -280,9 +270,7 @@ const Services = () => {
                             </div>
                             <div className={styles.col3}>
                                 <div className={styles.serviceCard}>
-                                    <h3>
-                                        Security
-                                    </h3>
+                                    <h3>Security</h3>
                                     <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
                                         <li>
                                             <img
@@ -398,13 +386,14 @@ const Services = () => {
                                     We are not your typical services partner. We’re a small team of
                                     niche software consultants and contractors, hands-on <br />{" "}
                                     engineers whose careers are built on open-source contributions.
-
                                 </p>
                                 <p>
-                                    As Infrastructure developers having deep expertise in building state driven
-                                    infrastructure platforms, <br /> we can help you build robust control planes.
+                                    As Infrastructure developers having deep expertise in building
+                                    state driven infrastructure platforms, <br /> we can help you
+                                    build robust control planes.
                                     <p>
-                                        <br /> We don't just talk architecture, we code and build systems hands-on from scratch.
+                                        <br /> We don't just talk architecture, we code and build
+                                        systems hands-on from scratch.
                                     </p>
                                 </p>
                             </div>
@@ -418,26 +407,33 @@ const Services = () => {
                                 <div className={styles.col3}>
                                     <div className={styles.counterBox}>
                                         <div className={styles.count}>300+</div>
-                                        <div className={styles.counterText}>Commits to Open Source Projects</div>
+                                        <div className={styles.counterText}>
+                                            Commits to Open Source Projects
+                                        </div>
                                     </div>
                                 </div>
                                 <div className={styles.col3}>
                                     <div className={styles.counterBox}>
                                         <div className={styles.countPurple}>10+</div>
-                                        <div className={styles.counterText}>Kubernetes Operators</div>
+                                        <div className={styles.counterText}>
+                                            Kubernetes Operators
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div>
                                 <p>
                                     We offer system design, hands-on implementation, and support. To
-                                    learn more about <br /> working with us, feel free to { }
-                                    <a href="https://cal.com/baazhq" target="_blank"><b>Contact Us</b></a>.
+                                    learn more about <br /> working with us, feel free to {}
+                                    <a href="https://cal.com/baazhq" target="_blank">
+                                        <b>Contact Us</b>
+                                    </a>
+                                    .
                                 </p>
                             </div>
                         </div>
                     </div>
-                    {/* <div style={{ padding: "80px 24px" }}>
+                    <div style={{ padding: "80px 24px" }}>
                         <div className={styles.ourInsights}>
                             <div>
                                 <h2
@@ -619,52 +615,6 @@ const Services = () => {
                                             </div>
                                         </div> */}
                                         </div>
-<<<<<<< HEAD
-                                    </div>
-                                </div> */}
-                    {/* <div className={styles.col3}>
-                                    <div className={styles.blogImg}>
-                                        <img
-                                            src="img/blog1.jpg"
-                                            style={{ maxWidth: "100%", height: "auto" }}
-                                            alt=""
-                                        />
-                                    </div>
-                                    <div>
-                                        <h4
-                                            className={styles.category}
-                                            style={{
-                                                color: "#002DFF",
-                                                marginBottom: 8,
-                                                marginTop: 16,
-                                                fontSize: 16,
-                                                fontWeight: 700,
-                                            }}
-                                        >
-                                            Artificial Intelligence
-                                        </h4>
-                                        <h3
-                                            style={{
-                                                fontSize: 20,
-                                                color: "#101828",
-                                                fontWeight: 700,
-                                                marginBottom: 6,
-                                            }}
-                                        >
-                                            How to build AI Cloud?
-                                        </h3>
-                                        <p
-                                            style={{
-                                                fontSize: 16,
-                                                fontWeight: 400,
-                                                marginBottom: 24,
-                                            }}
-                                        >
-                                            Learn the technology and architecture behind building AI
-                                            Cloud using open source and cloud native technologies.
-                                        </p>
-                                        <div style={{ display: "flex", alignItems: "center" }}>
-=======
                                     </Link>
                                 </div>
                                 <div className={styles.col3}>
@@ -717,7 +667,6 @@ const Services = () => {
                                                 technologies.
                                             </p>
                                             {/* <div style={{ display: "flex", alignItems: "center" }}>
->>>>>>> 4f6d532 (service page design completed)
                                             <div className={styles.authorImg}>
                                                 <img
                                                     src="img/Avatar.jpg"
@@ -988,7 +937,7 @@ const Services = () => {
                                 </div>
                             </div>
                         </div>
-                    </div> */}
+                    </div>
                     <div style={{ padding: "80px 0px 80px 24px" }} className={styles.contactUs}>
                         <div className={styles.wrapBody}>
                             <div className={styles.col5}>
@@ -1086,13 +1035,8 @@ const Services = () => {
                                             alt=""
                                         />
                                         <h6>Need to know more?</h6>
-<<<<<<< HEAD
-                                        <a
-                                            href="https://cal.com/baazhq"
-=======
                                         {/* <a
                                             href=""
->>>>>>> 4f6d532 (service page design completed)
                                             style={{ display: "inline-flex", alignItems: "center" }}
                                         >
                                             Talk to an expert{""}
@@ -1162,8 +1106,8 @@ function NavBar({ className, children }) {
             <div>
                 <NavLink to="/#features">Features</NavLink>
                 <NavLink to="/documentation">Documentation</NavLink>
-                <NavLink to="/services">Services</NavLink>
                 <NavLink to="/blog">Blog</NavLink>
+                <NavLink to="/services">Services</NavLink>
                 <a
                     className="navbar__link_hover_src-pages-index-module"
                     style={{
@@ -1303,6 +1247,5 @@ function Gitbutton({ className, href, style, children }) {
         </Link>
     )
 }
-
 
 export default Services

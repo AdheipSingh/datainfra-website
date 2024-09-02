@@ -21,8 +21,6 @@ export default function FooterWrapper() {
                             name="email"
                             className="form-control"
                             placeholder="Enter your email ID"
-                            // value={email}
-                            // onChange={(e) => setEmail(e.target.value)}
                             required
                         />
                         <button type="submit cursor-pointer">
@@ -30,11 +28,9 @@ export default function FooterWrapper() {
                         </button>
                     </div>
                 </form>
-                {/* {error && <p style={{ color: "red" }}>{error}</p>} */}
             </div>
             <footer>
                 <div className={styles.main}>
-                    {/* Left */}
                     <div style={{ flex: "1" }}>
                         <img src="/img/logo-white.png" alt="logo" style={{ height: "72px" }} />
 
@@ -101,7 +97,6 @@ export default function FooterWrapper() {
                                 {/* <Navlink to="/blog">Careers</Navlink> */}
 
                                 <Navlink to="/services">Services</Navlink>
-
                             </div>
                         </div>
                     </div>

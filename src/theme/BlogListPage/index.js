@@ -21,8 +21,7 @@ function BlogListPageMetadata(props) {
         "BaaZ Blogs | Insights, Trends, and Best Practices for SaaS Infrastructure Management"
     return (
         <>
-            <NavBar className={styles.navbar}>
-            </NavBar>
+            <NavBar className={styles.navbar}></NavBar>
             <PageMetadata
                 title={title}
                 description="BaaZ blogs for valuable insights, latest trends, and best practices in SaaS infrastructure management. Stay informed about industry developments, optimization techniques, and strategies to enhance the performance and scalability of your SaaS infrastructure."
@@ -246,7 +245,6 @@ function BlogPost({ post, top = true }) {
 //     )
 // }
 
-
 function NavBar({ className, children }) {
     return (
         <nav
@@ -270,8 +268,8 @@ function NavBar({ className, children }) {
             <div>
                 <NavLink to="/#features">Features</NavLink>
                 <NavLink to="/documentation">Documentation</NavLink>
-                <NavLink to="/services">Services</NavLink>
                 <NavLink to="/blog">Blog</NavLink>
+                <NavLink to="/services">Services</NavLink>
                 <a
                     className="navbar__link_hover_src-pages-index-module"
                     style={{

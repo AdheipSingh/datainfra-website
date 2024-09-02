@@ -36,13 +36,8 @@ export default function Home() {
                 description="Centralised control plane and unified management options for SaaS infrastructure. Build managed services, infra saas, and serverless choices for SaaS infrastructure management."
                 wrapperClassName={styles.wrapper}
             >
-                <NavBar className={styles.navbar}>
-                </NavBar>
+                <NavBar className={styles.navbar}></NavBar>
 
-                {/* Navbar mobile */}
-                {/* Navbar mobile content here */}
-
-                {/* Section 1 */}
                 <div>
                     <Container>
                         {/* Left decoration */}
@@ -199,35 +194,6 @@ export default function Home() {
                         />
                     </div>
                 </div>
-
-                <div className={styles.newsletter}>
-                    <h2>
-                        Subscribe to our <span>Newsletter</span>
-                    </h2>
-                    <p>The BaaZ newsletter goes out every other week, don’t miss out!</p>
-                    <form action="https://formspree.io/f/mvgpryap" method="POST">
-                        <div
-                            className={styles.inputBox}
-                            style={{ display: "flex", position: "relative" }}
-                        >
-                            <input
-                                type="email"
-                                name="email"
-                                className="form-control"
-                                placeholder="Enter your email ID"
-                                // value={email}
-                                // onChange={(e) => setEmail(e.target.value)}
-                                required
-                            />
-                            <button type="submit cursor-pointer">
-                                Subscribe <img src="/img/arrow-narrow-right.png" alt="" />
-                            </button>
-                        </div>
-                    </form>
-                    {/* {error && <p style={{ color: "red" }}>{error}</p>} */}
-                </div>
-
-                {/* Rest of the content... */}
             </Layout>
         </>
     )
@@ -384,8 +350,8 @@ function NavBar({ className, children }) {
             <div>
                 <NavLink to="/#features">Features</NavLink>
                 <NavLink to="/documentation">Documentation</NavLink>
-                <NavLink to="/services">Services</NavLink>
                 <NavLink to="/blog">Blog</NavLink>
+                <NavLink to="/services">Services</NavLink>
                 <a
                     className="navbar__link_hover_src-pages-index-module"
                     style={{
