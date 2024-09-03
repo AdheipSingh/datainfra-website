@@ -1,5 +1,5 @@
 import Layout from "@theme/Layout"
-import React from "react"
+import React, { useState } from "react"
 import styles from "../index.module.css"
 import Link from "@docusaurus/Link"
 
@@ -8,14 +8,14 @@ const Services = () => {
         <>
             <Layout>
                 <div>
-                    <NavBar className={styles.navbar}></NavBar>
-                    <div className={styles.heroSection}>
+                    <NavBar className={styles.navbar} />
+                    <div className={`${styles.heroSection} v-service-banner`}>
                         <Container>
-                            <div>
-                                <h2 style={{ fontSize: "4.4vw", fontWeight: 800 }}>
+                            <div className="v-service-banner_left">
+                                <h2 className="v-heading_text">
                                     Custom Control Planes for <span>Targeted Solutions</span>
                                 </h2>
-                                <p style={{ maxWidth: "68%" }}>
+                                <p>
                                     We help companies adopt control plane architectures specific for
                                     their businesses.
                                 </p>
@@ -28,409 +28,399 @@ const Services = () => {
                                     />
                                 </a>
                             </div>
-                            <div style={{ maxWidth: 620 }}>
+                            <div className="v-service-banner_hero">
                                 <img src="/img/service-img.png" alt="" />
                             </div>
                         </Container>
                     </div>
-                    <div style={{ backgroundColor: "#F4F4F4", padding: "80px 24px" }}>
+                    <div style={{ backgroundColor: "#F4F4F4", padding: "80px 0" }}>
                         <div>
                             <h2
                                 style={{
                                     textAlign: "center",
-                                    fontSize: "4vw",
-                                    fontWeight: 800,
+
                                     marginBottom: 32,
                                 }}
-                                className={styles.gradientText}
+                                className={`${styles.gradientText} v-heading_text`}
                             >
                                 Our <span>Service Offerings</span>
                             </h2>
                         </div>
-                        <div className={styles.wrapBody}>
-                            <div className={styles.col3}>
-                                <div className={styles.serviceCard}>
-                                    <h3>Control Plane Architecture</h3>
-                                    <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-                                        <li>
-                                            <img
-                                                src="img/star.png"
-                                                alt=""
-                                                style={{ maxWidth: 16, marginRight: 12 }}
-                                            />{" "}
-                                            Shared Architectures
-                                        </li>
-                                        <li>
-                                            <img
-                                                src="img/star.png"
-                                                alt=""
-                                                style={{ maxWidth: 16, marginRight: 12 }}
-                                            />{" "}
-                                            Dedicated Architecture
-                                        </li>
-                                        <li>
-                                            <img
-                                                src="img/star.png"
-                                                alt=""
-                                                style={{ maxWidth: 16, marginRight: 12 }}
-                                            />{" "}
-                                            Private SaaS Architecture
-                                        </li>
-                                        <li>
-                                            <img
-                                                src="img/star.png"
-                                                alt=""
-                                                style={{ maxWidth: 16, marginRight: 12 }}
-                                            />{" "}
-                                            Stateless & Statefull Architecture
-                                        </li>
-                                        <li>
-                                            <img
-                                                src="img/star.png"
-                                                alt=""
-                                                style={{ maxWidth: 16, marginRight: 12 }}
-                                            />{" "}
-                                            Push & Pull Architecture
-                                        </li>
-                                    </ul>
-                                    <img
-                                        src="img/saas.png"
-                                        style={{
-                                            position: "absolute",
-                                            maxWidth: 220,
-                                            right: 0,
-                                            top: 0,
-                                        }}
-                                        alt=""
-                                    />
-                                </div>
+                        <div className={`${styles.wrapBody} v-services_offerings`}>
+                            <div className={styles.serviceCard}>
+                                <h3>Control Plane Architecture</h3>
+                                <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                                    <li>
+                                        <img
+                                            src="img/star.png"
+                                            alt=""
+                                            style={{ maxWidth: 16, marginRight: 12 }}
+                                        />{" "}
+                                        Shared Architectures
+                                    </li>
+                                    <li>
+                                        <img
+                                            src="img/star.png"
+                                            alt=""
+                                            style={{ maxWidth: 16, marginRight: 12 }}
+                                        />{" "}
+                                        Dedicated Architecture
+                                    </li>
+                                    <li>
+                                        <img
+                                            src="img/star.png"
+                                            alt=""
+                                            style={{ maxWidth: 16, marginRight: 12 }}
+                                        />{" "}
+                                        Private SaaS Architecture
+                                    </li>
+                                    <li>
+                                        <img
+                                            src="img/star.png"
+                                            alt=""
+                                            style={{ maxWidth: 16, marginRight: 12 }}
+                                        />{" "}
+                                        Stateless & Statefull Architecture
+                                    </li>
+                                    <li>
+                                        <img
+                                            src="img/star.png"
+                                            alt=""
+                                            style={{ maxWidth: 16, marginRight: 12 }}
+                                        />{" "}
+                                        Push & Pull Architecture
+                                    </li>
+                                </ul>
+                                <img
+                                    src="img/saas.png"
+                                    style={{
+                                        position: "absolute",
+                                        maxWidth: 220,
+                                        right: 0,
+                                        top: 0,
+                                    }}
+                                    alt=""
+                                />
                             </div>
-                            <div className={styles.col3}>
-                                <div className={styles.serviceCard}>
-                                    <h3>State Management</h3>
-                                    <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-                                        <li>
-                                            <img
-                                                src="img/star.png"
-                                                alt=""
-                                                style={{ maxWidth: 16, marginRight: 12 }}
-                                            />{" "}
-                                            State Machines
-                                        </li>
-                                        <li>
-                                            <img
-                                                src="img/star.png"
-                                                alt=""
-                                                style={{ maxWidth: 16, marginRight: 12 }}
-                                            />{" "}
-                                            Cloud Controllers
-                                        </li>
-                                        <li>
-                                            <img
-                                                src="img/star.png"
-                                                alt=""
-                                                style={{ maxWidth: 16, marginRight: 12 }}
-                                            />{" "}
-                                            Infrastructure Autoscalers
-                                        </li>
-                                        <li>
-                                            <img
-                                                src="img/star.png"
-                                                alt=""
-                                                style={{ maxWidth: 16, marginRight: 12 }}
-                                            />{" "}
-                                            Event Driven Infrastructure Design
-                                        </li>
-                                        <li>
-                                            <img
-                                                src="img/star.png"
-                                                alt=""
-                                                style={{ maxWidth: 16, marginRight: 12 }}
-                                            />{" "}
-                                            Orchestrators
-                                        </li>
-                                    </ul>
-                                    <img
-                                        src="img/saas.png"
-                                        style={{
-                                            position: "absolute",
-                                            maxWidth: 220,
-                                            right: 0,
-                                            top: 0,
-                                        }}
-                                        alt=""
-                                    />
-                                </div>
+
+                            <div className={styles.serviceCard}>
+                                <h3>State Management</h3>
+                                <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                                    <li>
+                                        <img
+                                            src="img/star.png"
+                                            alt=""
+                                            style={{ maxWidth: 16, marginRight: 12 }}
+                                        />{" "}
+                                        State Machines
+                                    </li>
+                                    <li>
+                                        <img
+                                            src="img/star.png"
+                                            alt=""
+                                            style={{ maxWidth: 16, marginRight: 12 }}
+                                        />{" "}
+                                        Cloud Controllers
+                                    </li>
+                                    <li>
+                                        <img
+                                            src="img/star.png"
+                                            alt=""
+                                            style={{ maxWidth: 16, marginRight: 12 }}
+                                        />{" "}
+                                        Infrastructure Autoscalers
+                                    </li>
+                                    <li>
+                                        <img
+                                            src="img/star.png"
+                                            alt=""
+                                            style={{ maxWidth: 16, marginRight: 12 }}
+                                        />{" "}
+                                        Event Driven Infrastructure Design
+                                    </li>
+                                    <li>
+                                        <img
+                                            src="img/star.png"
+                                            alt=""
+                                            style={{ maxWidth: 16, marginRight: 12 }}
+                                        />{" "}
+                                        Orchestrators
+                                    </li>
+                                </ul>
+                                <img
+                                    src="img/saas.png"
+                                    style={{
+                                        position: "absolute",
+                                        maxWidth: 220,
+                                        right: 0,
+                                        top: 0,
+                                    }}
+                                    alt=""
+                                />
                             </div>
-                            <div className={styles.col3}>
-                                <div className={styles.serviceCard}>
-                                    <h3>Kubernetes </h3>
-                                    <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-                                        <li>
-                                            <img
-                                                src="img/star.png"
-                                                alt=""
-                                                style={{ maxWidth: 16, marginRight: 12 }}
-                                            />{" "}
-                                            Kubernetes as a Control Plane
-                                        </li>
-                                        <li>
-                                            <img
-                                                src="img/star.png"
-                                                alt=""
-                                                style={{ maxWidth: 16, marginRight: 12 }}
-                                            />{" "}
-                                            Kubernetes Operators
-                                        </li>
-                                        <li>
-                                            <img
-                                                src="img/star.png"
-                                                alt=""
-                                                style={{ maxWidth: 16, marginRight: 12 }}
-                                            />{" "}
-                                            Kubernetes Controllers
-                                        </li>
-                                        <li>
-                                            <img
-                                                src="img/star.png"
-                                                alt=""
-                                                style={{ maxWidth: 16, marginRight: 12 }}
-                                            />{" "}
-                                            Kubernetes API Development
-                                        </li>
-                                        <li>
-                                            <img
-                                                src="img/star.png"
-                                                alt=""
-                                                style={{ maxWidth: 16, marginRight: 12 }}
-                                            />{" "}
-                                            Kubernetes Autoscalers
-                                        </li>
-                                    </ul>
-                                    <img
-                                        src="img/saas.png"
-                                        style={{
-                                            position: "absolute",
-                                            maxWidth: 220,
-                                            right: 0,
-                                            top: 0,
-                                        }}
-                                        alt=""
-                                    />
-                                </div>
+
+                            <div className={styles.serviceCard}>
+                                <h3>Kubernetes </h3>
+                                <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                                    <li>
+                                        <img
+                                            src="img/star.png"
+                                            alt=""
+                                            style={{ maxWidth: 16, marginRight: 12 }}
+                                        />{" "}
+                                        Kubernetes as a Control Plane
+                                    </li>
+                                    <li>
+                                        <img
+                                            src="img/star.png"
+                                            alt=""
+                                            style={{ maxWidth: 16, marginRight: 12 }}
+                                        />{" "}
+                                        Kubernetes Operators
+                                    </li>
+                                    <li>
+                                        <img
+                                            src="img/star.png"
+                                            alt=""
+                                            style={{ maxWidth: 16, marginRight: 12 }}
+                                        />{" "}
+                                        Kubernetes Controllers
+                                    </li>
+                                    <li>
+                                        <img
+                                            src="img/star.png"
+                                            alt=""
+                                            style={{ maxWidth: 16, marginRight: 12 }}
+                                        />{" "}
+                                        Kubernetes API Development
+                                    </li>
+                                    <li>
+                                        <img
+                                            src="img/star.png"
+                                            alt=""
+                                            style={{ maxWidth: 16, marginRight: 12 }}
+                                        />{" "}
+                                        Kubernetes Autoscalers
+                                    </li>
+                                </ul>
+                                <img
+                                    src="img/saas.png"
+                                    style={{
+                                        position: "absolute",
+                                        maxWidth: 220,
+                                        right: 0,
+                                        top: 0,
+                                    }}
+                                    alt=""
+                                />
                             </div>
-                            <div className={styles.col3}>
-                                <div className={styles.serviceCard}>
-                                    <h3>Cost Optimization</h3>
-                                    <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-                                        <li>
-                                            <img
-                                                src="img/star.png"
-                                                alt=""
-                                                style={{ maxWidth: 16, marginRight: 12 }}
-                                            />{" "}
-                                            Scheduling Strategies
-                                        </li>
-                                        <li>
-                                            <img
-                                                src="img/star.png"
-                                                alt=""
-                                                style={{ maxWidth: 16, marginRight: 12 }}
-                                            />{" "}
-                                            Spot Node Controllers
-                                        </li>
-                                        <li>
-                                            <img
-                                                src="img/star.png"
-                                                alt=""
-                                                style={{ maxWidth: 16, marginRight: 12 }}
-                                            />{" "}
-                                            Infra Cost Modules
-                                        </li>
-                                        <li>
-                                            <img
-                                                src="img/star.png"
-                                                alt=""
-                                                style={{ maxWidth: 16, marginRight: 12 }}
-                                            />{" "}
-                                            Bin Packing
-                                        </li>
-                                    </ul>
-                                    <img
-                                        src="img/saas.png"
-                                        style={{
-                                            position: "absolute",
-                                            maxWidth: 220,
-                                            right: 0,
-                                            top: 0,
-                                        }}
-                                        alt=""
-                                    />
-                                </div>
+
+                            <div className={styles.serviceCard}>
+                                <h3>Cost Optimization</h3>
+                                <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                                    <li>
+                                        <img
+                                            src="img/star.png"
+                                            alt=""
+                                            style={{ maxWidth: 16, marginRight: 12 }}
+                                        />{" "}
+                                        Scheduling Strategies
+                                    </li>
+                                    <li>
+                                        <img
+                                            src="img/star.png"
+                                            alt=""
+                                            style={{ maxWidth: 16, marginRight: 12 }}
+                                        />{" "}
+                                        Spot Node Controllers
+                                    </li>
+                                    <li>
+                                        <img
+                                            src="img/star.png"
+                                            alt=""
+                                            style={{ maxWidth: 16, marginRight: 12 }}
+                                        />{" "}
+                                        Infra Cost Modules
+                                    </li>
+                                    <li>
+                                        <img
+                                            src="img/star.png"
+                                            alt=""
+                                            style={{ maxWidth: 16, marginRight: 12 }}
+                                        />{" "}
+                                        Bin Packing
+                                    </li>
+                                </ul>
+                                <img
+                                    src="img/saas.png"
+                                    style={{
+                                        position: "absolute",
+                                        maxWidth: 220,
+                                        right: 0,
+                                        top: 0,
+                                    }}
+                                    alt=""
+                                />
                             </div>
-                            <div className={styles.col3}>
-                                <div className={styles.serviceCard}>
-                                    <h3>Security</h3>
-                                    <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-                                        <li>
-                                            <img
-                                                src="img/star.png"
-                                                alt=""
-                                                style={{ maxWidth: 16, marginRight: 12 }}
-                                            />{" "}
-                                            Compliant Infrastructure
-                                        </li>
-                                        <li>
-                                            <img
-                                                src="img/star.png"
-                                                alt=""
-                                                style={{ maxWidth: 16, marginRight: 12 }}
-                                            />{" "}
-                                            Secure Control Plane Architecture
-                                        </li>
-                                        <li>
-                                            <img
-                                                src="img/star.png"
-                                                alt=""
-                                                style={{ maxWidth: 16, marginRight: 12 }}
-                                            />{" "}
-                                            Air-Gapped Infrastructure
-                                        </li>
-                                        <li>
-                                            <img
-                                                src="img/star.png"
-                                                alt=""
-                                                style={{ maxWidth: 16, marginRight: 12 }}
-                                            />{" "}
-                                            Kubernetes Security
-                                        </li>
-                                    </ul>
-                                    <img
-                                        src="img/saas.png"
-                                        style={{
-                                            position: "absolute",
-                                            maxWidth: 220,
-                                            right: 0,
-                                            top: 0,
-                                        }}
-                                        alt=""
-                                    />
-                                </div>
+
+                            <div className={styles.serviceCard}>
+                                <h3>Security</h3>
+                                <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                                    <li>
+                                        <img
+                                            src="img/star.png"
+                                            alt=""
+                                            style={{ maxWidth: 16, marginRight: 12 }}
+                                        />{" "}
+                                        Compliant Infrastructure
+                                    </li>
+                                    <li>
+                                        <img
+                                            src="img/star.png"
+                                            alt=""
+                                            style={{ maxWidth: 16, marginRight: 12 }}
+                                        />{" "}
+                                        Secure Control Plane Architecture
+                                    </li>
+                                    <li>
+                                        <img
+                                            src="img/star.png"
+                                            alt=""
+                                            style={{ maxWidth: 16, marginRight: 12 }}
+                                        />{" "}
+                                        Air-Gapped Infrastructure
+                                    </li>
+                                    <li>
+                                        <img
+                                            src="img/star.png"
+                                            alt=""
+                                            style={{ maxWidth: 16, marginRight: 12 }}
+                                        />{" "}
+                                        Kubernetes Security
+                                    </li>
+                                </ul>
+                                <img
+                                    src="img/saas.png"
+                                    style={{
+                                        position: "absolute",
+                                        maxWidth: 220,
+                                        right: 0,
+                                        top: 0,
+                                    }}
+                                    alt=""
+                                />
                             </div>
-                            <div className={styles.col3}>
-                                <div className={styles.serviceCard}>
-                                    <h3>Consulting</h3>
-                                    <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-                                        <li>
-                                            <img
-                                                src="img/star.png"
-                                                alt=""
-                                                style={{ maxWidth: 16, marginRight: 12 }}
-                                            />{" "}
-                                            Onsite Consultations
-                                        </li>
-                                        <li>
-                                            <img
-                                                src="img/star.png"
-                                                alt=""
-                                                style={{ maxWidth: 16, marginRight: 12 }}
-                                            />{" "}
-                                            Hands-On Implementations
-                                        </li>
-                                        <li>
-                                            <img
-                                                src="img/star.png"
-                                                alt=""
-                                                style={{ maxWidth: 16, marginRight: 12 }}
-                                            />{" "}
-                                            Technical Advisory on Control Planes
-                                        </li>
-                                        <li>
-                                            <img
-                                                src="img/star.png"
-                                                alt=""
-                                                style={{ maxWidth: 16, marginRight: 12 }}
-                                            />{" "}
-                                            Long Term Contactor Engadements
-                                        </li>
-                                    </ul>
-                                    <img
-                                        src="img/saas.png"
-                                        style={{
-                                            position: "absolute",
-                                            maxWidth: 220,
-                                            right: 0,
-                                            top: 0,
-                                        }}
-                                        alt=""
-                                    />
-                                </div>
+
+                            <div className={styles.serviceCard}>
+                                <h3>Consulting</h3>
+                                <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                                    <li>
+                                        <img
+                                            src="img/star.png"
+                                            alt=""
+                                            style={{ maxWidth: 16, marginRight: 12 }}
+                                        />{" "}
+                                        Onsite Consultations
+                                    </li>
+                                    <li>
+                                        <img
+                                            src="img/star.png"
+                                            alt=""
+                                            style={{ maxWidth: 16, marginRight: 12 }}
+                                        />{" "}
+                                        Hands-On Implementations
+                                    </li>
+                                    <li>
+                                        <img
+                                            src="img/star.png"
+                                            alt=""
+                                            style={{ maxWidth: 16, marginRight: 12 }}
+                                        />{" "}
+                                        Technical Advisory on Control Planes
+                                    </li>
+                                    <li>
+                                        <img
+                                            src="img/star.png"
+                                            alt=""
+                                            style={{ maxWidth: 16, marginRight: 12 }}
+                                        />{" "}
+                                        Long Term Contactor Engadements
+                                    </li>
+                                </ul>
+                                <img
+                                    src="img/saas.png"
+                                    style={{
+                                        position: "absolute",
+                                        maxWidth: 220,
+                                        right: 0,
+                                        top: 0,
+                                    }}
+                                    alt=""
+                                />
                             </div>
                         </div>
                     </div>
-                    <div style={{ padding: "80px 240px" }}>
-                        <div className={styles.whyChooseUsContainer}>
-                            <div>
-                                <h2
-                                    style={{
-                                        textAlign: "center",
-                                        fontSize: "4vw",
-                                        fontWeight: 800,
-                                        marginBottom: 32,
-                                    }}
-                                    className={styles.heading}
-                                >
-                                    Why <span>Choose</span> Us
-                                </h2>
+                    <div className="v-why-choose">
+                        <div
+                            style={{
+                                textAlign: "center",
+                            }}
+                        >
+                            <h2
+                                style={{
+                                    textAlign: "center",
+                                    marginBottom: 32,
+                                }}
+                                className={`${styles.heading} v-heading_text`}
+                            >
+                                Why <span>Choose</span> Us
+                            </h2>
+                            <p>
+                                We are not your typical services partner. We’re a small team of
+                                niche software consultants and contractors, hands-on <br />{" "}
+                                engineers whose careers are built on open-source contributions.
+                            </p>
+                            <p>
+                                As Infrastructure developers having deep expertise in building state
+                                driven infrastructure platforms, <br /> we can help you build robust
+                                control planes.
                                 <p>
-                                    We are not your typical services partner. We’re a small team of
-                                    niche software consultants and contractors, hands-on <br />{" "}
-                                    engineers whose careers are built on open-source contributions.
+                                    <br /> We don't just talk architecture, we code and build
+                                    systems hands-on from scratch.
                                 </p>
-                                <p>
-                                    As Infrastructure developers having deep expertise in building
-                                    state driven infrastructure platforms, <br /> we can help you
-                                    build robust control planes.
-                                    <p>
-                                        <br /> We don't just talk architecture, we code and build
-                                        systems hands-on from scratch.
-                                    </p>
-                                </p>
+                            </p>
+                        </div>
+                        <div className={`${styles.wrapBody} v-choose-figures`}>
+                            <div className={styles.col3}>
+                                <div className={styles.counterBox}>
+                                    <div className={styles.countPurple}>5+</div>
+                                    <div className={styles.counterText}>Control Plane</div>
+                                </div>
                             </div>
-                            <div className={styles.wrapBody}>
-                                <div className={styles.col3}>
-                                    <div className={styles.counterBox}>
-                                        <div className={styles.countPurple}>5+</div>
-                                        <div className={styles.counterText}>Control Plane</div>
-                                    </div>
-                                </div>
-                                <div className={styles.col3}>
-                                    <div className={styles.counterBox}>
-                                        <div className={styles.count}>300+</div>
-                                        <div className={styles.counterText}>
-                                            Commits to Open Source Projects
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className={styles.col3}>
-                                    <div className={styles.counterBox}>
-                                        <div className={styles.countPurple}>10+</div>
-                                        <div className={styles.counterText}>
-                                            Kubernetes Operators
-                                        </div>
+                            <div className={styles.col3}>
+                                <div className={styles.counterBox}>
+                                    <div className={styles.count}>300+</div>
+                                    <div className={styles.counterText}>
+                                        Commits to Open Source Projects
                                     </div>
                                 </div>
                             </div>
-                            <div>
-                                <p>
-                                    We offer system design, hands-on implementation, and support. To
-                                    learn more about <br /> working with us, feel free to {}
-                                    <a href="https://cal.com/baazhq" target="_blank">
-                                        <b>Contact Us</b>
-                                    </a>
-                                    .
-                                </p>
+                            <div className={styles.col3}>
+                                <div className={styles.counterBox}>
+                                    <div className={styles.countPurple}>10+</div>
+                                    <div className={styles.counterText}>Kubernetes Operators</div>
+                                </div>
                             </div>
+                        </div>
+                        <div>
+                            <p>
+                                We offer system design, hands-on implementation, and support. To
+                                learn more about <br /> working with us, feel free to {}
+                                <a href="https://cal.com/baazhq" target="_blank">
+                                    <b>Contact Us</b>
+                                </a>
+                                .
+                            </p>
                         </div>
                     </div>
                     <div style={{ padding: "80px 24px" }}>
@@ -937,128 +927,114 @@ const Services = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div style={{ padding: "80px 0px 80px 24px" }} className={styles.contactUs}>
-                        <div className={styles.wrapBody}>
-                            <div className={styles.col5}>
-                                <h3 className={styles.heading}>
-                                    Contact <span>Us</span>
-                                </h3>
-                                <p>If you're looking to build:</p>
-                                <ul
-                                    style={{
-                                        listStyle: "none",
-                                        padding: 0,
-                                        margin: 0,
-                                        display: "flex",
-                                        flexWrap: "wrap",
-                                    }}
-                                    className={styles.contactList}
-                                >
-                                    <li>
-                                        <img
-                                            src="img/checkicon.png"
-                                            style={{ maxWidth: 24, marginRight: 8 }}
-                                            alt=""
-                                        />{" "}
-                                        Managed Services
-                                    </li>
-                                    <li>
-                                        <img
-                                            src="img/checkicon.png"
-                                            style={{ maxWidth: 24, marginRight: 8 }}
-                                            alt=""
-                                        />{" "}
-                                        Serverless SaaS
-                                    </li>
-                                    <li>
-                                        <img
-                                            src="img/checkicon.png"
-                                            style={{ maxWidth: 24, marginRight: 8 }}
-                                            alt=""
-                                        />{" "}
-                                        Infra SaaS
-                                    </li>
-                                    <li>
-                                        <img
-                                            src="img/checkicon.png"
-                                            style={{ maxWidth: 24, marginRight: 8 }}
-                                            alt=""
-                                        />{" "}
-                                        X as a SaaS
-                                    </li>
-                                    <li>
-                                        <img
-                                            src="img/checkicon.png"
-                                            style={{ maxWidth: 24, marginRight: 8 }}
-                                            alt=""
-                                        />{" "}
-                                        Custom Control Planes
-                                    </li>
-                                </ul>
-                                <div style={{ position: "relative", display: "inline-block" }}>
-                                    <h5>We are here to help you!</h5>
+                    </div>{" "}
+                    */}
+                    <div className={`${styles.contactUs} v-contact-us`}>
+                        <div className={styles.col5}>
+                            <h3 className={styles.heading}>
+                                Contact <span>Us</span>
+                            </h3>
+                            <p>If you're looking to build:</p>
+                            <ul
+                                style={{
+                                    listStyle: "none",
+                                    padding: 0,
+                                    margin: 0,
+                                    display: "flex",
+                                    flexWrap: "wrap",
+                                }}
+                                className={styles.contactList}
+                            >
+                                <li>
                                     <img
-                                        src="img/penscribble.png"
-                                        style={{
-                                            maxWidth: "136px",
-                                            position: "absolute",
-                                            right: 0,
-                                            bottom: 0,
-                                        }}
+                                        src="img/checkicon.png"
+                                        style={{ maxWidth: 24, marginRight: 8 }}
                                         alt=""
-                                    />
-                                </div>
+                                    />{" "}
+                                    Managed Services
+                                </li>
+                                <li>
+                                    <img
+                                        src="img/checkicon.png"
+                                        style={{ maxWidth: 24, marginRight: 8 }}
+                                        alt=""
+                                    />{" "}
+                                    Serverless SaaS
+                                </li>
+                                <li>
+                                    <img
+                                        src="img/checkicon.png"
+                                        style={{ maxWidth: 24, marginRight: 8 }}
+                                        alt=""
+                                    />{" "}
+                                    Infra SaaS
+                                </li>
+                                <li>
+                                    <img
+                                        src="img/checkicon.png"
+                                        style={{ maxWidth: 24, marginRight: 8 }}
+                                        alt=""
+                                    />{" "}
+                                    X as a SaaS
+                                </li>
+                                <li>
+                                    <img
+                                        src="img/checkicon.png"
+                                        style={{ maxWidth: 24, marginRight: 8 }}
+                                        alt=""
+                                    />{" "}
+                                    Custom Control Planes
+                                </li>
+                            </ul>
+                            <div style={{ position: "relative", display: "inline-block" }}>
+                                <h5>We are here to help you!</h5>
+                                <img
+                                    src="img/penscribble.png"
+                                    style={{
+                                        maxWidth: "136px",
+                                        position: "absolute",
+                                        right: 0,
+                                        bottom: 0,
+                                    }}
+                                    alt=""
+                                />
                             </div>
-                            <div className={styles.col7} style={{ paddingRight: 0 }}>
+                        </div>
+                        <div className={styles.col7} style={{ paddingRight: 0 }}>
+                            <div
+                                style={{
+                                    background: "url(img/contact-bg.jpg)",
+                                    backgroundPosition: "center center",
+                                    backgroundSize: "cover",
+                                    backgroundRepeat: "no-repeat",
+                                    borderRadius: "24px",
+                                }}
+                            >
                                 <div
                                     style={{
-                                        background: "url(img/contact-bg.jpg)",
-                                        backgroundPosition: "center center",
-                                        backgroundSize: "cover",
-                                        backgroundRepeat: "no-repeat",
-                                        padding: "120px 120px 100px 120px",
-                                        borderRadius: "24px 0px 0px 24px",
+                                        backgroundColor: "white",
+                                        textAlign: "center",
+                                        borderRadius: 24,
+                                        padding: "24px 24px 48px 24px",
                                     }}
                                 >
-                                    <div
-                                        style={{
-                                            backgroundColor: "white",
-                                            textAlign: "center",
-                                            borderRadius: 24,
-                                            padding: "24px 24px 48px 24px",
-                                        }}
+                                    <img
+                                        src="img/baazLogo.png"
+                                        style={{ maxWidth: 164, marginTop: "-100px" }}
+                                        alt=""
+                                    />
+                                    <h6>Need to know more?</h6>
+                                    <a
+                                        href="https://cal.com/baazhq"
+                                        style={{ display: "inline-flex", alignItems: "center" }}
                                     >
+                                        Talk to an expert{""}
                                         <img
-                                            src="img/baazLogo.png"
-                                            style={{ maxWidth: 164, marginTop: "-100px" }}
+                                            src="img/arrow-right.png"
+                                            style={{ maxWidth: 24 }}
                                             alt=""
                                         />
-                                        <h6>Need to know more?</h6>
-                                        {/* <a
-                                            href=""
-                                            style={{ display: "inline-flex", alignItems: "center" }}
-                                        >
-                                            Talk to an expert{""}
-                                            <img
-                                                src="img/arrow-right.png"
-                                                style={{ maxWidth: 24 }}
-                                                alt=""
-                                            />
-                                        </a> */}
-                                        <Link
-                                            to="https://cal.com/baazhq"
-                                            className={styles.requestDemoButton}
-                                        >
-                                            Talk to an expert{" "}
-                                            <div className={styles.arrowContainer}>
-                                                <img
-                                                    src="/img/arrow_forward.svg"
-                                                    className="img-fluid"
-                                                />
-                                            </div>
-                                        </Link>
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -1083,27 +1059,13 @@ function Container({ children }) {
     )
 }
 
-function NavBar({ className, children }) {
+function NavBar({ className }) {
+    const [isOpen, setIsOpen] = useState(false)
+
     return (
-        <nav
-            className={className}
-            style={{
-                height: "90px",
-                background: "#fff",
-                position: "fixed",
-                width: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between", // Adjusted justifyContent
-                paddingLeft: "56px",
-                paddingRight: "20px", // Adjusted paddingRight
-                zIndex: 99,
-            }}
-        >
-            <div style={{ display: "flex", alignItems: "center", minWidth: 310 }}>
-                <Logo />
-            </div>
-            <div>
+        <nav className={`${className} v-navbar`}>
+            <Logo />
+            <div className="v-links">
                 <NavLink to="/#features">Features</NavLink>
                 <NavLink to="/documentation">Documentation</NavLink>
                 <NavLink to="/blog">Blog</NavLink>
@@ -1123,10 +1085,59 @@ function NavBar({ className, children }) {
                     Newsletter
                 </a>
             </div>
-            <div style={{ display: "flex" }}>
-                <Gitbutton href="https://github.com/baazhq/baaz">Star on GitHub</Gitbutton>
-                <ActionButton href="https://www.launchpass.com/baaz">Join Slack</ActionButton>
+            <div className="v-social-links">
+                <Gitbutton href="https://github.com/baazhq/baaz">
+                    <span>Star on GitHub</span>
+                </Gitbutton>
+                <ActionButton href="https://www.launchpass.com/baaz">
+                    <span>Join Slack</span>
+                </ActionButton>
             </div>
+            <button onClick={() => setIsOpen(true)}>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    x="0px"
+                    y="0px"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 50 50"
+                >
+                    <path d="M 5 8 A 2.0002 2.0002 0 1 0 5 12 L 45 12 A 2.0002 2.0002 0 1 0 45 8 L 5 8 z M 5 23 A 2.0002 2.0002 0 1 0 5 27 L 45 27 A 2.0002 2.0002 0 1 0 45 23 L 5 23 z M 5 38 A 2.0002 2.0002 0 1 0 5 42 L 45 42 A 2.0002 2.0002 0 1 0 45 38 L 5 38 z"></path>
+                </svg>
+            </button>
+            {isOpen && (
+                <div className="v-navbar_phone">
+                    <div className="v-links_phone">
+                        <span onClick={() => setIsOpen(false)}>&#10006;</span>
+                        <NavLink to="/#features">Features</NavLink>
+                        <NavLink to="/documentation">Documentation</NavLink>
+                        <NavLink to="/services">Services</NavLink>
+                        <NavLink to="/blog">Blog</NavLink>
+                        <a
+                            className="navbar__link_hover_src-pages-index-module"
+                            style={{
+                                color: "rgb(19, 18, 18)",
+                                marginLeft: "32px",
+                                marginRight: "32px",
+                                fontSize: "1.2rem",
+                                fontWeight: "bold",
+                            }}
+                            href="https://saasinfra.substack.com/"
+                            target="_blank"
+                        >
+                            Newsletter
+                        </a>
+                    </div>
+                    <div className="v-social-links_phone">
+                        <Gitbutton href="https://github.com/baazhq/baaz">
+                            <span>Star on GitHub</span>
+                        </Gitbutton>
+                        <ActionButton href="https://www.launchpass.com/baaz">
+                            <span>Join Slack</span>
+                        </ActionButton>
+                    </div>
+                </div>
+            )}
         </nav>
     )
 }
@@ -1182,6 +1193,7 @@ function ActionButton({ className, href, style, children }) {
                 boxShadow: "0px 4px 16px 0px rgba(0, 0, 0, 0.12)",
                 padding: "8px 24px",
                 transition: "background 0.3s ease, color 0.3s ease, border-color 0.3s ease",
+                gap: "16px",
                 ...style,
             }}
             onMouseEnter={(e) => {
@@ -1225,6 +1237,7 @@ function Gitbutton({ className, href, style, children }) {
                 boxShadow: "0px 4px 16px 0px rgba(0, 0, 0, 0.12)",
                 padding: "8px 24px",
                 transition: "background 0.3s ease, color 0.3s ease, border-color 0.3s ease",
+                gap: "16px",
                 ...style,
             }}
             onMouseEnter={(e) => {

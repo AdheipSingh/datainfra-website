@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import clsx from "clsx"
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
 import { PageMetadata, HtmlClassNameProvider, ThemeClassNames } from "@docusaurus/theme-common"
@@ -21,7 +21,8 @@ function BlogListPageMetadata(props) {
         "BaaZ Blogs | Insights, Trends, and Best Practices for SaaS Infrastructure Management"
     return (
         <>
-            <NavBar className={styles.navbar}></NavBar>
+            <NavBar className={styles.navbar} />
+
             <PageMetadata
                 title={title}
                 description="BaaZ blogs for valuable insights, latest trends, and best practices in SaaS infrastructure management. Stay informed about industry developments, optimization techniques, and strategies to enhance the performance and scalability of your SaaS infrastructure."
@@ -37,6 +38,7 @@ function BlogListPageContent(props) {
         <BlogLayout>
             {/* <ActionButton href="https://www.launchpass.com/baaz">Join Slack</ActionButton> */}
             <BlogPostItems items={items} />
+
             <BlogListPaginator metadata={metadata} />
         </BlogLayout>
     )
@@ -80,9 +82,10 @@ function BlogPostItems({ items }) {
             <div
                 style={{
                     display: "flex",
-                    gap: "60px",
                     flexWrap: "wrap",
                     justifyContent: "space-between",
+                    gap: "60px",
+                    marginTop: "90px",
                 }}
             >
                 {items.slice(1).map((item) => (
@@ -136,7 +139,7 @@ function BlogPost({ post, top = true }) {
     }, [])
 
     return (
-        <div style={{ marginBottom: "5rem", width: top ? "100%" : "46%" }} className={styles.blog}>
+        <div style={{ width: top ? "100%" : "46%" }} className={`${styles.blog} v-blog-post`}>
             <div style={{ position: "relative" }}>
                 <Link href={"/blog/" + url}>
                     <img
@@ -167,7 +170,7 @@ function BlogPost({ post, top = true }) {
                 </p>
             </div>
 
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap" }}>
                 {/* Authors */}
                 <div style={{ display: "flex", gap: "20px" }}>
                     {authors.map((author) => (
@@ -191,9 +194,9 @@ function BlogPost({ post, top = true }) {
 
                 {/* Date */}
                 <div style={{ display: "flex", gap: "4px", fontSize: top ? "1rem" : "0.875rem" }}>
-                    <p>{formattedDate}</p>
+                    <p style={{ fontSize: "16px" }}>{formattedDate}</p>
                     <span>·</span>
-                    <p>{Math.floor(readingTime) + " min read"}</p>
+                    <p style={{ fontSize: "16px" }}>{Math.floor(readingTime) + " min read"}</p>
                 </div>
             </div>
 
@@ -245,27 +248,13 @@ function BlogPost({ post, top = true }) {
 //     )
 // }
 
-function NavBar({ className, children }) {
+function NavBar({ className }) {
+    const [isOpen, setIsOpen] = useState(false)
+
     return (
-        <nav
-            className={className}
-            style={{
-                height: "90px",
-                background: "#fff",
-                position: "fixed",
-                width: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between", // Adjusted justifyContent
-                paddingLeft: "56px",
-                paddingRight: "20px", // Adjusted paddingRight
-                zIndex: 99,
-            }}
-        >
-            <div style={{ display: "flex", alignItems: "center", minWidth: 310 }}>
-                <Logo />
-            </div>
-            <div>
+        <nav className={`${className} v-navbar`}>
+            <Logo />
+            <div className="v-links">
                 <NavLink to="/#features">Features</NavLink>
                 <NavLink to="/documentation">Documentation</NavLink>
                 <NavLink to="/blog">Blog</NavLink>
@@ -285,22 +274,65 @@ function NavBar({ className, children }) {
                     Newsletter
                 </a>
             </div>
-            <div style={{ display: "flex" }}>
-                <Gitbutton href="https://github.com/baazhq/baaz">Star on GitHub</Gitbutton>
-                <ActionButton href="https://www.launchpass.com/baaz">Join Slack</ActionButton>
+            <div className="v-social-links">
+                <Gitbutton href="https://github.com/baazhq/baaz">
+                    <span>Star on GitHub</span>
+                </Gitbutton>
+                <ActionButton href="https://www.launchpass.com/baaz">
+                    <span>Join Slack</span>
+                </ActionButton>
             </div>
+            <button onClick={() => setIsOpen(true)}>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    x="0px"
+                    y="0px"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 50 50"
+                >
+                    <path d="M 5 8 A 2.0002 2.0002 0 1 0 5 12 L 45 12 A 2.0002 2.0002 0 1 0 45 8 L 5 8 z M 5 23 A 2.0002 2.0002 0 1 0 5 27 L 45 27 A 2.0002 2.0002 0 1 0 45 23 L 5 23 z M 5 38 A 2.0002 2.0002 0 1 0 5 42 L 45 42 A 2.0002 2.0002 0 1 0 45 38 L 5 38 z"></path>
+                </svg>
+            </button>
+            {isOpen && (
+                <div className="v-navbar_phone">
+                    <div className="v-links_phone">
+                        <span onClick={() => setIsOpen(false)}>&#10006;</span>
+                        <NavLink to="/#features">Features</NavLink>
+                        <NavLink to="/documentation">Documentation</NavLink>
+                        <NavLink to="/services">Services</NavLink>
+                        <NavLink to="/blog">Blog</NavLink>
+                        <a
+                            className="navbar__link_hover_src-pages-index-module"
+                            style={{
+                                color: "rgb(19, 18, 18)",
+                                marginLeft: "32px",
+                                marginRight: "32px",
+                                fontSize: "1.2rem",
+                                fontWeight: "bold",
+                            }}
+                            href="https://saasinfra.substack.com/"
+                            target="_blank"
+                        >
+                            Newsletter
+                        </a>
+                    </div>
+                    <div className="v-social-links_phone">
+                        <Gitbutton href="https://github.com/baazhq/baaz">
+                            <span>Star on GitHub</span>
+                        </Gitbutton>
+                        <ActionButton href="https://www.launchpass.com/baaz">
+                            <span>Join Slack</span>
+                        </ActionButton>
+                    </div>
+                </div>
+            )}
         </nav>
     )
 }
 
 function Logo() {
-    return (
-        <img
-            src="/img/logo.png"
-            alt="secure-icon"
-            style={{ width: "250px", height: "auto", marginRight: "auto" }}
-        />
-    )
+    return <img src="/img/logo.png" alt="secure-icon" style={{ width: "250px", height: "auto" }} />
 }
 
 function NavLink({ style, to, children }) {
@@ -313,7 +345,7 @@ function NavLink({ style, to, children }) {
                 marginLeft: "32px",
                 marginRight: "32px",
                 fontSize: "1.2rem",
-                fontWeight: "bold", // Added fontWeight
+                fontWeight: "bold",
                 ...style,
             }}
         >
@@ -336,11 +368,11 @@ function ActionButton({ className, href, style, children }) {
                 alignItems: "center",
                 justifyContent: "center",
                 textDecoration: "none",
-                marginLeft: "16px", // Adjusted marginLeft
                 fontFamily: "Inter, sans-serif",
                 boxShadow: "0px 4px 16px 0px rgba(0, 0, 0, 0.12)",
                 padding: "8px 24px",
                 transition: "background 0.3s ease, color 0.3s ease, border-color 0.3s ease",
+                gap: "16px",
                 ...style,
             }}
             onMouseEnter={(e) => {
@@ -412,6 +444,7 @@ function Gitbutton({ className, href, style, children }) {
                 boxShadow: "0px 4px 16px 0px rgba(0, 0, 0, 0.12)",
                 padding: "8px 24px",
                 transition: "background 0.3s ease, color 0.3s ease, border-color 0.3s ease",
+                gap: "16px",
                 ...style,
             }}
             onMouseEnter={(e) => {
