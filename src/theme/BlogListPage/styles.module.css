@@ -5,6 +5,7 @@
 
 .blogWrapper {
     width: 110% !important;
+    font-family: Inter,sans-serif;
 }
 
 @media screen and (max-width: 996px) {

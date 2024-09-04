@@ -413,17 +413,17 @@ const Services = () => {
                             </div>
                         </div>
                         <div>
-                            <p>
+                            {/* <p>
                                 We offer system design, hands-on implementation, and support. To
-                                learn more about <br /> working with us, feel free to {}
+                                learn more about <br /> working with us, feel free to { }
                                 <a href="https://cal.com/baazhq" target="_blank">
                                     <b>Contact Us</b>
                                 </a>
-                                .
-                            </p>
+
+                            </p> */}
                         </div>
                     </div>
-                    {/* <div style={{ padding: "80px 24px" }}>
+                    <div style={{ padding: "80px 24px" }}>
                         <div className={styles.ourInsights}>
                             <div>
                                 <h2
@@ -440,47 +440,57 @@ const Services = () => {
                             </div>
                             <div className={styles.wrapBody}>
                                 <div className={styles.col3}>
-                                    <div className={styles.blogImg}>
-                                        <img
-                                            src="img/blog1.jpg"
-                                            style={{ maxWidth: "100%", height: "auto" }}
-                                            alt=""
-                                        />
-                                    </div>
-                                    <div>
-                                        <h4
-                                            className={styles.category}
-                                            style={{
-                                                color: "#002DFF",
-                                                marginBottom: 8,
-                                                marginTop: 16,
-                                                fontSize: 16,
-                                                fontWeight: 700,
-                                            }}
-                                        >
-                                            Artificial Intelligence
-                                        </h4>
-                                        <h3
-                                            style={{
-                                                fontSize: 20,
-                                                color: "#101828",
-                                                fontWeight: 700,
-                                                marginBottom: 6,
-                                            }}
-                                        >
-                                            How to build AI Cloud?
-                                        </h3>
-                                        <p
-                                            style={{
-                                                fontSize: 16,
-                                                fontWeight: 400,
-                                                marginBottom: 24,
-                                            }}
-                                        >
-                                            Learn the technology and architecture behind building AI
-                                            Cloud using open source and cloud native technologies.
-                                        </p>
-                                        <div style={{ display: "flex", alignItems: "center" }}>
+                                    <Link
+                                        to={"/blog/centralised-control-planes-for-saas-part-2"}
+                                        style={{ color: "#1c1e21", textDecoration: "none" }}
+                                    >
+                                        <div className={styles.blogImg}>
+                                            <img
+                                                src="img/blogEmpty.svg"
+                                                style={{ maxWidth: "100%", height: "auto" }}
+                                                alt=""
+                                            />
+                                            <p className={styles.imgText}>
+                                                Centralised Control Planes for SaaS - Part 2:
+                                                Stateless Async Event Handling
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <h4
+                                                className={styles.category}
+                                                style={{
+                                                    color: "#002DFF",
+                                                    marginBottom: 8,
+                                                    marginTop: 16,
+                                                    fontSize: 16,
+                                                    fontWeight: 700,
+                                                }}
+                                            >
+                                                Control Planes
+                                            </h4>
+                                            <h3
+                                                style={{
+                                                    fontSize: 20,
+                                                    color: "#101828",
+                                                    fontWeight: 700,
+                                                    marginBottom: 6,
+                                                }}
+                                            >
+                                                Centralised Control Planes for SaaS - Part 2:
+                                                Stateless Async Event Handling
+                                            </h3>
+                                            {/* <p
+                                                style={{
+                                                    fontSize: 16,
+                                                    fontWeight: 400,
+                                                    marginBottom: 24,
+                                                }}
+                                            >
+                                                Learn the technology and architecture behind
+                                                building AI Cloud using open source and cloud native
+                                                technologies.
+                                            </p> */}
+                                            {/* <div style={{ display: "flex", alignItems: "center" }}>
                                             <div className={styles.authorImg}>
                                                 <img
                                                     src="img/Avatar.jpg"
@@ -508,16 +518,207 @@ const Services = () => {
                                                     20 Jan 2024
                                                 </p>
                                             </div>
+                                        </div> */}
                                         </div>
+                                    </Link>
+                                </div>
+                                <div className={styles.col3}>
+                                    <Link
+                                        to={
+                                            "/blog/centralised-control-planes-for-saas-infra-part-1"
+                                        }
+                                        style={{ color: "#1c1e21", textDecoration: "none" }}
+                                    >
+                                        <div className={styles.blogImg}>
+                                            <img
+                                                src="img/blogEmpty.svg"
+                                                style={{ maxWidth: "100%", height: "auto" }}
+                                                alt=""
+                                            />
+                                            <p className={styles.imgText}>
+                                                Centralised Control Planes for SaaS - Part 1: SaaS
+                                                Business Models
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <h4
+                                                className={styles.category}
+                                                style={{
+                                                    color: "#002DFF",
+                                                    marginBottom: 8,
+                                                    marginTop: 16,
+                                                    fontSize: 16,
+                                                    fontWeight: 700,
+                                                }}
+                                            >
+                                                Control Planes
+                                            </h4>
+                                            <h3
+                                                style={{
+                                                    fontSize: 20,
+                                                    color: "#101828",
+                                                    fontWeight: 700,
+                                                    marginBottom: 6,
+                                                }}
+                                            >
+                                                Centralised Control Planes for SaaS - Part 1: SaaS
+                                                Business Models
+                                            </h3>
+                                            {/* <p
+                                                style={{
+                                                    fontSize: 16,
+                                                    fontWeight: 400,
+                                                    marginBottom: 24,
+                                                }}
+                                            >
+                                                Learn the technology and architecture behind
+                                                building AI Cloud using open source and cloud native
+                                                technologies.
+                                            </p> */}
+                                            {/* <div style={{ display: "flex", alignItems: "center" }}>
+                                            <div className={styles.authorImg}>
+                                                <img
+                                                    src="img/Avatar.jpg"
+                                                    alt=""
+                                                    style={{ maxWidth: "100%", height: "auto" }}
+                                                />
+                                            </div>
+                                            <div>
+                                                <h6
+                                                    style={{
+                                                        fontSize: 16,
+                                                        fontWeight: 700,
+                                                        marginBottom: 4,
+                                                    }}
+                                                >
+                                                    Olivia Rhye
+                                                </h6>
+                                                <p
+                                                    style={{
+                                                        fontSize: 14,
+                                                        fontWeight: 400,
+                                                        marginBottom: 0,
+                                                    }}
+                                                >
+                                                    20 Jan 2024
+                                                </p>
+                                            </div>
+                                        </div> */}
+                                        </div>
+                                    </Link>
+                                </div>
+                                <div className={styles.col3}>
+                                    <Link
+                                        to={"/blog/demystifying-helm-and-operator-pattern"}
+                                        style={{ color: "#1c1e21", textDecoration: "none" }}
+                                    >
+                                        <div className={styles.blogImg}>
+                                            <img
+                                                src="img/blogEmpty.svg"
+                                                style={{ maxWidth: "100%", height: "auto" }}
+                                                alt=""
+                                            />
+                                            <p className={styles.imgText}>
+                                                Demystifying Helm and Operator pattern.
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <h4
+                                                className={styles.category}
+                                                style={{
+                                                    color: "#002DFF",
+                                                    marginBottom: 8,
+                                                    marginTop: 16,
+                                                    fontSize: 16,
+                                                    fontWeight: 700,
+                                                }}
+                                            >
+                                                Control Planes
+                                            </h4>
+                                            <h3
+                                                style={{
+                                                    fontSize: 20,
+                                                    color: "#101828",
+                                                    fontWeight: 700,
+                                                    marginBottom: 6,
+                                                }}
+                                            >
+                                                Demystifying Helm and Operator pattern.
+                                            </h3>
+                                            {/* <p
+                                                style={{
+                                                    fontSize: 16,
+                                                    fontWeight: 400,
+                                                    marginBottom: 24,
+                                                }}
+                                            >
+                                                Learn the technology and architecture behind
+                                                building AI Cloud using open source and cloud native
+                                                technologies.
+                                            </p> */}
+                                        </div>
+                                    </Link>
+                                </div>
+                                <div className={styles.col3}>
+                                    <div className={styles.blogImg}>
+                                        <iframe
+                                            width="420"
+                                            height="200"
+                                            src="https://www.youtube.com/embed/gbtBGtDPtkA?si=mQeAex7fboj0OiP1"
+                                            title="YouTube video player"
+                                            frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                            referrerpolicy="strict-origin-when-cross-origin"
+                                            allowfullscreen
+                                        ></iframe>
+                                    </div>
+                                    <div>
+                                        <h4
+                                            className={styles.category}
+                                            style={{
+                                                color: "#002DFF",
+                                                marginBottom: 8,
+                                                marginTop: 16,
+                                                fontSize: 16,
+                                                fontWeight: 700,
+                                            }}
+                                        >
+                                            Kubernetes Operator
+                                        </h4>
+                                        <h3
+                                            style={{
+                                                fontSize: 20,
+                                                color: "#101828",
+                                                fontWeight: 700,
+                                                marginBottom: 6,
+                                            }}
+                                        >
+                                            Apache Druid on Kubernetes - Podcast
+                                        </h3>
+                                        {/* <p
+                                            style={{
+                                                fontSize: 16,
+                                                fontWeight: 400,
+                                                marginBottom: 24,
+                                            }}
+                                        >
+                                            Learn the technology and architecture behind building AI
+                                            Cloud using open source and cloud native technologies.
+                                        </p> */}
                                     </div>
                                 </div>
                                 <div className={styles.col3}>
                                     <div className={styles.blogImg}>
-                                        <img
-                                            src="img/blog1.jpg"
-                                            style={{ maxWidth: "100%", height: "auto" }}
-                                            alt=""
-                                        />
+                                        <iframe
+                                            width="420"
+                                            height="200"
+                                            src="https://www.youtube.com/embed/NMcAkZZ6jQo?si=cFzq26dbvRsljC23"
+                                            title="YouTube video player"
+                                            frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                            referrerpolicy="strict-origin-when-cross-origin"
+                                            allowfullscreen
+                                        ></iframe>
                                     </div>
                                     <div>
                                         <h4
@@ -530,7 +731,7 @@ const Services = () => {
                                                 fontWeight: 700,
                                             }}
                                         >
-                                            Artificial Intelligence
+                                            Kubernetes Operators
                                         </h4>
                                         <h3
                                             style={{
@@ -540,9 +741,9 @@ const Services = () => {
                                                 marginBottom: 6,
                                             }}
                                         >
-                                            How to build AI Cloud?
+                                            Druid Summit
                                         </h3>
-                                        <p
+                                        {/* <p
                                             style={{
                                                 fontSize: 16,
                                                 fontWeight: 400,
@@ -551,117 +752,21 @@ const Services = () => {
                                         >
                                             Learn the technology and architecture behind building AI
                                             Cloud using open source and cloud native technologies.
-                                        </p>
-                                        <div style={{ display: "flex", alignItems: "center" }}>
-                                            <div className={styles.authorImg}>
-                                                <img
-                                                    src="img/Avatar.jpg"
-                                                    alt=""
-                                                    style={{ maxWidth: "100%", height: "auto" }}
-                                                />
-                                            </div>
-                                            <div>
-                                                <h6
-                                                    style={{
-                                                        fontSize: 16,
-                                                        fontWeight: 700,
-                                                        marginBottom: 4,
-                                                    }}
-                                                >
-                                                    Olivia Rhye
-                                                </h6>
-                                                <p
-                                                    style={{
-                                                        fontSize: 14,
-                                                        fontWeight: 400,
-                                                        marginBottom: 0,
-                                                    }}
-                                                >
-                                                    20 Jan 2024
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> */}
-                    {/* <div className={styles.col3}>
-                                    <div className={styles.blogImg}>
-                                        <img
-                                            src="img/blog1.jpg"
-                                            style={{ maxWidth: "100%", height: "auto" }}
-                                            alt=""
-                                        />
-                                    </div>
-                                    <div>
-                                        <h4
-                                            className={styles.category}
-                                            style={{
-                                                color: "#002DFF",
-                                                marginBottom: 8,
-                                                marginTop: 16,
-                                                fontSize: 16,
-                                                fontWeight: 700,
-                                            }}
-                                        >
-                                            Artificial Intelligence
-                                        </h4>
-                                        <h3
-                                            style={{
-                                                fontSize: 20,
-                                                color: "#101828",
-                                                fontWeight: 700,
-                                                marginBottom: 6,
-                                            }}
-                                        >
-                                            How to build AI Cloud?
-                                        </h3>
-                                        <p
-                                            style={{
-                                                fontSize: 16,
-                                                fontWeight: 400,
-                                                marginBottom: 24,
-                                            }}
-                                        >
-                                            Learn the technology and architecture behind building AI
-                                            Cloud using open source and cloud native technologies.
-                                        </p>
-                                        <div style={{ display: "flex", alignItems: "center" }}>
-                                            <div className={styles.authorImg}>
-                                                <img
-                                                    src="img/Avatar.jpg"
-                                                    alt=""
-                                                    style={{ maxWidth: "100%", height: "auto" }}
-                                                />
-                                            </div>
-                                            <div>
-                                                <h6
-                                                    style={{
-                                                        fontSize: 16,
-                                                        fontWeight: 700,
-                                                        marginBottom: 4,
-                                                    }}
-                                                >
-                                                    Olivia Rhye
-                                                </h6>
-                                                <p
-                                                    style={{
-                                                        fontSize: 14,
-                                                        fontWeight: 400,
-                                                        marginBottom: 0,
-                                                    }}
-                                                >
-                                                    20 Jan 2024
-                                                </p>
-                                            </div>
-                                        </div>
+                                        </p> */}
                                     </div>
                                 </div>
                                 <div className={styles.col3}>
                                     <div className={styles.blogImg}>
-                                        <img
-                                            src="img/blog1.jpg"
-                                            style={{ maxWidth: "100%", height: "auto" }}
-                                            alt=""
-                                        />
+                                        <iframe
+                                            width="420"
+                                            height="200"
+                                            src="https://www.youtube.com/embed/X4A3lWJRGHk?si=YREeUaLfCrAWEQmR"
+                                            title="YouTube video player"
+                                            frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                            referrerpolicy="strict-origin-when-cross-origin"
+                                            allowfullscreen
+                                        ></iframe>
                                     </div>
                                     <div>
                                         <h4
@@ -674,7 +779,7 @@ const Services = () => {
                                                 fontWeight: 700,
                                             }}
                                         >
-                                            Artificial Intelligence
+                                            Kubernetes Operator
                                         </h4>
                                         <h3
                                             style={{
@@ -684,9 +789,9 @@ const Services = () => {
                                                 marginBottom: 6,
                                             }}
                                         >
-                                            How to build AI Cloud?
+                                            Data On Kubernetes
                                         </h3>
-                                        <p
+                                        {/* <p
                                             style={{
                                                 fontSize: 16,
                                                 fontWeight: 400,
@@ -695,185 +800,12 @@ const Services = () => {
                                         >
                                             Learn the technology and architecture behind building AI
                                             Cloud using open source and cloud native technologies.
-                                        </p>
-                                        <div style={{ display: "flex", alignItems: "center" }}>
-                                            <div className={styles.authorImg}>
-                                                <img
-                                                    src="img/Avatar.jpg"
-                                                    alt=""
-                                                    style={{ maxWidth: "100%", height: "auto" }}
-                                                />
-                                            </div>
-                                            <div>
-                                                <h6
-                                                    style={{
-                                                        fontSize: 16,
-                                                        fontWeight: 700,
-                                                        marginBottom: 4,
-                                                    }}
-                                                >
-                                                    Olivia Rhye
-                                                </h6>
-                                                <p
-                                                    style={{
-                                                        fontSize: 14,
-                                                        fontWeight: 400,
-                                                        marginBottom: 0,
-                                                    }}
-                                                >
-                                                    20 Jan 2024
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className={styles.col3}>
-                                    <div className={styles.blogImg}>
-                                        <img
-                                            src="img/blog1.jpg"
-                                            style={{ maxWidth: "100%", height: "auto" }}
-                                            alt=""
-                                        />
-                                    </div>
-                                    <div>
-                                        <h4
-                                            className={styles.category}
-                                            style={{
-                                                color: "#002DFF",
-                                                marginBottom: 8,
-                                                marginTop: 16,
-                                                fontSize: 16,
-                                                fontWeight: 700,
-                                            }}
-                                        >
-                                            Artificial Intelligence
-                                        </h4>
-                                        <h3
-                                            style={{
-                                                fontSize: 20,
-                                                color: "#101828",
-                                                fontWeight: 700,
-                                                marginBottom: 6,
-                                            }}
-                                        >
-                                            How to build AI Cloud?
-                                        </h3>
-                                        <p
-                                            style={{
-                                                fontSize: 16,
-                                                fontWeight: 400,
-                                                marginBottom: 24,
-                                            }}
-                                        >
-                                            Learn the technology and architecture behind building AI
-                                            Cloud using open source and cloud native technologies.
-                                        </p>
-                                        <div style={{ display: "flex", alignItems: "center" }}>
-                                            <div className={styles.authorImg}>
-                                                <img
-                                                    src="img/Avatar.jpg"
-                                                    alt=""
-                                                    style={{ maxWidth: "100%", height: "auto" }}
-                                                />
-                                            </div>
-                                            <div>
-                                                <h6
-                                                    style={{
-                                                        fontSize: 16,
-                                                        fontWeight: 700,
-                                                        marginBottom: 4,
-                                                    }}
-                                                >
-                                                    Olivia Rhye
-                                                </h6>
-                                                <p
-                                                    style={{
-                                                        fontSize: 14,
-                                                        fontWeight: 400,
-                                                        marginBottom: 0,
-                                                    }}
-                                                >
-                                                    20 Jan 2024
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className={styles.col3}>
-                                    <div className={styles.blogImg}>
-                                        <img
-                                            src="img/blog1.jpg"
-                                            style={{ maxWidth: "100%", height: "auto" }}
-                                            alt=""
-                                        />
-                                    </div>
-                                    <div>
-                                        <h4
-                                            className={styles.category}
-                                            style={{
-                                                color: "#002DFF",
-                                                marginBottom: 8,
-                                                marginTop: 16,
-                                                fontSize: 16,
-                                                fontWeight: 700,
-                                            }}
-                                        >
-                                            Artificial Intelligence
-                                        </h4>
-                                        <h3
-                                            style={{
-                                                fontSize: 20,
-                                                color: "#101828",
-                                                fontWeight: 700,
-                                                marginBottom: 6,
-                                            }}
-                                        >
-                                            How to build AI Cloud?
-                                        </h3>
-                                        <p
-                                            style={{
-                                                fontSize: 16,
-                                                fontWeight: 400,
-                                                marginBottom: 24,
-                                            }}
-                                        >
-                                            Learn the technology and architecture behind building AI
-                                            Cloud using open source and cloud native technologies.
-                                        </p>
-                                        <div style={{ display: "flex", alignItems: "center" }}>
-                                            <div className={styles.authorImg}>
-                                                <img
-                                                    src="img/Avatar.jpg"
-                                                    alt=""
-                                                    style={{ maxWidth: "100%", height: "auto" }}
-                                                />
-                                            </div>
-                                            <div>
-                                                <h6
-                                                    style={{
-                                                        fontSize: 16,
-                                                        fontWeight: 700,
-                                                        marginBottom: 4,
-                                                    }}
-                                                >
-                                                    Olivia Rhye
-                                                </h6>
-                                                <p
-                                                    style={{
-                                                        fontSize: 14,
-                                                        fontWeight: 400,
-                                                        marginBottom: 0,
-                                                    }}
-                                                >
-                                                    20 Jan 2024
-                                                </p>
-                                            </div>
-                                        </div>
+                                        </p> */}
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div> */}
+                    </div>{" "}
                     <div className={`${styles.contactUs} v-contact-us`}>
                         <div className={styles.col5}>
                             <h3 className={styles.heading}>
@@ -1013,8 +945,8 @@ function NavBar({ className }) {
             <div className="v-links">
                 <NavLink to="/#features">Features</NavLink>
                 <NavLink to="/documentation">Documentation</NavLink>
-                <NavLink to="/services">Services</NavLink>
                 <NavLink to="/blog">Blog</NavLink>
+                <NavLink to="/services">Services</NavLink>
                 <a
                     className="navbar__link_hover_src-pages-index-module"
                     style={{

@@ -5,17 +5,20 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
 import styles from "./styles.module.css"
 import newstyles from "../index.module.css"
 
-
 export default function Documentation() {
     const { siteConfig } = useDocusaurusContext()
 
     return (
         <Layout title="BaaZ Docs: All about BaaZ." description="BaaZ Docs.">
-            <NavBar className={newstyles.navbar}>
-            </NavBar>
+            <NavBar className={newstyles.navbar}></NavBar>
 
             <Main>
-                <img src="img/analytics.png" alt="analytics-image" height="163px" style={{ marginTop: '50px' }} />
+                <img
+                    src="img/analytics.png"
+                    alt="analytics-image"
+                    height="163px"
+                    style={{ marginTop: "50px" }}
+                />
 
                 <Title>
                     <Purple>BaaZ </Purple> Documentation
@@ -181,8 +184,8 @@ function NavBar({ className, children }) {
             <div>
                 <NavLink to="/#features">Features</NavLink>
                 <NavLink to="/documentation">Documentation</NavLink>
-                <NavLink to="/services">Services</NavLink>
                 <NavLink to="/blog">Blog</NavLink>
+                <NavLink to="/services">Services</NavLink>
                 <a
                     className="navbar__link_hover_src-pages-index-module"
                     style={{

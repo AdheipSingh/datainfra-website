@@ -172,35 +172,6 @@ export default function Home() {
                         />
                     </div>
                 </div>
-
-                <div className={styles.newsletter}>
-                    {/* <h2>
-                        Subscribe to our <span>Newsletter</span>
-                    </h2> */}
-                    {/* <p>The BaaZ newsletter goes out every other week, don’t miss out!</p> */}
-                    {/* <form action="https://formspree.io/f/mvgpryap" method="POST">
-                        <div
-                            className={styles.inputBox}
-                            style={{ display: "flex", position: "relative" }}
-                        >
-                            <input
-                                type="email"
-                                name="email"
-                                className="form-control"
-                                // placeholder="Enter your email ID"
-                                // value={email}
-                                // onChange={(e) => setEmail(e.target.value)}
-                                required
-                            />
-                            <button type="submit cursor-pointer">
-                                Subscribe <img src="/img/arrow-narrow-right.png" alt="" />
-                            </button>
-                        </div> */}
-                    {/* </form> */}
-                    {/* {error && <p style={{ color: "red" }}>{error}</p>} */}
-                </div>
-
-                {/* Rest of the content... */}
             </Layout>
         </>
     )
@@ -310,8 +281,8 @@ function NavBar({ className }) {
             <div className="v-links">
                 <NavLink to="/#features">Features</NavLink>
                 <NavLink to="/documentation">Documentation</NavLink>
-                <NavLink to="/services">Services</NavLink>
                 <NavLink to="/blog">Blog</NavLink>
+                <NavLink to="/services">Services</NavLink>
                 <a
                     className="navbar__link_hover_src-pages-index-module"
                     style={{
@@ -395,8 +366,8 @@ function NavLink({ style, to, children }) {
             to={to}
             style={{
                 color: " #131212",
-                marginLeft: "32px",
-                marginRight: "32px",
+                marginLeft: "15px",
+                marginRight: "15px",
                 fontSize: "1.2rem",
                 fontWeight: "bold", // Added fontWeight
                 ...style,
@@ -423,7 +394,7 @@ function ActionButton({ className, href, style, children }) {
                 textDecoration: "none",
                 fontFamily: "Inter, sans-serif",
                 boxShadow: "0px 4px 16px 0px rgba(0, 0, 0, 0.12)",
-                padding: "8px 24px",
+                padding: "8px 22px",
                 transition: "background 0.3s ease, color 0.3s ease, border-color 0.3s ease",
                 gap: "16px",
                 ...style,
@@ -490,7 +461,7 @@ function Gitbutton({ className, href, style, children }) {
                 textDecoration: "none",
                 fontFamily: "Inter, sans-serif",
                 boxShadow: "0px 4px 16px 0px rgba(0, 0, 0, 0.12)",
-                padding: "8px 24px",
+                padding: "8px 22px",
                 transition: "background 0.3s ease, color 0.3s ease, border-color 0.3s ease",
                 gap: "16px",
                 ...style,

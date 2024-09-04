@@ -8,7 +8,6 @@ import SearchMetadata from "@theme/SearchMetadata"
 import TagsListInline from "@theme/TagsListInline"
 import Link from "@docusaurus/Link"
 import styles from "./styles.module.css"
-import newstyles from "../../pages/index.module.css"
 
 function BlogListPageMetadata(props) {
     const { metadata } = props
@@ -204,7 +203,7 @@ function BlogPost({ post, top = true }) {
                 <h2 style={{ marginTop: "20px", fontSize: top ? "2rem" : "1.5rem" }}>{title}</h2>
             </Link>
 
-            <p style={{ fontSize: "1.25rem", color: "rgb(26, 32, 44)" }}>{description}...</p>
+            <p style={{ fontSize: "1rem", color: "rgb(26, 32, 44)" }}>{description}...</p>
 
             {/* Tags */}
             {tagsExists && (
@@ -257,8 +256,8 @@ function NavBar({ className }) {
             <div className="v-links">
                 <NavLink to="/#features">Features</NavLink>
                 <NavLink to="/documentation">Documentation</NavLink>
-                <NavLink to="/services">Services</NavLink>
                 <NavLink to="/blog">Blog</NavLink>
+                <NavLink to="/services">Services</NavLink>
                 <a
                     className="navbar__link_hover_src-pages-index-module"
                     style={{
