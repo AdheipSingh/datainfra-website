@@ -413,14 +413,14 @@ const Services = () => {
                             </div>
                         </div>
                         <div>
-                            <p>
+                            {/* <p>
                                 We offer system design, hands-on implementation, and support. To
-                                learn more about <br /> working with us, feel free to {}
+                                learn more about <br /> working with us, feel free to { }
                                 <a href="https://cal.com/baazhq" target="_blank">
                                     <b>Contact Us</b>
                                 </a>
-                                .
-                            </p>
+
+                            </p> */}
                         </div>
                     </div>
                     <div style={{ padding: "80px 24px" }}>
@@ -466,7 +466,7 @@ const Services = () => {
                                                     fontWeight: 700,
                                                 }}
                                             >
-                                                Artificial Intelligence
+                                                Control Planes
                                             </h4>
                                             <h3
                                                 style={{
@@ -479,7 +479,7 @@ const Services = () => {
                                                 Centralised Control Planes for SaaS - Part 2:
                                                 Stateless Async Event Handling
                                             </h3>
-                                            <p
+                                            {/* <p
                                                 style={{
                                                     fontSize: 16,
                                                     fontWeight: 400,
@@ -489,7 +489,7 @@ const Services = () => {
                                                 Learn the technology and architecture behind
                                                 building AI Cloud using open source and cloud native
                                                 technologies.
-                                            </p>
+                                            </p> */}
                                             {/* <div style={{ display: "flex", alignItems: "center" }}>
                                             <div className={styles.authorImg}>
                                                 <img
@@ -551,7 +551,7 @@ const Services = () => {
                                                     fontWeight: 700,
                                                 }}
                                             >
-                                                Artificial Intelligence
+                                                Control Planes
                                             </h4>
                                             <h3
                                                 style={{
@@ -564,7 +564,7 @@ const Services = () => {
                                                 Centralised Control Planes for SaaS - Part 1: SaaS
                                                 Business Models
                                             </h3>
-                                            <p
+                                            {/* <p
                                                 style={{
                                                     fontSize: 16,
                                                     fontWeight: 400,
@@ -574,7 +574,7 @@ const Services = () => {
                                                 Learn the technology and architecture behind
                                                 building AI Cloud using open source and cloud native
                                                 technologies.
-                                            </p>
+                                            </p> */}
                                             {/* <div style={{ display: "flex", alignItems: "center" }}>
                                             <div className={styles.authorImg}>
                                                 <img
@@ -633,7 +633,7 @@ const Services = () => {
                                                     fontWeight: 700,
                                                 }}
                                             >
-                                                Artificial Intelligence
+                                                Control Planes
                                             </h4>
                                             <h3
                                                 style={{
@@ -645,7 +645,7 @@ const Services = () => {
                                             >
                                                 Demystifying Helm and Operator pattern.
                                             </h3>
-                                            <p
+                                            {/* <p
                                                 style={{
                                                     fontSize: 16,
                                                     fontWeight: 400,
@@ -655,7 +655,7 @@ const Services = () => {
                                                 Learn the technology and architecture behind
                                                 building AI Cloud using open source and cloud native
                                                 technologies.
-                                            </p>
+                                            </p> */}
                                         </div>
                                     </Link>
                                 </div>
@@ -683,7 +683,7 @@ const Services = () => {
                                                 fontWeight: 700,
                                             }}
                                         >
-                                            Artificial Intelligence
+                                            Kubernetes Operator
                                         </h4>
                                         <h3
                                             style={{
@@ -693,9 +693,9 @@ const Services = () => {
                                                 marginBottom: 6,
                                             }}
                                         >
-                                            How to build AI Cloud?
+                                            Apache Druid on Kubernetes - Podcast
                                         </h3>
-                                        <p
+                                        {/* <p
                                             style={{
                                                 fontSize: 16,
                                                 fontWeight: 400,
@@ -704,7 +704,7 @@ const Services = () => {
                                         >
                                             Learn the technology and architecture behind building AI
                                             Cloud using open source and cloud native technologies.
-                                        </p>
+                                        </p> */}
                                     </div>
                                 </div>
                                 <div className={styles.col3}>
@@ -731,7 +731,7 @@ const Services = () => {
                                                 fontWeight: 700,
                                             }}
                                         >
-                                            Artificial Intelligence
+                                            Kubernetes Operators
                                         </h4>
                                         <h3
                                             style={{
@@ -741,9 +741,9 @@ const Services = () => {
                                                 marginBottom: 6,
                                             }}
                                         >
-                                            How to build AI Cloud?
+                                            Druid Summit
                                         </h3>
-                                        <p
+                                        {/* <p
                                             style={{
                                                 fontSize: 16,
                                                 fontWeight: 400,
@@ -752,7 +752,7 @@ const Services = () => {
                                         >
                                             Learn the technology and architecture behind building AI
                                             Cloud using open source and cloud native technologies.
-                                        </p>
+                                        </p> */}
                                     </div>
                                 </div>
                                 <div className={styles.col3}>
@@ -779,7 +779,7 @@ const Services = () => {
                                                 fontWeight: 700,
                                             }}
                                         >
-                                            Artificial Intelligence
+                                            Kubernetes Operator
                                         </h4>
                                         <h3
                                             style={{
@@ -789,9 +789,9 @@ const Services = () => {
                                                 marginBottom: 6,
                                             }}
                                         >
-                                            How to build AI Cloud?
+                                            Data On Kubernetes
                                         </h3>
-                                        <p
+                                        {/* <p
                                             style={{
                                                 fontSize: 16,
                                                 fontWeight: 400,
@@ -800,7 +800,7 @@ const Services = () => {
                                         >
                                             Learn the technology and architecture behind building AI
                                             Cloud using open source and cloud native technologies.
-                                        </p>
+                                        </p> */}
                                     </div>
                                 </div>
                             </div>

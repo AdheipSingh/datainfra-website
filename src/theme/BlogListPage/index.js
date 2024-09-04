@@ -8,7 +8,6 @@ import SearchMetadata from "@theme/SearchMetadata"
 import TagsListInline from "@theme/TagsListInline"
 import Link from "@docusaurus/Link"
 import styles from "./styles.module.css"
-import newstyles from "../../pages/index.module.css"
 
 function BlogListPageMetadata(props) {
     const { metadata } = props
