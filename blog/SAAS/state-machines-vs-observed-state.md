@@ -93,34 +93,6 @@ fn finalize_process() {
 }
 ```
 
-**4. Actions**
-
-```rust
-// Action: Initialize System
-action Initialize() {
-    log("System initialized.")
-}
-
-// Action: Add New Machine
-action AddNewMachine() {
-    log("Adding new machine...")
-    // Code to add new machine
-    event = NEW_MACHINE_ADDED // Trigger event
-}
-
-// Action: Delete Old Machine
-action DeleteOldMachine() {
-    log("Deleting old machine...")
-    // Code to delete old machine
-    event = OLD_MACHINE_DELETED // Trigger event
-}
-
-// Action: Finalize Process
-action FinalizeProcess() {
-    log("Process complete.")
-}
-```
-
 ### Imperative Systems vs Declarative Systems
 
 The above design primarily falls under the category of imperative systems, where users explicitly define the state transitions. In these systems, the user is not only aware of the desired state but also dictates the precise steps (or transitions) needed to reach that state. The control of the system lies heavily in the hands of the user, who manually defines each stage of the transition process.
