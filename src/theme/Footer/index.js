@@ -170,6 +170,7 @@ export default function FooterWrapper() {
                         <a href="">Privacy Policy</a> */}
                     </div>
                 </div>
+                <Analytics />
             </footer>
         </>
     )
