@@ -6,7 +6,7 @@ authors: [Adheip Singh]
 tags: [SAAS, control-planes]
 ---
 
-*For a couple of years, my journey has revolved around constructing control planes for data infrastructure startups. As an engineer I have been fortunate to gain invaluable insights into the challenges and intricacies of developing successful SaaS products. Drawing from my firsthand experiences, this series of blog post's delves into the lessons learned and shares my goals at DataInfra, where I am building a centralised control plane for SaaS infrastructure. Join me as we explore the critical aspects and key considerations of constructing effective control planes in the dynamic and competitive SaaS industry.*
+*For a couple of years, my journey has revolved around constructing control planes for data infrastructure startups. As an engineer I have been fortunate to gain invaluable insights into the challenges and intricacies of developing successful SaaS products. Drawing from my firsthand experiences, this series of blog post's delves into the lessons learned and shares my goals at BaaZ, where I am building a centralised control plane for SaaS infrastructure. Join me as we explore the critical aspects and key considerations of constructing effective control planes in the dynamic and competitive SaaS industry.*
 
 # Introduction
 
@@ -140,4 +140,4 @@ Simplifying the process of bundling applications with logging platforms, monitor
 This blog post provides insights into building centralized control planes for SaaS infrastructure. It discusses the layers of SaaS architecture and explores three major SaaS business models: Shared SaaS, Dedicated SaaS, and Private (Bring Your Own Cloud) SaaS. The post highlights various problem statements, including achieving physical and logical isolation, efficient resource and application lifecycle management, governance, cost calculation, event handling, and application bundling. It serves as a valuable resource for SaaS infrastructure builders and stakeholders.
 
 In the next blog i will cover how we are solving these problems with our product.    
-If these problem statements look familar to you, feel free to get [connected](https://datainfra.io) with us.
+If these problem statements look familar to you, feel free to get [connected](https://cal.com/baazhq) with us.

@@ -6,7 +6,7 @@ authors: [Adheip Singh]
 tags: [SAAS, control-planes]
 ---
 
-*In our previous post, "[Centralised Control Planes for SaaS - Part 2](https://www.datainfra.io/blog/centralised-control-planes-for-saas-infra-part-2)," we discussed about the approaches to build a stateless control plane and how to handle async communication b/w the data planes and cloud provider. In this instalment we take dive into the physical and logical models in a SaaS control planes.*
+*In our previous post, "[Centralised Control Planes for SaaS - Part 2](https://www.baaz.dev/blog/centralised-control-planes-for-saas-infra-part-2)," we discussed about the approaches to build a stateless control plane and how to handle async communication b/w the data planes and cloud provider. In this instalment we take dive into the physical and logical models in a SaaS control planes.*
 
 ## Introduction
 
@@ -87,4 +87,4 @@ SaaS Type is a conceptual model. Each SaaS Type has a physical mapping ie data p
 ## Summary
 
 SaaS architecture relies on logical and physical models. These models aid developers in bridging user processes with backend workflows.
-If you are building a SaaS, and want to build a control plane, feel free to get [connected](https://www.datainfra.io/) with us.
+If you are building a SaaS, and want to build a control plane, feel free to get [connected](https://cal.com/baazhq) with us.

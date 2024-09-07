@@ -8,13 +8,13 @@ tags: [SAAS, control-planes]
 ---
 
 
-*In our previous post, "[Centralised Control Planes for SaaS - Part 1](https://www.datainfra.io/blog/centralised-control-planes-for-saas-infra-part-1)," we delved into the world of SaaS business models and the challenges that arise when constructing a centralised control plane. In this instalment, we will take a closer look at the crucial first step in building a control plane: the design of an asynchronous event handling system. This system plays a pivotal role in creating infrastructure, managing tenants, and deploying applications within a SaaS environment. Moreover, we will explore two distinct schools of thoughts : application developer versus infrastructure developer.*
+*In our previous post, "[Centralised Control Planes for SaaS - Part 1](https://www.baaz.dev/blog/centralised-control-planes-for-saas-infra-part-1)," we delved into the world of SaaS business models and the challenges that arise when constructing a centralised control plane. In this instalment, we will take a closer look at the crucial first step in building a control plane: the design of an asynchronous event handling system. This system plays a pivotal role in creating infrastructure, managing tenants, and deploying applications within a SaaS environment. Moreover, we will explore two distinct schools of thoughts : application developer versus infrastructure developer.*
 
 
 ## Introduction
 
 
-In the realm of SaaS, the control plane serves as an orchestrator of fundamental operations. Our focus here lies specifically within the [service provisioning layer](https://www.datainfra.io/blog/centralised-control-planes-for-saas-infra-part-1#service-provisioning-layer). This layer enables the control plane to execute CRUD operations on various entities. Let's break down these operations:
+In the realm of SaaS, the control plane serves as an orchestrator of fundamental operations. Our focus here lies specifically within the [service provisioning layer](https://www.baaz.dev/blog/centralised-control-planes-for-saas-infra-part-1#service-provisioning-layer). This layer enables the control plane to execute CRUD operations on various entities. Let's break down these operations:
 
 
 <!--truncate-->
@@ -181,4 +181,4 @@ Kubernetes controllers have traditionally adhered to a stateless paradigm. Howev
 
 ## Summary                  
 Beyond being a mere orchestrator, Kubernetes emerges as the comprehensive control plane for applications. In this dynamic landscape, the marriage of Kubernetes controllers with the stateless, event-driven paradigm ushers in a new era of infrastructure development for the SaaS control plane. 
-If you are building a SaaS, and want to build a stateless control plane, feel free to get [connected](https://www.datainfra.io/) with us.
+If you are building a SaaS, and want to build a stateless control plane, feel free to get [connected](https://cal.com/baazhq) with us.
