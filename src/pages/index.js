@@ -3,6 +3,8 @@ import Layout from "@theme/Layout"
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
 import Link from "@docusaurus/Link"
 import styles from "./index.module.css"
+import { Analytics } from '@vercel/analytics/react';
+
 
 export default function Home() {
     const { siteConfig } = useDocusaurusContext()
@@ -54,7 +56,7 @@ export default function Home() {
                             Unified Management Plane for Managed Services, Infra SaaS and Serverless
                             SaaS.
                         </p>
-
+                        <Analytics />
                         <RequestDemo>
                             <RequestDemoButtons>
                                 <Link
