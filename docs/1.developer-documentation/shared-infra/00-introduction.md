@@ -12,18 +12,18 @@ slug: /shared-infra/introduction
 
 In this doc, we are going to demonstrate how to use BaaZ to build shared infrastructure and deploy apps for various customers.
 
-### Prerequisite
+### Prerequisites
 
 - Baaz controller is running
 - baaz cli is installed
 
-#### Step#1 (Export Baaz URL)
+#### Step-1: Export BAAZ URL
 
 ```bash
-$ export BAAZ_URL={baaz_server_url}
+$ export BAAZ_URL=<baaz_server_url>
 ```
 
-#### Step#2 (Create Customer)
+#### Step-2 Create Customer
 
 Example customer.yaml file:
 
@@ -42,7 +42,7 @@ $ baaz create customer -f customer.yaml
 Customer Created Successfully
 ```
 
-#### Step#3 (Create Dataplane)
+#### Step-3: Create Dataplane
 
 Example dataplane.yaml file:
 
@@ -50,7 +50,7 @@ Example dataplane.yaml file:
 dataplane:
   cloudType: aws
   cloudRegion: us-east-1
-  saasType: private
+  saasType: shared
   cloudAuth:
     awsAuth:
       awsAccessKey: ""
@@ -93,7 +93,7 @@ NAME                 STATUS   AGE
 aws-us-east-1-qcqs   Ready    7m16s
 ```
 
-#### Step#4 (Add customer into dataplane)
+#### Step-4: Add dataplane to customer
 
 ```bash
 $ baaz add dataplane --customer=foo --dataplane=aws-us-east-1-qcqs
