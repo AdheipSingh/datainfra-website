@@ -202,8 +202,8 @@ function NavBar({ className, children }) {
                 </a>
             </div>
             <div style={{ display: "flex" }}>
-                <Gitbutton href="https://github.com/baazhq/baaz">Star on GitHub</Gitbutton>
-                <ActionButton href="https://www.launchpass.com/baaz">Join Slack</ActionButton>
+                <Gitbutton href="https://github.com/baazhq/baaz"></Gitbutton>
+                <ActionButton href="https://www.launchpass.com/baaz"></ActionButton>
             </div>
         </nav>
     )
@@ -273,11 +273,7 @@ function ActionButton({ className, href, style, children }) {
                 e.target.style.borderColor = "#4361ee"
             }}
         >
-            <img
-                style={{ marginRight: "16px", height: "24px" }}
-                src="/img/slack.svg"
-                alt="join-slack"
-            />
+            <img style={{ height: "24px" }} src="/img/slack.svg" alt="join-slack" />
             {children}
         </Link>
     )
@@ -316,11 +312,7 @@ function Gitbutton({ className, href, style, children }) {
                 e.target.style.borderColor = "#4361ee"
             }}
         >
-            <img
-                style={{ height: "32px", marginRight: "16px" }}
-                src="/img/github-mark.png"
-                alt="Star-on-Github"
-            />
+            <img style={{ height: "32px" }} src="/img/github-mark.png" alt="Star-on-Github" />
             {children}
         </Link>
     )
