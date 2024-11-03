@@ -96,7 +96,7 @@ export default function FooterWrapper() {
                                 <Navlink to="/">About</Navlink>
                                 {/* <Navlink to="/blog">Careers</Navlink> */}
 
-                                <Navlink to="/services">Services</Navlink>
+                                {/* <Navlink to="/services">Services</Navlink> */}
                             </div>
                         </div>
                     </div>

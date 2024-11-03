@@ -254,10 +254,10 @@ function NavBar({ className }) {
         <nav className={`${className} v-navbar`}>
             <Logo />
             <div className="v-links">
-                <NavLink to="/#features">Features</NavLink>
+                {/* <NavLink to="/#features">Features</NavLink> */}
                 <NavLink to="/documentation">Documentation</NavLink>
                 <NavLink to="/blog">Blog</NavLink>
-                <NavLink to="/services">Services</NavLink>
+                {/* <NavLink to="/services">Services</NavLink> */}
                 <a
                     className="navbar__link_hover_src-pages-index-module"
                     style={{
@@ -274,12 +274,12 @@ function NavBar({ className }) {
                 </a>
             </div>
             <div className="v-social-links">
-                <Gitbutton href="https://github.com/baazhq/baaz">
+                {/* <Gitbutton href="https://github.com/baazhq/baaz">
                     <span>Star on GitHub</span>
                 </Gitbutton>
                 <ActionButton href="https://www.launchpass.com/baaz">
                     <span>Join Slack</span>
-                </ActionButton>
+                </ActionButton> */}
             </div>
             <button onClick={() => setIsOpen(true)}>
                 <svg
@@ -297,9 +297,9 @@ function NavBar({ className }) {
                 <div className="v-navbar_phone">
                     <div className="v-links_phone">
                         <span onClick={() => setIsOpen(false)}>&#10006;</span>
-                        <NavLink to="/#features">Features</NavLink>
-                        <NavLink to="/documentation">Documentation</NavLink>
-                        <NavLink to="/services">Services</NavLink>
+                        {/* <NavLink to="/#features">Features</NavLink>
+                        <NavLink to="/documentation">Documentation</NavLink> */}
+                        {/* <NavLink to="/services">Services</NavLink> */}
                         <NavLink to="/blog">Blog</NavLink>
                         <a
                             className="navbar__link_hover_src-pages-index-module"
@@ -317,12 +317,12 @@ function NavBar({ className }) {
                         </a>
                     </div>
                     <div className="v-social-links_phone">
-                        <Gitbutton href="https://github.com/baazhq/baaz">
+                        {/* <Gitbutton href="https://github.com/baazhq/baaz">
                             <span>Star on GitHub</span>
                         </Gitbutton>
                         <ActionButton href="https://www.launchpass.com/baaz">
                             <span>Join Slack</span>
-                        </ActionButton>
+                        </ActionButton> */}
                     </div>
                 </div>
             )}
