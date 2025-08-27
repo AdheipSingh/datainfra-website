@@ -274,6 +274,182 @@ markdown li {
     margin-bottom: var(--ifm-leading);
 }
 
+/* Blog post tags styling */
+.theme-blog-post-tags {
+    background-color: transparent !important;
+    padding: 10px 0;
+}
+
+.theme-blog-post-tags ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.theme-blog-post-tags li {
+    display: inline-block;
+}
+
+.theme-blog-post-tags a {
+    display: inline-block;
+    padding: 4px 12px;
+    background-color: #f0f0f0;
+    color: #333;
+    text-decoration: none;
+    border-radius: 16px;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+}
+
+[data-theme="dark"] .theme-blog-post-tags a {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.theme-blog-post-tags a:hover {
+    background-color: var(--ifm-color-primary);
+    color: #fff;
+}
+
+/* Override any blue background on tags section */
+[class*="tagsListInline"],
+[class*="tags__list"],
+.margin-vert--md:has(b:contains("Tags:")) {
+    background-color: transparent !important;
+    background: none !important;
+}
+
+/* Target the tags container more specifically */
+div:has(> b:first-child) {
+    background-color: transparent !important;
+}
+
+/* Target inline tags styling */
+[class*="tagsListInline"] {
+    background: transparent !important;
+    padding: 0;
+}
+
+[class*="tagsListInline"] ul {
+    background: transparent !important;
+    margin: 0;
+    padding: 0;
+}
+
+[class*="tagsListInline"] a,
+.tag {
+    display: inline-block;
+    padding: 4px 12px !important;
+    background-color: #f0f0f0 !important;
+    color: #333 !important;
+    text-decoration: none;
+    border-radius: 16px;
+    font-size: 0.875rem;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+}
+
+[data-theme="dark"] [class*="tagsListInline"] a,
+[data-theme="dark"] .tag {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: #fff !important;
+}
+
+[class*="tagsListInline"] a:hover,
+.tag:hover {
+    background-color: var(--ifm-color-primary) !important;
+    color: #fff !important;
+    border-color: var(--ifm-color-primary);
+}
+
+/* More aggressive override for blue background */
+.margin-vert--md {
+    background-color: transparent !important;
+    background: transparent !important;
+}
+
+/* Target the specific tags row with blue background */
+.row .col {
+    background-color: transparent !important;
+}
+
+/* Override blue background that might be coming from parent container */
+article .margin-vert--md,
+article [class*="tags"],
+article div:has(b) {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+}
+
+/* Ensure the Tags: label and list have proper styling */
+.margin-vert--md b {
+    color: #333 !important;
+    background: transparent !important;
+}
+
+/* Force white background on the tags container */
+.container .row .col [class*="tags"],
+.container .row .col .margin-vert--md {
+    background-color: #ffffff !important;
+    padding: 10px 0 !important;
+}
+
+/* Fix the blue background on the entire tags row */
+.container .row,
+.container .row .col,
+.row:has(.margin-vert--md),
+.col:has(.margin-vert--md),
+.col:has([class*="tags"]) {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+}
+
+/* Ensure the parent containers don't have blue background */
+.container:has(.margin-vert--md),
+article .container,
+article .row {
+    background-color: transparent !important;
+    background: transparent !important;
+}
+
+/* Override any inline styles that might be setting blue background */
+[style*="background-color: rgb(67, 97, 238)"],
+[style*="background-color: #4361ee"],
+[style*="background: rgb(67, 97, 238)"],
+[style*="background: #4361ee"] {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+}
+
+/* Fix code block icon issues */
+.token.operator::before,
+.token.operator::after,
+.token.punctuation::before,
+.token.punctuation::after,
+code span::before,
+code span::after {
+    content: none !important;
+    background-image: none !important;
+    display: none !important;
+}
+
+/* Ensure pipe operator displays correctly */
+.token.operator,
+.token.punctuation {
+    background: transparent !important;
+    background-image: none !important;
+}
+
+/* Remove any icons from code blocks */
+pre code *::before,
+pre code *::after {
+    background-image: none !important;
+    content: none !important;
+}
+
 /* Responsive code */
 .v-navbar {
     height: 90px;

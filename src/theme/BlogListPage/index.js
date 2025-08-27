@@ -255,7 +255,7 @@ function NavBar({ className }) {
             <Logo />
             <div className="v-links">
                 {/* <NavLink to="/#features">Features</NavLink> */}
-                <NavLink to="/documentation">Documentation</NavLink>
+                {/* <NavLink to="/documentation">Documentation</NavLink> */}
                 <NavLink to="/blog">Blog</NavLink>
                 {/* <NavLink to="/services">Services</NavLink> */}
                 <a
@@ -297,8 +297,8 @@ function NavBar({ className }) {
                 <div className="v-navbar_phone">
                     <div className="v-links_phone">
                         <span onClick={() => setIsOpen(false)}>&#10006;</span>
-                        {/* <NavLink to="/#features">Features</NavLink>
-                        <NavLink to="/documentation">Documentation</NavLink> */}
+                        {/* <NavLink to="/#features">Features</NavLink> */}
+                        {/* <NavLink to="/documentation">Documentation</NavLink> */}
                         {/* <NavLink to="/services">Services</NavLink> */}
                         <NavLink to="/blog">Blog</NavLink>
                         <a
