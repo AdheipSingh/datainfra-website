@@ -4,7 +4,7 @@ title: Understanding Power Management in GPU via PCIe
 description: Learn how modern GPUs implement intelligent power management through PCIe generation scaling and why your high-end GPUs might be operating at Gen 1 speeds during idle periods
 url: understanding-power-management-in-gpu-via-pcie
 authors: [Adheip Singh]
-date: 2025-01-27T10:00
+date: 2025-08-27T10:00
 tags: [gpu, infrastructure, power-management, pcie, monitoring]
 ---
 
