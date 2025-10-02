@@ -1,16 +1,18 @@
 ---
 slug: understanding-rx-tx-network-traffic-direction
-title: Understanding RX vs TX - Making Sense of Network Traffic Direction
-description: Learn the fundamentals of RX (receive) and TX (transmit) metrics in network monitoring, common traffic patterns, and practical tips for effective network troubleshooting
+title: Understanding RX vs TX - Making Sense of Network Traffic Direction with Real Examples
+description: Learn the fundamentals of RX (receive) and TX (transmit) metrics in network monitoring through real-world Mellanox ONYX switch examples, common traffic patterns, and practical monitoring scripts
 url: understanding-rx-tx-network-traffic-direction
 authors: [Adheip Singh]
-date: 2025-01-02T10:00
-tags: [networking, monitoring, infrastructure, troubleshooting, network-analysis]
+date: 2025-10-02T10:00
+tags: [networking, monitoring, infrastructure, troubleshooting, network-analysis, mellanox, nvidia, computer-vision]
 ---
 
-# Understanding RX vs TX: Making Sense of Network Traffic Direction
+# Understanding RX vs TX: Making Sense of Network Traffic Direction with Real Examples
 
-When monitoring network equipment like switches, routers, or network cards, you'll constantly encounter two metrics: RX and TX. These simple abbreviations are fundamental to understanding how data flows through your network, yet they often cause confusion. Let's demystify them.
+I was lucky to work on a computer vision setup which involved NVIDIA RTX 6000 GPUs, Mellanox ONYX switches, and high-resolution cameras. The system was designed for real-time video capture and processing, pushing massive amounts of data through our network infrastructure. Here's a gist of debugging Mellanox switch metrics that led to some surprising discoveries about network traffic flow.
+
+When monitoring network equipment like switches, routers, or network cards, you'll constantly encounter two metrics: RX and TX. These simple abbreviations are fundamental to understanding how data flows through your network, yet they often cause confusion. Let's demystify them with real-world examples from our production Mellanox ONYX switch.
 
 <!--truncate-->
 
@@ -21,74 +23,204 @@ When monitoring network equipment like switches, routers, or network cards, you'
 
 Think of each network port like a doorway. RX counts everyone walking in, while TX counts everyone walking out. Simple enough, right? The confusion often comes when trying to understand what these patterns mean for your specific setup.
 
-## Why Direction Matters
+## Real Network Example: Mellanox ONYX Switch Analysis
 
-Every network port has two independent data paths - one for receiving and one for transmitting. Modern networks are full-duplex, meaning data can flow in both directions simultaneously. A 100Gbps port can theoretically handle 100Gbps incoming AND 100Gbps outgoing at the same time.
+Let's look at actual output from a production Mellanox ONYX switch to see how this works in practice. First, let's check which ports are actually up:
 
-## Reading Traffic Patterns
+```bash
+curl -k -b cookie.txt -X POST https://192.168.3.5/admin/launch?script=json&template=json-request&action=json-login \
+  -H "Content-Type: application/json" \
+  -d '{
+    "cmd": "show interfaces ethernet description",
+    "execution_type": "sync"
+  }'
+```
 
-Different RX/TX patterns tell different stories about what a device is doing:
+Output shows our active ports:
+```json
+{
+    "Eth1/1": {
+        "Operational state": "Up",
+        "Speed": "25G"
+    },
+    "Eth1/7": {
+        "Operational state": "Up", 
+        "Speed": "25G"
+    },
+    "Eth1/19": {
+        "Operational state": "Up",
+        "Speed": "100G"
+    },
+    "Eth1/21": {
+        "Operational state": "Up",
+        "Speed": "100G"
+    }
+}
+```
 
-### High RX, Low TX: The Collector
-- **Pattern**: Receiving 6 billion packets, transmitting 21 million
-- **What it means**: This device is primarily receiving data
-- **Common scenarios**: Storage servers, data collectors, monitoring systems
+## Reading Traffic Patterns from Real Data
 
-### Low RX, High TX: The Distributor  
-- **Pattern**: Receiving 5 million packets, transmitting 41 billion
-- **What it means**: This device is primarily sending data
-- **Common scenarios**: Media servers, content delivery systems, database servers serving queries
+Now let's examine the actual traffic statistics:
 
-### Balanced RX/TX: The Processor
-- **Pattern**: Similar RX and TX volumes
-- **What it means**: Active two-way communication
-- **Common scenarios**: Application servers, routers, active network participants
+### Port 7: The Collector (25G link)
+```json
+"Eth1/7": {
+    "Rx": {
+        "packets": "6078365878",      // 6 billion packets IN
+        "bytes": "46755253366062",    // 46.7 TB received
+        "packets Jumbo": "6047872646"  // Mostly jumbo frames (video?)
+    },
+    "Tx": {
+        "packets": "21008230",         // Only 21 million OUT
+        "bytes": "3877663298"          // Just 3.8 GB transmitted
+    }
+}
+```
 
-## Common Misconceptions
+This port receives 289× more data than it sends - classic collector pattern!
 
-One frequent source of confusion is assuming traffic direction based on device type. For example, you might expect:
-- Cameras would have high TX (sending video)
-- Recording servers would have high RX (receiving video)
+### Port 19: The Distributor (100G link)
+```json
+"Eth1/19": {
+    "Rx": {
+        "packets": "5619576",          // 5.6 million IN
+        "bytes": "370489758"           // Only 370 MB received
+    },
+    "Tx": {
+        "packets": "41154237203",      // 41 BILLION OUT!
+        "bytes": "316279712716706"     // 316 TB transmitted!
+    }
+}
+```
 
-But in practice, the actual traffic patterns depend on your network topology. If your "camera port" shows high RX instead of TX, it might mean:
-- The port connects to a switch that aggregates multiple cameras
-- The device is receiving processed streams from an encoder
-- Historical statistics are showing past configurations
+This port transmits 7,324× more packets than it receives - a massive distribution hub!
 
-## Practical Monitoring Tips
+## Why Direction Matters: Full-Duplex Explained
 
-When monitoring RX/TX metrics, focus on:
+Every network port has two independent data paths. When we see "100G" port speed, that means:
+- 100 Gbps receiving capacity AND
+- 100 Gbps transmitting capacity
+- Total theoretical throughput: 200 Gbps bidirectional
 
-1. **Bandwidth utilization**: Convert bytes to bits and compare against link speed
-   - Formula: `(bytes × 8) / seconds = bits per second`
-   - Alert if consistently above 80% of link capacity
+## Common Misconceptions Revealed
 
-2. **Error rates**: Both RX and TX errors indicate problems
-   - RX errors often mean physical layer issues (cable, connection)
-   - TX errors might indicate congestion or hardware problems
+Initially, you might assume camera-to-server traffic would look like:
+- Camera ports: High TX (sending video)
+- Server ports: High RX (receiving video)
 
-3. **Traffic trends**: Sudden changes in RX/TX patterns can indicate:
-   - Application issues
-   - Network topology changes
-   - Security events (unusual traffic patterns)
+But our real data shows the opposite! Here's the actual traffic flow:
 
-## Real-World Example
+```
+Port 7 (25G) ──RX(6B packets)──> Switch ──TX(41B packets)──> Port 19 (100G)
+                                    └──TX(2.6B packets)──> Port 21 (100G)
+```
 
-In a video production environment with PTP (Precision Time Protocol) enabled:
-- A 25Gbps port showing 6 billion RX packets with jumbo frames suggests video ingestion
-- A 100Gbps port showing 41 billion TX packets indicates distribution to multiple endpoints
-- The switch acts as a redistribution hub, not a simple passthrough
+This suggests Port 7 is receiving from an aggregation point, and Ports 19/21 are distributing to multiple endpoints.
 
-## Key Takeaway
+## Monitoring in Action: Getting Real-Time Metrics
 
-Don't assume traffic direction based on device types alone. Instead:
-1. Check the actual RX/TX metrics
-2. Consider your network topology
-3. Verify with physical cable tracing when needed
-4. Monitor trends over time to understand normal patterns
+Here's how to monitor these metrics on your switch:
 
-Understanding RX vs TX is like learning to read your network's vital signs. Once you know what normal looks like, anomalies become immediately apparent, making troubleshooting faster and more effective.
+```bash
+# Get current counters for all interfaces
+curl -k -b cookie.txt -X POST https://192.168.3.5/admin/launch?script=json&template=json-request&action=json-login \
+  -H "Content-Type: application/json" \
+  -d '{
+    "cmd": "show interfaces ethernet counters",
+    "execution_type": "sync"
+  }'
+```
+
+## Calculating Actual Utilization
+
+With the data we collected, let's calculate real bandwidth usage:
+
+**Port 19 (100G capacity):**
+- TX: 316,279,712,716,706 bytes total
+- If accumulated over 30 days: ~97 Gbps average
+- Near maximum capacity!
+
+**Port 7 (25G capacity):**  
+- RX: 46,755,253,366,062 bytes total
+- If accumulated over 30 days: ~14.4 Gbps average
+- Using 58% of link capacity
+
+## Key Metrics to Monitor
+
+From our actual switch output, focus on these fields:
+
+```json
+{
+    "Primary Metrics": {
+        "packets": "Total packet count",
+        "bytes": "Total byte count"
+    },
+    "Health Indicators": {
+        "error packets": "0",  // Good - no errors
+        "discard packets": "0", // Good - no drops
+        "fcs errors": "0"       // Good - no corruption
+    },
+    "Traffic Types": {
+        "unicast packets": "41123912532",  // Point-to-point
+        "multicast packets": "30090769",    // One-to-many (video streams?)
+        "broadcast packets": "233902"       // Network announcements
+    }
+}
+```
+
+## Practical Monitoring Script
+
+To continuously monitor RX/TX rates:
+
+```bash
+# Poll every 30 seconds and calculate rate
+PREV_RX=0
+PREV_TX=0
+
+while true; do
+    # Get current counters (example for Port 19)
+    CURR_RX=$(curl -sk ... | jq '.["Eth1/19"][0]["Rx"][0]["bytes"]')
+    CURR_TX=$(curl -sk ... | jq '.["Eth1/19"][1]["Tx"][0]["bytes"]')
+    
+    # Calculate rate in Mbps
+    RX_RATE=$(( ($CURR_RX - $PREV_RX) * 8 / 30 / 1000000 ))
+    TX_RATE=$(( ($CURR_TX - $PREV_TX) * 8 / 30 / 1000000 ))
+    
+    echo "Port 19: RX=${RX_RATE} Mbps, TX=${TX_RATE} Mbps"
+    
+    PREV_RX=$CURR_RX
+    PREV_TX=$CURR_TX
+    sleep 30
+done
+```
+
+## The PTP Clue: Understanding the Context
+
+Our switch configuration reveals another important detail:
+
+```bash
+"show running-config" output:
+##
+## PTP protocol
+##
+   protocol ptp
+   interface ethernet 1/1 ptp enable
+   interface ethernet 1/7 ptp enable
+   interface ethernet 1/19 ptp enable
+```
+
+PTP (Precision Time Protocol) on all ports indicates this is a **video production environment** where precise timing synchronization is critical for frame-accurate video capture.
+
+## Key Takeaways from Real Data
+
+1. **Don't assume traffic direction** - Our "video" ports showed opposite patterns than expected
+2. **Jumbo frames indicate video** - 6 billion jumbo packets on Port 7 suggest video traffic
+3. **100G ports as distributors** - Both 100G ports primarily transmit, indicating fan-out architecture
+4. **Monitor both directions** - Full-duplex means both paths matter for capacity planning
+5. **Context matters** - PTP configuration revealed this was video production, explaining the traffic patterns
+
+Remember: These RX/TX metrics are always from the port's perspective. When troubleshooting, physically trace cables or clear counters to see fresh traffic patterns rather than historical accumulation.
 
 ---
 
-*Remember: RX and TX are always from the perspective of the specific port you're monitoring. What's TX from one port is RX on the connected port at the other end of the cable.*
+*Pro tip: If your switch API is slow (>1 second response time), use SNMP polling instead - it's 10-100x faster for retrieving interface counters!*
