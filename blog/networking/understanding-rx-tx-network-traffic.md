@@ -1,6 +1,18 @@
+---
+slug: understanding-rx-tx-network-traffic-direction
+title: Understanding RX vs TX - Making Sense of Network Traffic Direction
+description: Learn the fundamentals of RX (receive) and TX (transmit) metrics in network monitoring, common traffic patterns, and practical tips for effective network troubleshooting
+url: understanding-rx-tx-network-traffic-direction
+authors: [Adheip Singh]
+date: 2025-01-02T10:00
+tags: [networking, monitoring, infrastructure, troubleshooting, network-analysis]
+---
+
 # Understanding RX vs TX: Making Sense of Network Traffic Direction
 
 When monitoring network equipment like switches, routers, or network cards, you'll constantly encounter two metrics: RX and TX. These simple abbreviations are fundamental to understanding how data flows through your network, yet they often cause confusion. Let's demystify them.
+
+<!--truncate-->
 
 ## The Basics: What Do RX and TX Mean?
 
