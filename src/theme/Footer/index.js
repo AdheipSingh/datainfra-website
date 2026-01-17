@@ -70,7 +70,6 @@ export default function FooterWrapper() {
                             <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
                                 <Navlink to="/">Home</Navlink>
                                 <Navlink to="/blog">Blogs</Navlink>
-                                <Navlink to="/documentation">Documentation</Navlink>
                                 <a
                                     href="https://cal.com/baazhq"
                                     target="_blank"

@@ -987,7 +987,6 @@ function NavBar({ className }) {
                     <div className="v-links_phone">
                         <span onClick={() => setIsOpen(false)}>&#10006;</span>
                         {/* <NavLink to="/#features">Features</NavLink> */}
-                        <NavLink to="/documentation">Documentation</NavLink>
                         {/* <NavLink to="/services">Services</NavLink> */}
                         <NavLink to="/blog">Blog</NavLink>
                         <a
