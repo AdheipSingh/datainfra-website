@@ -1,0 +1,258 @@
+.main {
+    padding-top: 80px;
+}
+
+.section {
+    padding: 100px 56px;
+}
+
+.sectionAlt {
+    background: #f7fafc;
+}
+
+.sectionContent {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.pageTitle {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #1a365d;
+    margin-bottom: 16px;
+}
+
+.sectionTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a365d;
+    margin-bottom: 40px;
+}
+
+.sectionLead {
+    font-size: 1.5rem;
+    color: #4a5568;
+    margin-bottom: 32px;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.bodyText {
+    font-size: 1.15rem;
+    color: #2d3748;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+/* Credentials */
+.credentials {
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 32px;
+    margin: 40px 0;
+}
+
+.credentialsTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1a365d;
+    margin-bottom: 20px;
+}
+
+.credentialsList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.credentialsList li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 16px;
+    font-size: 1.1rem;
+    color: #2d3748;
+    line-height: 1.6;
+}
+
+.credentialsList li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 8px;
+    height: 8px;
+    background: #3182ce;
+    border-radius: 50%;
+}
+
+.credentialsList li:last-child {
+    margin-bottom: 0;
+}
+
+.credentialsList strong {
+    color: #1a365d;
+}
+
+/* Open Source */
+.osSection {
+    margin-bottom: 48px;
+}
+
+.osSection:last-child {
+    margin-bottom: 0;
+}
+
+.osHeading {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1a365d;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.projectGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.projectCard {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 24px;
+}
+
+.projectName {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a365d;
+    margin-bottom: 8px;
+}
+
+.projectDesc {
+    font-size: 0.9rem;
+    color: #718096;
+    margin-bottom: 12px;
+}
+
+.projectLink {
+    font-size: 0.9rem;
+    color: #3182ce;
+    text-decoration: none;
+    word-break: break-all;
+}
+
+.projectLink:hover {
+    text-decoration: underline;
+}
+
+.contributionList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contribution {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.contribution:hover {
+    border-color: #3182ce;
+    box-shadow: 0 2px 8px rgba(49, 130, 206, 0.1);
+    transform: translateX(4px);
+}
+
+.contribName {
+    font-weight: 500;
+    color: #1a365d;
+    transition: color 0.2s ease;
+}
+
+.contribution:hover .contribName {
+    color: #3182ce;
+}
+
+/* CTA Section */
+.ctaSection {
+    background: #1a365d;
+    padding: 80px 56px;
+    text-align: center;
+}
+
+.ctaContent {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.ctaTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 16px;
+}
+
+.ctaText {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 28px;
+}
+
+.ctaButton {
+    display: inline-block;
+    background: white;
+    color: #1a365d !important;
+    padding: 16px 40px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.ctaButton:hover {
+    background: #f7fafc;
+    color: #1a365d !important;
+    text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .section {
+        padding: 80px 24px;
+    }
+
+    .pageTitle {
+        font-size: 2.5rem;
+    }
+
+    .sectionTitle {
+        font-size: 2rem;
+    }
+
+    .sectionLead {
+        font-size: 1.25rem;
+    }
+
+    .ctaSection {
+        padding: 60px 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    .contribution {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+}

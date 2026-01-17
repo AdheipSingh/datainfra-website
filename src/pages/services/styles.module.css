@@ -1,0 +1,206 @@
+.main {
+    padding-top: 80px;
+}
+
+.section {
+    padding: 100px 56px;
+}
+
+.sectionAlt {
+    background: #f7fafc;
+}
+
+.sectionContent {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.pageTitle {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #1a365d;
+    margin-bottom: 48px;
+    text-align: center;
+}
+
+.sectionTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a365d;
+    margin-bottom: 12px;
+}
+
+.sectionSubtitle {
+    font-size: 1.15rem;
+    color: #4a5568;
+    margin-bottom: 40px;
+}
+
+/* Engagement Models */
+.modelGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.modelCard {
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+.modelTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a365d;
+    margin-bottom: 16px;
+}
+
+.modelDesc {
+    font-size: 1.05rem;
+    color: #4a5568;
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 24px;
+}
+
+.modelResult {
+    background: white;
+    border-radius: 6px;
+    padding: 16px;
+    border: 1px solid #e2e8f0;
+}
+
+.resultLabel {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #3182ce;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.resultText {
+    font-size: 0.95rem;
+    color: #2d3748;
+    margin: 8px 0 0;
+    line-height: 1.5;
+}
+
+/* Accordion */
+.accordionList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.accordion {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+}
+
+.accordionHeader {
+    width: 100%;
+    padding: 20px 24px;
+    background: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a365d;
+    text-align: left;
+    transition: background 0.2s ease;
+}
+
+.accordionHeader:hover {
+    background: #f7fafc;
+}
+
+.accordionIcon {
+    color: #718096;
+    transition: transform 0.2s ease;
+}
+
+.accordionIconOpen {
+    transform: rotate(180deg);
+}
+
+.accordionContent {
+    padding: 0 24px 20px;
+    color: #4a5568;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* CTA Section */
+.ctaSection {
+    background: #1a365d;
+    padding: 80px 56px;
+    text-align: center;
+}
+
+.ctaContent {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.ctaTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 16px;
+}
+
+.ctaText {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 28px;
+}
+
+.ctaButton {
+    display: inline-block;
+    background: white;
+    color: #1a365d !important;
+    padding: 16px 40px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.ctaButton:hover {
+    background: #f7fafc;
+    color: #1a365d !important;
+    text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .section {
+        padding: 80px 24px;
+    }
+
+    .pageTitle {
+        font-size: 2.5rem;
+    }
+
+    .sectionTitle {
+        font-size: 2rem;
+    }
+
+    .modelGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .ctaSection {
+        padding: 60px 24px;
+    }
+}

@@ -1,25 +1,211 @@
 /**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
+ * Blog List Page Styles - Matching BaaZ Theme
  */
 
 .blogWrapper {
-    width: 110% !important;
-    font-family: Inter,sans-serif;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-@media screen and (max-width: 996px) {
-    .blogWrapper {
-        width: 100% !important;
+/* Blog Grid */
+.blogGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px;
+    margin-top: 64px;
+}
+
+@media screen and (max-width: 768px) {
+    .blogGrid {
+        grid-template-columns: 1fr;
+        gap: 40px;
     }
 }
 
-.blog {
-    width: 46%;
+/* Blog Post Card */
+.blogPost {
+    display: flex;
+    flex-direction: column;
 }
 
-@media screen and (max-width: 996px) {
-    .blog {
-        width: 100%;
+.blogPostFeatured {
+    margin-bottom: 24px;
+}
+
+/* Blog Image */
+.blogImageLink {
+    text-decoration: none;
+    display: block;
+}
+
+.blogImageWrapper {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(26, 54, 93, 0.08);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    border: 1px solid #e2e8f0;
+}
+
+.blogImageWrapper:hover {
+    box-shadow: 0 6px 20px rgba(26, 54, 93, 0.12);
+    transform: translateY(-3px);
+}
+
+.blogImage {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.blogImageTitle {
+    position: absolute;
+    top: 38%;
+    left: 25%;
+    width: 70%;
+    color: #1a365d;
+    font-weight: 600;
+    font-size: clamp(14px, 2.5vw, 18px);
+    pointer-events: none;
+    margin: 0;
+    line-height: 1.5;
+    text-align: left;
+}
+
+/* Blog Meta */
+.blogMeta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.authors {
+    display: flex;
+    gap: 16px;
+}
+
+.author {
+    display: flex;
+    flex-direction: column;
+}
+
+.authorName {
+    color: #3182ce;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+}
+
+.authorName:hover {
+    color: #1a365d;
+    text-decoration: underline;
+}
+
+.authorTitle {
+    color: #718096;
+    font-size: 0.85rem;
+}
+
+.dateInfo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #718096;
+    font-size: 0.9rem;
+}
+
+.separator {
+    color: #cbd5e0;
+}
+
+/* Blog Title */
+.blogTitleLink {
+    text-decoration: none;
+}
+
+.blogTitle {
+    color: #1a365d;
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 16px 0 12px;
+    line-height: 1.3;
+    transition: color 0.2s ease;
+}
+
+.blogTitle:hover {
+    color: #3182ce;
+}
+
+.blogTitleFeatured {
+    font-size: 1.75rem;
+}
+
+/* Blog Description */
+.blogDescription {
+    color: #4a5568;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0 0 16px;
+}
+
+/* Tags */
+.tagsWrapper {
+    margin-top: auto;
+    padding-top: 8px;
+}
+
+/* Navbar styles - kept for compatibility */
+.navbar {
+    display: flex;
+    align-items: center;
+    padding-left: 56px;
+    padding-right: 56px;
+    background: #fff;
+    height: 80px;
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.navbar__link_hover:hover {
+    color: #3182ce !important;
+}
+
+@media screen and (max-width: 900px) {
+    .navbar {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 600px) {
+    .blogWrapper {
+        padding: 24px 16px 60px;
+    }
+
+    .blogMeta {
+        flex-direction: column;
+    }
+
+    .blogTitle {
+        font-size: 1.15rem;
+    }
+
+    .blogTitleFeatured {
+        font-size: 1.35rem;
+    }
+
+    .blogImageTitle {
+        font-size: 12px;
+        top: 40%;
+        left: 22%;
+        width: 72%;
     }
 }
