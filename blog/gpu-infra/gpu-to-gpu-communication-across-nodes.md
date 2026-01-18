@@ -4,7 +4,7 @@ title: "GPU-to-GPU Communication Across Nodes: What Actually Works"
 description: A practical guide to NVLink, NVSwitch, InfiniBand, RoCE, and GPUDirect for multi-node GPU clusters. Cut through the jargon and understand what hardware and software you actually need for distributed training.
 url: gpu-to-gpu-communication-across-nodes
 authors: [Adheip Singh]
-date: 2025-01-18T10:00
+date: 2026-01-18T10:00
 tags: [gpu, infrastructure, networking, distributed-training, nvlink, infiniband, rdma]
 ---
 
