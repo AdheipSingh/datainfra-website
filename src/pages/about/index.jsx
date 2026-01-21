@@ -36,6 +36,10 @@ export default function About() {
                                     The actual GPU scheduler, not just users of it
                                 </li>
                                 <li>
+                                    <strong>Contributor to NVIDIA Network Operator</strong> —
+                                    Enabling GPUDirect RDMA and high-performance networking for AI workloads
+                                </li>
+                                <li>
                                     <strong>Built GPU platforms end-to-end</strong> — From bare
                                     metal provisioning to self-service ML workbenches
                                 </li>
