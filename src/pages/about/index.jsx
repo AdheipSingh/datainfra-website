@@ -64,6 +64,9 @@ export default function About() {
                                 <a href="https://github.com/NVIDIA/KAI-Scheduler/pulls?q=is%3Apr+author%3AAdheipSingh" target="_blank" rel="noopener noreferrer" className={styles.contribution}>
                                     <span className={styles.contribName}>NVIDIA KAI Scheduler</span>
                                 </a>
+                                <a href="https://github.com/Mellanox/network-operator/pulls?q=is%3Apr+author%3AAdheipSingh" target="_blank" rel="noopener noreferrer" className={styles.contribution}>
+                                    <span className={styles.contribName}>NVIDIA Network Operator</span>
+                                </a>
                                 <a href="https://github.com/datainfrahq/druid-operator/commits?author=AdheipSingh" target="_blank" rel="noopener noreferrer" className={styles.contribution}>
                                     <span className={styles.contribName}>Apache Druid Kubernetes Operator</span>
                                 </a>
@@ -87,9 +90,6 @@ export default function About() {
                                 </a>
                                 <a href="https://github.com/apache/superset/commits?author=AdheipSingh" target="_blank" rel="noopener noreferrer" className={styles.contribution}>
                                     <span className={styles.contribName}>Apache Superset</span>
-                                </a>
-                                <a href="https://github.com/Mellanox/network-operator/pulls?q=is%3Apr+author%3AAdheipSingh" target="_blank" rel="noopener noreferrer" className={styles.contribution}>
-                                    <span className={styles.contribName}>NVIDIA Network Operator</span>
                                 </a>
                             </div>
                         </div>
