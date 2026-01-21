@@ -6,8 +6,8 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula")
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-    title: "BaaZ",
-    tagline: "Control Planes for SaaS Infrastructure",
+    title: "BaaZ - GPU Infrastructure Consulting",
+    tagline: "Maximize GPU Utilization, Build AI Factories & Optimize AI Cloud Infrastructure",
     favicon: "img/logo-vector.png",
 
     // Set the production url of your site here
@@ -33,28 +33,13 @@ const config = {
         locales: ["en"],
     },
 
-    // Google fonts
+    // Google fonts and SEO tags
     headTags: [
         {
             tagName: "link",
             attributes: {
                 rel: "preconnect",
                 href: "https://fonts.googleapis.com",
-            },
-        },
-        {
-            tagName: "link",
-            attributes: {
-                rel: "canonical",
-                href: "https://www.baaz.dev/",
-            },
-        },
-        {
-            tagName: "link",
-            attributes: {
-                "data-rh": "true",
-                rel: "canonical",
-                href: "https://www.baaz.dev/",
             },
         },
         {
@@ -79,6 +64,59 @@ const config = {
                 href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap",
             },
         },
+        // Organization structured data
+        {
+            tagName: "script",
+            attributes: {
+                type: "application/ld+json",
+            },
+            innerHTML: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "BaaZ",
+                "url": "https://www.baaz.dev",
+                "logo": "https://www.baaz.dev/img/logo-vector.png",
+                "description": "GPU Infrastructure Consulting - We help companies maximize GPU utilization, build AI factories, and optimize AI cloud infrastructure.",
+                "sameAs": [
+                    "https://www.linkedin.com/company/baazhq",
+                    "https://github.com/baazhq"
+                ],
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "contactType": "sales",
+                    "url": "https://cal.com/baazhq"
+                },
+                "knowsAbout": [
+                    "GPU Infrastructure",
+                    "AI Cloud",
+                    "Kubernetes",
+                    "H100",
+                    "A100",
+                    "Distributed Training",
+                    "GPU Optimization",
+                    "InfiniBand",
+                    "NVIDIA GPU Operator"
+                ]
+            }),
+        },
+        // WebSite structured data for sitelinks search
+        {
+            tagName: "script",
+            attributes: {
+                type: "application/ld+json",
+            },
+            innerHTML: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "BaaZ",
+                "url": "https://www.baaz.dev",
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": "https://www.baaz.dev/blog?q={search_term_string}",
+                    "query-input": "required name=search_term_string"
+                }
+            }),
+        },
     ],
     presets: [
         [
@@ -89,14 +127,28 @@ const config = {
                 blog: {
                     showReadingTime: true,
                     blogSidebarCount: 0,
-                    // Please change this to your repo.
-                    // Remove this to remove the "edit this page" links.
-                    editUrl:
-                        "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
                     postsPerPage: 21,
+                    blogTitle: "GPU Infrastructure Blog | BaaZ",
+                    blogDescription: "Technical insights on GPU infrastructure, AI factories, distributed training, Kubernetes GPU operators, and cloud optimization from the BaaZ team.",
+                    feedOptions: {
+                        type: "all",
+                        title: "BaaZ GPU Infrastructure Blog",
+                        description: "Technical insights on GPU infrastructure, AI factories, and distributed training optimization.",
+                        copyright: `Copyright ${new Date().getFullYear()} BaaZ`,
+                    },
                 },
                 theme: {
                     customCss: require.resolve("./src/css/custom.css"),
+                },
+                sitemap: {
+                    changefreq: "weekly",
+                    priority: 0.5,
+                    ignorePatterns: ["/tags/**"],
+                    filename: "sitemap.xml",
+                },
+                gtag: {
+                    trackingID: 'G-SE6ECS8M22',
+                    anonymizeIP: true,
                 },
             }),
         ],
@@ -105,8 +157,9 @@ const config = {
     themeConfig:
         /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
-            // Replace with your project's social card
-            image: "img/docusaurus-social-card.jpg",
+            // Social card for link previews (OpenGraph/Twitter)
+            // TODO: Replace with a proper 1200x630px social card image
+            image: "img/baazLogo.png",
             // navbar: {
             //     title: "BaaZ",
             //     hideOnScroll: true,
@@ -241,6 +294,42 @@ const config = {
                 {
                     name: "google-site-verification",
                     content: "F-amoPl8NKGeeJ6Si2xDPtfin2HE6TR9mbIYKKedFDw",
+                },
+                {
+                    name: "description",
+                    content: "BaaZ helps companies maximize GPU utilization, build AI factories, and ship AI faster. Expert GPU infrastructure consulting for H100, A100, and enterprise AI cloud.",
+                },
+                {
+                    name: "keywords",
+                    content: "GPU consulting, GPU infrastructure, AI factory, AI cloud, GPU optimization, H100, A100, L40, Kubernetes GPU, distributed training, InfiniBand, NVIDIA, GPU utilization, ML infrastructure",
+                },
+                {
+                    property: "og:type",
+                    content: "website",
+                },
+                {
+                    property: "og:site_name",
+                    content: "BaaZ",
+                },
+                {
+                    property: "og:locale",
+                    content: "en_US",
+                },
+                {
+                    name: "twitter:card",
+                    content: "summary_large_image",
+                },
+                {
+                    name: "twitter:site",
+                    content: "@baazhq",
+                },
+                {
+                    name: "robots",
+                    content: "index, follow",
+                },
+                {
+                    name: "author",
+                    content: "BaaZ",
                 },
             ],
         }),

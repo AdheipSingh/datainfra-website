@@ -7,8 +7,8 @@ import styles from "./index.module.css"
 export default function Home() {
     return (
         <Layout
-            title="GPU Infrastructure Consulting"
-            description="BaaZ helps companies maximize GPU utilization, reduce waste, and ship AI faster."
+            title="GPU Infrastructure Consulting | AI Factory & Cloud Optimization"
+            description="BaaZ helps companies maximize GPU utilization, build AI factories, and ship AI faster. Expert consulting for H100, A100, Kubernetes GPU clusters, and distributed training optimization."
         >
             <Navbar />
             <main className={styles.main}>

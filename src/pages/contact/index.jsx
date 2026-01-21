@@ -6,8 +6,8 @@ import styles from "./styles.module.css"
 export default function Contact() {
     return (
         <Layout
-            title="Contact"
-            description="Schedule a call to discuss your GPU infrastructure challenges."
+            title="Contact Us | Schedule a GPU Infrastructure Consultation"
+            description="Schedule a free consultation to discuss your GPU infrastructure challenges. Get expert advice on GPU utilization, AI factory setup, and distributed training optimization."
         >
             <Navbar />
             <main className={styles.main}>

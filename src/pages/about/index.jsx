@@ -6,8 +6,8 @@ import styles from "./styles.module.css"
 export default function About() {
     return (
         <Layout
-            title="About Us"
-            description="Learn about BaaZ - GPU infrastructure consulting by engineers who've built this infrastructure in production."
+            title="About Us | GPU Infrastructure Engineers & Kubernetes Experts"
+            description="BaaZ is founded by Apache Software Foundation members and NVIDIA KAI Scheduler contributors. We've built GPU platforms end-to-end with 300+ open source commits."
         >
             <Navbar />
             <main className={styles.main}>
@@ -87,6 +87,9 @@ export default function About() {
                                 </a>
                                 <a href="https://github.com/apache/superset/commits?author=AdheipSingh" target="_blank" rel="noopener noreferrer" className={styles.contribution}>
                                     <span className={styles.contribName}>Apache Superset</span>
+                                </a>
+                                <a href="https://github.com/Mellanox/network-operator/pulls?q=is%3Apr+author%3AAdheipSingh" target="_blank" rel="noopener noreferrer" className={styles.contribution}>
+                                    <span className={styles.contribName}>NVIDIA Network Operator</span>
                                 </a>
                             </div>
                         </div>

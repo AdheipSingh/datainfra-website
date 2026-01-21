@@ -1,9 +1,8 @@
 User-agent: *
-Disallow: 
+Allow: /
+
+# Disallow admin and system paths
 Disallow: /cgi-bin/
-Disallow: /https://www.datainfra.io/docs/operator-runtime/
-Disallow: /https://www.datainfra.io/docs/operator-runtime/tutorials/configmap/
-Disallow: /https://www.datainfra.io/docs/operator-runtime/tutorials/
-Disallow: /https://www.datainfra.io/docs/operator-runtime/documentation/
-Disallow: /https://www.datainfra.io/docs/operator-runtime/installation/
-Disallow: /https://www.datainfra.io/docs/operator-runtime/documentation/introduction/
+
+# Sitemap location
+Sitemap: https://www.baaz.dev/sitemap.xml

@@ -71,8 +71,8 @@ export default function Services() {
 
     return (
         <Layout
-            title="Services"
-            description="GPU infrastructure consulting services - assessment, implementation, and ongoing support."
+            title="GPU Consulting Services | Assessment, Implementation & Support"
+            description="Expert GPU infrastructure services: cluster assessment, H100/A100 implementation, Kubernetes GPU operators, InfiniBand networking, and ongoing optimization support."
         >
             <Navbar />
             <main className={styles.main}>
