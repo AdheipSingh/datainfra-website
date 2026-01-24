@@ -280,7 +280,7 @@ export default function Home() {
                                     8.5x Faster Distributed Training: RDMA on Bare Metal Kubernetes
                                 </h3>
                                 <p className={styles.resourceDesc}>
-                                    How we helped a fintech achieve 10x latency improvement with GPUDirect RDMA over RoCE.
+                                    How we helped a computer vision company achieve 10x latency improvement with GPUDirect RDMA over RoCE.
                                 </p>
                                 <span className={styles.resourceLink}>Read case study →</span>
                             </Link>

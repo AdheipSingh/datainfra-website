@@ -35,7 +35,7 @@ const structuredData = {
         "@type": "TechArticle",
         "headline": "8.5x Faster Distributed Training: RDMA on Bare Metal Kubernetes",
         "alternativeHeadline": "Building RDMA-Enabled Kubernetes for Distributed GPU Training",
-        "description": "Technical case study on implementing GPUDirect RDMA over RoCE for a fintech company, achieving 10x latency improvement and 8.5x training throughput increase on bare metal Kubernetes.",
+        "description": "Technical case study on implementing GPUDirect RDMA over RoCE for a computer vision company, achieving 10x latency improvement and 8.5x training throughput increase on bare metal Kubernetes.",
         "image": "https://www.baaz.dev/img/diagram-01-tcp-vs-rdma-datapath.svg",
         "author": {
             "@type": "Organization",
@@ -159,7 +159,7 @@ export default function CaseStudies() {
 
                 {/* Twitter Card meta tags */}
                 <meta name="twitter:title" content="8.5x Faster Distributed Training: RDMA on Bare Metal Kubernetes" />
-                <meta name="twitter:description" content="How we helped a fintech achieve 10x latency improvement with GPUDirect RDMA over RoCE on Kubernetes." />
+                <meta name="twitter:description" content="How we helped a computer vision company achieve 10x latency improvement with GPUDirect RDMA over RoCE on Kubernetes." />
                 <meta name="twitter:image" content="https://www.baaz.dev/img/diagram-01-tcp-vs-rdma-datapath.svg" />
 
                 {/* Additional SEO meta tags */}
@@ -233,7 +233,7 @@ export default function CaseStudies() {
                             <h2 id="executive-summary" className={styles.sectionTitle}>Executive Summary</h2>
                             <div className={styles.summaryContent} itemProp="articleBody">
                                 <p>
-                                    A mid-sized fintech company had invested in GPU infrastructure for their ML platform but hit a wall: distributed training jobs that should complete in hours were taking days. Their data science team was frustrated, GPU utilization was under 40%, and leadership was questioning the ROI of their hardware investment.
+                                    A mid-sized computer vision company had invested in GPU infrastructure for their ML platform but hit a wall: distributed training jobs that should complete in hours were taking days. Their data science team was frustrated, GPU utilization was under 40%, and leadership was questioning the ROI of their hardware investment.
                                 </p>
                                 <p>
                                     <strong>The root cause: network bottlenecks.</strong> Without RDMA, gradient synchronization between GPUs was crawling over TCP/IP, burning expensive GPU cycles waiting on the network. Their RTX A5000 and A5500 cards sat idle during AllReduce operations while the CPU copied data between system memory and network buffers.
@@ -252,7 +252,7 @@ export default function CaseStudies() {
 
                             <h3 className={styles.subsectionTitle}>Client Context</h3>
                             <p className={styles.paragraph}>
-                                The client, a mid-sized fintech company, had built an on-premises ML platform to train fraud detection and risk models. Privacy requirements and data residency regulations made cloud training impractical for their most sensitive workloads.
+                                The client, a mid-sized computer vision company, had built an on-premises ML platform to train object detection and image segmentation models. Privacy requirements and data residency regulations made cloud training impractical for their most sensitive workloads.
                             </p>
 
                             <div className={styles.infoBox}>
