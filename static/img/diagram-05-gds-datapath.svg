@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 450">
+  <defs>
+    <marker id="arr-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc3545"/>
+    </marker>
+    <marker id="arr-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#28a745"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="450" fill="#fafafa"/>
+  
+  <!-- Title -->
+  <text x="450" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1a1a2e" text-anchor="middle">GPUDirect Storage: Bypassing the CPU for I/O</text>
+  
+  <!-- LEFT SIDE: Traditional I/O -->
+  <rect x="30" y="60" width="400" height="370" rx="8" fill="#fff" stroke="#dc3545" stroke-width="2"/>
+  <text x="230" y="90" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#dc3545" text-anchor="middle">Traditional I/O Path</text>
+  <text x="230" y="110" font-family="Arial, sans-serif" font-size="11" fill="#666" text-anchor="middle">Bounce buffer • CPU in path • 2x PCIe traversals</text>
+  
+  <!-- NVMe (Traditional) -->
+  <rect x="70" y="140" width="140" height="50" rx="4" fill="#6c757d" stroke="#5a6268"/>
+  <text x="140" y="162" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">NVMe SSD</text>
+  <text x="140" y="180" font-family="Arial, sans-serif" font-size="9" fill="#ddd" text-anchor="middle">/mnt/nvme/data.bin</text>
+  
+  <!-- Arrow 1: NVMe to RAM -->
+  <line x1="140" y1="190" x2="140" y2="220" stroke="#dc3545" stroke-width="2"/>
+  <line x1="140" y1="220" x2="230" y2="220" stroke="#dc3545" stroke-width="2"/>
+  <line x1="230" y1="220" x2="230" y2="240" stroke="#dc3545" stroke-width="2" marker-end="url(#arr-red)"/>
+  <text x="185" y="215" font-family="Arial, sans-serif" font-size="8" fill="#dc3545">PCIe</text>
+  
+  <!-- System RAM (Traditional) -->
+  <rect x="160" y="250" width="140" height="50" rx="4" fill="#ffc107" stroke="#d4a106"/>
+  <text x="230" y="272" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1a1a2e" text-anchor="middle">System RAM</text>
+  <text x="230" y="290" font-family="Arial, sans-serif" font-size="9" fill="#665c00" text-anchor="middle">Bounce Buffer</text>
+  
+  <!-- CPU (Traditional) -->
+  <rect x="280" y="140" width="100" height="50" rx="4" fill="#dc3545" stroke="#b02a37"/>
+  <text x="330" y="162" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">CPU</text>
+  <text x="330" y="178" font-family="Arial, sans-serif" font-size="8" fill="#fdd" text-anchor="middle">memcpy()</text>
+  
+  <!-- Arrow from CPU to RAM -->
+  <line x1="300" y1="190" x2="260" y2="250" stroke="#dc3545" stroke-width="2" stroke-dasharray="4"/>
+  
+  <!-- Arrow 2: RAM to GPU -->
+  <line x1="230" y1="300" x2="230" y2="330" stroke="#dc3545" stroke-width="2"/>
+  <line x1="230" y1="330" x2="140" y2="330" stroke="#dc3545" stroke-width="2"/>
+  <line x1="140" y1="330" x2="140" y2="350" stroke="#dc3545" stroke-width="2" marker-end="url(#arr-red)"/>
+  <text x="185" y="345" font-family="Arial, sans-serif" font-size="8" fill="#dc3545">PCIe</text>
+  
+  <!-- GPU Memory (Traditional) -->
+  <rect x="70" y="360" width="140" height="50" rx="4" fill="#76b900" stroke="#5a8f00"/>
+  <text x="140" y="382" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">GPU Memory</text>
+  <text x="140" y="400" font-family="Arial, sans-serif" font-size="9" fill="#ddd" text-anchor="middle">Training Data</text>
+  
+  <!-- Latency indicator (Traditional) -->
+  <rect x="280" y="360" width="130" height="50" rx="4" fill="#f8d7da" stroke="#dc3545"/>
+  <text x="345" y="382" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#dc3545" text-anchor="middle">~50-100 μs</text>
+  <text x="345" y="398" font-family="Arial, sans-serif" font-size="9" fill="#721c24" text-anchor="middle">per I/O operation</text>
+  
+  <!-- RIGHT SIDE: GPUDirect Storage -->
+  <rect x="470" y="60" width="400" height="370" rx="8" fill="#fff" stroke="#28a745" stroke-width="2"/>
+  <text x="670" y="90" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#28a745" text-anchor="middle">GPUDirect Storage Path</text>
+  <text x="670" y="110" font-family="Arial, sans-serif" font-size="11" fill="#666" text-anchor="middle">Direct DMA • CPU bypassed • 1x PCIe traversal</text>
+  
+  <!-- NVMe (GDS) -->
+  <rect x="590" y="140" width="160" height="50" rx="4" fill="#6c757d" stroke="#5a6268" stroke-width="2"/>
+  <text x="670" y="162" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">NVMe SSD</text>
+  <text x="670" y="180" font-family="Arial, sans-serif" font-size="9" fill="#ddd" text-anchor="middle">/mnt/nvme/data.bin</text>
+  
+  <!-- Direct arrow: NVMe to GPU -->
+  <line x1="670" y1="190" x2="670" y2="350" stroke="#28a745" stroke-width="4" marker-end="url(#arr-green)"/>
+  <text x="695" y="270" font-family="Arial, sans-serif" font-size="10" fill="#28a745" font-weight="bold">Direct DMA</text>
+  <text x="695" y="285" font-family="Arial, sans-serif" font-size="9" fill="#28a745">(PCIe)</text>
+  
+  <!-- GPU Memory (GDS) -->
+  <rect x="590" y="360" width="160" height="50" rx="4" fill="#76b900" stroke="#5a8f00" stroke-width="2"/>
+  <text x="670" y="382" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">GPU Memory</text>
+  <text x="670" y="400" font-family="Arial, sans-serif" font-size="9" fill="#ddd" text-anchor="middle">Training Data</text>
+  
+  <!-- Bypassed components -->
+  <rect x="780" y="180" width="80" height="130" rx="4" fill="#e9ecef" stroke="#dee2e6" stroke-dasharray="4"/>
+  <text x="820" y="220" font-family="Arial, sans-serif" font-size="9" fill="#adb5bd" text-anchor="middle">CPU</text>
+  <text x="820" y="240" font-family="Arial, sans-serif" font-size="8" fill="#ccc" text-anchor="middle">(bypassed)</text>
+  <text x="820" y="270" font-family="Arial, sans-serif" font-size="9" fill="#adb5bd" text-anchor="middle">System RAM</text>
+  <text x="820" y="290" font-family="Arial, sans-serif" font-size="8" fill="#ccc" text-anchor="middle">(bypassed)</text>
+  
+  <!-- Latency indicator (GDS) -->
+  <rect x="500" y="250" width="130" height="50" rx="4" fill="#d4edda" stroke="#28a745"/>
+  <text x="565" y="272" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#28a745" text-anchor="middle">~10-15 μs</text>
+  <text x="565" y="288" font-family="Arial, sans-serif" font-size="9" fill="#155724" text-anchor="middle">per I/O operation</text>
+  
+  <!-- Code example -->
+  <rect x="490" y="320" width="150" height="35" rx="3" fill="#2d2d2d"/>
+  <text x="500" y="335" font-family="Courier New, monospace" font-size="8" fill="#e0e0e0">import kvikio</text>
+  <text x="500" y="347" font-family="Courier New, monospace" font-size="8" fill="#e0e0e0">f.read(gpu_buffer)</text>
+  
+  <!-- Bottom comparison bar -->
+  <rect x="30" y="435" width="840" height="10" rx="3" fill="#f0f0f0"/>
+  <rect x="30" y="435" width="420" height="10" rx="3" fill="#dc3545"/>
+  <rect x="450" y="435" width="42" height="10" rx="3" fill="#28a745"/>
+  
+  <text x="240" y="428" font-family="Arial, sans-serif" font-size="10" fill="#dc3545" text-anchor="middle">Traditional: ~100 μs</text>
+  <text x="660" y="428" font-family="Arial, sans-serif" font-size="10" fill="#28a745" text-anchor="middle">GDS: ~10 μs (10x faster)</text>
+</svg>

@@ -15,20 +15,15 @@ export default function Navbar() {
                 <Link to="/about" className={styles.navLink}>
                     About
                 </Link>
+                <Link to="/case-studies" className={styles.navLink}>
+                    Case Studies
+                </Link>
                 <Link to="/blog" className={styles.navLink}>
                     Blog
                 </Link>
                 <Link to="/contact" className={styles.navLink}>
                     Contact
                 </Link>
-                <a
-                    href="https://cal.com/baazhq"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.ctaButton}
-                >
-                    Let's Talk
-                </a>
             </div>
 
             <button
@@ -62,6 +57,13 @@ export default function Navbar() {
                         About
                     </Link>
                     <Link
+                        to="/case-studies"
+                        className={styles.mobileNavLink}
+                        onClick={() => setIsOpen(false)}
+                    >
+                        Case Studies
+                    </Link>
+                    <Link
                         to="/blog"
                         className={styles.mobileNavLink}
                         onClick={() => setIsOpen(false)}
@@ -75,15 +77,6 @@ export default function Navbar() {
                     >
                         Contact
                     </Link>
-                    <a
-                        href="https://cal.com/baazhq"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.ctaButton}
-                        onClick={() => setIsOpen(false)}
-                    >
-                        Let's Talk
-                    </a>
                 </div>
             )}
         </nav>

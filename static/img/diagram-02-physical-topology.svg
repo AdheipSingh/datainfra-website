@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#0f3460"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="600" fill="#fafafa"/>
+  
+  <!-- Title -->
+  <text x="450" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1a1a2e" text-anchor="middle">Physical Network Topology: Dual-Plane Architecture</text>
+  
+  <!-- Management Network Section -->
+  <rect x="30" y="55" width="400" height="520" rx="8" fill="#fff" stroke="#17a2b8" stroke-width="2"/>
+  <rect x="30" y="55" width="400" height="35" rx="8" fill="#17a2b8"/>
+  <text x="230" y="78" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">MANAGEMENT NETWORK</text>
+  <text x="230" y="110" font-family="Arial, sans-serif" font-size="11" fill="#666" text-anchor="middle">Kubernetes control plane • SSH • Monitoring • NFS</text>
+  
+  <!-- RDMA Network Section -->
+  <rect x="470" y="55" width="400" height="520" rx="8" fill="#fff" stroke="#28a745" stroke-width="2"/>
+  <rect x="470" y="55" width="400" height="35" rx="8" fill="#28a745"/>
+  <text x="670" y="78" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">RDMA NETWORK</text>
+  <text x="670" y="110" font-family="Arial, sans-serif" font-size="11" fill="#666" text-anchor="middle">GPU-to-GPU NCCL traffic only • Flat L2</text>
+  
+  <!-- Server 1 - Management Side -->
+  <rect x="60" y="140" width="340" height="170" rx="6" fill="#f8f9fa" stroke="#1a1a2e" stroke-width="2"/>
+  <text x="230" y="165" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1a1a2e" text-anchor="middle">Server 1: Dell Precision</text>
+  <text x="230" y="182" font-family="Arial, sans-serif" font-size="11" fill="#666" text-anchor="middle">RTX A5000 (2x GPUs)</text>
+  
+  <!-- GPUs in Server 1 -->
+  <rect x="80" y="195" width="70" height="45" rx="4" fill="#76b900" stroke="#5a8f00"/>
+  <text x="115" y="215" font-family="Arial, sans-serif" font-size="10" fill="#fff" text-anchor="middle">GPU 0</text>
+  <text x="115" y="230" font-family="Arial, sans-serif" font-size="8" fill="#ddd" text-anchor="middle">A5000</text>
+  
+  <rect x="160" y="195" width="70" height="45" rx="4" fill="#76b900" stroke="#5a8f00"/>
+  <text x="195" y="215" font-family="Arial, sans-serif" font-size="10" fill="#fff" text-anchor="middle">GPU 1</text>
+  <text x="195" y="230" font-family="Arial, sans-serif" font-size="8" fill="#ddd" text-anchor="middle">A5000</text>
+  
+  <!-- Integrated NIC Server 1 -->
+  <rect x="80" y="255" width="90" height="40" rx="4" fill="#17a2b8" stroke="#138496"/>
+  <text x="125" y="275" font-family="Arial, sans-serif" font-size="9" fill="#fff" text-anchor="middle">Integrated NIC</text>
+  <text x="125" y="288" font-family="Arial, sans-serif" font-size="8" fill="#ddd" text-anchor="middle">1GbE / 10GbE</text>
+  
+  <!-- IP Label Server 1 Mgmt -->
+  <text x="125" y="308" font-family="Arial, sans-serif" font-size="9" fill="#17a2b8" text-anchor="middle">192.168.1.10</text>
+  
+  <!-- ConnectX in Server 1 (shown but grayed on mgmt side) -->
+  <rect x="250" y="195" width="130" height="100" rx="4" fill="#e9ecef" stroke="#dee2e6" stroke-dasharray="4"/>
+  <text x="315" y="235" font-family="Arial, sans-serif" font-size="10" fill="#adb5bd" text-anchor="middle">ConnectX-6 Dx</text>
+  <text x="315" y="250" font-family="Arial, sans-serif" font-size="8" fill="#ccc" text-anchor="middle">(RDMA Network)</text>
+  <text x="315" y="280" font-family="Arial, sans-serif" font-size="8" fill="#ccc" text-anchor="middle">Port 0 | Port 1</text>
+  
+  <!-- Server 2 - Management Side -->
+  <rect x="60" y="340" width="340" height="170" rx="6" fill="#f8f9fa" stroke="#1a1a2e" stroke-width="2"/>
+  <text x="230" y="365" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1a1a2e" text-anchor="middle">Server 2: Dell Precision</text>
+  <text x="230" y="382" font-family="Arial, sans-serif" font-size="11" fill="#666" text-anchor="middle">RTX A5500 (2x GPUs)</text>
+  
+  <!-- GPUs in Server 2 -->
+  <rect x="80" y="395" width="70" height="45" rx="4" fill="#76b900" stroke="#5a8f00"/>
+  <text x="115" y="415" font-family="Arial, sans-serif" font-size="10" fill="#fff" text-anchor="middle">GPU 0</text>
+  <text x="115" y="430" font-family="Arial, sans-serif" font-size="8" fill="#ddd" text-anchor="middle">A5500</text>
+  
+  <rect x="160" y="395" width="70" height="45" rx="4" fill="#76b900" stroke="#5a8f00"/>
+  <text x="195" y="415" font-family="Arial, sans-serif" font-size="10" fill="#fff" text-anchor="middle">GPU 1</text>
+  <text x="195" y="430" font-family="Arial, sans-serif" font-size="8" fill="#ddd" text-anchor="middle">A5500</text>
+  
+  <!-- Integrated NIC Server 2 -->
+  <rect x="80" y="455" width="90" height="40" rx="4" fill="#17a2b8" stroke="#138496"/>
+  <text x="125" y="475" font-family="Arial, sans-serif" font-size="9" fill="#fff" text-anchor="middle">Integrated NIC</text>
+  <text x="125" y="488" font-family="Arial, sans-serif" font-size="8" fill="#ddd" text-anchor="middle">1GbE / 10GbE</text>
+  
+  <!-- IP Label Server 2 Mgmt -->
+  <text x="125" y="508" font-family="Arial, sans-serif" font-size="9" fill="#17a2b8" text-anchor="middle">192.168.1.11</text>
+  
+  <!-- ConnectX in Server 2 (shown but grayed on mgmt side) -->
+  <rect x="250" y="395" width="130" height="100" rx="4" fill="#e9ecef" stroke="#dee2e6" stroke-dasharray="4"/>
+  <text x="315" y="435" font-family="Arial, sans-serif" font-size="10" fill="#adb5bd" text-anchor="middle">ConnectX-6 Dx</text>
+  <text x="315" y="450" font-family="Arial, sans-serif" font-size="8" fill="#ccc" text-anchor="middle">(RDMA Network)</text>
+  <text x="315" y="480" font-family="Arial, sans-serif" font-size="8" fill="#ccc" text-anchor="middle">Port 0 | Port 1</text>
+  
+  <!-- Management Switch -->
+  <rect x="100" y="530" width="200" height="40" rx="4" fill="#6c757d" stroke="#5a6268"/>
+  <text x="200" y="555" font-family="Arial, sans-serif" font-size="11" fill="#fff" text-anchor="middle">Management Switch (Existing)</text>
+  
+  <!-- Connection lines - Management -->
+  <line x1="125" y1="295" x2="125" y2="340" stroke="#17a2b8" stroke-width="2"/>
+  <line x1="125" y1="317" x2="200" y2="317" stroke="#17a2b8" stroke-width="2"/>
+  <line x1="200" y1="317" x2="200" y2="530" stroke="#17a2b8" stroke-width="2"/>
+  <line x1="125" y1="495" x2="125" y2="530" stroke="#17a2b8" stroke-width="2"/>
+  <line x1="125" y1="512" x2="200" y2="512" stroke="#17a2b8" stroke-width="2"/>
+  
+  <!-- ============ RDMA SIDE ============ -->
+  
+  <!-- Server 1 - RDMA Side -->
+  <rect x="500" y="140" width="340" height="170" rx="6" fill="#f8f9fa" stroke="#1a1a2e" stroke-width="2"/>
+  <text x="670" y="165" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1a1a2e" text-anchor="middle">Server 1: Dell Precision</text>
+  <text x="670" y="182" font-family="Arial, sans-serif" font-size="11" fill="#666" text-anchor="middle">RTX A5000 (2x GPUs)</text>
+  
+  <!-- GPUs in Server 1 - RDMA -->
+  <rect x="520" y="195" width="70" height="45" rx="4" fill="#76b900" stroke="#5a8f00"/>
+  <text x="555" y="215" font-family="Arial, sans-serif" font-size="10" fill="#fff" text-anchor="middle">GPU 0</text>
+  <text x="555" y="230" font-family="Arial, sans-serif" font-size="8" fill="#ddd" text-anchor="middle">A5000</text>
+  
+  <rect x="600" y="195" width="70" height="45" rx="4" fill="#76b900" stroke="#5a8f00"/>
+  <text x="635" y="215" font-family="Arial, sans-serif" font-size="10" fill="#fff" text-anchor="middle">GPU 1</text>
+  <text x="635" y="230" font-family="Arial, sans-serif" font-size="8" fill="#ddd" text-anchor="middle">A5000</text>
+  
+  <!-- ConnectX in Server 1 - RDMA (highlighted) -->
+  <rect x="700" y="195" width="120" height="100" rx="4" fill="#0f3460" stroke="#0a2540" stroke-width="2"/>
+  <text x="760" y="220" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">ConnectX-6 Dx</text>
+  <text x="760" y="238" font-family="Arial, sans-serif" font-size="9" fill="#aaa" text-anchor="middle">100GbE Dual-Port</text>
+  
+  <rect x="710" y="250" width="45" height="30" rx="3" fill="#28a745"/>
+  <text x="732" y="270" font-family="Arial, sans-serif" font-size="8" fill="#fff" text-anchor="middle">Port 0</text>
+  
+  <rect x="765" y="250" width="45" height="30" rx="3" fill="#6c757d"/>
+  <text x="787" y="270" font-family="Arial, sans-serif" font-size="8" fill="#fff" text-anchor="middle">Port 1</text>
+  
+  <!-- IP Label Server 1 RDMA -->
+  <text x="760" y="308" font-family="Arial, sans-serif" font-size="9" fill="#28a745" text-anchor="middle">10.0.100.1</text>
+  
+  <!-- PCIe connection indicator -->
+  <line x1="670" y1="230" x2="700" y2="230" stroke="#6c757d" stroke-width="2" stroke-dasharray="4"/>
+  <text x="685" y="222" font-family="Arial, sans-serif" font-size="7" fill="#999">PCIe</text>
+  
+  <!-- Server 2 - RDMA Side -->
+  <rect x="500" y="340" width="340" height="170" rx="6" fill="#f8f9fa" stroke="#1a1a2e" stroke-width="2"/>
+  <text x="670" y="365" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1a1a2e" text-anchor="middle">Server 2: Dell Precision</text>
+  <text x="670" y="382" font-family="Arial, sans-serif" font-size="11" fill="#666" text-anchor="middle">RTX A5500 (2x GPUs)</text>
+  
+  <!-- GPUs in Server 2 - RDMA -->
+  <rect x="520" y="395" width="70" height="45" rx="4" fill="#76b900" stroke="#5a8f00"/>
+  <text x="555" y="415" font-family="Arial, sans-serif" font-size="10" fill="#fff" text-anchor="middle">GPU 0</text>
+  <text x="555" y="430" font-family="Arial, sans-serif" font-size="8" fill="#ddd" text-anchor="middle">A5500</text>
+  
+  <rect x="600" y="395" width="70" height="45" rx="4" fill="#76b900" stroke="#5a8f00"/>
+  <text x="635" y="415" font-family="Arial, sans-serif" font-size="10" fill="#fff" text-anchor="middle">GPU 1</text>
+  <text x="635" y="430" font-family="Arial, sans-serif" font-size="8" fill="#ddd" text-anchor="middle">A5500</text>
+  
+  <!-- ConnectX in Server 2 - RDMA (highlighted) -->
+  <rect x="700" y="395" width="120" height="100" rx="4" fill="#0f3460" stroke="#0a2540" stroke-width="2"/>
+  <text x="760" y="420" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">ConnectX-6 Dx</text>
+  <text x="760" y="438" font-family="Arial, sans-serif" font-size="9" fill="#aaa" text-anchor="middle">100GbE Dual-Port</text>
+  
+  <rect x="710" y="450" width="45" height="30" rx="3" fill="#28a745"/>
+  <text x="732" y="470" font-family="Arial, sans-serif" font-size="8" fill="#fff" text-anchor="middle">Port 0</text>
+  
+  <rect x="765" y="450" width="45" height="30" rx="3" fill="#6c757d"/>
+  <text x="787" y="470" font-family="Arial, sans-serif" font-size="8" fill="#fff" text-anchor="middle">Port 1</text>
+  
+  <!-- IP Label Server 2 RDMA -->
+  <text x="760" y="508" font-family="Arial, sans-serif" font-size="9" fill="#28a745" text-anchor="middle">10.0.100.2</text>
+  
+  <!-- PCIe connection indicator -->
+  <line x1="670" y1="430" x2="700" y2="430" stroke="#6c757d" stroke-width="2" stroke-dasharray="4"/>
+  <text x="685" y="422" font-family="Arial, sans-serif" font-size="7" fill="#999">PCIe</text>
+  
+  <!-- RDMA Switch -->
+  <rect x="600" y="530" width="200" height="40" rx="4" fill="#28a745" stroke="#1e7e34"/>
+  <text x="700" y="548" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">DCB Switch (NVIDIA SN2201)</text>
+  <text x="700" y="562" font-family="Arial, sans-serif" font-size="8" fill="#ddd" text-anchor="middle">PFC + ECN Enabled</text>
+  
+  <!-- Connection lines - RDMA -->
+  <line x1="732" y1="280" x2="732" y2="340" stroke="#28a745" stroke-width="3"/>
+  <line x1="732" y1="310" x2="700" y2="310" stroke="#28a745" stroke-width="3"/>
+  <line x1="700" y1="310" x2="700" y2="530" stroke="#28a745" stroke-width="3"/>
+  <line x1="732" y1="480" x2="732" y2="530" stroke="#28a745" stroke-width="3"/>
+  <line x1="732" y1="505" x2="700" y2="505" stroke="#28a745" stroke-width="3"/>
+  
+  <!-- Legend -->
+  <rect x="30" y="580" width="12" height="12" fill="#17a2b8"/>
+  <text x="47" y="590" font-family="Arial, sans-serif" font-size="10" fill="#666">Management traffic</text>
+  
+  <rect x="150" y="580" width="12" height="12" fill="#28a745"/>
+  <text x="167" y="590" font-family="Arial, sans-serif" font-size="10" fill="#666">RDMA/NCCL traffic</text>
+  
+  <rect x="280" y="580" width="12" height="12" fill="#76b900"/>
+  <text x="297" y="590" font-family="Arial, sans-serif" font-size="10" fill="#666">NVIDIA GPU</text>
+  
+  <rect x="380" y="580" width="12" height="12" fill="#0f3460"/>
+  <text x="397" y="590" font-family="Arial, sans-serif" font-size="10" fill="#666">ConnectX NIC</text>
+</svg>

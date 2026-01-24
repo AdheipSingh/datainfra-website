@@ -23,12 +23,10 @@ export default function Home() {
                             maximize utilization, reduce waste, and ship AI faster.
                         </p>
                         <a
-                            href="https://cal.com/baazhq"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            href="#featured-resources"
                             className={styles.ctaButton}
                         >
-                            Let's Talk
+                            Explore Case Studies
                         </a>
                     </div>
                 </section>
@@ -264,6 +262,53 @@ export default function Home() {
                                     billing integration.
                                 </p>
                             </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Featured Resources Section */}
+                <section id="featured-resources" className={`${styles.section} ${styles.sectionAlt}`}>
+                    <div className={styles.sectionContent}>
+                        <h2 className={styles.sectionTitle}>Featured Resources</h2>
+                        <p className={styles.sectionLead}>
+                            Technical deep-dives from our work in GPU infrastructure.
+                        </p>
+                        <div className={styles.resourcesGrid}>
+                            <Link to="/case-studies" className={styles.resourceCard}>
+                                <span className={styles.resourceLabel}>Case Study</span>
+                                <h3 className={styles.resourceTitle}>
+                                    8.5x Faster Distributed Training: RDMA on Bare Metal Kubernetes
+                                </h3>
+                                <p className={styles.resourceDesc}>
+                                    How we helped a fintech achieve 10x latency improvement with GPUDirect RDMA over RoCE.
+                                </p>
+                                <span className={styles.resourceLink}>Read case study →</span>
+                            </Link>
+                            <Link to="/blog/gpu-to-gpu-communication-across-nodes" className={styles.resourceCard}>
+                                <span className={styles.resourceLabel}>Blog</span>
+                                <h3 className={styles.resourceTitle}>
+                                    GPU to GPU Communication Across Nodes
+                                </h3>
+                                <p className={styles.resourceDesc}>
+                                    Understanding how GPUs communicate in distributed training setups.
+                                </p>
+                                <span className={styles.resourceLink}>Read article →</span>
+                            </Link>
+                            <Link to="/blog/understanding-rx-tx-network-traffic-direction" className={styles.resourceCard}>
+                                <span className={styles.resourceLabel}>Blog</span>
+                                <h3 className={styles.resourceTitle}>
+                                    Understanding RX/TX Network Traffic Direction
+                                </h3>
+                                <p className={styles.resourceDesc}>
+                                    A practical guide to network traffic flow in GPU clusters.
+                                </p>
+                                <span className={styles.resourceLink}>Read article →</span>
+                            </Link>
+                        </div>
+                        <div className={styles.viewAllWrapper}>
+                            <Link to="/blog" className={styles.viewAllLink}>
+                                View all posts →
+                            </Link>
                         </div>
                     </div>
                 </section>

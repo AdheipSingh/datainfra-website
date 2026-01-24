@@ -95,7 +95,14 @@ const config = {
                     "Distributed Training",
                     "GPU Optimization",
                     "InfiniBand",
-                    "NVIDIA GPU Operator"
+                    "NVIDIA GPU Operator",
+                    "RDMA",
+                    "RoCE",
+                    "GPUDirect",
+                    "NCCL",
+                    "Multus CNI",
+                    "NVIDIA Network Operator",
+                    "Bare Metal Kubernetes"
                 ]
             }),
         },
