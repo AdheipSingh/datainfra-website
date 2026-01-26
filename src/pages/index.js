@@ -274,7 +274,7 @@ export default function Home() {
                             Technical deep-dives from our work in GPU infrastructure.
                         </p>
                         <div className={styles.resourcesGrid}>
-                            <Link to="/case-studies" className={styles.resourceCard}>
+                            <Link to="/case-studies/rdma-kubernetes" className={styles.resourceCard}>
                                 <span className={styles.resourceLabel}>Case Study</span>
                                 <h3 className={styles.resourceTitle}>
                                     8.5x Faster Distributed Training: RDMA on Bare Metal Kubernetes
