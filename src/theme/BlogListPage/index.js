@@ -108,7 +108,14 @@ function BlogListPageContent({ metadata, items }) {
         return counts
     }, [items])
 
-    // Filter posts based on search and category
+    // Helper to check if post is GPU-related
+    const isGpuPost = (item) => {
+        const gpuTags = ["gpu", "distributed-training", "nvlink", "pcie", "power-management"]
+        const postTags = item.content.metadata.tags.map((t) => t.label.toLowerCase())
+        return gpuTags.some((tag) => postTags.includes(tag))
+    }
+
+    // Filter and sort posts based on search and category
     const filteredItems = useMemo(() => {
         let filtered = items
 
@@ -134,6 +141,17 @@ function BlogListPageContent({ metadata, items }) {
                     description.toLowerCase().includes(query) ||
                     tagLabels.includes(query)
                 )
+            })
+        }
+
+        // Sort GPU posts first when viewing "All Posts" and no search
+        if (activeCategory === "all" && !searchQuery.trim()) {
+            filtered = [...filtered].sort((a, b) => {
+                const aIsGpu = isGpuPost(a)
+                const bIsGpu = isGpuPost(b)
+                if (aIsGpu && !bIsGpu) return -1
+                if (!aIsGpu && bIsGpu) return 1
+                return 0 // Keep original order within same category
             })
         }
 
