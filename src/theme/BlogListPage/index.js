@@ -269,7 +269,7 @@ function BlogPost({ post, featured = false }) {
         date,
         description,
         title,
-        frontMatter: { url },
+        permalink,
     } = post
 
     const formattedDate = new Date(date).toLocaleDateString("en-US", {
@@ -285,7 +285,7 @@ function BlogPost({ post, featured = false }) {
 
     return (
         <article className={clsx(styles.blogPost, featured && styles.blogPostFeatured)}>
-            <Link href={"/blog/" + url} className={styles.blogImageLink}>
+            <Link href={permalink} className={styles.blogImageLink}>
                 <div className={styles.blogImageWrapper}>
                     {isGpuPost && <span className={styles.gpuBadge}>GPU</span>}
                     <img
@@ -305,7 +305,7 @@ function BlogPost({ post, featured = false }) {
                 </div>
             </div>
 
-            <Link href={"/blog/" + url} className={styles.blogTitleLink}>
+            <Link href={permalink} className={styles.blogTitleLink}>
                 <h2 className={clsx(styles.blogTitle, featured && styles.blogTitleFeatured)}>
                     {title}
                 </h2>

@@ -1,0 +1,273 @@
+---
+slug: network-bottleneck-distributed-training
+title: How to Calculate if Your Network is Bottlenecking Distributed Training
+authors: [Adheip Singh]
+tags: [gpu, distributed-training, networking, performance, tutorial]
+---
+
+# How to Calculate if Your Network is Bottlenecking Distributed Training
+
+*A practical guide to understanding why your multi-node GPU training might be slower than expected.*
+
+<!-- truncate -->
+
+---
+
+You've set up distributed training across multiple GPU servers. PyTorch DDP is configured. The job is running. But something's wrong—it's not faster than single-node training. It might even be slower.
+
+Before you blame the framework, the drivers, or the model, check your network. In most cases, **the network is the bottleneck**.
+
+This post will teach you how to calculate whether your network is limiting your distributed training performance, and by how much.
+
+---
+
+## The Training Loop: Where Time Goes
+
+Every training iteration has the same structure:
+
+1. **Forward pass** → GPU computes predictions
+2. **Loss calculation** → Compare predictions to ground truth
+3. **Backward pass** → GPU computes gradients
+4. **AllReduce** → Sync gradients across all GPUs *(NETWORK)*
+5. **Weight update** → Apply gradients to model
+
+Steps 1, 2, 3, and 5 happen on the GPU. Step 4 happens over the network.
+
+The question is: **how much time does each step take?**
+
+---
+
+## What is AllReduce?
+
+In distributed training, each GPU processes a different batch of data and computes its own gradients. But all GPUs need to end up with the **same** gradients to keep the model in sync.
+
+AllReduce is the collective operation that:
+1. Collects gradients from all GPUs
+2. Computes the average
+3. Distributes the result back to all GPUs
+
+![AllReduce Diagram](/img/blog/diagram-allreduce-explained.svg)
+
+The key insight: **the entire gradient payload must cross the network every iteration**.
+
+---
+
+## Step 1: Calculate Your Gradient Size
+
+Gradient size is determined by your model:
+
+```
+Gradient size = Number of parameters × Bytes per parameter
+```
+
+**Bytes per parameter:**
+- FP32 (single precision): 4 bytes
+- FP16 (half precision): 2 bytes
+- BF16 (brain float): 2 bytes
+
+**Common models:**
+
+| Model | Parameters | Gradient (FP32) | Gradient (FP16) |
+|-------|------------|-----------------|-----------------|
+| ResNet-50 | 25M | 100 MB | 50 MB |
+| BERT-base | 110M | 440 MB | 220 MB |
+| BERT-large | 340M | 1.4 GB | 700 MB |
+| GPT-2 (1.5B) | 1.5B | 6 GB | 3 GB |
+| LLaMA-7B | 7B | 28 GB | 14 GB |
+
+For your model, simply multiply the parameter count by 4 (for FP32) or 2 (for FP16).
+
+---
+
+## Step 2: Know Your Network Throughput
+
+Common network configurations and their real-world throughput:
+
+| Network | Reported Speed | Actual Throughput |
+|---------|---------------|-------------------|
+| 1 GbE | ~940 Mbps | ~110 MB/s |
+| 10 GbE | ~9.4 Gbps | ~1.1 GB/s |
+| 25 GbE | ~23.5 Gbps | ~2.8 GB/s |
+| 100 GbE (TCP) | ~80 Gbps | ~9 GB/s |
+| 100 GbE (RDMA) | ~95 Gbps | ~11 GB/s |
+
+**Why is actual throughput lower than line rate?**
+
+Network protocols have overhead. A 1 GbE link runs at 1000 Mbps (megabits), which equals 125 MB/s (megabytes). But Ethernet framing, TCP/IP headers, and protocol overhead reduce this to roughly 110 MB/s in practice.
+
+You can verify your throughput with `iperf` between your nodes.
+
+---
+
+## Step 3: Calculate AllReduce Time
+
+Now you can estimate your AllReduce time:
+
+```
+AllReduce time = Gradient size ÷ Network throughput
+```
+
+**Example: BERT-base on 1 GbE**
+
+```
+Gradient size: 440 MB
+Network throughput: 110 MB/s
+
+AllReduce time = 440 ÷ 110 = 4.0 seconds
+```
+
+**Example: BERT-base on 100 GbE RDMA**
+
+```
+Gradient size: 440 MB
+Network throughput: 11,000 MB/s
+
+AllReduce time = 440 ÷ 11,000 = 0.04 seconds = 40 ms
+```
+
+That's a **100x difference** in network time alone.
+
+---
+
+## Step 4: Estimate GPU Compute Time
+
+GPU compute time (forward + backward pass) varies significantly based on model, batch size, sequence length, precision, and hardware.
+
+For transformer models like BERT, a single iteration typically takes **tens to hundreds of milliseconds** on modern data center GPUs. The backward pass generally takes 2-3x longer than the forward pass.
+
+**For accurate benchmarks on your specific hardware, refer to these official sources:**
+
+- [NVIDIA Deep Learning Performance Hub](https://developer.nvidia.com/deep-learning-performance-training-inference) — Official NVIDIA benchmarks for training and inference
+- [MLCommons Training Benchmarks](https://mlcommons.org/benchmarks/training/) — Industry-standard MLPerf results across hardware vendors
+- [NVIDIA DeepLearningExamples GitHub](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/LanguageModeling/BERT) — Reproducible BERT benchmarks with throughput numbers
+
+**Relative performance between GPU generations** (validated by MLPerf):
+
+| Comparison | Speedup | Source |
+|------------|---------|--------|
+| H100 vs A100 (BERT) | ~2-3x | [NVIDIA MLPerf Blog](https://developer.nvidia.com/blog/breaking-mlperf-training-records-with-nvidia-h100-gpus/) |
+| A100 vs V100 (language models) | ~2-2.5x | [Lambda Labs Benchmarks](https://lambdalabs.com/blog/nvidia-a100-gpu-deep-learning-benchmarks-and-architectural-overview) |
+
+The exact compute time matters less than the ratio. What you need to know: **is your network time significantly larger than your compute time?**
+
+---
+
+## Step 5: Calculate GPU Utilization
+
+Now put it together:
+
+```
+Total iteration time = GPU compute time + AllReduce time
+
+GPU utilization = GPU compute time ÷ Total iteration time
+```
+
+**Example calculation:**
+
+Let's say your GPU compute time is 150 ms (measured or estimated from benchmarks).
+
+**With 1 GbE (AllReduce = 4,000 ms for 440 MB):**
+```
+GPU utilization = 150 ÷ (150 + 4,000) = 150 ÷ 4,150 = 3.6%
+```
+
+Your GPUs are **96% idle**, waiting on the network.
+
+**With 100 GbE RDMA (AllReduce = 40 ms):**
+```
+GPU utilization = 150 ÷ (150 + 40) = 150 ÷ 190 = 79%
+```
+
+The same GPUs are now **productive 79% of the time**.
+
+---
+
+## Step 6: Calculate Training Time Impact
+
+Once you know your iteration time, multiply by the number of iterations:
+
+```
+Total training time = Time per iteration × Number of iterations
+```
+
+**Example: 100,000 iterations (typical for fine-tuning)**
+
+Assuming 150 ms GPU compute + network time from your setup:
+
+| Network | AllReduce | Total/Iteration | Training Time |
+|---------|-----------|-----------------|---------------|
+| 1 GbE | 4,000 ms | 4,150 ms | **115 hours (4.8 days)** |
+| 100 GbE RDMA | 40 ms | 190 ms | **5.3 hours** |
+
+That's **~22x faster** just by upgrading the network.
+
+The iteration count depends on your task. For reference:
+- Fine-tuning: 10,000 - 100,000 iterations
+- Pre-training: 100,000 - 1,000,000+ iterations
+
+See [Hugging Face Training Documentation](https://huggingface.co/docs/transformers/training) for typical training configurations.
+
+---
+
+## Quick Reference: AllReduce Time by Network
+
+Use this table to estimate your AllReduce time based on gradient size and network:
+
+| Gradient Size | 1 GbE (~110 MB/s) | 10 GbE (~1.1 GB/s) | 100 GbE RDMA (~11 GB/s) |
+|---------------|-------------------|--------------------|-----------------------|
+| 100 MB (ResNet-50) | 0.9 sec | 90 ms | 9 ms |
+| 440 MB (BERT-base) | 4.0 sec | 400 ms | 40 ms |
+| 1.4 GB (BERT-large) | 13 sec | 1.3 sec | 130 ms |
+| 6 GB (GPT-2 1.5B) | 55 sec | 5.5 sec | 550 ms |
+
+**Key takeaways:**
+- **1 GbE is not viable** for any serious distributed training
+- **10 GbE is marginal** — still seconds of wait time for larger models
+- **100 GbE RDMA** is the minimum for keeping GPUs productive
+
+For model parameter counts and architecture details, refer to:
+- [Hugging Face Model Hub](https://huggingface.co/models) — Parameter counts for common models
+- [Papers With Code](https://paperswithcode.com/) — Model benchmarks and specifications
+
+---
+
+## The Formula
+
+![Network Bottleneck Formula](/img/blog/diagram-formula.svg)
+
+**Rule of thumb:** If GPU utilization is below 50%, your network is the bottleneck.
+
+**When to worry:**
+- Network time > Compute time → You're network-bound
+- Network time > 10x Compute time → Severely network-bound
+- GPU utilization < 20% → You're paying for idle GPUs
+
+---
+
+## The Fix: High-Speed RDMA Networking
+
+If the math shows your network is the problem, the solution is high-speed RDMA networking:
+
+- **NICs:** NVIDIA ConnectX-6 or ConnectX-7 (100-400 GbE)
+- **Protocol:** RoCE v2 (RDMA over Converged Ethernet) or InfiniBand
+- **Why RDMA:** Bypasses the CPU, enables zero-copy transfers, delivers 10-50x lower latency than TCP
+
+We've written a detailed case study on implementing RDMA networking for distributed training on Kubernetes: **[From 10x Slower to Line-Rate: Building RDMA-Enabled Kubernetes for HPC and Distributed GPU Training](/case-studies/rdma-kubernetes)**.
+
+---
+
+## Summary
+
+Before optimizing your model, your batch size, or your learning rate—check your network:
+
+1. **Calculate gradient size:** parameters × 4 bytes (FP32)
+2. **Know network throughput:** 1 GbE ≈ 110 MB/s, 100 GbE ≈ 11 GB/s
+3. **Calculate AllReduce time:** gradient size ÷ throughput
+4. **Estimate GPU compute time:** forward + backward pass
+5. **Calculate GPU utilization:** compute ÷ (compute + network)
+
+If your GPUs are spending more time waiting than computing, no amount of software optimization will help. You need faster networking.
+
+---
+
+*Have questions about your distributed training setup? [Schedule a call](https://cal.com/baazhq)—we're happy to help you diagnose the bottleneck.*
