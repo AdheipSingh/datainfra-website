@@ -1,148 +1,346 @@
-import React, { useState } from "react"
+import React from "react"
 import Layout from "@theme/Layout"
+import Link from "@docusaurus/Link"
+import Head from "@docusaurus/Head"
 import { Navbar } from "@site/src/components/Layout"
 import styles from "./styles.module.css"
 
-const technicalCategories = [
-    {
-        title: "GPU Sharing & Scheduling",
-        content:
-            "MIG partitioning, time-slicing, vGPU, KAI Scheduler, SLURM integration, gang scheduling, topology-aware placement, preemption policies",
-    },
-    {
-        title: "Networking",
-        content:
-            "InfiniBand fabrics, RoCE, RDMA configuration, Clos topology design, Mellanox/NVIDIA switch setup, NCCL tuning, collective communication optimization",
-    },
-    {
-        title: "Bare Metal & Provisioning",
-        content:
-            "MAAS, LLDP discovery, Cluster API (CAPI), GPU passthrough (VFIO), SR-IOV, PXE boot, firmware management",
-    },
-    {
-        title: "Kubernetes & Operators",
-        content:
-            "NVIDIA GPU Operator, device plugins, custom operators (10+ built), controller patterns, reconciliation loops, CRD design",
-    },
-    {
-        title: "Monitoring & Observability",
-        content:
-            "DCGM metrics, Prometheus/Grafana, GPU health monitoring, utilization analytics, capacity planning, chargeback systems",
-    },
-    {
-        title: "Hardware Experience",
-        content:
-            "A100, H100, L40, RTX A6000 — production clusters, not just benchmarks",
-    },
-]
-
-function Accordion({ title, content, isOpen, onClick }) {
-    return (
-        <div className={`${styles.accordion} ${isOpen ? styles.accordionOpen : ""}`}>
-            <button className={styles.accordionHeader} onClick={onClick}>
-                <span>{title}</span>
-                <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    className={`${styles.accordionIcon} ${isOpen ? styles.accordionIconOpen : ""}`}
-                >
-                    <path
-                        d="M5 7.5L10 12.5L15 7.5"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                    />
-                </svg>
-            </button>
-            {isOpen && <div className={styles.accordionContent}>{content}</div>}
-        </div>
-    )
-}
-
 export default function Services() {
-    const [openAccordion, setOpenAccordion] = useState(null)
-
-    const toggleAccordion = (index) => {
-        setOpenAccordion(openAccordion === index ? null : index)
+    const serviceSchema = {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "GPU Infrastructure Consulting",
+        "provider": {
+            "@type": "Organization",
+            "name": "BaaZ"
+        },
+        "description": "Expert GPU infrastructure consulting for distributed training optimization, GPU cluster setup, and AI cloud architecture. We help companies achieve 8.5x faster training and 70%+ GPU utilization.",
+        "serviceType": "IT Consulting",
+        "areaServed": "Worldwide",
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "GPU Infrastructure Services",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Distributed Training Optimization",
+                        "description": "NCCL tuning, RDMA configuration, InfiniBand/RoCE optimization for multi-node GPU training"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "GPU Cluster Architecture",
+                        "description": "End-to-end GPU cluster design and implementation for AI workloads"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "GPU Sharing & Multi-tenancy",
+                        "description": "MIG, time-slicing, and Kubernetes GPU operators for maximizing utilization"
+                    }
+                }
+            ]
+        }
     }
 
     return (
         <Layout
-            title="GPU Consulting Services | Assessment, Implementation & Support"
-            description="Expert GPU infrastructure services: cluster assessment, H100/A100 implementation, Kubernetes GPU operators, InfiniBand networking, and ongoing optimization support."
+            title="GPU Infrastructure Consulting Services | Distributed Training & Cluster Optimization"
+            description="Expert GPU infrastructure consulting: distributed training optimization (8.5x faster), GPU cluster architecture, RDMA/InfiniBand setup, and Kubernetes GPU operators. Turn 30% utilization into 70%+."
         >
+            <Head>
+                <script type="application/ld+json">
+                    {JSON.stringify(serviceSchema)}
+                </script>
+            </Head>
             <Navbar />
             <main className={styles.main}>
-                {/* Engagement Models Section */}
+                {/* Hero Section */}
+                <section className={styles.hero}>
+                    <div className={styles.heroContent}>
+                        <span className={styles.heroLabel}>GPU Infrastructure Consulting</span>
+                        <h1 className={styles.heroTitle}>
+                            Build & Optimize GPU Infrastructure for AI Training
+                        </h1>
+                        <div className={styles.heroStats}>
+                            <div className={styles.heroStat}>
+                                <span className={styles.statValue}>8.5x</span>
+                                <span className={styles.statLabel}>Faster Training</span>
+                            </div>
+                            <div className={styles.heroStat}>
+                                <span className={styles.statValue}>70%+</span>
+                                <span className={styles.statLabel}>GPU Utilization</span>
+                            </div>
+                            <div className={styles.heroStat}>
+                                <span className={styles.statValue}>10x</span>
+                                <span className={styles.statLabel}>Latency Reduction</span>
+                            </div>
+                        </div>
+                        <a
+                            href="https://cal.com/baazhq"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.ctaButton}
+                        >
+                            Schedule a Call
+                        </a>
+                    </div>
+                </section>
+
+                {/* Services Grid */}
                 <section className={styles.section}>
                     <div className={styles.sectionContent}>
-                        <h1 className={styles.pageTitle}>Ways to Work Together</h1>
-                        <div className={styles.modelGrid}>
-                            <div className={styles.modelCard}>
-                                <h3 className={styles.modelTitle}>Assessment</h3>
-                                <p className={styles.modelDesc}>
-                                    A focused engagement to understand your current state and
-                                    identify the highest-impact improvements.
+                        <h2 className={styles.sectionTitle}>Our Services</h2>
+                        <div className={styles.servicesGrid}>
+                            <div className={styles.serviceCard}>
+                                <div className={styles.serviceIcon}>
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                                    </svg>
+                                </div>
+                                <h3 className={styles.serviceTitle}>Distributed Training Optimization</h3>
+                                <p className={styles.serviceDesc}>
+                                    Multi-node training running slow? We diagnose and fix network bottlenecks, 
+                                    tune NCCL, configure RDMA, and optimize collective communications.
                                 </p>
-                                <div className={styles.modelResult}>
-                                    <span className={styles.resultLabel}>You Get:</span>
-                                    <p className={styles.resultText}>
-                                        Clear diagnosis, prioritized recommendations, and a roadmap
-                                        you can execute yourself or with our help.
-                                    </p>
+                                <ul className={styles.serviceFeatures}>
+                                    <li>NCCL tuning & debugging</li>
+                                    <li>RDMA/RoCE configuration</li>
+                                    <li>InfiniBand optimization</li>
+                                    <li>GPUDirect RDMA setup</li>
+                                    <li>Network topology analysis</li>
+                                </ul>
+                            </div>
+
+                            <div className={styles.serviceCard}>
+                                <div className={styles.serviceIcon}>
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                        <rect x="2" y="3" width="20" height="14" rx="2"/>
+                                        <path d="M8 21h8M12 17v4"/>
+                                    </svg>
+                                </div>
+                                <h3 className={styles.serviceTitle}>GPU Cluster Architecture</h3>
+                                <p className={styles.serviceDesc}>
+                                    Building a new GPU cluster? We design and implement end-to-end infrastructure 
+                                    for AI workloads—on-prem, colo, or cloud.
+                                </p>
+                                <ul className={styles.serviceFeatures}>
+                                    <li>Hardware selection guidance</li>
+                                    <li>Network fabric design</li>
+                                    <li>Storage architecture</li>
+                                    <li>Orchestration setup (K8s/Slurm)</li>
+                                    <li>Monitoring & observability</li>
+                                </ul>
+                            </div>
+
+                            <div className={styles.serviceCard}>
+                                <div className={styles.serviceIcon}>
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                        <circle cx="12" cy="12" r="3"/>
+                                        <path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/>
+                                    </svg>
+                                </div>
+                                <h3 className={styles.serviceTitle}>GPU Sharing & Multi-tenancy</h3>
+                                <p className={styles.serviceDesc}>
+                                    GPUs sitting idle while teams wait? We implement proper sharing with 
+                                    isolation—MIG, time-slicing, quotas—so you get 70%+ utilization.
+                                </p>
+                                <ul className={styles.serviceFeatures}>
+                                    <li>MIG partitioning</li>
+                                    <li>Time-slicing configuration</li>
+                                    <li>Kubernetes GPU operators</li>
+                                    <li>Quota management</li>
+                                    <li>Fair scheduling</li>
+                                </ul>
+                            </div>
+
+                            <div className={styles.serviceCard}>
+                                <div className={styles.serviceIcon}>
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                        <path d="M12 20V10M18 20V4M6 20v-4"/>
+                                    </svg>
+                                </div>
+                                <h3 className={styles.serviceTitle}>GPU Observability & Reliability</h3>
+                                <p className={styles.serviceDesc}>
+                                    Jobs failing at 2am with no visibility? We build monitoring that catches 
+                                    GPU failures before jobs crash and systems that recover automatically.
+                                </p>
+                                <ul className={styles.serviceFeatures}>
+                                    <li>DCGM metrics setup</li>
+                                    <li>GPU health monitoring</li>
+                                    <li>Alerting & dashboards</li>
+                                    <li>Fault detection</li>
+                                    <li>Automated recovery</li>
+                                </ul>
+                            </div>
+
+                            <div className={styles.serviceCard}>
+                                <div className={styles.serviceIcon}>
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                        <circle cx="9" cy="7" r="4"/>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+                                    </svg>
+                                </div>
+                                <h3 className={styles.serviceTitle}>Self-Service GPU Platform</h3>
+                                <p className={styles.serviceDesc}>
+                                    ML teams waiting days for infrastructure tickets? We build self-service 
+                                    platforms with guardrails so teams can provision GPU environments themselves.
+                                </p>
+                                <ul className={styles.serviceFeatures}>
+                                    <li>Self-service portals</li>
+                                    <li>Resource quotas & limits</li>
+                                    <li>Environment templates</li>
+                                    <li>Access control</li>
+                                    <li>Cost allocation</li>
+                                </ul>
+                            </div>
+
+                            <div className={styles.serviceCard}>
+                                <div className={styles.serviceIcon}>
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                                        <line x1="12" y1="22.08" x2="12" y2="12"/>
+                                    </svg>
+                                </div>
+                                <h3 className={styles.serviceTitle}>GPU Cloud Platform</h3>
+                                <p className={styles.serviceDesc}>
+                                    Building GPU-as-a-service for customers? We help startups and colo providers 
+                                    build the platform layer—scheduling, isolation, monitoring, billing.
+                                </p>
+                                <ul className={styles.serviceFeatures}>
+                                    <li>Multi-tenant architecture</li>
+                                    <li>Billing integration</li>
+                                    <li>Customer isolation</li>
+                                    <li>API design</li>
+                                    <li>Usage metering</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* How We Work */}
+                <section className={`${styles.section} ${styles.sectionAlt}`}>
+                    <div className={styles.sectionContent}>
+                        <h2 className={styles.sectionTitle}>How We Work</h2>
+                        <p className={styles.sectionLead}>
+                            We're hands-on engineers, not slide-deck consultants. Here's our process.
+                        </p>
+                        <div className={styles.processGrid}>
+                            <div className={styles.processStep}>
+                                <div className={styles.processNumber}>1</div>
+                                <h3 className={styles.processTitle}>Assess</h3>
+                                <p className={styles.processDesc}>
+                                    We look at your actual metrics, configs, and problems. No assumptions.
+                                </p>
+                            </div>
+                            <div className={styles.processStep}>
+                                <div className={styles.processNumber}>2</div>
+                                <h3 className={styles.processTitle}>Diagnose</h3>
+                                <p className={styles.processDesc}>
+                                    We find the real bottlenecks—often it's the network, not the GPUs.
+                                </p>
+                            </div>
+                            <div className={styles.processStep}>
+                                <div className={styles.processNumber}>3</div>
+                                <h3 className={styles.processTitle}>Implement</h3>
+                                <p className={styles.processDesc}>
+                                    We write code, change configs, tune systems. You see results, not decks.
+                                </p>
+                            </div>
+                            <div className={styles.processStep}>
+                                <div className={styles.processNumber}>4</div>
+                                <h3 className={styles.processTitle}>Transfer</h3>
+                                <p className={styles.processDesc}>
+                                    We document everything so your team can operate it independently.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Technologies */}
+                <section className={styles.section}>
+                    <div className={styles.sectionContent}>
+                        <h2 className={styles.sectionTitle}>Technologies We Work With</h2>
+                        <div className={styles.techGrid}>
+                            <div className={styles.techCategory}>
+                                <h3 className={styles.techCategoryTitle}>GPUs</h3>
+                                <div className={styles.techTags}>
+                                    <span className={styles.techTag}>H100</span>
+                                    <span className={styles.techTag}>A100</span>
+                                    <span className={styles.techTag}>L40S</span>
+                                    <span className={styles.techTag}>A6000</span>
+                                    <span className={styles.techTag}>V100</span>
                                 </div>
                             </div>
-                            <div className={styles.modelCard}>
-                                <h3 className={styles.modelTitle}>Implementation</h3>
-                                <p className={styles.modelDesc}>
-                                    Hands-on work to build or fix your GPU infrastructure. We
-                                    embed with your team and ship working systems.
-                                </p>
-                                <div className={styles.modelResult}>
-                                    <span className={styles.resultLabel}>You Get:</span>
-                                    <p className={styles.resultText}>
-                                        Production-ready infrastructure, not just architecture
-                                        diagrams.
-                                    </p>
+                            <div className={styles.techCategory}>
+                                <h3 className={styles.techCategoryTitle}>Networking</h3>
+                                <div className={styles.techTags}>
+                                    <span className={styles.techTag}>InfiniBand</span>
+                                    <span className={styles.techTag}>RoCE</span>
+                                    <span className={styles.techTag}>RDMA</span>
+                                    <span className={styles.techTag}>GPUDirect</span>
+                                    <span className={styles.techTag}>NCCL</span>
                                 </div>
                             </div>
-                            <div className={styles.modelCard}>
-                                <h3 className={styles.modelTitle}>Ongoing Support</h3>
-                                <p className={styles.modelDesc}>
-                                    Retained advisory and engineering support for teams scaling
-                                    their GPU infrastructure over time.
-                                </p>
-                                <div className={styles.modelResult}>
-                                    <span className={styles.resultLabel}>You Get:</span>
-                                    <p className={styles.resultText}>
-                                        A trusted partner on call when you need expert help.
-                                    </p>
+                            <div className={styles.techCategory}>
+                                <h3 className={styles.techCategoryTitle}>Orchestration</h3>
+                                <div className={styles.techTags}>
+                                    <span className={styles.techTag}>Kubernetes</span>
+                                    <span className={styles.techTag}>Slurm</span>
+                                    <span className={styles.techTag}>GPU Operator</span>
+                                    <span className={styles.techTag}>Network Operator</span>
+                                </div>
+                            </div>
+                            <div className={styles.techCategory}>
+                                <h3 className={styles.techCategoryTitle}>Training Frameworks</h3>
+                                <div className={styles.techTags}>
+                                    <span className={styles.techTag}>PyTorch DDP</span>
+                                    <span className={styles.techTag}>DeepSpeed</span>
+                                    <span className={styles.techTag}>Megatron</span>
+                                    <span className={styles.techTag}>FSDP</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                {/* Technical Depth Section */}
+                {/* Case Study Teaser */}
                 <section className={`${styles.section} ${styles.sectionAlt}`}>
                     <div className={styles.sectionContent}>
-                        <h2 className={styles.sectionTitle}>Technical Expertise</h2>
-                        <p className={styles.sectionSubtitle}>
-                            Deep knowledge across the GPU infrastructure stack
-                        </p>
-                        <div className={styles.accordionList}>
-                            {technicalCategories.map((category, index) => (
-                                <Accordion
-                                    key={index}
-                                    title={category.title}
-                                    content={category.content}
-                                    isOpen={openAccordion === index}
-                                    onClick={() => toggleAccordion(index)}
-                                />
-                            ))}
+                        <div className={styles.caseStudyTeaser}>
+                            <div className={styles.caseStudyContent}>
+                                <span className={styles.caseStudyLabel}>Case Study</span>
+                                <h2 className={styles.caseStudyTitle}>
+                                    8.5x Faster Distributed Training with RDMA
+                                </h2>
+                                <p className={styles.caseStudyDesc}>
+                                    How we helped a computer vision company achieve 10x latency improvement 
+                                    with GPUDirect RDMA over RoCE on bare metal Kubernetes.
+                                </p>
+                                <Link to="/case-studies/rdma-kubernetes" className={styles.caseStudyLink}>
+                                    Read the full case study →
+                                </Link>
+                            </div>
+                            <div className={styles.caseStudyMetrics}>
+                                <div className={styles.caseStudyMetric}>
+                                    <span className={styles.metricValue}>8.5x</span>
+                                    <span className={styles.metricLabel}>Faster Training</span>
+                                </div>
+                                <div className={styles.caseStudyMetric}>
+                                    <span className={styles.metricValue}>10x</span>
+                                    <span className={styles.metricLabel}>Latency Reduction</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -150,15 +348,16 @@ export default function Services() {
                 {/* CTA Section */}
                 <section className={styles.ctaSection}>
                     <div className={styles.ctaContent}>
-                        <h2 className={styles.ctaTitle}>Let's Talk</h2>
+                        <h2 className={styles.ctaTitle}>Ready to Optimize Your GPU Infrastructure?</h2>
                         <p className={styles.ctaText}>
-                            Ready to discuss how we can help with your GPU infrastructure?
+                            Let's discuss your challenges. No sales pitch—just a conversation about 
+                            what you're trying to do and whether we can help.
                         </p>
                         <a
                             href="https://cal.com/baazhq"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={styles.ctaButton}
+                            className={styles.ctaButtonLarge}
                         >
                             Schedule a Call
                         </a>

@@ -1,9 +1,39 @@
+/* Main container */
 .main {
     padding-top: 80px;
 }
 
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 56px 60px;
+    background: #ffffff;
+}
+
+.heroContent {
+    max-width: 800px;
+    text-align: center;
+}
+
+.heroTitle {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #1a365d;
+    margin-bottom: 24px;
+    line-height: 1.1;
+}
+
+.heroSubtitle {
+    font-size: 1.25rem;
+    color: #4a5568;
+    line-height: 1.7;
+}
+
+/* Section styles */
 .section {
-    padding: 100px 56px;
+    padding: 80px 56px;
 }
 
 .sectionAlt {
@@ -11,176 +41,193 @@
 }
 
 .sectionContent {
-    max-width: 900px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
-.pageTitle {
-    font-size: 3rem;
-    font-weight: 800;
-    color: #1a365d;
-    margin-bottom: 16px;
-}
-
 .sectionTitle {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
     font-weight: 700;
     color: #1a365d;
-    margin-bottom: 40px;
+    margin-bottom: 16px;
+    text-align: center;
 }
 
 .sectionLead {
-    font-size: 1.5rem;
-    color: #4a5568;
-    margin-bottom: 32px;
-    line-height: 1.5;
-    font-weight: 500;
-}
-
-.bodyText {
     font-size: 1.15rem;
-    color: #2d3748;
-    line-height: 1.7;
-    margin-bottom: 24px;
+    color: #4a5568;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    text-align: center;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Credentials */
-.credentials {
+/* Credentials Grid */
+.credentialsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.credentialCard {
     background: #f7fafc;
     border: 1px solid #e2e8f0;
-    border-radius: 8px;
+    border-radius: 12px;
     padding: 32px;
-    margin: 40px 0;
+    text-align: center;
 }
 
-.credentialsTitle {
-    font-size: 1.25rem;
+.credentialIcon {
+    width: 64px;
+    height: 64px;
+    background: #ebf8ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: #3182ce;
+}
+
+.credentialTitle {
+    font-size: 1.15rem;
     font-weight: 600;
     color: #1a365d;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
 }
 
-.credentialsList {
+.credentialText {
+    color: #4a5568;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Expertise Grid */
+.expertiseGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.expertiseCategory {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 28px;
+}
+
+.expertiseCategoryTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a365d;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #3182ce;
+}
+
+.expertiseList {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.credentialsList li {
-    position: relative;
-    padding-left: 24px;
-    margin-bottom: 16px;
-    font-size: 1.1rem;
-    color: #2d3748;
-    line-height: 1.6;
+.expertiseList li {
+    padding: 8px 0;
+    color: #4a5568;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #f0f0f0;
 }
 
-.credentialsList li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 10px;
-    width: 8px;
-    height: 8px;
-    background: #3182ce;
-    border-radius: 50%;
+.expertiseList li:last-child {
+    border-bottom: none;
 }
 
-.credentialsList li:last-child {
-    margin-bottom: 0;
-}
-
-.credentialsList strong {
-    color: #1a365d;
-}
-
-/* Open Source */
-.osSection {
-    margin-bottom: 48px;
-}
-
-.osSection:last-child {
-    margin-bottom: 0;
-}
-
-.osHeading {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #1a365d;
-    margin-bottom: 24px;
-    padding-bottom: 12px;
-    border-bottom: 2px solid #e2e8f0;
-}
-
-.projectGrid {
+/* Comparison Grid */
+.comparisonGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 40px;
 }
 
-.projectCard {
-    background: white;
+.comparisonCard {
+    background: #f7fafc;
     border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 24px;
+    border-radius: 12px;
+    padding: 28px;
 }
 
-.projectName {
+.comparisonTitle {
     font-size: 1.1rem;
     font-weight: 600;
     color: #1a365d;
-    margin-bottom: 8px;
-}
-
-.projectDesc {
-    font-size: 0.9rem;
-    color: #718096;
     margin-bottom: 12px;
 }
 
-.projectLink {
-    font-size: 0.9rem;
-    color: #3182ce;
-    text-decoration: none;
-    word-break: break-all;
+.comparisonText {
+    color: #4a5568;
+    line-height: 1.6;
+    margin: 0;
 }
 
-.projectLink:hover {
-    text-decoration: underline;
+/* Results Grid */
+.resultsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 48px;
 }
 
-.contributionList {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.contribution {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 20px;
+.resultCard {
     background: white;
     border: 1px solid #e2e8f0;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: all 0.2s ease;
+    border-radius: 12px;
+    padding: 32px;
+    text-align: center;
 }
 
-.contribution:hover {
-    border-color: #3182ce;
-    box-shadow: 0 2px 8px rgba(49, 130, 206, 0.1);
-    transform: translateX(4px);
-}
-
-.contribName {
-    font-weight: 500;
-    color: #1a365d;
-    transition: color 0.2s ease;
-}
-
-.contribution:hover .contribName {
+.resultMetric {
+    display: block;
+    font-size: 3rem;
+    font-weight: 800;
     color: #3182ce;
+    line-height: 1;
+}
+
+.resultLabel {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a365d;
+    margin-top: 8px;
+}
+
+.resultDesc {
+    color: #718096;
+    font-size: 0.9rem;
+    margin-top: 12px;
+    margin-bottom: 0;
+}
+
+.caseStudyLink {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.linkButton {
+    display: inline-block;
+    color: #3182ce;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.linkButton:hover {
+    text-decoration: underline;
 }
 
 /* CTA Section */
@@ -191,21 +238,22 @@
 }
 
 .ctaContent {
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
 }
 
 .ctaTitle {
-    font-size: 2rem;
+    font-size: 2.25rem;
     font-weight: 700;
     color: white;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 }
 
 .ctaText {
     font-size: 1.15rem;
     color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 28px;
+    line-height: 1.6;
+    margin-bottom: 32px;
 }
 
 .ctaButton {
@@ -215,44 +263,58 @@
     padding: 16px 40px;
     border-radius: 6px;
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     text-decoration: none;
-    transition: background 0.2s ease;
+    transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .ctaButton:hover {
     background: #f7fafc;
     color: #1a365d !important;
     text-decoration: none;
+    transform: translateY(-2px);
 }
 
 /* Responsive */
-@media (max-width: 900px) {
-    .section {
-        padding: 80px 24px;
+@media (max-width: 1000px) {
+    .credentialsGrid,
+    .expertiseGrid,
+    .comparisonGrid,
+    .resultsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 60px 24px 40px;
     }
 
-    .pageTitle {
-        font-size: 2.5rem;
+    .heroTitle {
+        font-size: 2.25rem;
+    }
+
+    .section {
+        padding: 60px 24px;
     }
 
     .sectionTitle {
-        font-size: 2rem;
+        font-size: 1.75rem;
     }
 
-    .sectionLead {
-        font-size: 1.25rem;
+    .credentialsGrid,
+    .expertiseGrid,
+    .comparisonGrid,
+    .resultsGrid {
+        grid-template-columns: 1fr;
+        gap: 24px;
     }
 
     .ctaSection {
         padding: 60px 24px;
     }
-}
 
-@media (max-width: 600px) {
-    .contribution {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
+    .ctaTitle {
+        font-size: 1.75rem;
     }
 }

@@ -1,167 +1,63 @@
+/* Main container */
 .main {
     padding-top: 80px;
 }
 
-.section {
-    padding: 100px 56px;
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+    padding: 100px 56px 80px;
+    color: white;
 }
 
-.sectionAlt {
-    background: #f7fafc;
-}
-
-.sectionContent {
-    max-width: 1000px;
+.heroContent {
+    max-width: 900px;
     margin: 0 auto;
+    text-align: center;
 }
 
-.pageTitle {
+.heroLabel {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 8px 20px;
+    border-radius: 100px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 24px;
+    letter-spacing: 0.02em;
+}
+
+.heroTitle {
     font-size: 3rem;
     font-weight: 800;
-    color: #1a365d;
     margin-bottom: 48px;
-    text-align: center;
-}
-
-.sectionTitle {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #1a365d;
-    margin-bottom: 12px;
-}
-
-.sectionSubtitle {
-    font-size: 1.15rem;
-    color: #4a5568;
-    margin-bottom: 40px;
-}
-
-/* Engagement Models */
-.modelGrid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-}
-
-.modelCard {
-    background: #f7fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 32px;
-    display: flex;
-    flex-direction: column;
-}
-
-.modelTitle {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #1a365d;
-    margin-bottom: 16px;
-}
-
-.modelDesc {
-    font-size: 1.05rem;
-    color: #4a5568;
-    line-height: 1.6;
-    flex: 1;
-    margin-bottom: 24px;
-}
-
-.modelResult {
-    background: white;
-    border-radius: 6px;
-    padding: 16px;
-    border: 1px solid #e2e8f0;
-}
-
-.resultLabel {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #3182ce;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.resultText {
-    font-size: 0.95rem;
-    color: #2d3748;
-    margin: 8px 0 0;
-    line-height: 1.5;
-}
-
-/* Accordion */
-.accordionList {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.accordion {
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    overflow: hidden;
-    background: white;
-}
-
-.accordionHeader {
-    width: 100%;
-    padding: 20px 24px;
-    background: white;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #1a365d;
-    text-align: left;
-    transition: background 0.2s ease;
-}
-
-.accordionHeader:hover {
-    background: #f7fafc;
-}
-
-.accordionIcon {
-    color: #718096;
-    transition: transform 0.2s ease;
-}
-
-.accordionIconOpen {
-    transform: rotate(180deg);
-}
-
-.accordionContent {
-    padding: 0 24px 20px;
-    color: #4a5568;
-    line-height: 1.6;
-    font-size: 1rem;
-}
-
-/* CTA Section */
-.ctaSection {
-    background: #1a365d;
-    padding: 80px 56px;
-    text-align: center;
-}
-
-.ctaContent {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.ctaTitle {
-    font-size: 2rem;
-    font-weight: 700;
+    line-height: 1.15;
     color: white;
-    margin-bottom: 16px;
 }
 
-.ctaText {
-    font-size: 1.15rem;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 28px;
+.heroStats {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    margin-bottom: 48px;
+}
+
+.heroStat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.statValue {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.statLabel {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-top: 8px;
 }
 
 .ctaButton {
@@ -171,33 +67,387 @@
     padding: 16px 40px;
     border-radius: 6px;
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     text-decoration: none;
-    transition: background 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .ctaButton:hover {
-    background: #f7fafc;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
     color: #1a365d !important;
+}
+
+/* Section styles */
+.section {
+    padding: 100px 56px;
+}
+
+.sectionAlt {
+    background: #f7fafc;
+}
+
+.sectionContent {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sectionTitle {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #1a365d;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.sectionLead {
+    font-size: 1.15rem;
+    color: #4a5568;
+    margin-bottom: 48px;
+    line-height: 1.6;
+    text-align: center;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Services Grid */
+.servicesGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.serviceCard {
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 32px;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.serviceCard:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(-4px);
+}
+
+.serviceIcon {
+    width: 56px;
+    height: 56px;
+    background: #ebf8ff;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3182ce;
+    margin-bottom: 20px;
+}
+
+.serviceTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1a365d;
+    margin-bottom: 12px;
+}
+
+.serviceDesc {
+    color: #4a5568;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.serviceFeatures {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.serviceFeatures li {
+    padding: 6px 0;
+    color: #2d3748;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.serviceFeatures li::before {
+    content: "✓";
+    color: #38a169;
+    font-weight: 600;
+}
+
+/* Process Grid */
+.processGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.processStep {
+    text-align: center;
+}
+
+.processNumber {
+    width: 56px;
+    height: 56px;
+    background: #3182ce;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto 20px;
+}
+
+.processTitle {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #1a365d;
+    margin-bottom: 8px;
+}
+
+.processDesc {
+    color: #4a5568;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Tech Grid */
+.techGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.techCategory {
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.techCategoryTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a365d;
+    margin-bottom: 16px;
+}
+
+.techTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.techTag {
+    background: white;
+    border: 1px solid #e2e8f0;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: #2d3748;
+}
+
+/* Case Study Teaser */
+.caseStudyTeaser {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 48px;
+}
+
+.caseStudyContent {
+    flex: 1;
+}
+
+.caseStudyLabel {
+    display: inline-block;
+    background: #ebf8ff;
+    color: #2b6cb0;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+}
+
+.caseStudyTitle {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1a365d;
+    margin-bottom: 16px;
+    line-height: 1.3;
+}
+
+.caseStudyDesc {
+    color: #4a5568;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.caseStudyLink {
+    color: #3182ce;
+    font-weight: 600;
     text-decoration: none;
 }
 
+.caseStudyLink:hover {
+    text-decoration: underline;
+}
+
+.caseStudyMetrics {
+    display: flex;
+    gap: 32px;
+}
+
+.caseStudyMetric {
+    text-align: center;
+    padding: 24px 32px;
+    background: #f7fafc;
+    border-radius: 12px;
+}
+
+.metricValue {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #3182ce;
+    line-height: 1;
+}
+
+.metricLabel {
+    display: block;
+    font-size: 0.9rem;
+    color: #4a5568;
+    margin-top: 8px;
+}
+
+/* CTA Section */
+.ctaSection {
+    background: #1a365d;
+    padding: 100px 56px;
+    text-align: center;
+}
+
+.ctaContent {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.ctaTitle {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.ctaText {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+.ctaButtonLarge {
+    display: inline-block;
+    background: white;
+    color: #1a365d !important;
+    padding: 18px 48px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ctaButtonLarge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+    color: #1a365d !important;
+}
+
 /* Responsive */
+@media (max-width: 1100px) {
+    .servicesGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .techGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .caseStudyTeaser {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .caseStudyMetrics {
+        justify-content: center;
+    }
+}
+
 @media (max-width: 900px) {
+    .hero {
+        padding: 80px 24px 60px;
+    }
+
+    .heroTitle {
+        font-size: 2.25rem;
+    }
+
+    .heroStats {
+        gap: 24px;
+    }
+
+    .statValue {
+        font-size: 2rem;
+    }
+
     .section {
         padding: 80px 24px;
     }
 
-    .pageTitle {
-        font-size: 2.5rem;
+    .processGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .heroTitle {
+        font-size: 1.75rem;
     }
 
-    .sectionTitle {
-        font-size: 2rem;
+    .heroStats {
+        flex-direction: column;
+        gap: 16px;
     }
 
-    .modelGrid {
+    .servicesGrid,
+    .processGrid,
+    .techGrid {
         grid-template-columns: 1fr;
+    }
+
+    .caseStudyTeaser {
+        padding: 32px 24px;
+    }
+
+    .caseStudyMetrics {
+        flex-direction: column;
+        gap: 16px;
     }
 
     .ctaSection {

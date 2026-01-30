@@ -308,7 +308,7 @@ const config = {
                 },
                 {
                     name: "description",
-                    content: "BaaZ helps companies maximize GPU utilization, build AI factories, and ship AI faster. Expert GPU infrastructure consulting for H100, A100, and enterprise AI cloud.",
+                    content: "Turn 30% GPU utilization into 70%+. BaaZ helps CTOs at AI startups build production-ready GPU infrastructure, optimize distributed training (8.5x faster), and reduce AI compute costs.",
                 },
                 {
                     name: "keywords",

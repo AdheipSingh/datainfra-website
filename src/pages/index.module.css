@@ -32,6 +32,43 @@
     margin-bottom: 40px;
 }
 
+/* Trust Bar */
+.trustBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 40px;
+    padding: 24px 0;
+}
+
+.trustItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.trustMetric {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #3182ce;
+    line-height: 1;
+}
+
+.trustLabel {
+    font-size: 0.9rem;
+    color: #4a5568;
+    margin-top: 4px;
+    font-weight: 500;
+}
+
+.trustDivider {
+    width: 1px;
+    height: 40px;
+    background: #e2e8f0;
+}
+
 .ctaButton {
     display: inline-block;
     background: #3182ce;
@@ -424,6 +461,18 @@
         font-size: 1.15rem;
     }
 
+    .trustBar {
+        gap: 20px;
+    }
+
+    .trustMetric {
+        font-size: 1.5rem;
+    }
+
+    .trustLabel {
+        font-size: 0.8rem;
+    }
+
     .section {
         padding: 80px 24px;
     }
@@ -452,6 +501,19 @@
 @media (max-width: 600px) {
     .heroTitle {
         font-size: 2rem;
+    }
+
+    .trustBar {
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .trustDivider {
+        display: none;
+    }
+
+    .trustItem {
+        min-width: 80px;
     }
 
     .processStep {

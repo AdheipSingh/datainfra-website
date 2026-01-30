@@ -12,8 +12,8 @@ export default function Navbar() {
             </Link>
 
             <div className={styles.navLinks}>
-                <Link to="/about" className={styles.navLink}>
-                    About
+                <Link to="/services" className={styles.navLink}>
+                    Services
                 </Link>
                 <Link to="/case-studies" className={styles.navLink}>
                     Case Studies
@@ -50,11 +50,11 @@ export default function Navbar() {
             {isOpen && (
                 <div className={styles.mobileMenu}>
                     <Link
-                        to="/about"
+                        to="/services"
                         className={styles.mobileNavLink}
                         onClick={() => setIsOpen(false)}
                     >
-                        About
+                        Services
                     </Link>
                     <Link
                         to="/case-studies"

@@ -7,8 +7,8 @@ import styles from "./index.module.css"
 export default function Home() {
     return (
         <Layout
-            title="GPU Infrastructure Consulting | AI Factory & Cloud Optimization"
-            description="BaaZ helps companies maximize GPU utilization, build AI factories, and ship AI faster. Expert consulting for H100, A100, Kubernetes GPU clusters, and distributed training optimization."
+            title="GPU Infrastructure Consulting for AI Training | Build & Optimize GPU Clusters"
+            description="Turn 30% GPU utilization into 70%+. BaaZ helps CTOs at AI startups build production-ready GPU infrastructure, optimize distributed training (8.5x faster), and reduce AI compute costs."
         >
             <Navbar />
             <main className={styles.main}>
@@ -19,9 +19,29 @@ export default function Home() {
                             Get More From Your GPUs
                         </h1>
                         <p className={styles.heroSubtitle}>
-                            Whether you have 8 GPUs or 8,000—on-prem, cloud, or colo—we help you
-                            maximize utilization, reduce waste, and ship AI faster.
+                            We've achieved <strong>8.5x faster distributed training</strong> through RDMA optimization
+                            and helped teams turn <strong>30% GPU utilization into 70%+</strong>.
+                            Whether you have 8 GPUs or 8,000—we make them work harder.
                         </p>
+
+                        {/* Trust Bar */}
+                        <div className={styles.trustBar}>
+                            <div className={styles.trustItem}>
+                                <span className={styles.trustMetric}>8.5x</span>
+                                <span className={styles.trustLabel}>Faster Training</span>
+                            </div>
+                            <div className={styles.trustDivider}></div>
+                            <div className={styles.trustItem}>
+                                <span className={styles.trustMetric}>70%+</span>
+                                <span className={styles.trustLabel}>GPU Utilization</span>
+                            </div>
+                            <div className={styles.trustDivider}></div>
+                            <div className={styles.trustItem}>
+                                <span className={styles.trustMetric}>10x</span>
+                                <span className={styles.trustLabel}>Latency Reduction</span>
+                            </div>
+                        </div>
+
                         <a
                             href="#featured-resources"
                             className={styles.ctaButton}
@@ -34,7 +54,7 @@ export default function Home() {
                 {/* Problem Section */}
                 <section className={styles.section}>
                     <div className={styles.sectionContent}>
-                        <h2 className={styles.sectionTitle}>The Problem</h2>
+                        <h2 className={styles.sectionTitle}>Why GPU Infrastructure Underperforms</h2>
                         <p className={styles.sectionLead}>
                             Most GPU infrastructure is underutilized, overcomplicated, or both.
                         </p>
@@ -58,7 +78,7 @@ export default function Home() {
                 {/* Outcomes Section */}
                 <section className={`${styles.section} ${styles.sectionAlt}`}>
                     <div className={styles.sectionContent}>
-                        <h2 className={styles.sectionTitle}>What We Do</h2>
+                        <h2 className={styles.sectionTitle}>GPU Infrastructure Consulting Services</h2>
                         <p className={styles.sectionLead}>
                             We help companies get the most out of their GPU infrastructure.
                         </p>
@@ -108,7 +128,7 @@ export default function Home() {
                 {/* Process Section */}
                 <section className={styles.section}>
                     <div className={styles.sectionContent}>
-                        <h2 className={styles.sectionTitle}>How We Work</h2>
+                        <h2 className={styles.sectionTitle}>Hands-On Implementation, Not Slide Decks</h2>
                         <p className={styles.sectionLead}>
                             We're not a big consultancy that sends you a deck and disappears.
                             We're hands-on engineers who've built this infrastructure
@@ -181,14 +201,13 @@ export default function Home() {
                                     <tr>
                                         <td>"Our GPUs sit idle while teams wait for access"</td>
                                         <td>
-                                            GPU sharing with proper isolation (MIG, time-slicing,
-                                            quotas)
+                                            MIG partitioning, time-slicing, Kubernetes GPU operators, quota management
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>"Training is slow on multiple nodes"</td>
+                                        <td>"Distributed training is slow on multiple nodes"</td>
                                         <td>
-                                            Network fabric tuning, NCCL optimization, topology fixes
+                                            NCCL optimization, RDMA configuration, InfiniBand/RoCE tuning
                                         </td>
                                     </tr>
                                     <tr>
@@ -221,7 +240,7 @@ export default function Home() {
                 {/* Who We Help Section */}
                 <section className={styles.section}>
                     <div className={styles.sectionContent}>
-                        <h2 className={styles.sectionTitle}>Who We Help</h2>
+                        <h2 className={styles.sectionTitle}>GPU Infrastructure for Startups and Scale-Ups</h2>
                         <div className={styles.personaGrid}>
                             <div className={styles.personaCard}>
                                 <p className={styles.personaQuote}>
@@ -284,6 +303,16 @@ export default function Home() {
                                 </p>
                                 <span className={styles.resourceLink}>Read case study →</span>
                             </Link>
+                            <Link to="/blog/network-bottleneck-distributed-training" className={styles.resourceCard}>
+                                <span className={styles.resourceLabel}>Blog</span>
+                                <h3 className={styles.resourceTitle}>
+                                    How to Calculate if Your Network is Bottlenecking Distributed Training
+                                </h3>
+                                <p className={styles.resourceDesc}>
+                                    A practical guide to understanding why your multi-node GPU training might be slower than expected.
+                                </p>
+                                <span className={styles.resourceLink}>Read article →</span>
+                            </Link>
                             <Link to="/blog/gpu-to-gpu-communication-across-nodes" className={styles.resourceCard}>
                                 <span className={styles.resourceLabel}>Blog</span>
                                 <h3 className={styles.resourceTitle}>
@@ -291,16 +320,6 @@ export default function Home() {
                                 </h3>
                                 <p className={styles.resourceDesc}>
                                     Understanding how GPUs communicate in distributed training setups.
-                                </p>
-                                <span className={styles.resourceLink}>Read article →</span>
-                            </Link>
-                            <Link to="/blog/understanding-rx-tx-network-traffic-direction" className={styles.resourceCard}>
-                                <span className={styles.resourceLabel}>Blog</span>
-                                <h3 className={styles.resourceTitle}>
-                                    Understanding RX/TX Network Traffic Direction
-                                </h3>
-                                <p className={styles.resourceDesc}>
-                                    A practical guide to network traffic flow in GPU clusters.
                                 </p>
                                 <span className={styles.resourceLink}>Read article →</span>
                             </Link>
