@@ -270,6 +270,7 @@ function BlogPost({ post, featured = false }) {
         description,
         title,
         permalink,
+        frontMatter,
     } = post
 
     const formattedDate = new Date(date).toLocaleDateString("en-US", {
@@ -283,17 +284,20 @@ function BlogPost({ post, featured = false }) {
         ["gpu", "distributed-training", "nvlink", "pcie", "power-management"].includes(t.label.toLowerCase())
     )
 
+    // Get blog card image from slug-matched SVG
+    const slug = permalink.replace(/^\/blog\//, "").replace(/\/$/, "")
+    const blogImage = `/img/blog/${slug}.svg`
+
     return (
         <article className={clsx(styles.blogPost, featured && styles.blogPostFeatured)}>
             <Link href={permalink} className={styles.blogImageLink}>
                 <div className={styles.blogImageWrapper}>
                     {isGpuPost && <span className={styles.gpuBadge}>GPU</span>}
                     <img
-                        src="/img/blogEmpty.svg"
+                        src={blogImage}
                         alt={title}
                         className={styles.blogImage}
                     />
-                    <p className={styles.blogImageTitle}>{title}</p>
                 </div>
             </Link>
 

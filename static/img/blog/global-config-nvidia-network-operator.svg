@@ -1,0 +1,145 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+<rect width="1200" height="630" fill="#0d1117"/>
+
+<!-- Subtle grid -->
+<g opacity="0.04">
+<line x1="0" y1="0" x2="0" y2="630" stroke="#6e7681" stroke-width="0.5"/>
+<line x1="60" y1="0" x2="60" y2="630" stroke="#6e7681" stroke-width="0.5"/>
+<line x1="120" y1="0" x2="120" y2="630" stroke="#6e7681" stroke-width="0.5"/>
+<line x1="180" y1="0" x2="180" y2="630" stroke="#6e7681" stroke-width="0.5"/>
+<line x1="240" y1="0" x2="240" y2="630" stroke="#6e7681" stroke-width="0.5"/>
+<line x1="300" y1="0" x2="300" y2="630" stroke="#6e7681" stroke-width="0.5"/>
+<line x1="360" y1="0" x2="360" y2="630" stroke="#6e7681" stroke-width="0.5"/>
+<line x1="420" y1="0" x2="420" y2="630" stroke="#6e7681" stroke-width="0.5"/>
+<line x1="480" y1="0" x2="480" y2="630" stroke="#6e7681" stroke-width="0.5"/>
+<line x1="540" y1="0" x2="540" y2="630" stroke="#6e7681" stroke-width="0.5"/>
+<line x1="600" y1="0" x2="600" y2="630" stroke="#6e7681" stroke-width="0.5"/>
+<line x1="660" y1="0" x2="660" y2="630" stroke="#6e7681" stroke-width="0.5"/>
+<line x1="720" y1="0" x2="720" y2="630" stroke="#6e7681" stroke-width="0.5"/>
+<line x1="780" y1="0" x2="780" y2="630" stroke="#6e7681" stroke-width="0.5"/>
+<line x1="840" y1="0" x2="840" y2="630" stroke="#6e7681" stroke-width="0.5"/>
+<line x1="900" y1="0" x2="900" y2="630" stroke="#6e7681" stroke-width="0.5"/>
+<line x1="960" y1="0" x2="960" y2="630" stroke="#6e7681" stroke-width="0.5"/>
+<line x1="1020" y1="0" x2="1020" y2="630" stroke="#6e7681" stroke-width="0.5"/>
+<line x1="1080" y1="0" x2="1080" y2="630" stroke="#6e7681" stroke-width="0.5"/>
+<line x1="1140" y1="0" x2="1140" y2="630" stroke="#6e7681" stroke-width="0.5"/>
+<line x1="1200" y1="0" x2="1200" y2="630" stroke="#6e7681" stroke-width="0.5"/>
+</g>
+
+<!-- Before side: repeated config blocks (left) -->
+<text x="280" y="60" font-family="system-ui,sans-serif" font-size="13" fill="#8b949e" text-anchor="middle">Before</text>
+
+<!-- 6 component blocks with repeated fields -->
+<g opacity="0.85">
+  <!-- Block 1: ofedDriver -->
+  <rect x="100" y="80" width="360" height="52" rx="4" fill="#161b22" stroke="#30363d" stroke-width="0.8"/>
+  <text x="115" y="100" font-family="monospace" font-size="10" fill="#79c0ff">ofedDriver:</text>
+  <text x="130" y="114" font-family="monospace" font-size="9" fill="#8b949e">repository:</text>
+  <text x="200" y="114" font-family="monospace" font-size="9" fill="#f85149">nvcr.io/nvidia/mellanox</text>
+  <text x="345" y="114" font-family="monospace" font-size="9" fill="#8b949e">version:</text>
+  <text x="393" y="114" font-family="monospace" font-size="9" fill="#f85149">v25.7.0</text>
+
+  <!-- Block 2: rdmaSharedDevicePlugin -->
+  <rect x="100" y="138" width="360" height="52" rx="4" fill="#161b22" stroke="#30363d" stroke-width="0.8"/>
+  <text x="115" y="158" font-family="monospace" font-size="10" fill="#79c0ff">rdmaSharedDevicePlugin:</text>
+  <text x="130" y="172" font-family="monospace" font-size="9" fill="#8b949e">repository:</text>
+  <text x="200" y="172" font-family="monospace" font-size="9" fill="#f85149">nvcr.io/nvidia/mellanox</text>
+  <text x="345" y="172" font-family="monospace" font-size="9" fill="#8b949e">version:</text>
+  <text x="393" y="172" font-family="monospace" font-size="9" fill="#f85149">v25.7.0</text>
+
+  <!-- Block 3: sriovDevicePlugin -->
+  <rect x="100" y="196" width="360" height="52" rx="4" fill="#161b22" stroke="#30363d" stroke-width="0.8"/>
+  <text x="115" y="216" font-family="monospace" font-size="10" fill="#79c0ff">sriovDevicePlugin:</text>
+  <text x="130" y="230" font-family="monospace" font-size="9" fill="#8b949e">repository:</text>
+  <text x="200" y="230" font-family="monospace" font-size="9" fill="#f85149">nvcr.io/nvidia/mellanox</text>
+  <text x="345" y="230" font-family="monospace" font-size="9" fill="#8b949e">version:</text>
+  <text x="393" y="230" font-family="monospace" font-size="9" fill="#f85149">v25.7.0</text>
+
+  <!-- Block 4: nvIpam -->
+  <rect x="100" y="254" width="360" height="52" rx="4" fill="#161b22" stroke="#30363d" stroke-width="0.8"/>
+  <text x="115" y="274" font-family="monospace" font-size="10" fill="#79c0ff">nvIpam:</text>
+  <text x="130" y="288" font-family="monospace" font-size="9" fill="#8b949e">repository:</text>
+  <text x="200" y="288" font-family="monospace" font-size="9" fill="#f85149">nvcr.io/nvidia/mellanox</text>
+  <text x="345" y="288" font-family="monospace" font-size="9" fill="#8b949e">version:</text>
+  <text x="393" y="288" font-family="monospace" font-size="9" fill="#f85149">v25.7.0</text>
+
+  <!-- Block 5: multus -->
+  <rect x="100" y="312" width="360" height="52" rx="4" fill="#161b22" stroke="#30363d" stroke-width="0.8"/>
+  <text x="115" y="332" font-family="monospace" font-size="10" fill="#79c0ff">multus:</text>
+  <text x="130" y="346" font-family="monospace" font-size="9" fill="#8b949e">repository:</text>
+  <text x="200" y="346" font-family="monospace" font-size="9" fill="#f85149">nvcr.io/nvidia/mellanox</text>
+  <text x="345" y="346" font-family="monospace" font-size="9" fill="#8b949e">version:</text>
+  <text x="393" y="346" font-family="monospace" font-size="9" fill="#f85149">v25.7.0</text>
+
+  <!-- Red strikethrough lines over repeated values -->
+  <line x1="195" y1="113" x2="340" y2="113" stroke="#f85149" stroke-width="1" opacity="0.4"/>
+  <line x1="195" y1="171" x2="340" y2="171" stroke="#f85149" stroke-width="1" opacity="0.4"/>
+  <line x1="195" y1="229" x2="340" y2="229" stroke="#f85149" stroke-width="1" opacity="0.4"/>
+  <line x1="195" y1="287" x2="340" y2="287" stroke="#f85149" stroke-width="1" opacity="0.4"/>
+  <line x1="195" y1="345" x2="340" y2="345" stroke="#f85149" stroke-width="1" opacity="0.4"/>
+</g>
+
+<!-- Arrow -->
+<text x="560" y="220" font-family="system-ui,sans-serif" font-size="32" fill="#6e7681" text-anchor="middle">→</text>
+
+<!-- After side: global config + clean blocks (right) -->
+<text x="860" y="60" font-family="system-ui,sans-serif" font-size="13" fill="#8b949e" text-anchor="middle">After</text>
+
+<!-- Global config block (highlighted) -->
+<rect x="660" y="80" width="400" height="70" rx="6" fill="#39d2c0"  stroke="#39d2c0" stroke-width="1" opacity="0.35"/>
+<text x="675" y="100" font-family="monospace" font-size="11" fill="#39d2c0" font-weight="600">globalConfig:</text>
+<text x="690" y="116" font-family="monospace" font-size="10" fill="#39d2c0" opacity="0.7">repository: nvcr.io/nvidia/mellanox</text>
+<text x="690" y="132" font-family="monospace" font-size="10" fill="#39d2c0" opacity="0.7">version: network-operator-v25.7.0</text>
+
+<!-- Inheritance arrows -->
+<g opacity="0.15">
+  <line x1="760" y1="150" x2="720" y2="168" stroke="#39d2c0" stroke-width="1"/>
+  <line x1="800" y1="150" x2="760" y2="168" stroke="#39d2c0" stroke-width="1"/>
+  <line x1="840" y1="150" x2="800" y2="168" stroke="#39d2c0" stroke-width="1"/>
+  <line x1="880" y1="150" x2="840" y2="168" stroke="#39d2c0" stroke-width="1"/>
+  <line x1="920" y1="150" x2="880" y2="168" stroke="#39d2c0" stroke-width="1"/>
+</g>
+
+<!-- Clean component blocks (no repeated fields) -->
+<g opacity="0.85">
+  <rect x="660" y="170" width="400" height="36" rx="4" fill="#161b22" stroke="#30363d" stroke-width="0.8"/>
+  <text x="675" y="193" font-family="monospace" font-size="10" fill="#79c0ff">ofedDriver:</text>
+  <text x="775" y="193" font-family="monospace" font-size="10" fill="#8b949e">image: mofed</text>
+
+  <rect x="660" y="212" width="400" height="36" rx="4" fill="#161b22" stroke="#30363d" stroke-width="0.8"/>
+  <text x="675" y="235" font-family="monospace" font-size="10" fill="#79c0ff">rdmaSharedDevicePlugin:</text>
+  <text x="865" y="235" font-family="monospace" font-size="10" fill="#8b949e">image: k8s-rdma-shared-dev-plugin</text>
+
+  <rect x="660" y="254" width="400" height="36" rx="4" fill="#161b22" stroke="#30363d" stroke-width="0.8"/>
+  <text x="675" y="277" font-family="monospace" font-size="10" fill="#79c0ff">nvIpam:</text>
+  <text x="735" y="277" font-family="monospace" font-size="10" fill="#8b949e">image: nvidia-k8s-ipam</text>
+
+  <rect x="660" y="296" width="400" height="36" rx="4" fill="#161b22" stroke="#30363d" stroke-width="0.8"/>
+  <text x="675" y="319" font-family="monospace" font-size="10" fill="#79c0ff">multus:</text>
+  <text x="730" y="319" font-family="monospace" font-size="10" fill="#8b949e">image: multus-cni</text>
+
+  <rect x="660" y="338" width="400" height="36" rx="4" fill="#161b22" stroke="#30363d" stroke-width="0.8"/>
+  <text x="675" y="361" font-family="monospace" font-size="10" fill="#79c0ff">cniPlugins:</text>
+  <text x="760" y="361" font-family="monospace" font-size="10" fill="#8b949e">image: plugins</text>
+</g>
+
+<!-- Tags -->
+<rect x="60" y="440" width="110" height="28" rx="14" fill="#bc8cff"  stroke="#bc8cff" stroke-width="0.8" opacity="0.3"/>
+<text x="115" y="458" font-family="system-ui,sans-serif" font-size="11" fill="#bc8cff" text-anchor="middle" font-weight="600" letter-spacing="0.5">KUBERNETES</text>
+
+<rect x="185" y="440" width="110" height="28" rx="14" fill="#58a6ff"  stroke="#58a6ff" stroke-width="0.8" opacity="0.3"/>
+<text x="240" y="458" font-family="system-ui,sans-serif" font-size="11" fill="#58a6ff" text-anchor="middle" font-weight="600" letter-spacing="0.5">NETWORKING</text>
+
+<rect x="310" y="440" width="120" height="28" rx="14" fill="#3fb950"  stroke="#3fb950" stroke-width="0.8" opacity="0.3"/>
+<text x="370" y="458" font-family="system-ui,sans-serif" font-size="11" fill="#3fb950" text-anchor="middle" font-weight="600" letter-spacing="0.5">OPEN SOURCE</text>
+
+<!-- Title -->
+<text x="60" y="510" font-family="system-ui,-apple-system,sans-serif" font-size="28" font-weight="700" fill="#e6edf3">Adding Global Config to the NVIDIA</text>
+<text x="60" y="546" font-family="system-ui,-apple-system,sans-serif" font-size="28" font-weight="700" fill="#e6edf3">Network Operator</text>
+
+<!-- Brand -->
+<text x="60" y="600" font-family="system-ui,-apple-system,sans-serif" font-size="16" font-weight="600" fill="#6e7681">baaz.dev</text>
+
+<!-- PR reference -->
+<text x="1140" y="600" font-family="monospace" font-size="10" fill="#6e7681" text-anchor="end">PR #2070 · github.com/Mellanox/network-operator</text>
+</svg>

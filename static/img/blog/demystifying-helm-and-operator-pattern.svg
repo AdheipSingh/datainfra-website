@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#161b22"/>
+      <stop offset="100%" stop-color="#0d1117"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- subtle grid -->
+  <g opacity="0.04" stroke="#c9d1d9" stroke-width="0.5">
+    <line x1="0" y1="100" x2="1200" y2="100"/><line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/><line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="500" x2="1200" y2="500"/>
+    <line x1="200" y1="0" x2="200" y2="630"/><line x1="400" y1="0" x2="400" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/><line x1="800" y1="0" x2="800" y2="630"/>
+    <line x1="1000" y1="0" x2="1000" y2="630"/>
+  </g>
+  <!-- ambient dots -->
+  <circle cx="150" cy="80" r="1.2" fill="#58a6ff" opacity="0.08"/>
+  <circle cx="1050" cy="550" r="1.5" fill="#bc8cff" opacity="0.06"/>
+  <circle cx="900" cy="90" r="1" fill="#39d2c0" opacity="0.07"/>
+  <circle cx="300" cy="520" r="1.3" fill="#8b8cf5" opacity="0.05"/>
+  <!-- Title -->
+  <text x="600" y="70" font-family="system-ui,sans-serif" font-size="18" fill="#8b949e" text-anchor="middle" letter-spacing="3" opacity="0.5">KUBERNETES PATTERNS</text>
+  <!-- Helm box -->
+  <rect x="120" y="140" width="400" height="350" rx="12" fill="#161b22" stroke="#58a6ff" stroke-width="1" opacity="0.8"/>
+  <rect x="120" y="140" width="400" height="50" rx="12" fill="#58a6ff" opacity="0.12"/>
+  <text x="320" y="172" font-family="system-ui,sans-serif" font-size="20" fill="#58a6ff" text-anchor="middle" font-weight="600">Helm</text>
+  <text x="320" y="220" font-family="system-ui,sans-serif" font-size="13" fill="#8b949e" text-anchor="middle" opacity="0.7">Configuration Management</text>
+  <!-- Helm items -->
+  <rect x="160" y="245" width="320" height="38" rx="6" fill="#58a6ff" opacity="0.08" stroke="#58a6ff" stroke-width="0.5"/>
+  <text x="185" y="269" font-family="monospace" font-size="12" fill="#58a6ff" opacity="0.7">templates/deployment.yaml</text>
+  <rect x="160" y="295" width="320" height="38" rx="6" fill="#58a6ff" opacity="0.08" stroke="#58a6ff" stroke-width="0.5"/>
+  <text x="185" y="319" font-family="monospace" font-size="12" fill="#58a6ff" opacity="0.7">templates/service.yaml</text>
+  <rect x="160" y="345" width="320" height="38" rx="6" fill="#58a6ff" opacity="0.08" stroke="#58a6ff" stroke-width="0.5"/>
+  <text x="185" y="369" font-family="monospace" font-size="12" fill="#58a6ff" opacity="0.7">values.yaml → manifests</text>
+  <rect x="160" y="395" width="320" height="38" rx="6" fill="#58a6ff" opacity="0.08" stroke="#58a6ff" stroke-width="0.5"/>
+  <text x="185" y="419" font-family="monospace" font-size="12" fill="#58a6ff" opacity="0.7">helm install / upgrade</text>
+  <text x="320" y="465" font-family="system-ui,sans-serif" font-size="11" fill="#58a6ff" text-anchor="middle" opacity="0.4">Templating · Rollbacks · Versioning</text>
+  <!-- Arrow from Helm to Operator -->
+  <line x1="520" y1="315" x2="660" y2="315" stroke="#6e7681" stroke-width="1.5" opacity="0.3" stroke-dasharray="6 4"/>
+  <polygon points="655,310 665,315 655,320" fill="#6e7681" opacity="0.4"/>
+  <text x="590" y="305" font-family="monospace" font-size="10" fill="#6e7681" text-anchor="middle" opacity="0.4">CRDs</text>
+  <!-- Operator box -->
+  <rect x="680" y="140" width="400" height="350" rx="12" fill="#161b22" stroke="#39d2c0" stroke-width="1" opacity="0.8"/>
+  <rect x="680" y="140" width="400" height="50" rx="12" fill="#39d2c0" opacity="0.12"/>
+  <text x="880" y="172" font-family="system-ui,sans-serif" font-size="20" fill="#39d2c0" text-anchor="middle" font-weight="600">Operator</text>
+  <text x="880" y="220" font-family="system-ui,sans-serif" font-size="13" fill="#8b949e" text-anchor="middle" opacity="0.7">Application-Aware Controller</text>
+  <!-- Operator items -->
+  <rect x="720" y="245" width="320" height="38" rx="6" fill="#39d2c0" opacity="0.08" stroke="#39d2c0" stroke-width="0.5"/>
+  <text x="745" y="269" font-family="monospace" font-size="12" fill="#39d2c0" opacity="0.7">Watch → Custom Resources</text>
+  <rect x="720" y="295" width="320" height="38" rx="6" fill="#39d2c0" opacity="0.08" stroke="#39d2c0" stroke-width="0.5"/>
+  <text x="745" y="319" font-family="monospace" font-size="12" fill="#39d2c0" opacity="0.7">Reconcile → Desired State</text>
+  <rect x="720" y="345" width="320" height="38" rx="6" fill="#39d2c0" opacity="0.08" stroke="#39d2c0" stroke-width="0.5"/>
+  <text x="745" y="369" font-family="monospace" font-size="12" fill="#39d2c0" opacity="0.7">Domain Logic · Automation</text>
+  <rect x="720" y="395" width="320" height="38" rx="6" fill="#39d2c0" opacity="0.08" stroke="#39d2c0" stroke-width="0.5"/>
+  <text x="745" y="419" font-family="monospace" font-size="12" fill="#39d2c0" opacity="0.7">Self-healing · Scaling</text>
+  <text x="880" y="465" font-family="system-ui,sans-serif" font-size="11" fill="#39d2c0" text-anchor="middle" opacity="0.4">Lifecycle · Upgrades · Monitoring</text>
+  <!-- Kubernetes cluster at bottom -->
+  <rect x="300" y="530" width="600" height="60" rx="8" fill="#8b8cf5" opacity="0.06" stroke="#8b8cf5" stroke-width="0.6"/>
+  <text x="600" y="567" font-family="system-ui,sans-serif" font-size="15" fill="#8b8cf5" text-anchor="middle" opacity="0.5">Kubernetes Cluster</text>
+  <!-- Lines down to cluster -->
+  <line x1="320" y1="490" x2="450" y2="530" stroke="#58a6ff" stroke-width="0.8" opacity="0.2" stroke-dasharray="4 3"/>
+  <line x1="880" y1="490" x2="750" y2="530" stroke="#39d2c0" stroke-width="0.8" opacity="0.2" stroke-dasharray="4 3"/>
+  <!-- BaaZ branding -->
+  <text x="600" y="615" font-family="system-ui,sans-serif" font-size="11" fill="#6e7681" text-anchor="middle" opacity="0.3">baaz.dev</text>
+</svg>

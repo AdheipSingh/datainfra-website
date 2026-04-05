@@ -49,6 +49,12 @@ function BreadcrumbSchema() {
 }
 
 export default function Root({children}) {
+    // Ensure window.gtag exists before the gtag plugin tries to call it
+    if (typeof window !== 'undefined' && typeof window.gtag !== 'function') {
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function gtag() { window.dataLayer.push(arguments); };
+    }
+
     return (
         <>
             <BreadcrumbSchema />
