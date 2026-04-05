@@ -6,12 +6,13 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula")
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-    title: "BaaZ - GPU Infrastructure Consulting",
-    tagline: "Maximize GPU Utilization, Build AI Factories & Optimize AI Cloud Infrastructure",
+    title: "BaaZ",
+    titleDelimiter: "|",
+    tagline: "GPU Infrastructure Consulting",
     favicon: "img/logo-vector.png",
 
     // Set the production url of your site here
-    url: "https://www.baaz.dev/", // change to => https://datainfra-website.vercel.app/
+    url: "https://baaz.dev",
     // Set the /<baseUrl>/ pathname under which your site is served
     // For GitHub pages deployment, it is often '/<projectName>/'
     baseUrl: "/",
@@ -64,6 +65,22 @@ const config = {
                 href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap",
             },
         },
+        {
+            tagName: "link",
+            attributes: {
+                rel: "alternate",
+                hreflang: "en",
+                href: "https://baaz.dev/",
+            },
+        },
+        {
+            tagName: "link",
+            attributes: {
+                rel: "alternate",
+                hreflang: "x-default",
+                href: "https://baaz.dev/",
+            },
+        },
         // Organization structured data
         {
             tagName: "script",
@@ -74,9 +91,18 @@ const config = {
                 "@context": "https://schema.org",
                 "@type": "Organization",
                 "name": "BaaZ",
-                "url": "https://www.baaz.dev",
-                "logo": "https://www.baaz.dev/img/logo-vector.png",
-                "description": "GPU Infrastructure Consulting - We help companies maximize GPU utilization, build AI factories, and optimize AI cloud infrastructure.",
+                "url": "https://baaz.dev",
+                "logo": "https://baaz.dev/img/logo-vector.png",
+                "description": "GPU infrastructure consulting for AI training. We help startups and SMEs build, optimize, and operate GPU clusters.",
+                "founder": {
+                    "@type": "Person",
+                    "name": "Adheip Singh",
+                    "jobTitle": "Founder",
+                    "sameAs": [
+                        "https://www.linkedin.com/in/adheipsingh/",
+                        "https://github.com/AdheipSingh"
+                    ]
+                },
                 "sameAs": [
                     "https://www.linkedin.com/company/baazhq",
                     "https://github.com/baazhq"
@@ -86,23 +112,14 @@ const config = {
                     "contactType": "sales",
                     "url": "https://cal.com/baazhq"
                 },
+                "areaServed": "Worldwide",
                 "knowsAbout": [
                     "GPU Infrastructure",
-                    "AI Cloud",
-                    "Kubernetes",
-                    "H100",
-                    "A100",
                     "Distributed Training",
-                    "GPU Optimization",
-                    "InfiniBand",
-                    "NVIDIA GPU Operator",
-                    "RDMA",
-                    "RoCE",
-                    "GPUDirect",
-                    "NCCL",
-                    "Multus CNI",
-                    "NVIDIA Network Operator",
-                    "Bare Metal Kubernetes"
+                    "RDMA Networking",
+                    "Kubernetes",
+                    "NVIDIA GPU Clusters",
+                    "AI Infrastructure"
                 ]
             }),
         },
@@ -116,10 +133,10 @@ const config = {
                 "@context": "https://schema.org",
                 "@type": "WebSite",
                 "name": "BaaZ",
-                "url": "https://www.baaz.dev",
+                "url": "https://baaz.dev",
                 "potentialAction": {
                     "@type": "SearchAction",
-                    "target": "https://www.baaz.dev/blog?q={search_term_string}",
+                    "target": "https://baaz.dev/blog?q={search_term_string}",
                     "query-input": "required name=search_term_string"
                 }
             }),
@@ -135,8 +152,8 @@ const config = {
                     showReadingTime: true,
                     blogSidebarCount: 0,
                     postsPerPage: 21,
-                    blogTitle: "GPU Infrastructure Blog | BaaZ",
-                    blogDescription: "Technical insights on GPU infrastructure, AI factories, distributed training, Kubernetes GPU operators, and cloud optimization from the BaaZ team.",
+                    blogTitle: "GPU Infrastructure Blog",
+                    blogDescription: "Technical deep-dives on GPU infrastructure, distributed training, RDMA networking, and Kubernetes for AI workloads.",
                     feedOptions: {
                         type: "all",
                         title: "BaaZ GPU Infrastructure Blog",

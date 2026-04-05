@@ -224,3 +224,10 @@ Remember: These RX/TX metrics are always from the port's perspective. When troub
 ---
 
 *Pro tip: If your switch API is slow (>1 second response time), use SNMP polling instead - it's 10-100x faster for retrieving interface counters!*
+
+---
+
+## Related
+
+- [GPU Networking & RDMA Consulting →](/services/gpu-networking)
+- [How to Calculate if Your Network is Bottlenecking Distributed Training →](/blog/network-bottleneck-distributed-training)

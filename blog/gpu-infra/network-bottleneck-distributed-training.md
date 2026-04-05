@@ -271,3 +271,11 @@ If your GPUs are spending more time waiting than computing, no amount of softwar
 ---
 
 *Have questions about your distributed training setup? [Schedule a call](https://cal.com/baazhq)—we're happy to help you diagnose the bottleneck.*
+
+---
+
+## Related
+
+- [Distributed Training Optimization Services →](/services/distributed-training)
+- [GPU Networking & RDMA Consulting →](/services/gpu-networking)
+- [Case Study: 8.5x Faster Training with RDMA →](/case-studies/rdma-kubernetes)

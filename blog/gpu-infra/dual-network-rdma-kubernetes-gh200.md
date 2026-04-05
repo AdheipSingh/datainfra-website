@@ -523,3 +523,11 @@ The next steps for a production deployment:
 ---
 
 *This guide was tested on an NVIDIA GH200 Grace Hopper bare-metal instance running Ubuntu 22.04, k3s v1.34.6, Multus CNI (thick plugin), and the Mellanox RDMA shared device plugin. The ConnectX-7 NIC was running firmware 28.40.1000 with MOFED drivers.*
+
+---
+
+## Related
+
+- [GPU Kubernetes Consulting →](/services/gpu-kubernetes)
+- [GPU Networking & RDMA Consulting →](/services/gpu-networking)
+- [GPU-to-GPU Communication Across Nodes →](/blog/gpu-to-gpu-communication-across-nodes)

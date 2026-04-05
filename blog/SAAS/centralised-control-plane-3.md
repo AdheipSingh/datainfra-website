@@ -6,7 +6,11 @@ authors: [Adheip Singh]
 tags: [SAAS, control-planes]
 ---
 
-*In our previous post, "[Centralised Control Planes for SaaS - Part 2](https://www.baaz.dev/blog/centralised-control-planes-for-saas-infra-part-2)," we discussed about the approaches to build a stateless control plane and how to handle async communication b/w the data planes and cloud provider. In this instalment we take dive into the physical and logical models in a SaaS control planes.*
+:::info Looking for GPU Infrastructure?
+BaaZ now specializes in GPU infrastructure consulting for AI training. [See our GPU infrastructure services →](/services)
+:::
+
+*In our previous post, "[Centralised Control Planes for SaaS - Part 2](https://baaz.dev/blog/centralised-control-planes-for-saas-infra-part-2)," we discussed about the approaches to build a stateless control plane and how to handle async communication b/w the data planes and cloud provider. In this instalment we take dive into the physical and logical models in a SaaS control planes.*
 
 ## Introduction
 

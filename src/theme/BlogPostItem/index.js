@@ -26,28 +26,28 @@ function BlogPostStructuredData() {
         "description": description,
         "datePublished": date,
         "dateModified": date,
-        "url": `https://www.baaz.dev${permalink}`,
+        "url": `https://baaz.dev${permalink}`,
         "author": authors && authors.length > 0 ? {
             "@type": "Person",
             "name": authors[0].name || "BaaZ",
-            "url": authors[0].url || "https://www.baaz.dev"
+            "url": authors[0].url || "https://baaz.dev"
         } : {
             "@type": "Organization",
             "name": "BaaZ",
-            "url": "https://www.baaz.dev"
+            "url": "https://baaz.dev"
         },
         "publisher": {
             "@type": "Organization",
             "name": "BaaZ",
-            "url": "https://www.baaz.dev",
+            "url": "https://baaz.dev",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://www.baaz.dev/img/logo-vector.png"
+                "url": "https://baaz.dev/img/logo-vector.png"
             }
         },
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": `https://www.baaz.dev${permalink}`
+            "@id": `https://baaz.dev${permalink}`
         },
         "keywords": "GPU infrastructure, AI factory, GPU consulting, distributed training, Kubernetes GPU"
     }

@@ -119,3 +119,11 @@ If this transfer is slow, your expensive GPUs sit idle waiting for network opera
 | **TCP/IP** | Slow | Low | Always works, fine for development, painful for production |
 
 If you're building a multi-node training setup from standard servers, getting GPUDirect RDMA working should be near the top of your list. The difference between TCP and RDMA can easily be 5-10x in effective throughput, and that translates directly to faster training times.
+
+---
+
+## Related
+
+- [GPU Networking & RDMA Consulting →](/services/gpu-networking)
+- [How to Calculate if Your Network is Bottlenecking Distributed Training →](/blog/network-bottleneck-distributed-training)
+- [Case Study: 8.5x Faster Training with RDMA →](/case-studies/rdma-kubernetes)

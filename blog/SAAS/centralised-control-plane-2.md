@@ -7,14 +7,18 @@ authors: [Adheip Singh]
 tags: [SAAS, control-planes]
 ---
 
+:::info Looking for GPU Infrastructure?
+BaaZ now specializes in GPU infrastructure consulting for AI training. [See our GPU infrastructure services →](/services)
+:::
 
-*In our previous post, "[Centralised Control Planes for SaaS - Part 1](https://www.baaz.dev/blog/centralised-control-planes-for-saas-infra-part-1)," we delved into the world of SaaS business models and the challenges that arise when constructing a centralised control plane. In this instalment, we will take a closer look at the crucial first step in building a control plane: the design of an asynchronous event handling system. This system plays a pivotal role in creating infrastructure, managing tenants, and deploying applications within a SaaS environment. Moreover, we will explore two distinct schools of thoughts : application developer versus infrastructure developer.*
+
+*In our previous post, "[Centralised Control Planes for SaaS - Part 1](https://baaz.dev/blog/centralised-control-planes-for-saas-infra-part-1)," we delved into the world of SaaS business models and the challenges that arise when constructing a centralised control plane. In this instalment, we will take a closer look at the crucial first step in building a control plane: the design of an asynchronous event handling system. This system plays a pivotal role in creating infrastructure, managing tenants, and deploying applications within a SaaS environment. Moreover, we will explore two distinct schools of thoughts : application developer versus infrastructure developer.*
 
 
 ## Introduction
 
 
-In the realm of SaaS, the control plane serves as an orchestrator of fundamental operations. Our focus here lies specifically within the [service provisioning layer](https://www.baaz.dev/blog/centralised-control-planes-for-saas-infra-part-1#service-provisioning-layer). This layer enables the control plane to execute CRUD operations on various entities. Let's break down these operations:
+In the realm of SaaS, the control plane serves as an orchestrator of fundamental operations. Our focus here lies specifically within the [service provisioning layer](https://baaz.dev/blog/centralised-control-planes-for-saas-infra-part-1#service-provisioning-layer). This layer enables the control plane to execute CRUD operations on various entities. Let's break down these operations:
 
 
 <!--truncate-->

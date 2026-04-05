@@ -1,8 +1,4 @@
 User-agent: *
 Allow: /
 
-# Disallow admin and system paths
-Disallow: /cgi-bin/
-
-# Sitemap location
-Sitemap: https://www.baaz.dev/sitemap.xml
+Sitemap: https://baaz.dev/sitemap.xml

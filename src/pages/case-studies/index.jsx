@@ -25,13 +25,13 @@ const structuredData = {
         "@type": "CollectionPage",
         "name": "GPU Infrastructure Case Studies | BaaZ",
         "description": "Technical case studies on GPU infrastructure optimization, distributed training, RDMA networking, and Kubernetes GPU clusters.",
-        "url": "https://www.baaz.dev/case-studies",
+        "url": "https://baaz.dev/case-studies",
         "mainEntity": {
             "@type": "ItemList",
             "itemListElement": caseStudies.map((study, index) => ({
                 "@type": "ListItem",
                 "position": index + 1,
-                "url": `https://www.baaz.dev/case-studies/${study.slug}`
+                "url": `https://baaz.dev/case-studies/${study.slug}`
             }))
         }
     },
@@ -43,13 +43,13 @@ const structuredData = {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://www.baaz.dev"
+                "item": "https://baaz.dev"
             },
             {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Case Studies",
-                "item": "https://www.baaz.dev/case-studies"
+                "item": "https://baaz.dev/case-studies"
             }
         ]
     }
@@ -58,17 +58,17 @@ const structuredData = {
 export default function CaseStudiesIndex() {
     return (
         <Layout
-            title="Case Studies | GPU Infrastructure & Distributed Training"
-            description="Technical case studies on GPU infrastructure optimization, distributed training performance, RDMA networking, and Kubernetes GPU clusters from BaaZ."
+            title="GPU Infrastructure Case Studies"
+            description="GPU infrastructure case studies from BaaZ. Real results: 8.5x faster distributed training, 70%+ GPU utilization, RDMA optimization on Kubernetes."
         >
             <Head>
                 <meta property="og:title" content="GPU Infrastructure Case Studies | BaaZ" />
                 <meta property="og:description" content="Technical case studies on GPU infrastructure optimization, distributed training, and Kubernetes GPU clusters." />
-                <meta property="og:url" content="https://www.baaz.dev/case-studies" />
+                <meta property="og:url" content="https://baaz.dev/case-studies" />
                 <meta property="og:type" content="website" />
                 <meta name="twitter:title" content="GPU Infrastructure Case Studies | BaaZ" />
                 <meta name="twitter:description" content="Technical case studies on GPU infrastructure optimization, distributed training, and Kubernetes GPU clusters." />
-                <link rel="canonical" href="https://www.baaz.dev/case-studies" />
+                <link rel="canonical" href="https://baaz.dev/case-studies" />
                 <script type="application/ld+json">
                     {JSON.stringify(structuredData.collectionPage)}
                 </script>

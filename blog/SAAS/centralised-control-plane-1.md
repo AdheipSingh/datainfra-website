@@ -6,6 +6,10 @@ authors: [Adheip Singh]
 tags: [SAAS, control-planes]
 ---
 
+:::info Looking for GPU Infrastructure?
+BaaZ now specializes in GPU infrastructure consulting for AI training. [See our GPU infrastructure services →](/services)
+:::
+
 *For a couple of years, my journey has revolved around constructing control planes for data infrastructure startups. As an engineer I have been fortunate to gain invaluable insights into the challenges and intricacies of developing successful SaaS products. Drawing from my firsthand experiences, this series of blog post's delves into the lessons learned and shares my goals at BaaZ, where I am building a centralised control plane for SaaS infrastructure. Join me as we explore the critical aspects and key considerations of constructing effective control planes in the dynamic and competitive SaaS industry.*
 
 # Introduction

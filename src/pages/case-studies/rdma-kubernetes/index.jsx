@@ -36,25 +36,25 @@ const structuredData = {
         "headline": "8.5x Faster Distributed Training: RDMA on Bare Metal Kubernetes",
         "alternativeHeadline": "Building RDMA-Enabled Kubernetes for Distributed GPU Training",
         "description": "Technical case study on implementing GPUDirect RDMA over RoCE for a computer vision company, achieving 10x latency improvement and 8.5x training throughput increase on bare metal Kubernetes.",
-        "image": "https://www.baaz.dev/img/diagram-01-tcp-vs-rdma-datapath.svg",
+        "image": "https://baaz.dev/img/diagram-01-tcp-vs-rdma-datapath.svg",
         "author": {
             "@type": "Organization",
             "name": "BaaZ",
-            "url": "https://www.baaz.dev"
+            "url": "https://baaz.dev"
         },
         "publisher": {
             "@type": "Organization",
             "name": "BaaZ",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://www.baaz.dev/img/logo-vector.png"
+                "url": "https://baaz.dev/img/logo-vector.png"
             }
         },
         "datePublished": "2025-01-25",
         "dateModified": "2025-01-25",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https://www.baaz.dev/case-studies/rdma-kubernetes"
+            "@id": "https://baaz.dev/case-studies/rdma-kubernetes"
         },
         "keywords": [
             "RDMA",
@@ -94,19 +94,19 @@ const structuredData = {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://www.baaz.dev"
+                "item": "https://baaz.dev"
             },
             {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Case Studies",
-                "item": "https://www.baaz.dev/case-studies"
+                "item": "https://baaz.dev/case-studies"
             },
             {
                 "@type": "ListItem",
                 "position": 3,
                 "name": "RDMA on Bare Metal Kubernetes",
-                "item": "https://www.baaz.dev/case-studies/rdma-kubernetes"
+                "item": "https://baaz.dev/case-studies/rdma-kubernetes"
             }
         ]
     },
@@ -152,9 +152,9 @@ export default function CaseStudies() {
                 {/* Enhanced meta tags for this specific page */}
                 <meta property="og:title" content="8.5x Faster Distributed Training: RDMA on Bare Metal Kubernetes | BaaZ Case Study" />
                 <meta property="og:description" content="Technical case study on implementing GPUDirect RDMA over RoCE, achieving 10x latency improvement and 8.5x training throughput on bare metal Kubernetes." />
-                <meta property="og:url" content="https://www.baaz.dev/case-studies/rdma-kubernetes" />
+                <meta property="og:url" content="https://baaz.dev/case-studies/rdma-kubernetes" />
                 <meta property="og:type" content="article" />
-                <meta property="og:image" content="https://www.baaz.dev/img/diagram-01-tcp-vs-rdma-datapath.svg" />
+                <meta property="og:image" content="https://baaz.dev/img/diagram-01-tcp-vs-rdma-datapath.svg" />
                 <meta property="article:published_time" content="2025-01-25" />
                 <meta property="article:author" content="BaaZ" />
                 <meta property="article:section" content="Case Studies" />
@@ -166,11 +166,11 @@ export default function CaseStudies() {
                 {/* Twitter Card meta tags */}
                 <meta name="twitter:title" content="8.5x Faster Distributed Training: RDMA on Bare Metal Kubernetes" />
                 <meta name="twitter:description" content="How we helped a computer vision company achieve 10x latency improvement with GPUDirect RDMA over RoCE on Kubernetes." />
-                <meta name="twitter:image" content="https://www.baaz.dev/img/diagram-01-tcp-vs-rdma-datapath.svg" />
+                <meta name="twitter:image" content="https://baaz.dev/img/diagram-01-tcp-vs-rdma-datapath.svg" />
 
                 {/* Additional SEO meta tags */}
                 <meta name="keywords" content="RDMA case study, GPUDirect RDMA, RoCE Kubernetes, distributed GPU training, NCCL optimization, ConnectX-6, Multus CNI, bare metal Kubernetes, GPU infrastructure consulting, AllReduce optimization" />
-                <link rel="canonical" href="https://www.baaz.dev/case-studies/rdma-kubernetes" />
+                <link rel="canonical" href="https://baaz.dev/case-studies/rdma-kubernetes" />
 
                 {/* Structured Data */}
                 <script type="application/ld+json">

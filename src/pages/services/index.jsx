@@ -8,14 +8,15 @@ import styles from "./styles.module.css"
 export default function Services() {
     const serviceSchema = {
         "@context": "https://schema.org",
-        "@type": "Service",
-        "name": "GPU Infrastructure Consulting",
+        "@type": "ProfessionalService",
+        "name": "BaaZ GPU Infrastructure Consulting",
+        "url": "https://baaz.dev/services",
         "provider": {
             "@type": "Organization",
-            "name": "BaaZ"
+            "name": "BaaZ",
+            "url": "https://baaz.dev"
         },
-        "description": "Expert GPU infrastructure consulting for distributed training optimization, GPU cluster setup, and AI cloud architecture. We help companies achieve 8.5x faster training and 70%+ GPU utilization.",
-        "serviceType": "IT Consulting",
+        "serviceType": "GPU Infrastructure Consulting",
         "areaServed": "Worldwide",
         "hasOfferCatalog": {
             "@type": "OfferCatalog",
@@ -26,7 +27,7 @@ export default function Services() {
                     "itemOffered": {
                         "@type": "Service",
                         "name": "Distributed Training Optimization",
-                        "description": "NCCL tuning, RDMA configuration, InfiniBand/RoCE optimization for multi-node GPU training"
+                        "description": "NCCL tuning, RDMA/RoCE configuration, InfiniBand optimization, GPUDirect RDMA setup, and network topology analysis."
                     }
                 },
                 {
@@ -34,7 +35,7 @@ export default function Services() {
                     "itemOffered": {
                         "@type": "Service",
                         "name": "GPU Cluster Architecture",
-                        "description": "End-to-end GPU cluster design and implementation for AI workloads"
+                        "description": "End-to-end GPU cluster design and implementation: hardware selection, network fabric, storage, orchestration, and monitoring."
                     }
                 },
                 {
@@ -42,7 +43,31 @@ export default function Services() {
                     "itemOffered": {
                         "@type": "Service",
                         "name": "GPU Sharing & Multi-tenancy",
-                        "description": "MIG, time-slicing, and Kubernetes GPU operators for maximizing utilization"
+                        "description": "MIG partitioning, time-slicing, Kubernetes GPU operators, quota management, and fair scheduling for 70%+ utilization."
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "GPU Observability & Reliability",
+                        "description": "DCGM metrics, GPU health monitoring, alerting, dashboards, fault detection, and automated recovery."
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Self-Service GPU Platform",
+                        "description": "Self-service portals, resource quotas, environment templates, access control, and cost allocation for ML teams."
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "GPU Cloud Platform",
+                        "description": "Multi-tenant GPU-as-a-service platform: scheduling, isolation, monitoring, billing integration, and usage metering."
                     }
                 }
             ]
@@ -51,8 +76,8 @@ export default function Services() {
 
     return (
         <Layout
-            title="GPU Infrastructure Consulting Services | Distributed Training & Cluster Optimization"
-            description="Expert GPU infrastructure consulting: distributed training optimization (8.5x faster), GPU cluster architecture, RDMA/InfiniBand setup, and Kubernetes GPU operators. Turn 30% utilization into 70%+."
+            title="GPU Infrastructure Consulting Services"
+            description="GPU infrastructure consulting services: distributed training optimization, RDMA networking, GPU cluster architecture, multi-tenancy, and observability."
         >
             <Head>
                 <script type="application/ld+json">
@@ -116,6 +141,9 @@ export default function Services() {
                                     <li>GPUDirect RDMA setup</li>
                                     <li>Network topology analysis</li>
                                 </ul>
+                                <Link to="/services/distributed-training" className={styles.caseStudyLink}>
+                                    Learn more →
+                                </Link>
                             </div>
 
                             <div className={styles.serviceCard}>
@@ -127,7 +155,7 @@ export default function Services() {
                                 </div>
                                 <h3 className={styles.serviceTitle}>GPU Cluster Architecture</h3>
                                 <p className={styles.serviceDesc}>
-                                    Building a new GPU cluster? We design and implement end-to-end infrastructure 
+                                    Building a new GPU cluster? We design and implement end-to-end infrastructure
                                     for AI workloads—on-prem, colo, or cloud.
                                 </p>
                                 <ul className={styles.serviceFeatures}>
@@ -137,6 +165,9 @@ export default function Services() {
                                     <li>Orchestration setup (K8s/Slurm)</li>
                                     <li>Monitoring & observability</li>
                                 </ul>
+                                <Link to="/services/ai-factory" className={styles.caseStudyLink}>
+                                    Learn more →
+                                </Link>
                             </div>
 
                             <div className={styles.serviceCard}>
@@ -148,7 +179,7 @@ export default function Services() {
                                 </div>
                                 <h3 className={styles.serviceTitle}>GPU Sharing & Multi-tenancy</h3>
                                 <p className={styles.serviceDesc}>
-                                    GPUs sitting idle while teams wait? We implement proper sharing with 
+                                    GPUs sitting idle while teams wait? We implement proper sharing with
                                     isolation—MIG, time-slicing, quotas—so you get 70%+ utilization.
                                 </p>
                                 <ul className={styles.serviceFeatures}>
@@ -158,6 +189,9 @@ export default function Services() {
                                     <li>Quota management</li>
                                     <li>Fair scheduling</li>
                                 </ul>
+                                <Link to="/services/gpu-kubernetes" className={styles.caseStudyLink}>
+                                    Learn more →
+                                </Link>
                             </div>
 
                             <div className={styles.serviceCard}>
@@ -168,7 +202,7 @@ export default function Services() {
                                 </div>
                                 <h3 className={styles.serviceTitle}>GPU Observability & Reliability</h3>
                                 <p className={styles.serviceDesc}>
-                                    Jobs failing at 2am with no visibility? We build monitoring that catches 
+                                    Jobs failing at 2am with no visibility? We build monitoring that catches
                                     GPU failures before jobs crash and systems that recover automatically.
                                 </p>
                                 <ul className={styles.serviceFeatures}>
@@ -178,6 +212,9 @@ export default function Services() {
                                     <li>Fault detection</li>
                                     <li>Automated recovery</li>
                                 </ul>
+                                <Link to="/services/gpu-monitoring" className={styles.caseStudyLink}>
+                                    Learn more →
+                                </Link>
                             </div>
 
                             <div className={styles.serviceCard}>
@@ -190,7 +227,7 @@ export default function Services() {
                                 </div>
                                 <h3 className={styles.serviceTitle}>Self-Service GPU Platform</h3>
                                 <p className={styles.serviceDesc}>
-                                    ML teams waiting days for infrastructure tickets? We build self-service 
+                                    ML teams waiting days for infrastructure tickets? We build self-service
                                     platforms with guardrails so teams can provision GPU environments themselves.
                                 </p>
                                 <ul className={styles.serviceFeatures}>

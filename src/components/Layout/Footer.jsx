@@ -19,6 +19,7 @@ export default function Footer() {
                         <h4 className={styles.footerHeading}>Pages</h4>
                         <div className={styles.footerLinks}>
                             <Link to="/">Home</Link>
+                            <Link to="/services">Services</Link>
                             <Link to="/about">About</Link>
                             <Link to="/contact">Contact</Link>
                             <Link to="/blog">Blog</Link>
@@ -47,7 +48,7 @@ export default function Footer() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                Newsletter
+                                GPU Infrastructure Newsletter
                             </a>
                         </div>
                     </div>
@@ -67,7 +68,7 @@ export default function Footer() {
                 </div>
 
                 <div className={styles.footerBottom}>
-                    <p>&copy; 2024 Sadhrao Software Consulting. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} BaaZ. All rights reserved.</p>
                 </div>
             </div>
         </footer>

@@ -6,6 +6,10 @@ authors: [Adheip Singh]
 tags: [SAAS, control-planes]
 ---
 
+:::info Looking for GPU Infrastructure?
+BaaZ now specializes in GPU infrastructure consulting for AI training. [See our GPU infrastructure services →](/services)
+:::
+
 *The goal of this series is to provide an in-depth understanding of building state-driven infrastructure products, as opposed to API-driven ones. Much of the content is drawn from my experience building control planes for infrastructure. Before Kubernetes, I worked as an infrastructure developer on platforms like BOSH, Cloud Foundry, and Mesos. However, Kubernetes fundamentally changed my approach to state management and the construction of states.*
 
 ### Introduction to State Machines

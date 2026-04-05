@@ -82,3 +82,10 @@ This investigation highlights several important considerations for infrastructur
 4. **Power efficiency at scale**: In production environments with hundreds or thousands of GPUs, these power optimizations can result in substantial energy savings during idle periods.
 
 For teams managing GPU infrastructure, understanding these power management behaviors helps distinguish between actual configuration issues and normal operating states. When troubleshooting performance concerns, always verify PCIe generation under load conditions rather than idle states to get an accurate assessment of your system's operational characteristics.
+
+---
+
+## Related
+
+- [GPU Monitoring & Observability →](/services/gpu-monitoring)
+- [GPU-to-GPU Communication Across Nodes →](/blog/gpu-to-gpu-communication-across-nodes)

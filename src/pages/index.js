@@ -1,15 +1,76 @@
 import React from "react"
 import Layout from "@theme/Layout"
 import Link from "@docusaurus/Link"
+import Head from "@docusaurus/Head"
 import { Navbar } from "@site/src/components/Layout"
 import styles from "./index.module.css"
+
+const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "How do you fix idle GPUs while teams wait for access?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We implement MIG partitioning, time-slicing, Kubernetes GPU operators, and quota management to enable safe GPU sharing across teams, increasing utilization from 30% to over 70%."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How do you speed up slow distributed training across multiple nodes?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We diagnose and fix network bottlenecks through NCCL optimization, RDMA configuration, and InfiniBand/RoCE tuning. We have achieved 8.5x faster distributed training through these optimizations."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How do you improve GPU cluster observability?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We set up comprehensive monitoring, alerting, and visibility into GPU health using DCGM metrics, Prometheus, and Grafana dashboards so you know exactly what is happening in your cluster."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How do you handle randomly failing GPU jobs?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We implement proper logging, fault tolerance, and automated recovery systems that catch GPU failures before jobs crash and automatically recover from common failure modes."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How do you reduce ML team wait times for infrastructure?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We build self-service platforms with guardrails that let ML teams provision GPU environments themselves, eliminating infrastructure ticket bottlenecks."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can you help us build a GPU cloud from scratch?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. We provide end-to-end architecture and implementation for GPU cloud platforms, including multi-tenant scheduling, isolation, monitoring, billing integration, and usage metering."
+            }
+        }
+    ]
+}
 
 export default function Home() {
     return (
         <Layout
-            title="GPU Infrastructure Consulting for AI Training | Build & Optimize GPU Clusters"
-            description="Turn 30% GPU utilization into 70%+. BaaZ helps CTOs at AI startups build production-ready GPU infrastructure, optimize distributed training (8.5x faster), and reduce AI compute costs."
+            title="GPU Infrastructure Consulting for AI"
+            description="BaaZ helps startups and SMEs build, optimize, and operate GPU clusters for AI training. 8.5x faster distributed training, 70%+ GPU utilization, 10x latency reduction."
         >
+            <Head>
+                <script type="application/ld+json">
+                    {JSON.stringify(faqSchema)}
+                </script>
+            </Head>
             <Navbar />
             <main className={styles.main}>
                 {/* Hero Section */}
