@@ -3,8 +3,8 @@ title: "Adding Global Config to the NVIDIA Network Operator"
 description: "Global config for NicClusterPolicy: set repository, version, and imagePullSecrets once instead of repeating across every Network Operator component."
 slug: global-config-nvidia-network-operator
 authors: [Adheip Singh]
-date: 2025-04-06T10:00
-tags: [kubernetes, networking, rdma, open-source]
+date: 2026-04-06T10:00
+tags: [gpu, kubernetes, networking, rdma, open-source]
 image: /img/blog/global-config-nvidia-network-operator.svg
 ---
 
