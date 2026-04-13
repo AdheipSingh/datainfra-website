@@ -11,7 +11,7 @@ tags: [gpu, rdma, kubernetes, networking, nccl, network-operator, sr-iov]
 
 <!-- truncate -->
 
-![Secondary network types in the NVIDIA Network Operator](/img/blog/secondary-networks-overview.svg)
+![Secondary network types in the NVIDIA Network Operator](../../static/img/blog/secondary-networks-overview.svg)
 
 ## Why GPU pods need two networks
 
@@ -27,7 +27,7 @@ The question is *how* that secondary interface gets attached to the physical NIC
 
 ## Macvlan — shared access, software isolation
 
-![Macvlan secondary network architecture](/img/blog/secondary-networks-macvlan.svg)
+![Macvlan secondary network architecture](../../static/img/blog/secondary-networks-macvlan.svg)
 
 Macvlan is the simplest secondary network type. It creates a virtual sub-interface on top of a physical NIC. The host keeps the original interface, and each pod gets a new virtual interface with its own MAC address, backed by the same physical port. Multiple pods share the same NIC simultaneously.
 
@@ -45,7 +45,7 @@ In the Network Operator, you define a `MacvlanNetwork` CR specifying the master 
 
 ## Host-device — exclusive access, the NIC moves into the pod
 
-![Host-device secondary network architecture](/img/blog/secondary-networks-hostdevice.svg)
+![Host-device secondary network architecture](../../static/img/blog/secondary-networks-hostdevice.svg)
 
 Host-device takes a fundamentally different approach. Instead of creating a virtual sub-interface, the `host-device` CNI plugin **moves the physical network interface itself** from the host's network namespace into the pod's network namespace. The NIC literally disappears from `ip link` on the host while the pod is running and reappears when the pod terminates.
 
@@ -63,7 +63,7 @@ The obvious limitation is that only one pod can use each NIC at a time. If you n
 
 ## SR-IOV — hardware-partitioned virtual functions
 
-![SR-IOV secondary network architecture](/img/blog/secondary-networks-sriov.svg)
+![SR-IOV secondary network architecture](../../static/img/blog/secondary-networks-sriov.svg)
 
 SR-IOV (Single Root I/O Virtualization) is a PCIe specification that lets a single physical NIC present itself as multiple independent virtual devices. The physical device is the Physical Function (PF). Each virtual device is a Virtual Function (VF). VFs are real PCIe functions — they show up in `lspci`, have their own driver bindings, their own MAC addresses, and their own RDMA contexts.
 
@@ -83,7 +83,7 @@ VF count is a hard firmware limit — ConnectX-7 supports up to 127 VFs per port
 
 ## IPoIB — IP over InfiniBand
 
-![IPoIB secondary network architecture](/img/blog/secondary-networks-ipoib.svg)
+![IPoIB secondary network architecture](../../static/img/blog/secondary-networks-ipoib.svg)
 
 IPoIB is not the same thing as the other three. Macvlan, host-device, and SR-IOV all operate on Ethernet networks (including RoCE — RDMA over Converged Ethernet). IPoIB operates on a completely different link layer: InfiniBand.
 
