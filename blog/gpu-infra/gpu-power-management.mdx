@@ -8,9 +8,12 @@ date: 2025-08-27T10:00
 tags: [gpu, infrastructure, power-management, pcie, monitoring]
 ---
 
+import FAQSection from '@site/src/components/FAQSection'
+import ServiceCTA from '@site/src/components/ServiceCTA'
+
 *When monitoring GPU infrastructure, you might occasionally notice something peculiar: your high-end GPUs connected to PCIe 5.0 slots are operating at PCIe Gen 1 speeds. Before raising any alarms, let's walk through a systematic debugging approach that reveals this is often expected behavior rather than a configuration issue.*
 
-<!--truncate-->
+{/* truncate */}
 
 ## The Discovery
 
@@ -34,7 +37,7 @@ The performance implications seemed significant at first glance. PCIe Gen 1 prov
 
 ## Verifying the Configuration
 
-To ensure this wasn't a hardware misconfiguration, we proceeded with a thorough investigation using standard Linux diagnostic tools.
+To ensure this wasn't a hardware misconfiguration, we proceeded with a thorough investigation using standard Linux diagnostic tools. This kind of low-level verification is one of the signals we rely on when building a [GPU observability and reliability stack](/services/gpu-monitoring) — a single downgraded link can otherwise hide behind green dashboards for weeks.
 
 ### PCIe Link Status Verification
 
@@ -69,6 +72,8 @@ After confirming the hardware configuration was sound, the explanation became cl
 
 When GPUs are idle or under minimal load, they automatically scale down to PCIe Gen 1 to reduce power consumption. This behavior is particularly important in datacenter environments where energy efficiency directly impacts operational costs. The GPUs will automatically negotiate higher PCIe generations when computational demands require increased bandwidth.
 
+The same "is it actually a problem?" question comes up for network counters too — see [Understanding RX vs TX traffic direction](/blog/understanding-rx-tx-network-traffic-direction) for an example where the raw numbers look alarming but context reveals normal behavior.
+
 ## Key Takeaways
 
 This investigation highlights several important considerations for infrastructure monitoring:
@@ -83,9 +88,44 @@ This investigation highlights several important considerations for infrastructur
 
 For teams managing GPU infrastructure, understanding these power management behaviors helps distinguish between actual configuration issues and normal operating states. When troubleshooting performance concerns, always verify PCIe generation under load conditions rather than idle states to get an accurate assessment of your system's operational characteristics.
 
+<ServiceCTA
+    service="GPU Observability"
+    title="Is your monitoring surfacing real issues — or false alarms?"
+    text="We help GPU teams build observability that distinguishes idle-state power management from actual link failures, driver regressions, and hardware degradation. Real dashboards, real alerts, real on-call hygiene."
+    link="/services/gpu-monitoring"
+    buttonLabel="Talk to us about GPU monitoring"
+/>
+
+{/* TODO: review FAQ answers before publishing — drafted from post content, refine for positioning and concision. */}
+<FAQSection
+    items={[
+        {
+            question: "Why does nvidia-smi show my GPU at PCIe Gen 1 when the slot is Gen 5?",
+            answer: "Modern NVIDIA GPUs implement Active State Power Management and dynamically downshift the PCIe link to Gen 1 when the device is idle to save power. As soon as a workload hits the GPU, the link renegotiates up to its trained maximum generation. Seeing Gen 1 at idle on a Gen 5 slot is expected behavior, not a fault.",
+        },
+        {
+            question: "How do I confirm the GPU is running at full PCIe speed under load?",
+            answer: "Run a workload that actually drives PCIe traffic (e.g. `nvidia-smi dmon`, an NCCL bandwidth test, or a training job) and poll `nvidia-smi --query-gpu=pcie.link.gen.current,pcie.link.width.current --format=csv` during the run. The link generation and width should rise to match the values reported by `pcie.link.gen.max` and `pcie.link.width.max`.",
+        },
+        {
+            question: "Which tools should I use to debug PCIe link state?",
+            answer: "Use three complementary tools: `nvidia-smi` for the GPU's view of the link, `lspci -vv` (look at `LnkCap` vs `LnkSta`) for the PCIe controller's view, and `dmidecode -t slot` to confirm the physical slot capability. If all three agree on Gen 5 max and only the current state is Gen 1 at idle, this is power management, not a defect.",
+        },
+        {
+            question: "When is a downgraded PCIe link actually a problem?",
+            answer: "It is a real problem when the link stays at a reduced generation or width under sustained GPU load. Persistent Gen 3 on a Gen 4/5-capable platform, an unexpected x8 width on an x16 slot, or frequent link retraining events in `dmesg` all indicate physical issues — riser cables, seating, firmware mismatches, or a failing slot — and deserve investigation.",
+        },
+        {
+            question: "Does PCIe power management affect distributed training performance?",
+            answer: "Not meaningfully for well-tuned training jobs. NCCL AllReduce and gradient transfers generate enough sustained PCIe traffic to keep the link at its maximum generation. The exception is very bursty, small-message workloads where the link may transition in and out of low-power states — in that case you can pin the link via `nvidia-smi -pm` and BIOS/ACPI tuning.",
+        },
+    ]}
+/>
+
 ---
 
 ## Related
 
 - [GPU Monitoring & Observability →](/services/gpu-monitoring)
 - [GPU-to-GPU Communication Across Nodes →](/blog/gpu-to-gpu-communication-across-nodes)
+- [Understanding RX vs TX Network Traffic →](/blog/understanding-rx-tx-network-traffic-direction)

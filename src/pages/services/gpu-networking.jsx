@@ -3,219 +3,50 @@ import Layout from "@theme/Layout"
 import Head from "@docusaurus/Head"
 import Link from "@docusaurus/Link"
 import { Navbar } from "@site/src/components/Layout"
+import FAQSection from "@site/src/components/FAQSection"
+import styles from "./styles.module.css"
 
 const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "GPU Networking & RDMA Consulting",
-    "description": "RDMA, InfiniBand, and RoCE networking consulting for GPU clusters. GPUDirect RDMA setup, NCCL optimization, and network fabric design for AI training.",
+    "provider": { "@type": "Organization", "name": "BaaZ", "url": "https://baaz.dev" },
+    "description": "RDMA network design for GPU clusters — InfiniBand, RoCE, GPUDirect RDMA, switch fabric design, and NCCL optimization.",
     "url": "https://baaz.dev/services/gpu-networking",
-    "provider": {
-        "@type": "Organization",
-        "name": "BaaZ",
-        "url": "https://baaz.dev"
+}
+
+const faqItems = [
+    {
+        question: "What is RDMA and why does it matter for GPU training?",
+        answer: "RDMA lets NICs read and write remote memory directly, bypassing the CPU and kernel. Combined with GPUDirect RDMA, it enables zero-copy GPU-to-GPU transfers across nodes — 5-10x higher bandwidth and an order-of-magnitude lower latency than TCP on the same hardware.",
     },
-    "serviceType": "GPU Networking Consulting",
-    "areaServed": "Worldwide",
-    "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "GPU Networking Services",
-        "itemListElement": [
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "RDMA Network Setup",
-                    "description": "End-to-end RDMA configuration for InfiniBand and RoCE networks including switch configuration, NIC tuning, and validation."
-                }
-            },
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "GPUDirect RDMA Configuration",
-                    "description": "Enable and optimize GPUDirect RDMA for zero-copy GPU-to-GPU data transfers across network nodes."
-                }
-            },
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "Network Fabric Design",
-                    "description": "Design and implement GPU cluster network fabrics using leaf-spine topologies, rail-optimized networks, and multi-rail configurations."
-                }
-            },
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "NCCL Network Optimization",
-                    "description": "Tune NCCL to maximize network throughput for distributed training collective operations over RDMA fabrics."
-                }
-            }
-        ]
-    }
-}
+    {
+        question: "Should I use InfiniBand or RoCE?",
+        answer: "Both deliver RDMA performance. InfiniBand is a purpose-built lossless fabric standard in DGX SuperPOD deployments. RoCE v2 runs RDMA over Ethernet — cheaper, more flexible, and the right choice for most cloud, colo, and bare-metal clusters when PFC and ECN are configured correctly.",
+    },
+    {
+        question: "Do I need PFC and ECN for RoCE?",
+        answer: "Yes, if you want lossless RoCE v2. PFC prevents packet drops during microbursts, ECN signals congestion before buffers overflow. Without these configured end-to-end — NICs, switches, and host settings — RoCE falls over under load and NCCL silently underperforms.",
+    },
+    {
+        question: "What is GPUDirect RDMA?",
+        answer: "GPUDirect RDMA lets the NIC DMA directly to and from GPU memory without an intermediate CPU copy. It requires matched driver support, peer-memory modules, and PCIe affinity between GPU and NIC. When enabled, inter-node GPU communication drops to single-digit microseconds.",
+    },
+    {
+        question: "Can you fix existing GPU networking problems?",
+        answer: "Yes. A lot of our work is forensic: NCCL falling back to TCP, PFC dropping packets under load, GPU-NIC PCIe affinity mismatches, wrong NCCL_IB_HCA, incorrect DSCP marking. We bring perftest, nccl-tests, and switch counter experience to find and fix these without replacing hardware.",
+    },
+    {
+        question: "Do I need two NICs per GPU node?",
+        answer: "For production distributed training, yes. One NIC for Kubernetes management (pod CNI, API traffic, metrics) and one or more RDMA-capable NICs dedicated to NCCL/training traffic via Multus secondary networks. Single-NIC works for POCs but degrades at scale.",
+    },
+]
 
-const sectionStyle = {
-    marginBottom: '48px',
-}
-
-const h2Style = {
-    fontSize: '1.75rem',
-    fontWeight: 700,
-    color: '#1a365d',
-    marginBottom: '16px',
-    marginTop: '48px',
-}
-
-const h3Style = {
-    fontSize: '1.25rem',
-    fontWeight: 600,
-    color: '#2d3748',
-    marginBottom: '12px',
-    marginTop: '32px',
-}
-
-const pStyle = {
-    color: '#4a5568',
-    lineHeight: 1.8,
-    fontSize: '1.05rem',
-    marginBottom: '16px',
-}
-
-const listStyle = {
-    color: '#4a5568',
-    lineHeight: 1.8,
-    fontSize: '1.05rem',
-    paddingLeft: '24px',
-    marginBottom: '16px',
-}
-
-const statBoxStyle = {
-    display: 'flex',
-    gap: '32px',
-    flexWrap: 'wrap',
-    margin: '32px 0',
-}
-
-const statItemStyle = {
-    background: '#f7fafc',
-    border: '1px solid #e2e8f0',
-    borderRadius: '12px',
-    padding: '24px 32px',
-    textAlign: 'center',
-    flex: '1',
-    minWidth: '150px',
-}
-
-const statValueStyle = {
-    display: 'block',
-    fontSize: '2rem',
-    fontWeight: 800,
-    color: '#3182ce',
-    lineHeight: 1,
-}
-
-const statLabelStyle = {
-    display: 'block',
-    fontSize: '0.9rem',
-    color: '#4a5568',
-    marginTop: '8px',
-}
-
-const ctaSectionStyle = {
-    background: '#1a365d',
-    borderRadius: '16px',
-    padding: '48px',
-    textAlign: 'center',
-    marginTop: '64px',
-}
-
-const ctaTitleStyle = {
-    fontSize: '1.75rem',
-    fontWeight: 700,
-    color: 'white',
-    marginBottom: '16px',
-}
-
-const ctaTextStyle = {
-    fontSize: '1.05rem',
-    color: 'rgba(255, 255, 255, 0.9)',
-    lineHeight: 1.6,
-    marginBottom: '24px',
-    maxWidth: '600px',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-}
-
-const ctaButtonStyle = {
-    display: 'inline-block',
-    background: 'white',
-    color: '#1a365d',
-    padding: '14px 40px',
-    borderRadius: '6px',
-    fontWeight: 600,
-    fontSize: '1.05rem',
-    textDecoration: 'none',
-}
-
-const tagContainerStyle = {
-    display: 'flex',
-    flexWrap: 'wrap',
-    gap: '8px',
-    margin: '16px 0',
-}
-
-const tagStyle = {
-    background: '#ebf8ff',
-    border: '1px solid #bee3f8',
-    padding: '6px 14px',
-    borderRadius: '6px',
-    fontSize: '0.9rem',
-    color: '#2b6cb0',
-    fontWeight: 500,
-}
-
-const heroLabelStyle = {
-    display: 'inline-block',
-    background: '#ebf8ff',
-    color: '#2b6cb0',
-    padding: '6px 16px',
-    borderRadius: '100px',
-    fontSize: '0.85rem',
-    fontWeight: 600,
-    letterSpacing: '0.02em',
-    marginBottom: '16px',
-}
-
-const comparisonTableStyle = {
-    width: '100%',
-    borderCollapse: 'collapse',
-    margin: '24px 0',
-    fontSize: '0.95rem',
-}
-
-const thStyle = {
-    background: '#f7fafc',
-    border: '1px solid #e2e8f0',
-    padding: '12px 16px',
-    textAlign: 'left',
-    fontWeight: 600,
-    color: '#1a365d',
-}
-
-const tdStyle = {
-    border: '1px solid #e2e8f0',
-    padding: '12px 16px',
-    color: '#4a5568',
-}
-
-export default function GpuNetworking() {
+export default function GPUNetworking() {
     return (
         <Layout
             title="GPU Networking & RDMA Consulting"
-            description="RDMA, InfiniBand, and RoCE networking consulting for GPU clusters. GPUDirect RDMA setup, NCCL optimization, and network fabric design for AI training."
+            description="RDMA network design and implementation for GPU clusters. InfiniBand, RoCE, GPUDirect RDMA, NCCL optimization. Sub-microsecond latency, wire-rate transfers."
         >
             <Head>
                 <script type="application/ld+json">
@@ -223,236 +54,117 @@ export default function GpuNetworking() {
                 </script>
             </Head>
             <Navbar />
-            <main style={{ maxWidth: '800px', margin: '0 auto', padding: '120px 24px 80px' }}>
-                <span style={heroLabelStyle}>Service</span>
-                <h1 style={{ fontSize: '2.5rem', fontWeight: 800, color: '#1a365d', lineHeight: 1.2, marginBottom: '20px' }}>
-                    GPU Networking & RDMA Consulting
-                </h1>
-                <p style={{ fontSize: '1.2rem', color: '#4a5568', lineHeight: 1.7, marginBottom: '32px' }}>
-                    The network connecting your GPUs determines whether distributed training scales linearly or
-                    plateaus. We design, implement, and optimize RDMA network fabrics for GPU clusters, turning
-                    the interconnect from a bottleneck into an enabler.
+            <main className={styles.subPage}>
+                <span className={styles.subLabel}>Service</span>
+                <h1 className={styles.subTitle}>GPU Networking & RDMA</h1>
+                <p className={styles.subLead}>
+                    The network between your GPUs is the single biggest performance lever in distributed
+                    training. A misconfigured switch port or missing PFC config silently kills throughput
+                    for the entire cluster. We design and implement RDMA networks that run at wire rate.
                 </p>
 
-                <div style={statBoxStyle}>
-                    <div style={statItemStyle}>
-                        <span style={statValueStyle}>400 Gb/s</span>
-                        <span style={statLabelStyle}>Per-Port Bandwidth</span>
+                <div className={styles.metricsRow}>
+                    <div className={styles.metricBox}>
+                        <span className={styles.metricBoxValue}>400 Gb/s</span>
+                        <span className={styles.metricBoxLabel}>Per-Port Bandwidth</span>
                     </div>
-                    <div style={statItemStyle}>
-                        <span style={statValueStyle}>{'<'}2 us</span>
-                        <span style={statLabelStyle}>RDMA Latency</span>
+                    <div className={styles.metricBox}>
+                        <span className={styles.metricBoxValue}>&lt;2 μs</span>
+                        <span className={styles.metricBoxLabel}>RDMA Latency</span>
                     </div>
-                    <div style={statItemStyle}>
-                        <span style={statValueStyle}>Zero</span>
-                        <span style={statLabelStyle}>CPU Overhead</span>
-                    </div>
-                </div>
-
-                <div style={sectionStyle}>
-                    <h2 style={h2Style}>Why GPU Networking Is Different</h2>
-                    <p style={pStyle}>
-                        Traditional data center networking was designed for web applications and databases where latency
-                        requirements are measured in milliseconds and bandwidth needs are modest. GPU cluster networking
-                        operates in a fundamentally different regime. Distributed training workloads generate burst traffic
-                        patterns where all nodes simultaneously transmit gradient data during collective operations, demanding
-                        full bisection bandwidth from the network fabric. A single congested link or misconfigured switch port
-                        can degrade the performance of an entire training job.
-                    </p>
-                    <p style={pStyle}>
-                        The difference between a properly configured RDMA network and a standard TCP/IP network is not
-                        incremental. It is transformational. RDMA enables GPU-to-GPU transfers at wire rate with sub-microsecond
-                        latency and zero CPU involvement. Without it, every inter-node transfer requires multiple memory copies
-                        through the CPU, adding hundreds of microseconds of latency and consuming CPU cycles that should be
-                        feeding the GPUs. This is why networking expertise is the single most impactful investment you can make
-                        in GPU cluster performance.
-                    </p>
-                </div>
-
-                <div style={sectionStyle}>
-                    <h2 style={h2Style}>InfiniBand vs. RoCE: Choosing the Right Fabric</h2>
-                    <p style={pStyle}>
-                        The first architectural decision for any GPU cluster network is choosing between InfiniBand and RDMA
-                        over Converged Ethernet (RoCE). Both provide RDMA capability, but they differ significantly in
-                        deployment complexity, cost, and operational characteristics.
-                    </p>
-
-                    <table style={comparisonTableStyle}>
-                        <thead>
-                            <tr>
-                                <th style={thStyle}>Characteristic</th>
-                                <th style={thStyle}>InfiniBand</th>
-                                <th style={thStyle}>RoCE v2</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td style={tdStyle}>Lossless guarantee</td>
-                                <td style={tdStyle}>Built-in credit-based flow control</td>
-                                <td style={tdStyle}>Requires PFC configuration</td>
-                            </tr>
-                            <tr>
-                                <td style={tdStyle}>Congestion management</td>
-                                <td style={tdStyle}>Native, automatic</td>
-                                <td style={tdStyle}>ECN/DCQCN must be configured</td>
-                            </tr>
-                            <tr>
-                                <td style={tdStyle}>Bandwidth (current gen)</td>
-                                <td style={tdStyle}>400 Gb/s (NDR)</td>
-                                <td style={tdStyle}>400 Gb/s (ConnectX-7)</td>
-                            </tr>
-                            <tr>
-                                <td style={tdStyle}>Switch ecosystem</td>
-                                <td style={tdStyle}>NVIDIA Quantum only</td>
-                                <td style={tdStyle}>Multiple vendors</td>
-                            </tr>
-                            <tr>
-                                <td style={tdStyle}>Operational complexity</td>
-                                <td style={tdStyle}>Requires IB subnet manager</td>
-                                <td style={tdStyle}>Standard Ethernet operations</td>
-                            </tr>
-                            <tr>
-                                <td style={tdStyle}>Cost</td>
-                                <td style={tdStyle}>Higher (dedicated fabric)</td>
-                                <td style={tdStyle}>Lower (shared Ethernet)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <p style={pStyle}>
-                        InfiniBand provides guaranteed lossless transport through credit-based flow control, making it
-                        inherently reliable for RDMA. RoCE runs over standard Ethernet switches, offering lower cost and
-                        operational familiarity, but requires careful configuration of Priority Flow Control and ECN to
-                        achieve lossless behavior. We help you choose the right fabric based on your scale, budget, and
-                        operational capabilities, then implement it correctly.
-                    </p>
-                </div>
-
-                <div style={sectionStyle}>
-                    <h2 style={h2Style}>What We Implement</h2>
-
-                    <h3 style={h3Style}>RDMA Network Setup</h3>
-                    <p style={pStyle}>
-                        A working RDMA network requires correct configuration at every layer from the NIC firmware through the
-                        switch fabric to the host operating system. We configure ConnectX NIC firmware and driver parameters
-                        for optimal RDMA performance, set up RoCE v2 with proper GID indexes, traffic class, and DSCP
-                        marking, configure PFC (Priority Flow Control) on switches with appropriate pause thresholds to prevent
-                        packet loss without causing head-of-line blocking, tune ECN (Explicit Congestion Notification) and
-                        DCQCN parameters for proactive congestion management, validate end-to-end RDMA connectivity with
-                        perftest tools, and set MTU to 9000 bytes (jumbo frames) across the entire path for maximum throughput.
-                    </p>
-
-                    <h3 style={h3Style}>GPUDirect RDMA</h3>
-                    <p style={pStyle}>
-                        GPUDirect RDMA enables network adapters to directly read from and write to GPU memory, completely
-                        bypassing CPU memory. This eliminates two memory copies per transfer and reduces latency by an order
-                        of magnitude. We install and configure the nvidia-peermem kernel module, verify PCIe topology to ensure
-                        GPUs and NICs share the same PCIe root complex for optimal DMA performance, configure NCCL to use
-                        GPUDirect with the appropriate NET_GDR_LEVEL setting, and validate GPU-to-GPU RDMA bandwidth with
-                        NCCL tests and real workloads. On systems where GPU and NIC are on different PCIe trees, we evaluate
-                        the performance tradeoff and configure NCCL accordingly.
-                    </p>
-
-                    <h3 style={h3Style}>Network Fabric Design</h3>
-                    <p style={pStyle}>
-                        For new GPU cluster builds, we design the network fabric from scratch. Our designs typically use
-                        leaf-spine or fat-tree topologies that provide full bisection bandwidth, rail-optimized network
-                        layouts where each GPU connects to a dedicated network rail for maximum per-GPU bandwidth, multi-rail
-                        configurations on platforms like HGX and DGX that have multiple NICs per node, adaptive routing on
-                        InfiniBand or ECMP on Ethernet to distribute traffic across multiple paths, and dedicated compute and
-                        storage networks to prevent training traffic from competing with data loading. We size the fabric based
-                        on the expected communication patterns of your workloads, ensuring that collective operations like
-                        AllReduce can execute at full bandwidth across the cluster.
-                    </p>
-
-                    <h3 style={h3Style}>NVIDIA Spectrum-X</h3>
-                    <p style={pStyle}>
-                        For Ethernet-based GPU clusters, NVIDIA Spectrum-X combines Spectrum-4 switches with BlueField-3 DPUs
-                        to deliver InfiniBand-class performance over Ethernet. We design and deploy Spectrum-X fabrics
-                        including switch configuration with adaptive routing and congestion control, BlueField-3 DPU setup for
-                        hardware-accelerated RoCE, isolation between tenants on multi-tenant GPU clusters, and integration
-                        with existing Ethernet infrastructure. Spectrum-X is particularly valuable for cloud providers and
-                        enterprises that want RDMA performance without the operational overhead of a separate InfiniBand fabric.
-                    </p>
-
-                    <h3 style={h3Style}>NCCL Network Tuning</h3>
-                    <p style={pStyle}>
-                        NCCL is the bridge between your training framework and the network. Proper NCCL configuration is
-                        essential to leverage the full capability of your RDMA fabric. We tune NCCL_IB_HCA to pin NCCL to
-                        the correct network interfaces with proper affinity, configure NCCL_IB_GID_INDEX for RoCE v2
-                        operation with the right GID, set NCCL_ALGO and NCCL_PROTO based on the cluster topology and message
-                        size distribution, enable NCCL_IB_ADAPTIVE_ROUTING on InfiniBand fabrics that support it, and tune
-                        buffer sizes and thread counts for the specific GPU and NIC combination. Every environment is
-                        different. We do not apply generic configurations. We measure and tune for your specific hardware.
-                    </p>
-                </div>
-
-                <div style={sectionStyle}>
-                    <h2 style={h2Style}>Technologies We Work With</h2>
-                    <div style={tagContainerStyle}>
-                        <span style={tagStyle}>InfiniBand NDR</span>
-                        <span style={tagStyle}>RoCE v2</span>
-                        <span style={tagStyle}>GPUDirect RDMA</span>
-                        <span style={tagStyle}>ConnectX-6/7</span>
-                        <span style={tagStyle}>BlueField-3</span>
-                        <span style={tagStyle}>Spectrum-X</span>
-                        <span style={tagStyle}>Quantum-2</span>
-                        <span style={tagStyle}>NCCL</span>
-                        <span style={tagStyle}>PFC/ECN</span>
-                        <span style={tagStyle}>DCQCN</span>
-                        <span style={tagStyle}>SR-IOV</span>
-                        <span style={tagStyle}>Multus</span>
+                    <div className={styles.metricBox}>
+                        <span className={styles.metricBoxValue}>Zero</span>
+                        <span className={styles.metricBoxLabel}>CPU Overhead</span>
                     </div>
                 </div>
 
-                <div style={sectionStyle}>
-                    <h2 style={h2Style}>Related Resources</h2>
-                    <ul style={{ ...listStyle, listStyleType: 'none', paddingLeft: 0 }}>
-                        <li style={{ marginBottom: '12px' }}>
-                            <Link to="/blog/dual-network-rdma-kubernetes-gh200" style={{ color: '#3182ce', fontWeight: 500 }}>
-                                Dual-Network RDMA on Kubernetes with GH200
-                            </Link>
-                        </li>
-                        <li style={{ marginBottom: '12px' }}>
-                            <Link to="/blog/gpu-to-gpu-communication-across-nodes" style={{ color: '#3182ce', fontWeight: 500 }}>
-                                GPU-to-GPU Communication Across Nodes
-                            </Link>
-                        </li>
-                        <li style={{ marginBottom: '12px' }}>
-                            <Link to="/blog/understanding-rx-tx-network-traffic" style={{ color: '#3182ce', fontWeight: 500 }}>
-                                Understanding RX/TX Network Traffic
-                            </Link>
-                        </li>
-                        <li style={{ marginBottom: '12px' }}>
-                            <Link to="/blog/network-bottleneck-distributed-training" style={{ color: '#3182ce', fontWeight: 500 }}>
-                                Network Bottlenecks in Distributed Training
-                            </Link>
-                        </li>
-                        <li style={{ marginBottom: '12px' }}>
-                            <Link to="/case-studies/rdma-kubernetes" style={{ color: '#3182ce', fontWeight: 500 }}>
-                                Case Study: 8.5x Faster Training with RDMA
-                            </Link>
-                        </li>
-                        <li style={{ marginBottom: '12px' }}>
-                            <Link to="/services/distributed-training" style={{ color: '#3182ce', fontWeight: 500 }}>
-                                Distributed Training Optimization Service
-                            </Link>
-                        </li>
-                    </ul>
+                <h2 className={styles.subH2}>What We Do</h2>
+                <ul className={styles.subList}>
+                    <li><strong>InfiniBand fabric</strong> — Quantum switch deployment, subnet manager configuration, adaptive routing, fat-tree/dragonfly topology design, partition keys</li>
+                    <li><strong>RoCE v2 fabric</strong> — Lossless Ethernet with PFC, ECN/DCQCN tuning, leaf-spine design, ECMP multi-path, jumbo frames, DSCP trust</li>
+                    <li><strong>GPUDirect RDMA</strong> — Zero-copy GPU-to-GPU transfers bypassing CPU, peer memory module setup, GDR copy validation, firmware tuning</li>
+                    <li><strong>Switch configuration</strong> — Spectrum-X / Quantum switch deployment, port speed validation, error counter monitoring, QoS policies, MTU config</li>
+                    <li><strong>Network Operator on Kubernetes</strong> — NicClusterPolicy setup, Multus secondary networks, SR-IOV, RDMA device plugin. We contributed the <Link to="/blog/global-config-nvidia-network-operator" className={styles.subLink}>global config feature</Link></li>
+                    <li><strong>Dual-network architectures</strong> — Separate management and RDMA training networks, MACVLAN/IPVLAN secondary interfaces, network isolation for multi-tenant clusters</li>
+                </ul>
+
+                <h2 className={styles.subH2}>Proof</h2>
+                <p className={styles.subP}>
+                    We configured GPUDirect RDMA over RoCE on bare-metal Kubernetes with ConnectX-6 NICs.
+                    Result: <strong>10x inter-node latency reduction</strong> and <strong>8.5x training
+                    throughput improvement</strong> over the previous TCP configuration.
+                </p>
+                <p className={styles.subP}>
+                    We also deployed{" "}
+                    <Link to="/blog/dual-network-rdma-kubernetes-gh200" className={styles.subLink}>
+                        dual-network Kubernetes pods with RDMA on NVIDIA GH200
+                    </Link>
+                    {" "}— separate management and training networks with working RDMA verbs.
+                </p>
+
+                <h2 className={styles.subH2}>InfiniBand vs RoCE</h2>
+                <table className={styles.comparisonTable}>
+                    <thead>
+                        <tr><th></th><th>InfiniBand</th><th>RoCE v2</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Lossless guarantee</strong></td><td>Built-in (credit-based)</td><td>Requires PFC config</td></tr>
+                        <tr><td><strong>Congestion handling</strong></td><td>Native</td><td>ECN/DCQCN must be tuned</td></tr>
+                        <tr><td><strong>Bandwidth</strong></td><td>400 Gb/s (NDR)</td><td>400 Gb/s (ConnectX-7)</td></tr>
+                        <tr><td><strong>Switch vendors</strong></td><td>NVIDIA Quantum only</td><td>Multiple vendors</td></tr>
+                        <tr><td><strong>Ops complexity</strong></td><td>Needs subnet manager</td><td>Standard Ethernet ops</td></tr>
+                        <tr><td><strong>Cost</strong></td><td>Higher</td><td>Lower</td></tr>
+                    </tbody>
+                </table>
+
+                <h2 className={styles.subH2}>How We Work</h2>
+                <div className={styles.processRow}>
+                    <div className={styles.processBox}>
+                        <div className={styles.processBoxNum}>1</div>
+                        <p className={styles.processBoxTitle}>Assess</p>
+                        <p className={styles.processBoxDesc}>Audit link speeds, error counters, PFC/ECN, PCIe topology.</p>
+                    </div>
+                    <div className={styles.processBox}>
+                        <div className={styles.processBoxNum}>2</div>
+                        <p className={styles.processBoxTitle}>Design</p>
+                        <p className={styles.processBoxDesc}>Fabric topology, oversubscription, QoS, traffic separation.</p>
+                    </div>
+                    <div className={styles.processBox}>
+                        <div className={styles.processBoxNum}>3</div>
+                        <p className={styles.processBoxTitle}>Implement</p>
+                        <p className={styles.processBoxDesc}>Configure switches, NICs, RDMA, GPUDirect. Validate end-to-end.</p>
+                    </div>
+                    <div className={styles.processBox}>
+                        <div className={styles.processBoxNum}>4</div>
+                        <p className={styles.processBoxTitle}>Transfer</p>
+                        <p className={styles.processBoxDesc}>Network monitoring dashboards, runbooks, documentation.</p>
+                    </div>
                 </div>
 
-                <div style={ctaSectionStyle}>
-                    <h2 style={ctaTitleStyle}>Need Help with GPU Networking?</h2>
-                    <p style={ctaTextStyle}>
-                        Whether you are designing a new RDMA fabric or troubleshooting an existing one, we bring
-                        hands-on expertise to get your GPU network running at full bandwidth.
+                <h2 className={styles.subH2}>Technologies</h2>
+                <div className={styles.techTagsRow}>
+                    {["InfiniBand", "RoCE v2", "GPUDirect RDMA", "ConnectX-6/7", "Spectrum-X", "Quantum", "NCCL", "Network Operator", "Multus", "SR-IOV", "MACVLAN"].map(t => (
+                        <span key={t} className={styles.subTag}>{t}</span>
+                    ))}
+                </div>
+
+                <h2 className={styles.subH2}>Related</h2>
+                <ul className={styles.relatedList}>
+                    <li><Link to="/blog/dual-network-rdma-kubernetes-gh200" className={styles.subLink}>Dual-Network RDMA on GH200 →</Link></li>
+                    <li><Link to="/blog/gpu-to-gpu-communication-across-nodes" className={styles.subLink}>GPU-to-GPU Communication Across Nodes →</Link></li>
+                    <li><Link to="/blog/global-config-nvidia-network-operator" className={styles.subLink}>Adding Global Config to NVIDIA Network Operator →</Link></li>
+                    <li><Link to="/blog/network-bottleneck-distributed-training" className={styles.subLink}>Network Bottlenecks in Distributed Training →</Link></li>
+                    <li><Link to="/services/distributed-training" className={styles.subLink}>Distributed Training Optimization →</Link></li>
+                </ul>
+
+                <FAQSection items={faqItems} />
+
+                <div className={styles.subCta}>
+                    <h2 className={styles.subCtaTitle}>Network Holding Back Your GPUs?</h2>
+                    <p className={styles.subCtaText}>
+                        We'll profile your fabric, find the bottleneck, and fix it. RDMA, GPUDirect, switch configs — all of it.
                     </p>
-                    <a
-                        href="https://cal.com/baazhq"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={ctaButtonStyle}
-                    >
+                    <a href="https://cal.com/baazhq" target="_blank" rel="noopener noreferrer" className={styles.subCtaButton}>
                         Schedule a Call
                     </a>
                 </div>

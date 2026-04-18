@@ -1,7 +1,17 @@
 Adheip Singh:
     name: Adheip Singh
-    title: Founder, BaaZ
+    title: Founder, BaaZ · Apache Software Foundation Member · NVIDIA NCP-AII
     url: https://baaz.dev/about
+    description: >
+        Adheip Singh is the founder of BaaZ, a GPU infrastructure consultancy that
+        helps AI startups and SMEs build, optimize, and operate production GPU
+        clusters. He is a member of the Apache Software Foundation, NVIDIA NCP-AII
+        certified, and an open-source contributor to the NVIDIA Network Operator and
+        the KAI Scheduler project. Previously he worked on 5G and AI infrastructure
+        at Aarna Networks and on GPU-as-a-Service at Armada, and has shipped
+        Kubernetes operators, distributed-training networking stacks (RDMA/RoCE,
+        GPUDirect, NCCL), and multi-tenant GPU platforms for teams running H100,
+        A100, L40S and GH200 fleets.
     socials:
         linkedin: adheipsingh
         github: AdheipSingh

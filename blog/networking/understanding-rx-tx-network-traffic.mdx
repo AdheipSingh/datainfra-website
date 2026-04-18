@@ -8,13 +8,16 @@ date: 2025-10-02T10:00
 tags: [networking, monitoring, infrastructure, troubleshooting, network-analysis, mellanox, nvidia, computer-vision]
 ---
 
+import FAQSection from '@site/src/components/FAQSection'
+import ServiceCTA from '@site/src/components/ServiceCTA'
+
 # Understanding RX vs TX: Making Sense of Network Traffic Direction with Real Examples
 
 I was lucky to work on a computer vision setup which involved NVIDIA RTX 6000 GPUs, Mellanox ONYX switches, and high-resolution cameras. The system was designed for real-time video capture and processing, pushing massive amounts of data through our network infrastructure. Here's a gist of debugging Mellanox switch metrics that led to some surprising discoveries about network traffic flow.
 
-When monitoring network equipment like switches, routers, or network cards, you'll constantly encounter two metrics: RX and TX. These simple abbreviations are fundamental to understanding how data flows through your network, yet they often cause confusion. Let's demystify them with real-world examples from our production Mellanox ONYX switch.
+When monitoring network equipment like switches, routers, or network cards, you'll constantly encounter two metrics: RX and TX. These simple abbreviations are fundamental to understanding how data flows through your network, yet they often cause confusion. Let's demystify them with real-world examples from our production Mellanox ONYX switch. If you're operating GPU infrastructure, this is exactly the kind of low-level visibility you need — it's a recurring theme in our [GPU monitoring and observability](/services/gpu-monitoring) engagements.
 
-<!--truncate-->
+{/* truncate */}
 
 ## The Basics: What Do RX and TX Mean?
 
@@ -44,7 +47,7 @@ Output shows our active ports:
         "Speed": "25G"
     },
     "Eth1/7": {
-        "Operational state": "Up", 
+        "Operational state": "Up",
         "Speed": "25G"
     },
     "Eth1/19": {
@@ -66,13 +69,13 @@ Now let's examine the actual traffic statistics:
 ```json
 "Eth1/7": {
     "Rx": {
-        "packets": "6078365878",      // 6 billion packets IN
-        "bytes": "46755253366062",    // 46.7 TB received
-        "packets Jumbo": "6047872646"  // Mostly jumbo frames (video?)
+        "packets": "6078365878",
+        "bytes": "46755253366062",
+        "packets Jumbo": "6047872646"
     },
     "Tx": {
-        "packets": "21008230",         // Only 21 million OUT
-        "bytes": "3877663298"          // Just 3.8 GB transmitted
+        "packets": "21008230",
+        "bytes": "3877663298"
     }
 }
 ```
@@ -83,12 +86,12 @@ This port receives 289× more data than it sends - classic collector pattern!
 ```json
 "Eth1/19": {
     "Rx": {
-        "packets": "5619576",          // 5.6 million IN
-        "bytes": "370489758"           // Only 370 MB received
+        "packets": "5619576",
+        "bytes": "370489758"
     },
     "Tx": {
-        "packets": "41154237203",      // 41 BILLION OUT!
-        "bytes": "316279712716706"     // 316 TB transmitted!
+        "packets": "41154237203",
+        "bytes": "316279712716706"
     }
 }
 ```
@@ -115,7 +118,7 @@ Port 7 (25G) ──RX(6B packets)──> Switch ──TX(41B packets)──> Por
                                     └──TX(2.6B packets)──> Port 21 (100G)
 ```
 
-This suggests Port 7 is receiving from an aggregation point, and Ports 19/21 are distributing to multiple endpoints.
+This suggests Port 7 is receiving from an aggregation point, and Ports 19/21 are distributing to multiple endpoints. The same "don't just look at the packets, look at the fabric" mindset applies when you're tracing AllReduce traffic — see [How to calculate if your network is bottlenecking distributed training](/blog/network-bottleneck-distributed-training) for the GPU-training equivalent.
 
 ## Monitoring in Action: Getting Real-Time Metrics
 
@@ -140,7 +143,7 @@ With the data we collected, let's calculate real bandwidth usage:
 - If accumulated over 30 days: ~97 Gbps average
 - Near maximum capacity!
 
-**Port 7 (25G capacity):**  
+**Port 7 (25G capacity):**
 - RX: 46,755,253,366,062 bytes total
 - If accumulated over 30 days: ~14.4 Gbps average
 - Using 58% of link capacity
@@ -156,14 +159,14 @@ From our actual switch output, focus on these fields:
         "bytes": "Total byte count"
     },
     "Health Indicators": {
-        "error packets": "0",  // Good - no errors
-        "discard packets": "0", // Good - no drops
-        "fcs errors": "0"       // Good - no corruption
+        "error packets": "0",
+        "discard packets": "0",
+        "fcs errors": "0"
     },
     "Traffic Types": {
-        "unicast packets": "41123912532",  // Point-to-point
-        "multicast packets": "30090769",    // One-to-many (video streams?)
-        "broadcast packets": "233902"       // Network announcements
+        "unicast packets": "41123912532",
+        "multicast packets": "30090769",
+        "broadcast packets": "233902"
     }
 }
 ```
@@ -181,13 +184,13 @@ while true; do
     # Get current counters (example for Port 19)
     CURR_RX=$(curl -sk ... | jq '.["Eth1/19"][0]["Rx"][0]["bytes"]')
     CURR_TX=$(curl -sk ... | jq '.["Eth1/19"][1]["Tx"][0]["bytes"]')
-    
+
     # Calculate rate in Mbps
     RX_RATE=$(( ($CURR_RX - $PREV_RX) * 8 / 30 / 1000000 ))
     TX_RATE=$(( ($CURR_TX - $PREV_TX) * 8 / 30 / 1000000 ))
-    
+
     echo "Port 19: RX=${RX_RATE} Mbps, TX=${TX_RATE} Mbps"
-    
+
     PREV_RX=$CURR_RX
     PREV_TX=$CURR_TX
     sleep 30
@@ -219,15 +222,50 @@ PTP (Precision Time Protocol) on all ports indicates this is a **video productio
 4. **Monitor both directions** - Full-duplex means both paths matter for capacity planning
 5. **Context matters** - PTP configuration revealed this was video production, explaining the traffic patterns
 
-Remember: These RX/TX metrics are always from the port's perspective. When troubleshooting, physically trace cables or clear counters to see fresh traffic patterns rather than historical accumulation.
+Remember: These RX/TX metrics are always from the port's perspective. When troubleshooting, physically trace cables or clear counters to see fresh traffic patterns rather than historical accumulation. If you're trying to correlate switch-side counters with distributed training throughput end-to-end, our [distributed training optimization](/services/distributed-training) work routinely starts at exactly this layer.
 
 ---
 
 *Pro tip: If your switch API is slow (>1 second response time), use SNMP polling instead - it's 10-100x faster for retrieving interface counters!*
+
+<ServiceCTA
+    service="GPU Observability"
+    title="Turn switch counters into GPU training insights"
+    text="RX/TX counters are a starting point. We build the end-to-end observability that correlates switch-side metrics with NCCL throughput, GPU utilization, and job SLOs — so you spot bottlenecks before training budgets vanish."
+    link="/services/gpu-monitoring"
+    buttonLabel="Get observability help"
+/>
+
+{/* TODO: review FAQ answers before publishing — drafted from post content, refine for positioning. */}
+<FAQSection
+    items={[
+        {
+            question: "What do RX and TX mean on a network switch?",
+            answer: "RX (receive) counts traffic coming into a switch port from whatever is cabled to it, and TX (transmit) counts traffic leaving the port. Both counters are from the switch port's point of view, so a server sending data to the switch shows as RX on the switch port and TX on the server's NIC. Every port is full-duplex, so both can run at line rate simultaneously.",
+        },
+        {
+            question: "Why do my switch ports show such asymmetric RX vs TX traffic?",
+            answer: "Asymmetry is normal and tells you the role of the port in your topology. Ports aggregating data from many sources (collectors) show RX far larger than TX. Uplinks and fan-out ports that push data to multiple endpoints show TX far larger than RX. For GPU training clusters, well-behaved AllReduce traffic tends to be balanced — a persistent imbalance during training usually indicates a topology or NCCL ring issue.",
+        },
+        {
+            question: "How do I calculate actual bandwidth utilization from byte counters?",
+            answer: "Sample the byte counter twice at a known interval, take the delta, convert to bits, and divide by the interval to get bps. A simple 30-second polling loop gives you a bandwidth-over-time view. Compare to the port's rated capacity (e.g. 100 Gbps) to get utilization. For short bursts, poll every second or use sFlow/IPFIX — accumulated counters hide burstiness.",
+        },
+        {
+            question: "Are RX/TX counters reliable for detecting network problems?",
+            answer: "Byte and packet counters show throughput, not health. Pair them with error counters (CRC errors, discards, pause frames, ECN marks) and link-state events. A port at 80% utilization with zero errors is healthy; a port at 20% utilization with rising discards and pause frames is a much bigger problem. For RDMA/RoCE fabrics, PFC and ECN counters matter more than raw bandwidth.",
+        },
+        {
+            question: "Should I use REST/API or SNMP to poll switch counters?",
+            answer: "For high-frequency polling use SNMP — it's typically 10-100x faster than vendor REST APIs and designed for exactly this workload. Use REST/API when you need structured data (e.g. per-queue counters) or to drive automation. Many monitoring stacks combine both: SNMP for continuous counter scraping, REST for configuration and richer topology metadata.",
+        },
+    ]}
+/>
 
 ---
 
 ## Related
 
 - [GPU Networking & RDMA Consulting →](/services/gpu-networking)
+- [Distributed Training Optimization →](/services/distributed-training)
 - [How to Calculate if Your Network is Bottlenecking Distributed Training →](/blog/network-bottleneck-distributed-training)

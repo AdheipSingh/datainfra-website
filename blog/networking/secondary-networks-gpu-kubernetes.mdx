@@ -7,9 +7,12 @@ date: 2026-04-13T10:00
 tags: [gpu, rdma, kubernetes, networking, nccl, network-operator, sr-iov]
 ---
 
+import FAQSection from '@site/src/components/FAQSection'
+import ServiceCTA from '@site/src/components/ServiceCTA'
+
 *Macvlan, host-device, SR-IOV, and IPoIB — what they are, how they differ, and when to use each for RDMA and NCCL traffic in GPU training clusters.*
 
-<!-- truncate -->
+{/* truncate */}
 
 ![Secondary network types in the NVIDIA Network Operator](../../static/img/blog/secondary-networks-overview.svg)
 
@@ -19,7 +22,7 @@ Every GPU training pod needs two distinct network paths. The management network 
 
 Mixing both on a single interface doesn't work for serious GPU workloads. NCCL traffic is latency-sensitive and bandwidth-hungry. It needs to bypass kube-proxy, skip the overlay network, and in the case of RDMA, bypass the kernel entirely. The management network, by contrast, is low-bandwidth but needs reliable service discovery and DNS.
 
-The Kubernetes-native way to give a pod two interfaces is Multus CNI. The primary CNI plugin provides `eth0` for management. Multus attaches a secondary interface (`net1`) backed by a physical RDMA-capable NIC, giving the pod direct access to the high-speed fabric.
+The Kubernetes-native way to give a pod two interfaces is Multus CNI. The primary CNI plugin provides `eth0` for management. Multus attaches a secondary interface (`net1`) backed by a physical RDMA-capable NIC, giving the pod direct access to the high-speed fabric. Getting this dual-interface plumbing right is the foundation of all our [GPU networking and RDMA consulting](/services/gpu-networking) engagements.
 
 The question is *how* that secondary interface gets attached to the physical NIC. There are four options, each with different isolation, performance, and complexity characteristics. These four options map directly to the four secondary network CRDs in the [NVIDIA Network Operator](https://github.com/Mellanox/network-operator), which automates deploying Multus, MOFED drivers, device plugins, and secondary network definitions across a cluster through a single `NicClusterPolicy` CR.
 
@@ -37,7 +40,7 @@ Macvlan by itself only provides L2/L3 networking. To get RDMA, you pair it with 
 
 The key detail: all pods on the same node share the same physical RDMA HCA. Each pod creates its own Queue Pairs on the PF, but the NIC hardware is not partitioned. Isolation is purely at the QP level in software.
 
-In the Network Operator, you define a `MacvlanNetwork` CR specifying the master interface, mode, MTU, and IPAM configuration. The operator renders this into a Multus `NetworkAttachmentDefinition` automatically.
+In the Network Operator, you define a `MacvlanNetwork` CR specifying the master interface, mode, MTU, and IPAM configuration. The operator renders this into a Multus `NetworkAttachmentDefinition` automatically. For the full set of operator-wide defaults and image settings that make this work, see [Global configuration in the NVIDIA Network Operator](/blog/global-config-nvidia-network-operator).
 
 **When to use macvlan.** It's the right choice for POCs, development environments, or any setup where you need a quick dual-interface pod without fussing over firmware or operator complexity. It's also the only option when you have a single physical NIC port — macvlan can share the same port that carries your primary CNI overlay traffic. The tradeoff is no hardware isolation between pods. All pods talk through the same PF and share NIC resources.
 
@@ -55,7 +58,7 @@ Since the pod owns the entire physical device, it also owns the associated RDMA 
 
 Like macvlan, host-device uses the RDMA shared device plugin to expose RDMA resources. The difference is entirely in the CNI plugin — `macvlan` creates a sub-interface, `host-device` moves the real device. In the Network Operator, a `HostDeviceNetwork` CR defines the secondary network, and the `resourceName` field links it to the device plugin's resource rather than naming a master interface directly.
 
-**When to use host-device.** This is the production choice when each node has a dedicated NIC for training traffic. The standard GPU cluster topology is two NICs per node: one for Kubernetes management (backing Flannel/Calico), one for NCCL training (given entirely to the training pod via host-device). The pod gets the full NIC bandwidth and dedicated RDMA resources with zero contention.
+**When to use host-device.** This is the production choice when each node has a dedicated NIC for training traffic. The standard GPU cluster topology is two NICs per node: one for Kubernetes management (backing Flannel/Calico), one for NCCL training (given entirely to the training pod via host-device). The pod gets the full NIC bandwidth and dedicated RDMA resources with zero contention. We walk through this exact pattern end-to-end in [Dual-network RDMA on Kubernetes with GH200](/blog/dual-network-rdma-kubernetes-gh200).
 
 The obvious limitation is that only one pod can use each NIC at a time. If you need multiple training pods per node sharing the same fabric, you need macvlan (software sharing) or SR-IOV (hardware partitioning). Host-device also doesn't work for secondary networks on single-NIC nodes — moving the only NIC into a pod kills the host's connectivity to the Kubernetes API server.
 
@@ -150,6 +153,40 @@ The operator is not strictly required — for small clusters or POCs, you can de
 
 *For hands-on walkthroughs of these network types with working manifests, see our [GH200 dual-network RDMA guide](/blog/dual-network-rdma-kubernetes-gh200) (macvlan) and [SR-IOV POC guide](/blog/sriov-rdma-kubernetes-gh200) (SR-IOV).*
 
+<ServiceCTA
+    service="GPU Networking"
+    title="Picking the wrong secondary network costs you GPU hours"
+    text="Whether it's macvlan for a POC, host-device for production single-tenant training, or SR-IOV for multi-tenant clusters — we help GPU teams choose, deploy, and debug the Network Operator stack end to end."
+    link="/services/gpu-networking"
+    buttonLabel="Get RDMA networking help"
+/>
+
+{/* TODO: review FAQ answers before publishing — drafted from post content, refine for positioning. */}
+<FAQSection
+    items={[
+        {
+            question: "Why does a GPU training pod need a secondary network in Kubernetes?",
+            answer: "The default pod network (Flannel, Calico, Cilium) is optimized for management traffic, not collective communication. NCCL AllReduce and AllGather between GPUs require line-rate bandwidth and microsecond latency, which means bypassing kube-proxy, the overlay, and ideally the kernel via RDMA. A secondary network attached with Multus gives the pod direct access to an RDMA-capable NIC for training traffic.",
+        },
+        {
+            question: "What is the difference between macvlan and host-device secondary networks?",
+            answer: "Macvlan creates a virtual sub-interface on top of a physical NIC and can be shared by multiple pods on the same host; isolation is software-level. Host-device moves the entire physical NIC out of the host network namespace into a single pod, giving that pod exclusive ownership of the device and its RDMA HCA. Macvlan is easier; host-device is stronger isolation.",
+        },
+        {
+            question: "When should I use SR-IOV instead of host-device for GPU training?",
+            answer: "Use SR-IOV when multiple training pods per node need hardware-isolated access to the same RDMA fabric. SR-IOV carves a physical NIC into multiple Virtual Functions (VFs), each with dedicated PCIe queues and RDMA context. Host-device only works when one pod per node takes the entire NIC, so SR-IOV is the right choice for multi-tenant clusters or multi-job per node scheduling.",
+        },
+        {
+            question: "Does IPoIB apply to RoCE clusters?",
+            answer: "No. IPoIB (IP over InfiniBand) is specific to InfiniBand fabrics managed by a Subnet Manager with PKEY-based isolation. On Ethernet/RoCE clusters — which covers most cloud, colo, and enterprise GPU deployments — you use macvlan, host-device, or SR-IOV over Ethernet. IPoIB mostly shows up in HPC environments and older DGX SuperPOD reference designs.",
+        },
+        {
+            question: "Can I mix multiple secondary network types in the same cluster?",
+            answer: "Yes. The NVIDIA Network Operator orchestrates macvlan, host-device, SR-IOV, and IPoIB together through a single `NicClusterPolicy` CR. A common pattern is host-device for training pods and macvlan for monitoring or sidecar pods on the same nodes. You can also run SR-IOV on some nodes and host-device on others to match workload shape.",
+        },
+    ]}
+/>
+
 ---
 
 ## Related
@@ -157,3 +194,4 @@ The operator is not strictly required — for small clusters or POCs, you can de
 - [GPU Kubernetes Consulting →](/services/gpu-kubernetes)
 - [GPU Networking & RDMA Consulting →](/services/gpu-networking)
 - [Dual-Network RDMA on GH200 →](/blog/dual-network-rdma-kubernetes-gh200)
+- [Global Configuration in the NVIDIA Network Operator →](/blog/global-config-nvidia-network-operator)

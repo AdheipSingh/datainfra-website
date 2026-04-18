@@ -1,0 +1,80 @@
+.related {
+    max-width: 900px;
+    margin: 48px auto;
+    padding: 0 24px;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a365d;
+    margin-bottom: 20px;
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.item {
+    margin: 0;
+}
+
+.link {
+    display: block;
+    padding: 16px 20px;
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #3182ce;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.link:hover {
+    background: #edf2f7;
+    transform: translateX(2px);
+    text-decoration: none;
+}
+
+.postTitle {
+    display: block;
+    color: #1a365d;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+
+.desc {
+    display: block;
+    color: #4a5568;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Dark mode */
+[data-theme="dark"] .title {
+    color: #e2e8f0;
+}
+
+[data-theme="dark"] .link {
+    background: #1a202c;
+    border-color: #2d3748;
+    border-left-color: #63b3ed;
+}
+
+[data-theme="dark"] .link:hover {
+    background: #2d3748;
+}
+
+[data-theme="dark"] .postTitle {
+    color: #e2e8f0;
+}
+
+[data-theme="dark"] .desc {
+    color: #a0aec0;
+}

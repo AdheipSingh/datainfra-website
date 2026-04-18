@@ -3,7 +3,36 @@ import Layout from "@theme/Layout"
 import Link from "@docusaurus/Link"
 import Head from "@docusaurus/Head"
 import { Navbar } from "@site/src/components/Layout"
+import FAQSection from "@site/src/components/FAQSection"
 import styles from "./styles.module.css"
+
+// TODO: review answers before publishing — drafted as placeholders grounded in the page content.
+const faqItems = [
+    {
+        question: "What does BaaZ do?",
+        answer: "BaaZ is a specialist GPU infrastructure consultancy. We help AI startups, SMEs, and GPU cloud providers design, build, optimize, and operate GPU clusters — covering distributed training optimization, Kubernetes GPU operations, RDMA networking, observability, multi-tenancy, and full AI-factory greenfield builds.",
+    },
+    {
+        question: "Who do you typically work with?",
+        answer: "Our clients are usually AI-first startups scaling from a handful to hundreds of GPUs, SMEs standing up in-house ML training clusters, and colo/GPU-cloud providers building multi-tenant GPU-as-a-service platforms. Engineering-led teams with concrete bottlenecks or timelines get the most out of the engagement.",
+    },
+    {
+        question: "Do you work with on-prem, colo, and cloud GPU clusters?",
+        answer: "Yes. We've shipped on bare-metal on-prem, colo, managed Kubernetes (EKS, GKE, AKS) and cloud GPU instances.",
+    },
+    {
+        question: "How are BaaZ engagements typically structured?",
+        answer: "Most engagements follow Assess → Diagnose → Implement → Transfer: we audit your existing setup or design, identify real bottlenecks, implement changes hands-on (code, configs, IaC), and document so your team can operate the result. Engagements range from a focused 2-week diagnostic to multi-month greenfield build-and-operate work.",
+    },
+    {
+        question: "Can you help with an urgent production issue?",
+        answer: "Yes. A large fraction of our work is forensic: NCCL timeouts, distributed training that won't scale, GPU jobs failing at 2am. If you're actively on fire, schedule a call and we'll scope a rapid-response engagement.",
+    },
+{
+        question: "How do I start working with BaaZ?",
+        answer: "Schedule a call at https://cal.com/baazhq. We'll spend the first call understanding what you're trying to do and whether we're the right fit — no sales pitch. If it's a fit, we scope an engagement and start; if it isn't, we'll point you at resources or partners who are.",
+    },
+]
 
 export default function Services() {
     const serviceSchema = {
@@ -50,26 +79,18 @@ export default function Services() {
                     "@type": "Offer",
                     "itemOffered": {
                         "@type": "Service",
+                        "name": "GPU Networking & RDMA",
+                        "description": "RDMA fabric design: InfiniBand, RoCE, GPUDirect RDMA, switch configuration, Network Operator on Kubernetes, dual-network architectures."
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
                         "name": "GPU Observability & Reliability",
                         "description": "DCGM metrics, GPU health monitoring, alerting, dashboards, fault detection, and automated recovery."
                     }
                 },
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Self-Service GPU Platform",
-                        "description": "Self-service portals, resource quotas, environment templates, access control, and cost allocation for ML teams."
-                    }
-                },
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "GPU Cloud Platform",
-                        "description": "Multi-tenant GPU-as-a-service platform: scheduling, isolation, monitoring, billing integration, and usage metering."
-                    }
-                }
             ]
         }
     }
@@ -159,11 +180,11 @@ export default function Services() {
                                     for AI workloads—on-prem, colo, or cloud.
                                 </p>
                                 <ul className={styles.serviceFeatures}>
-                                    <li>Hardware selection guidance</li>
-                                    <li>Network fabric design</li>
+                                    <li>Hardware selection & network fabric</li>
                                     <li>Storage architecture</li>
                                     <li>Orchestration setup (K8s/Slurm)</li>
-                                    <li>Monitoring & observability</li>
+                                    <li>Multi-tenant GPU-as-a-Service</li>
+                                    <li>Billing, metering & isolation</li>
                                 </ul>
                                 <Link to="/services/ai-factory" className={styles.caseStudyLink}>
                                     Learn more →
@@ -183,13 +204,36 @@ export default function Services() {
                                     isolation—MIG, time-slicing, quotas—so you get 70%+ utilization.
                                 </p>
                                 <ul className={styles.serviceFeatures}>
-                                    <li>MIG partitioning</li>
-                                    <li>Time-slicing configuration</li>
+                                    <li>MIG partitioning & time-slicing</li>
                                     <li>Kubernetes GPU operators</li>
-                                    <li>Quota management</li>
-                                    <li>Fair scheduling</li>
+                                    <li>Quota management & fair scheduling</li>
+                                    <li>Self-service portals & templates</li>
+                                    <li>Cost allocation & chargeback</li>
                                 </ul>
                                 <Link to="/services/gpu-kubernetes" className={styles.caseStudyLink}>
+                                    Learn more →
+                                </Link>
+                            </div>
+
+                            <div className={styles.serviceCard}>
+                                <div className={styles.serviceIcon}>
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                                    </svg>
+                                </div>
+                                <h3 className={styles.serviceTitle}>GPU Networking & RDMA</h3>
+                                <p className={styles.serviceDesc}>
+                                    Network killing your training throughput? We design and implement RDMA
+                                    fabrics — InfiniBand, RoCE, GPUDirect — that run at wire rate.
+                                </p>
+                                <ul className={styles.serviceFeatures}>
+                                    <li>InfiniBand & RoCE fabric design</li>
+                                    <li>GPUDirect RDMA setup</li>
+                                    <li>Switch configuration & QoS</li>
+                                    <li>Network Operator on Kubernetes</li>
+                                    <li>Dual-network architectures</li>
+                                </ul>
+                                <Link to="/services/gpu-networking" className={styles.caseStudyLink}>
                                     Learn more →
                                 </Link>
                             </div>
@@ -217,49 +261,6 @@ export default function Services() {
                                 </Link>
                             </div>
 
-                            <div className={styles.serviceCard}>
-                                <div className={styles.serviceIcon}>
-                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                                        <circle cx="9" cy="7" r="4"/>
-                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
-                                    </svg>
-                                </div>
-                                <h3 className={styles.serviceTitle}>Self-Service GPU Platform</h3>
-                                <p className={styles.serviceDesc}>
-                                    ML teams waiting days for infrastructure tickets? We build self-service
-                                    platforms with guardrails so teams can provision GPU environments themselves.
-                                </p>
-                                <ul className={styles.serviceFeatures}>
-                                    <li>Self-service portals</li>
-                                    <li>Resource quotas & limits</li>
-                                    <li>Environment templates</li>
-                                    <li>Access control</li>
-                                    <li>Cost allocation</li>
-                                </ul>
-                            </div>
-
-                            <div className={styles.serviceCard}>
-                                <div className={styles.serviceIcon}>
-                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-                                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-                                        <line x1="12" y1="22.08" x2="12" y2="12"/>
-                                    </svg>
-                                </div>
-                                <h3 className={styles.serviceTitle}>GPU Cloud Platform</h3>
-                                <p className={styles.serviceDesc}>
-                                    Building GPU-as-a-service for customers? We help startups and colo providers 
-                                    build the platform layer—scheduling, isolation, monitoring, billing.
-                                </p>
-                                <ul className={styles.serviceFeatures}>
-                                    <li>Multi-tenant architecture</li>
-                                    <li>Billing integration</li>
-                                    <li>Customer isolation</li>
-                                    <li>API design</li>
-                                    <li>Usage metering</li>
-                                </ul>
-                            </div>
                         </div>
                     </div>
                 </section>
@@ -379,6 +380,13 @@ export default function Services() {
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </section>
+
+                {/* FAQ Section */}
+                <section className={`${styles.section} ${styles.sectionAlt}`}>
+                    <div className={styles.sectionContent}>
+                        <FAQSection items={faqItems} />
                     </div>
                 </section>
 

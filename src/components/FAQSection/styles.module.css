@@ -1,0 +1,126 @@
+.faq {
+    max-width: 900px;
+    margin: 64px auto;
+    padding: 0 24px;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1a365d;
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.item {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.item[open] {
+    border-color: #3182ce;
+    box-shadow: 0 2px 12px rgba(49, 130, 206, 0.08);
+}
+
+.question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 24px;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+}
+
+.question::-webkit-details-marker {
+    display: none;
+}
+
+.questionText {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1a365d;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.chevron {
+    flex-shrink: 0;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: #3182ce;
+    font-weight: 400;
+    transition: transform 0.2s ease;
+}
+
+.item[open] .chevron {
+    transform: rotate(45deg);
+}
+
+.answer {
+    padding: 0 24px 20px 24px;
+    color: #4a5568;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.answer p {
+    margin: 0;
+    color: inherit;
+}
+
+/* Dark mode */
+[data-theme="dark"] .title {
+    color: #e2e8f0;
+}
+
+[data-theme="dark"] .item {
+    background: #1a202c;
+    border-color: #2d3748;
+}
+
+[data-theme="dark"] .item[open] {
+    border-color: #63b3ed;
+    box-shadow: 0 2px 12px rgba(99, 179, 237, 0.12);
+}
+
+[data-theme="dark"] .questionText {
+    color: #e2e8f0;
+}
+
+[data-theme="dark"] .chevron {
+    color: #63b3ed;
+}
+
+[data-theme="dark"] .answer {
+    color: #cbd5e0;
+}
+
+@media (max-width: 600px) {
+    .faq {
+        margin: 48px auto;
+    }
+    .title {
+        font-size: 1.5rem;
+    }
+    .question {
+        padding: 16px 18px;
+    }
+    .questionText {
+        font-size: 1rem;
+    }
+    .answer {
+        padding: 0 18px 16px 18px;
+        font-size: 0.95rem;
+    }
+}

@@ -4,6 +4,20 @@ import { Navbar } from "@site/src/components/Layout"
 import Head from "@docusaurus/Head"
 import { useBlogPost } from "@docusaurus/theme-common/internal"
 
+// Tags whose posts should be excluded from search indexing.
+// These posts remain accessible via direct link but don't dilute
+// the site's topical authority around GPU infrastructure.
+const NOINDEX_TAGS = new Set(["saas", "control-planes"])
+
+function hasNoindexTag(tags) {
+    if (!tags || tags.length === 0) return false
+    return tags.some((t) => {
+        const label = typeof t === "string" ? t : t?.label
+        if (!label) return false
+        return NOINDEX_TAGS.has(label.toLowerCase())
+    })
+}
+
 function BlogPostStructuredData() {
     let metadata = null
 
@@ -17,7 +31,9 @@ function BlogPostStructuredData() {
 
     if (!metadata) return null
 
-    const { title, description, date, authors, permalink } = metadata
+    const { title, description, date, authors, permalink, tags } = metadata
+
+    const noindex = hasNoindexTag(tags)
 
     const structuredData = {
         "@context": "https://schema.org",
@@ -54,9 +70,13 @@ function BlogPostStructuredData() {
 
     return (
         <Head>
-            <script type="application/ld+json">
-                {JSON.stringify(structuredData)}
-            </script>
+            {/* Noindex legacy / off-topic posts so they don't dilute topical authority */}
+            {noindex && <meta name="robots" content="noindex, follow" />}
+            {!noindex && (
+                <script type="application/ld+json">
+                    {JSON.stringify(structuredData)}
+                </script>
+            )}
         </Head>
     )
 }

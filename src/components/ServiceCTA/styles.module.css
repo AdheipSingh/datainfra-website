@@ -1,0 +1,87 @@
+.cta {
+    background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+    border-radius: 16px;
+    padding: 40px;
+    margin: 48px 0;
+    color: #ffffff;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(26, 54, 93, 0.15);
+}
+
+.eyebrow {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 16px;
+}
+
+.title {
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0 0 14px 0;
+}
+
+.text {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 640px;
+    margin: 0 auto 24px auto;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    color: #1a365d !important;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+    color: #1a365d !important;
+}
+
+.arrow {
+    display: inline-block;
+    transition: transform 0.15s ease;
+}
+
+.button:hover .arrow {
+    transform: translateX(3px);
+}
+
+/* Dark mode — the banner already has a dark gradient, but tweak a bit for contrast */
+[data-theme="dark"] .cta {
+    background: linear-gradient(135deg, #0f1e36 0%, #1e3a5f 100%);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 600px) {
+    .cta {
+        padding: 28px 20px;
+        margin: 36px 0;
+    }
+    .title {
+        font-size: 1.3rem;
+    }
+    .text {
+        font-size: 0.95rem;
+    }
+}

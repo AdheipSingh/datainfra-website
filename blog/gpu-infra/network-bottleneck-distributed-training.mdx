@@ -5,17 +5,20 @@ authors: [Adheip Singh]
 tags: [gpu, distributed-training, networking, performance, tutorial]
 ---
 
+import FAQSection from '@site/src/components/FAQSection'
+import ServiceCTA from '@site/src/components/ServiceCTA'
+
 # How to Calculate if Your Network is Bottlenecking Distributed Training
 
 *A practical guide to understanding why your multi-node GPU training might be slower than expected.*
 
-<!-- truncate -->
+{/* truncate */}
 
 ---
 
 You've set up distributed training across multiple GPU servers. PyTorch DDP is configured. The job is running. But something's wrong—it's not faster than single-node training. It might even be slower.
 
-Before you blame the framework, the drivers, or the model, check your network. In most cases, **the network is the bottleneck**.
+Before you blame the framework, the drivers, or the model, check your network. In most cases, **the network is the bottleneck**. This is exactly the class of problem our [distributed training optimization](/services/distributed-training) engagements were built around.
 
 This post will teach you how to calculate whether your network is limiting your distributed training performance, and by how much.
 
@@ -48,7 +51,7 @@ AllReduce is the collective operation that:
 
 ![AllReduce Diagram](/img/blog/diagram-allreduce-explained.svg)
 
-The key insight: **the entire gradient payload must cross the network every iteration**.
+The key insight: **the entire gradient payload must cross the network every iteration**. For a deeper look at what actually moves between nodes during this step, see [GPU-to-GPU communication across nodes](/blog/gpu-to-gpu-communication-across-nodes).
 
 ---
 
@@ -252,7 +255,7 @@ If the math shows your network is the problem, the solution is high-speed RDMA n
 - **Protocol:** RoCE v2 (RDMA over Converged Ethernet) or InfiniBand
 - **Why RDMA:** Bypasses the CPU, enables zero-copy transfers, delivers 10-50x lower latency than TCP
 
-We've written a detailed case study on implementing RDMA networking for distributed training on Kubernetes: **[From 10x Slower to Line-Rate: Building RDMA-Enabled Kubernetes for HPC and Distributed GPU Training](/case-studies/rdma-kubernetes)**.
+We've written a detailed walkthrough of what this looks like on Kubernetes in [Dual-network RDMA on GH200](/blog/dual-network-rdma-kubernetes-gh200), and a full case study at **[From 10x Slower to Line-Rate: Building RDMA-Enabled Kubernetes for HPC and Distributed GPU Training](/case-studies/rdma-kubernetes)**.
 
 ---
 
@@ -272,10 +275,46 @@ If your GPUs are spending more time waiting than computing, no amount of softwar
 
 *Have questions about your distributed training setup? [Schedule a call](https://cal.com/baazhq)—we're happy to help you diagnose the bottleneck.*
 
+<ServiceCTA
+    service="Distributed Training"
+    title="Is your multi-node GPU training network-bound?"
+    text="We diagnose distributed-training slowdowns end to end — NCCL tuning, RDMA/RoCE configuration, GPUDirect, topology analysis — and deliver measurable throughput improvements, not decks."
+    link="/services/distributed-training"
+    buttonLabel="Get a diagnosis"
+/>
+
+{/* TODO: review FAQ answers before publishing — drafted from post content, refine for positioning. */}
+<FAQSection
+    items={[
+        {
+            question: "How do I know if my distributed training is bottlenecked by the network?",
+            answer: "Estimate per-iteration AllReduce time (gradient size ÷ network throughput) and compare it to per-iteration GPU compute time. If AllReduce is larger than compute, you're network-bound. A quick rule of thumb: if measured GPU utilization during multi-node training is under 50%, the network is almost certainly the bottleneck.",
+        },
+        {
+            question: "How big is the AllReduce payload in distributed training?",
+            answer: "It equals your model's full gradient: number of parameters × bytes per parameter (4 for FP32, 2 for FP16/BF16). BERT-base is about 440 MB in FP32; BERT-large is 1.4 GB; a 1.5B-parameter model is 6 GB. That entire payload must cross the network every iteration, so network throughput directly determines training speed.",
+        },
+        {
+            question: "Why is 1 GbE or 10 GbE not enough for GPU training?",
+            answer: "At ~110 MB/s effective throughput, 1 GbE needs 4 seconds to AllReduce a 440 MB BERT-base gradient — while the GPU compute for that iteration is under 200 ms. Even 10 GbE leaves GPUs idle for hundreds of milliseconds per step. You need 100 GbE with RDMA (or better) to keep modern GPUs productive in multi-node training.",
+        },
+        {
+            question: "What does RDMA actually change vs plain TCP for training?",
+            answer: "RDMA (RoCE v2 or InfiniBand) bypasses the CPU and kernel, enables zero-copy GPU-to-GPU transfers via GPUDirect, and delivers 10-50x lower latency and significantly higher effective bandwidth than TCP on the same physical link. On a 100 GbE link, that's the difference between ~9 GB/s with TCP and ~11 GB/s with RDMA — plus massively lower per-message overhead.",
+        },
+        {
+            question: "How much faster can distributed training get once the network is fixed?",
+            answer: "It depends on how network-bound you are today. In our engagements, moving from TCP to properly configured RDMA typically delivers 3-8x higher training throughput. For severely network-bound setups (e.g. BERT-scale models on 1 GbE), the gap between old and new networking can be 20x or more on end-to-end training wall-clock time.",
+        },
+    ]}
+/>
+
 ---
 
 ## Related
 
 - [Distributed Training Optimization Services →](/services/distributed-training)
 - [GPU Networking & RDMA Consulting →](/services/gpu-networking)
+- [GPU-to-GPU Communication Across Nodes →](/blog/gpu-to-gpu-communication-across-nodes)
+- [Dual-Network RDMA on GH200 →](/blog/dual-network-rdma-kubernetes-gh200)
 - [Case Study: 8.5x Faster Training with RDMA →](/case-studies/rdma-kubernetes)

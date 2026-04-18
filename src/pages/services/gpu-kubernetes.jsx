@@ -3,197 +3,50 @@ import Layout from "@theme/Layout"
 import Head from "@docusaurus/Head"
 import Link from "@docusaurus/Link"
 import { Navbar } from "@site/src/components/Layout"
+import FAQSection from "@site/src/components/FAQSection"
+import styles from "./styles.module.css"
 
 const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "GPU Kubernetes Consulting",
-    "description": "Kubernetes GPU infrastructure consulting: GPU Operator, KAI Scheduler, MIG, fractional GPU sharing, EKS and GKE GPU clusters for AI workloads.",
+    "provider": { "@type": "Organization", "name": "BaaZ", "url": "https://baaz.dev" },
+    "description": "Production GPU clusters on Kubernetes — GPU Operator, KAI Scheduler, MIG partitioning, multi-tenancy, EKS, GKE, and bare metal.",
     "url": "https://baaz.dev/services/gpu-kubernetes",
-    "provider": {
-        "@type": "Organization",
-        "name": "BaaZ",
-        "url": "https://baaz.dev"
+}
+
+const faqItems = [
+    {
+        question: "What is the NVIDIA GPU Operator?",
+        answer: "A set of Kubernetes operators that automate the lifecycle of GPU drivers, Container Toolkit, device plugin, DCGM exporter, and MIG manager across every GPU node. You need it any time you want GPUs scheduled as Kubernetes resources.",
     },
-    "serviceType": "GPU Kubernetes Consulting",
-    "areaServed": "Worldwide",
-    "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "GPU Kubernetes Services",
-        "itemListElement": [
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "GPU Operator & Device Plugin Setup",
-                    "description": "Deploy and configure NVIDIA GPU Operator, device plugins, and container runtime for Kubernetes GPU workloads."
-                }
-            },
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "GPU Scheduling & Multi-Tenancy",
-                    "description": "Configure KAI Scheduler, MIG partitioning, time-slicing, and fair-share scheduling for multi-tenant GPU clusters."
-                }
-            },
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "Managed Kubernetes GPU Clusters",
-                    "description": "Design and implement GPU clusters on EKS, GKE, AKS, or bare-metal Kubernetes with proper networking and storage."
-                }
-            },
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "Training Job Orchestration",
-                    "description": "Set up Kubeflow Training Operator, Volcano, or custom controllers for distributed training job management on Kubernetes."
-                }
-            }
-        ]
-    }
-}
+    {
+        question: "How does GPU sharing work in Kubernetes?",
+        answer: "Three modes: MIG for hardware partitioning on A100/H100 (hard isolation, fixed sizes), time-slicing for simple time-multiplexing (no isolation), and MPS for CUDA-level process sharing. Pick MIG for multi-tenant production; time-slicing for dev/inference.",
+    },
+    {
+        question: "What is the KAI Scheduler?",
+        answer: "KAI Scheduler (formerly Run:ai scheduler) is a Kubernetes-native gang scheduler purpose-built for GPU workloads: queues, fair-share, gang scheduling, and preemption with GPU-awareness. We're an active contributor to this project.",
+    },
+    {
+        question: "Can I run GPU workloads on EKS, GKE, or AKS?",
+        answer: "Yes. All three support GPU node groups, and the GPU Operator runs on top. The complications are around driver versions, instance-type-specific CUDA images, multi-tenancy isolation, and in-cluster networking (especially RDMA or EFA).",
+    },
+    {
+        question: "Do I need Slurm if I already run Kubernetes?",
+        answer: "Not usually. Kubernetes with GPU Operator, KAI or Volcano scheduler, and Kubeflow Training Operator covers most distributed-training workloads. Slurm still wins for traditional HPC or organizations with deep Slurm operational expertise.",
+    },
+    {
+        question: "How do you approach multi-tenant GPU clusters?",
+        answer: "Namespace quotas, ResourceQuotas on nvidia.com/gpu, a GPU-aware scheduler for fair-share, MIG or SR-IOV for hardware isolation where needed, node taints/tolerations for workload separation, and per-namespace DCGM metrics for visibility.",
+    },
+]
 
-const sectionStyle = {
-    marginBottom: '48px',
-}
-
-const h2Style = {
-    fontSize: '1.75rem',
-    fontWeight: 700,
-    color: '#1a365d',
-    marginBottom: '16px',
-    marginTop: '48px',
-}
-
-const h3Style = {
-    fontSize: '1.25rem',
-    fontWeight: 600,
-    color: '#2d3748',
-    marginBottom: '12px',
-    marginTop: '32px',
-}
-
-const pStyle = {
-    color: '#4a5568',
-    lineHeight: 1.8,
-    fontSize: '1.05rem',
-    marginBottom: '16px',
-}
-
-const listStyle = {
-    color: '#4a5568',
-    lineHeight: 1.8,
-    fontSize: '1.05rem',
-    paddingLeft: '24px',
-    marginBottom: '16px',
-}
-
-const statBoxStyle = {
-    display: 'flex',
-    gap: '32px',
-    flexWrap: 'wrap',
-    margin: '32px 0',
-}
-
-const statItemStyle = {
-    background: '#f7fafc',
-    border: '1px solid #e2e8f0',
-    borderRadius: '12px',
-    padding: '24px 32px',
-    textAlign: 'center',
-    flex: '1',
-    minWidth: '150px',
-}
-
-const statValueStyle = {
-    display: 'block',
-    fontSize: '2rem',
-    fontWeight: 800,
-    color: '#3182ce',
-    lineHeight: 1,
-}
-
-const statLabelStyle = {
-    display: 'block',
-    fontSize: '0.9rem',
-    color: '#4a5568',
-    marginTop: '8px',
-}
-
-const ctaSectionStyle = {
-    background: '#1a365d',
-    borderRadius: '16px',
-    padding: '48px',
-    textAlign: 'center',
-    marginTop: '64px',
-}
-
-const ctaTitleStyle = {
-    fontSize: '1.75rem',
-    fontWeight: 700,
-    color: 'white',
-    marginBottom: '16px',
-}
-
-const ctaTextStyle = {
-    fontSize: '1.05rem',
-    color: 'rgba(255, 255, 255, 0.9)',
-    lineHeight: 1.6,
-    marginBottom: '24px',
-    maxWidth: '600px',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-}
-
-const ctaButtonStyle = {
-    display: 'inline-block',
-    background: 'white',
-    color: '#1a365d',
-    padding: '14px 40px',
-    borderRadius: '6px',
-    fontWeight: 600,
-    fontSize: '1.05rem',
-    textDecoration: 'none',
-}
-
-const tagContainerStyle = {
-    display: 'flex',
-    flexWrap: 'wrap',
-    gap: '8px',
-    margin: '16px 0',
-}
-
-const tagStyle = {
-    background: '#ebf8ff',
-    border: '1px solid #bee3f8',
-    padding: '6px 14px',
-    borderRadius: '6px',
-    fontSize: '0.9rem',
-    color: '#2b6cb0',
-    fontWeight: 500,
-}
-
-const heroLabelStyle = {
-    display: 'inline-block',
-    background: '#ebf8ff',
-    color: '#2b6cb0',
-    padding: '6px 16px',
-    borderRadius: '100px',
-    fontSize: '0.85rem',
-    fontWeight: 600,
-    letterSpacing: '0.02em',
-    marginBottom: '16px',
-}
-
-export default function GpuKubernetes() {
+export default function GPUKubernetes() {
     return (
         <Layout
             title="GPU Kubernetes Consulting"
-            description="Kubernetes GPU infrastructure consulting: GPU Operator, KAI Scheduler, MIG, fractional GPU sharing, EKS and GKE GPU clusters for AI workloads."
+            description="Production GPU clusters on Kubernetes. GPU Operator, KAI Scheduler, MIG, fractional GPU sharing, multi-tenancy. EKS, GKE, and bare metal."
         >
             <Head>
                 <script type="application/ld+json">
@@ -201,183 +54,101 @@ export default function GpuKubernetes() {
                 </script>
             </Head>
             <Navbar />
-            <main style={{ maxWidth: '800px', margin: '0 auto', padding: '120px 24px 80px' }}>
-                <span style={heroLabelStyle}>Service</span>
-                <h1 style={{ fontSize: '2.5rem', fontWeight: 800, color: '#1a365d', lineHeight: 1.2, marginBottom: '20px' }}>
-                    GPU Kubernetes Consulting
-                </h1>
-                <p style={{ fontSize: '1.2rem', color: '#4a5568', lineHeight: 1.7, marginBottom: '32px' }}>
-                    Running GPU workloads on Kubernetes requires specialized expertise that goes far beyond standard
-                    container orchestration. We help teams design, deploy, and operate production GPU clusters on
-                    Kubernetes -- whether on EKS, GKE, AKS, or bare metal.
+            <main className={styles.subPage}>
+                <span className={styles.subLabel}>Service</span>
+                <h1 className={styles.subTitle}>GPU Kubernetes Consulting</h1>
+                <p className={styles.subLead}>
+                    Your GPU cluster is running at 25% utilization. Teams wait days for GPU access. Training
+                    jobs fail because the scheduler doesn't understand GPU topology. Kubernetes can run GPUs
+                    well — it just needs someone who's done it before.
                 </p>
 
-                <div style={statBoxStyle}>
-                    <div style={statItemStyle}>
-                        <span style={statValueStyle}>70%+</span>
-                        <span style={statLabelStyle}>GPU Utilization</span>
+                <div className={styles.metricsRow}>
+                    <div className={styles.metricBox}>
+                        <span className={styles.metricBoxValue}>70%+</span>
+                        <span className={styles.metricBoxLabel}>GPU Utilization</span>
                     </div>
-                    <div style={statItemStyle}>
-                        <span style={statValueStyle}>3x</span>
-                        <span style={statLabelStyle}>Better Resource Efficiency</span>
+                    <div className={styles.metricBox}>
+                        <span className={styles.metricBoxValue}>3x</span>
+                        <span className={styles.metricBoxLabel}>Resource Efficiency</span>
                     </div>
-                    <div style={statItemStyle}>
-                        <span style={statValueStyle}>Zero</span>
-                        <span style={statLabelStyle}>Scheduling Conflicts</span>
-                    </div>
-                </div>
-
-                <div style={sectionStyle}>
-                    <h2 style={h2Style}>The Challenge of GPUs on Kubernetes</h2>
-                    <p style={pStyle}>
-                        Kubernetes was designed for stateless web services, not GPU-intensive AI workloads. While the
-                        Kubernetes ecosystem has evolved to support GPUs, getting it right requires deep understanding of
-                        device plugins, resource scheduling, network configuration, and storage systems that most platform
-                        teams simply do not have. The result is GPU clusters running at 20-30% utilization, teams waiting
-                        days for GPU access, and training jobs failing due to misconfigured infrastructure.
-                    </p>
-                    <p style={pStyle}>
-                        The core challenges include GPU resource fragmentation where expensive accelerators sit idle while
-                        other teams queue for access, lack of proper scheduling that understands GPU topology and affinity,
-                        missing observability into GPU health and utilization, networking that does not support the RDMA
-                        requirements of distributed training, and storage systems that cannot feed data fast enough to keep
-                        GPUs busy. Solving these requires a purpose-built approach to Kubernetes GPU infrastructure.
-                    </p>
-                </div>
-
-                <div style={sectionStyle}>
-                    <h2 style={h2Style}>What We Deliver</h2>
-
-                    <h3 style={h3Style}>GPU Operator and Device Plugin Setup</h3>
-                    <p style={pStyle}>
-                        The NVIDIA GPU Operator automates the management of GPU drivers, container runtime, device plugins,
-                        and monitoring components on Kubernetes. We deploy and configure the full GPU Operator stack including
-                        driver containers for consistent driver versions across nodes, the NVIDIA Container Toolkit for GPU
-                        access in containers, the Kubernetes Device Plugin for GPU resource advertising, DCGM Exporter for
-                        GPU metrics in Prometheus, and GPU Feature Discovery for topology-aware scheduling labels. We handle
-                        the edge cases that cause failures in production: driver version conflicts, containerd vs CRI-O
-                        runtime differences, secure boot compatibility, and upgrade strategies that avoid disrupting running
-                        workloads.
-                    </p>
-
-                    <h3 style={h3Style}>GPU Scheduling with KAI Scheduler</h3>
-                    <p style={pStyle}>
-                        The default Kubernetes scheduler treats GPUs as simple integer resources with no understanding of
-                        topology, affinity, or fairness. For multi-tenant GPU clusters, you need a scheduler that understands
-                        GPU-specific requirements. We implement advanced GPU scheduling using KAI Scheduler or similar
-                        solutions that provide topology-aware placement ensuring GPUs within a job are on the same NVLink
-                        domain, fair-share scheduling across teams with guaranteed minimums and burst capacity, gang
-                        scheduling for distributed training jobs that require all-or-nothing allocation, preemption policies
-                        that allow high-priority jobs to reclaim resources from lower-priority workloads, and queue management
-                        with priority classes and resource quotas per namespace or team.
-                    </p>
-
-                    <h3 style={h3Style}>MIG and Fractional GPU Sharing</h3>
-                    <p style={pStyle}>
-                        Not every workload needs a full GPU. Development, testing, inference serving, and data preprocessing
-                        can often run on a fraction of a GPU. We configure Multi-Instance GPU (MIG) on A100 and H100 GPUs to
-                        partition a single GPU into isolated instances with dedicated compute, memory, and memory bandwidth.
-                        We also set up time-slicing for GPUs that do not support MIG, enabling multiple workloads to share a
-                        GPU with configurable time quotas. The right partitioning strategy depends on your workload mix. We
-                        analyze your actual GPU usage patterns to recommend the optimal MIG profiles and sharing policies that
-                        maximize utilization without impacting performance-sensitive workloads.
-                    </p>
-
-                    <h3 style={h3Style}>EKS, GKE, and Bare-Metal GPU Clusters</h3>
-                    <p style={pStyle}>
-                        Each deployment environment has its own set of challenges and best practices. On Amazon EKS, we
-                        configure GPU node groups with proper AMIs, EFA networking for distributed training, and integration
-                        with FSx for Lustre or S3 for training data. On Google GKE, we set up GPU node pools with the correct
-                        machine types, configure multi-networking for RDMA, and integrate with GCS and Filestore. For bare-metal
-                        deployments, we handle everything from the OS and driver installation through the full Kubernetes stack
-                        including Calico or Cilium networking, MetalLB for load balancing, and Rook-Ceph or similar for storage.
-                        Bare metal provides the best performance for GPU workloads, especially when combined with RDMA networking
-                        and GPUDirect storage.
-                    </p>
-
-                    <h3 style={h3Style}>Multi-Tenancy and Resource Management</h3>
-                    <p style={pStyle}>
-                        Running multiple teams on a shared GPU cluster requires proper isolation and resource management. We
-                        implement namespace-based tenancy with GPU resource quotas, RBAC policies that restrict GPU access to
-                        authorized teams, network policies for workload isolation, priority classes that ensure production
-                        inference workloads are never preempted by development jobs, and cost allocation through GPU usage
-                        tracking and chargeback reporting. This enables organizations to consolidate GPU resources into a
-                        shared pool that delivers higher utilization and lower costs than dedicated per-team clusters.
-                    </p>
-                </div>
-
-                <div style={sectionStyle}>
-                    <h2 style={h2Style}>Training Job Orchestration</h2>
-                    <p style={pStyle}>
-                        Running distributed training jobs on Kubernetes requires orchestration beyond what standard Kubernetes
-                        controllers provide. We set up and configure the Kubeflow Training Operator for PyTorchJob, TFJob, and
-                        MPIJob resources, Volcano batch scheduler for gang scheduling and queue management, custom job
-                        controllers for organization-specific workflows, and integration with experiment tracking systems like
-                        MLflow and Weights & Biases. We ensure that distributed training jobs are properly configured with the
-                        correct number of workers, appropriate resource requests, RDMA-capable network interfaces, and shared
-                        storage volumes for checkpointing.
-                    </p>
-                </div>
-
-                <div style={sectionStyle}>
-                    <h2 style={h2Style}>Technologies We Work With</h2>
-                    <div style={tagContainerStyle}>
-                        <span style={tagStyle}>Kubernetes</span>
-                        <span style={tagStyle}>GPU Operator</span>
-                        <span style={tagStyle}>KAI Scheduler</span>
-                        <span style={tagStyle}>MIG</span>
-                        <span style={tagStyle}>Time-Slicing</span>
-                        <span style={tagStyle}>EKS</span>
-                        <span style={tagStyle}>GKE</span>
-                        <span style={tagStyle}>AKS</span>
-                        <span style={tagStyle}>Kubeflow</span>
-                        <span style={tagStyle}>Volcano</span>
-                        <span style={tagStyle}>Network Operator</span>
-                        <span style={tagStyle}>Multus</span>
-                        <span style={tagStyle}>SR-IOV</span>
-                        <span style={tagStyle}>Helm</span>
-                        <span style={tagStyle}>ArgoCD</span>
+                    <div className={styles.metricBox}>
+                        <span className={styles.metricBoxValue}>Zero</span>
+                        <span className={styles.metricBoxLabel}>Scheduling Conflicts</span>
                     </div>
                 </div>
 
-                <div style={sectionStyle}>
-                    <h2 style={h2Style}>Related Resources</h2>
-                    <ul style={{ ...listStyle, listStyleType: 'none', paddingLeft: 0 }}>
-                        <li style={{ marginBottom: '12px' }}>
-                            <Link to="/blog/demystify-helm-operator" style={{ color: '#3182ce', fontWeight: 500 }}>
-                                Demystifying Helm and Operators for Kubernetes
-                            </Link>
-                        </li>
-                        <li style={{ marginBottom: '12px' }}>
-                            <Link to="/case-studies/rdma-kubernetes" style={{ color: '#3182ce', fontWeight: 500 }}>
-                                Case Study: RDMA on Bare-Metal Kubernetes
-                            </Link>
-                        </li>
-                        <li style={{ marginBottom: '12px' }}>
-                            <Link to="/services/distributed-training" style={{ color: '#3182ce', fontWeight: 500 }}>
-                                Distributed Training Optimization Service
-                            </Link>
-                        </li>
-                        <li style={{ marginBottom: '12px' }}>
-                            <Link to="/services/gpu-monitoring" style={{ color: '#3182ce', fontWeight: 500 }}>
-                                GPU Monitoring & Observability Service
-                            </Link>
-                        </li>
-                    </ul>
+                <h2 className={styles.subH2}>What We Do</h2>
+                <ul className={styles.subList}>
+                    <li><strong>GPU Operator stack</strong> — Driver containers, Container Toolkit, Device Plugin, DCGM Exporter, GPU Feature Discovery. We handle driver conflicts, runtime differences, secure boot, upgrade rollouts</li>
+                    <li><strong>KAI Scheduler</strong> — Topology-aware placement, fair-share scheduling, gang scheduling for distributed training, preemption policies, queue management. We're an active contributor</li>
+                    <li><strong>MIG & fractional GPU sharing</strong> — A100/H100 MIG partitioning, time-slicing for non-MIG GPUs, workload-aware partition profiles</li>
+                    <li><strong>Multi-tenancy</strong> — Namespace isolation, GPU resource quotas, RBAC, priority classes, cost allocation and chargeback</li>
+                    <li><strong>EKS / GKE / bare metal</strong> — GPU node groups with EFA, GKE GPU pools with multi-networking, bare-metal with Calico/Cilium + MetalLB. We've shipped all three</li>
+                    <li><strong>Training job orchestration</strong> — Kubeflow Training Operator, PyTorchJob, integration with MLflow and W&B</li>
+                </ul>
+
+                <h2 className={styles.subH2}>Proof</h2>
+                <p className={styles.subP}>
+                    We deployed a 3-node Kubespray cluster with GPU Operator, KAI Scheduler, JupyterHub,
+                    and full RDMA networking for a client — bare metal, 2x RTX 5000 Ada + 1x RTX A5500,
+                    with Traefik Gateway API and NFS CSI storage. Production-ready in weeks, not months.
+                </p>
+                <p className={styles.subP}>
+                    We also contributed the{" "}
+                    <Link to="/blog/contributing-queue-validator-kai-scheduler" className={styles.subLink}>
+                        queue validation webhook to KAI Scheduler
+                    </Link>
+                    {" "}— we know this codebase from the inside.
+                </p>
+
+                <h2 className={styles.subH2}>How We Work</h2>
+                <div className={styles.processRow}>
+                    <div className={styles.processBox}>
+                        <div className={styles.processBoxNum}>1</div>
+                        <p className={styles.processBoxTitle}>Assess</p>
+                        <p className={styles.processBoxDesc}>Audit your K8s GPU setup, scheduler config, and utilization.</p>
+                    </div>
+                    <div className={styles.processBox}>
+                        <div className={styles.processBoxNum}>2</div>
+                        <p className={styles.processBoxTitle}>Design</p>
+                        <p className={styles.processBoxDesc}>Right-size the operator stack, scheduling policy, tenancy model.</p>
+                    </div>
+                    <div className={styles.processBox}>
+                        <div className={styles.processBoxNum}>3</div>
+                        <p className={styles.processBoxTitle}>Implement</p>
+                        <p className={styles.processBoxDesc}>Deploy, configure, validate with real workloads.</p>
+                    </div>
+                    <div className={styles.processBox}>
+                        <div className={styles.processBoxNum}>4</div>
+                        <p className={styles.processBoxTitle}>Transfer</p>
+                        <p className={styles.processBoxDesc}>Runbooks, dashboards, and training for your platform team.</p>
+                    </div>
                 </div>
 
-                <div style={ctaSectionStyle}>
-                    <h2 style={ctaTitleStyle}>Need Help Running GPUs on Kubernetes?</h2>
-                    <p style={ctaTextStyle}>
-                        Whether you are building a new GPU cluster or optimizing an existing one, we can help you get
-                        Kubernetes GPU infrastructure right the first time.
+                <h2 className={styles.subH2}>Technologies</h2>
+                <div className={styles.techTagsRow}>
+                    {["Kubernetes", "GPU Operator", "KAI Scheduler", "Network Operator", "MIG", "Time-Slicing", "EKS", "GKE", "Kubeflow", "Multus", "SR-IOV", "Helm", "ArgoCD"].map(t => (
+                        <span key={t} className={styles.subTag}>{t}</span>
+                    ))}
+                </div>
+
+                <h2 className={styles.subH2}>Related</h2>
+                <ul className={styles.relatedList}>
+                    <li><Link to="/blog/contributing-queue-validator-kai-scheduler" className={styles.subLink}>Contributing a Queue Validator to KAI Scheduler →</Link></li>
+                    <li><Link to="/case-studies/rdma-kubernetes" className={styles.subLink}>Case Study: RDMA on Bare-Metal Kubernetes →</Link></li>
+                    <li><Link to="/services/distributed-training" className={styles.subLink}>Distributed Training Optimization →</Link></li>
+                    <li><Link to="/services/gpu-monitoring" className={styles.subLink}>GPU Monitoring & Observability →</Link></li>
+                </ul>
+
+                <FAQSection items={faqItems} />
+
+                <div className={styles.subCta}>
+                    <h2 className={styles.subCtaTitle}>Need Help Running GPUs on Kubernetes?</h2>
+                    <p className={styles.subCtaText}>
+                        We've deployed GPU Operator and KAI Scheduler on EKS, GKE, and bare metal. Let's look at your cluster.
                     </p>
-                    <a
-                        href="https://cal.com/baazhq"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={ctaButtonStyle}
-                    >
+                    <a href="https://cal.com/baazhq" target="_blank" rel="noopener noreferrer" className={styles.subCtaButton}>
                         Schedule a Call
                     </a>
                 </div>
