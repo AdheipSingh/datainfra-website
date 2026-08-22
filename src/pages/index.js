@@ -130,7 +130,12 @@ export default function Home() {
                     </div>
                 </section>
 
-                {/* Proof bar */}
+                {/* Technical credentials / proof bar */}
+                <section className={styles.credentialsSection}>
+                    <h2 className={styles.credentialsTitle}>
+                        Technical Credentials
+                    </h2>
+                </section>
                 <ProofBar />
 
                 {/* Problem Section */}
