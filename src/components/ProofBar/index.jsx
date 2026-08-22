@@ -1,17 +1,28 @@
 import React from "react"
 import styles from "./styles.module.css"
 
-// TODO(ADHEIP-INPUT): add merged-PR or contributor-page URL per project.
-// Items with url: null ship unlinked (per spec - never omit an item for a missing URL).
+// Each label links to merged upstream work; url: null renders as plain text.
 const ITEMS = [
-    { label: "NVIDIA KAI Scheduler", url: null },
-    { label: "NVIDIA Network Operator", url: null },
-    { label: "Mellanox ipoib-cni", url: null },
+    {
+        label: "KAI Scheduler (NVIDIA)",
+        url: "https://github.com/kai-scheduler/KAI-Scheduler/pulls?q=is%3Apr+author%3AAdheipSingh+is%3Amerged",
+    },
+    {
+        label: "NVIDIA Network Operator",
+        url: "https://github.com/Mellanox/network-operator/pulls?q=is%3Apr+author%3AAdheipSingh+is%3Amerged",
+    },
+    {
+        label: "Mellanox ipoib-cni",
+        url: "https://github.com/Mellanox/ipoib-cni/pulls?q=is%3Apr+author%3AAdheipSingh+is%3Amerged",
+    },
     {
         label: "NVIDIA Certified Engineers",
         url: "https://www.credly.com/users/adheip-singh-sadhrao.3ab58b44/badges/credly",
     },
-    { label: "Apache Software Foundation member", url: null },
+    {
+        label: "Apache Software Foundation member",
+        url: "https://people.apache.org/phonebook.html?uid=adheipsingh",
+    },
 ]
 
 /**
