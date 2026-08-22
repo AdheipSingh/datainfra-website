@@ -8,7 +8,11 @@ export default function Navbar() {
     return (
         <nav className={styles.navbar}>
             <Link to="/" className={styles.logo}>
-                BaaZ
+                <img
+                    src="/img/logo-vector.png"
+                    alt="BaaZ"
+                    className={styles.logoImg}
+                />
             </Link>
 
             <div className={styles.navLinks}>
@@ -20,6 +24,9 @@ export default function Navbar() {
                 </Link>
                 <Link to="/blog" className={styles.navLink}>
                     Blog
+                </Link>
+                <Link to="/audit" className={styles.navLink}>
+                    GPU Cluster Audit
                 </Link>
                 <Link to="/contact" className={styles.navLink}>
                     Contact
@@ -69,6 +76,13 @@ export default function Navbar() {
                         onClick={() => setIsOpen(false)}
                     >
                         Blog
+                    </Link>
+                    <Link
+                        to="/audit"
+                        className={styles.mobileNavLink}
+                        onClick={() => setIsOpen(false)}
+                    >
+                        GPU Cluster Audit
                     </Link>
                     <Link
                         to="/contact"
