@@ -11,7 +11,7 @@ const serviceSchema = {
     "@type": "Service",
     "name": "GPU Kubernetes Consulting",
     "provider": { "@type": "Organization", "name": "BaaZ", "url": "https://baaz.dev" },
-    "description": "Production GPU clusters on Kubernetes — GPU Operator, KAI Scheduler, MIG partitioning, multi-tenancy, EKS, GKE, and bare metal.",
+    "description": "Production GPU clusters on Kubernetes - GPU Operator, KAI Scheduler, MIG partitioning, multi-tenancy, EKS, GKE, and bare metal.",
     "url": "https://baaz.dev/services/gpu-kubernetes",
 }
 
@@ -60,7 +60,7 @@ export default function GPUKubernetes() {
                 <p className={styles.subLead}>
                     Your GPU cluster is running at 25% utilization. Teams wait days for GPU access. Training
                     jobs fail because the scheduler doesn't understand GPU topology. Kubernetes can run GPUs
-                    well — it just needs someone who's done it before.
+                    well - it just needs someone who's done it before.
                 </p>
 
                 <div className={styles.metricsRow}>
@@ -80,18 +80,18 @@ export default function GPUKubernetes() {
 
                 <h2 className={styles.subH2}>What We Do</h2>
                 <ul className={styles.subList}>
-                    <li><strong>GPU Operator stack</strong> — Driver containers, Container Toolkit, Device Plugin, DCGM Exporter, GPU Feature Discovery. We handle driver conflicts, runtime differences, secure boot, upgrade rollouts</li>
-                    <li><strong>KAI Scheduler</strong> — Topology-aware placement, fair-share scheduling, gang scheduling for distributed training, preemption policies, queue management. We're an active contributor</li>
-                    <li><strong>MIG & fractional GPU sharing</strong> — A100/H100 MIG partitioning, time-slicing for non-MIG GPUs, workload-aware partition profiles</li>
-                    <li><strong>Multi-tenancy</strong> — Namespace isolation, GPU resource quotas, RBAC, priority classes, cost allocation and chargeback</li>
-                    <li><strong>EKS / GKE / bare metal</strong> — GPU node groups with EFA, GKE GPU pools with multi-networking, bare-metal with Calico/Cilium + MetalLB. We've shipped all three</li>
-                    <li><strong>Training job orchestration</strong> — Kubeflow Training Operator, PyTorchJob, integration with MLflow and W&B</li>
+                    <li><strong>GPU Operator stack</strong>: Driver containers, Container Toolkit, Device Plugin, DCGM Exporter, GPU Feature Discovery. We handle driver conflicts, runtime differences, secure boot, upgrade rollouts</li>
+                    <li><strong>KAI Scheduler</strong>: Topology-aware placement, fair-share scheduling, gang scheduling for distributed training, preemption policies, queue management. We're an active contributor</li>
+                    <li><strong>MIG & fractional GPU sharing</strong>: A100/H100 MIG partitioning, time-slicing for non-MIG GPUs, workload-aware partition profiles</li>
+                    <li><strong>Multi-tenancy</strong>: Namespace isolation, GPU resource quotas, RBAC, priority classes, cost allocation and chargeback</li>
+                    <li><strong>EKS / GKE / bare metal</strong>: GPU node groups with EFA, GKE GPU pools with multi-networking, bare-metal with Calico/Cilium + MetalLB. We've shipped all three</li>
+                    <li><strong>Training job orchestration</strong>: Kubeflow Training Operator, PyTorchJob, integration with MLflow and W&B</li>
                 </ul>
 
                 <h2 className={styles.subH2}>Proof</h2>
                 <p className={styles.subP}>
                     We deployed a 3-node Kubespray cluster with GPU Operator, KAI Scheduler, JupyterHub,
-                    and full RDMA networking for a client — bare metal, 2x RTX 5000 Ada + 1x RTX A5500,
+                    and full RDMA networking for a client - bare metal, 2x RTX 5000 Ada + 1x RTX A5500,
                     with Traefik Gateway API and NFS CSI storage. Production-ready in weeks, not months.
                 </p>
                 <p className={styles.subP}>
@@ -99,7 +99,7 @@ export default function GPUKubernetes() {
                     <Link to="/blog/contributing-queue-validator-kai-scheduler" className={styles.subLink}>
                         queue validation webhook to KAI Scheduler
                     </Link>
-                    {" "}— we know this codebase from the inside.
+                    {" "} - we know this codebase from the inside.
                 </p>
 
                 <h2 className={styles.subH2}>How We Work</h2>

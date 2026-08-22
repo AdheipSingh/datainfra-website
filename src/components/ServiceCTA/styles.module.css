@@ -67,7 +67,7 @@
     transform: translateX(3px);
 }
 
-/* Dark mode — the banner already has a dark gradient, but tweak a bit for contrast */
+/* Dark mode - the banner already has a dark gradient, but tweak a bit for contrast */
 [data-theme="dark"] .cta {
     background: linear-gradient(135deg, #0f1e36 0%, #1e3a5f 100%);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);

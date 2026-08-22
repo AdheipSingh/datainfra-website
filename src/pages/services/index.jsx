@@ -6,11 +6,11 @@ import { Navbar } from "@site/src/components/Layout"
 import FAQSection from "@site/src/components/FAQSection"
 import styles from "./styles.module.css"
 
-// TODO: review answers before publishing — drafted as placeholders grounded in the page content.
+// TODO: review answers before publishing - drafted as placeholders grounded in the page content.
 const faqItems = [
     {
         question: "What does BaaZ do?",
-        answer: "BaaZ is a specialist GPU infrastructure consultancy. We help AI startups, SMEs, and GPU cloud providers design, build, optimize, and operate GPU clusters — covering distributed training optimization, Kubernetes GPU operations, RDMA networking, observability, multi-tenancy, and full AI-factory greenfield builds.",
+        answer: "We help teams that own or rent dedicated GPU hardware - AI startups, SMEs, enterprises, and GPU cloud providers - design, build, optimize, and operate their clusters.",
     },
     {
         question: "Who do you typically work with?",
@@ -28,9 +28,13 @@ const faqItems = [
         question: "Can you help with an urgent production issue?",
         answer: "Yes. A large fraction of our work is forensic: NCCL timeouts, distributed training that won't scale, GPU jobs failing at 2am. If you're actively on fire, schedule a call and we'll scope a rapid-response engagement.",
     },
-{
+    {
+        question: "Do you work through partners?",
+        answer: "Yes. Some of our delivery work comes through hardware resellers, system integrators, and GPU cloud providers. See /partners.",
+    },
+    {
         question: "How do I start working with BaaZ?",
-        answer: "Schedule a call at https://cal.com/baazhq. We'll spend the first call understanding what you're trying to do and whether we're the right fit — no sales pitch. If it's a fit, we scope an engagement and start; if it isn't, we'll point you at resources or partners who are.",
+        answer: "Schedule a call at https://cal.com/baazhq. We'll spend the first call understanding what you're trying to do and whether we're the right fit - no sales pitch. If it's a fit, we scope an engagement and start; if it isn't, we'll point you at resources or partners who are.",
     },
 ]
 
@@ -91,6 +95,14 @@ export default function Services() {
                         "description": "DCGM metrics, GPU health monitoring, alerting, dashboards, fault detection, and automated recovery."
                     }
                 },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "LLM Inference Optimization",
+                        "description": "Serving stack selection and tuning for self-hosted inference: vLLM/SGLang/TensorRT-LLM, batching, KV-cache configuration, parallelism, autoscaling, and cost-per-token analysis."
+                    }
+                },
             ]
         }
     }
@@ -98,7 +110,7 @@ export default function Services() {
     return (
         <Layout
             title="GPU Infrastructure Consulting Services"
-            description="GPU infrastructure consulting services: distributed training optimization, RDMA networking, GPU cluster architecture, multi-tenancy, and observability."
+            description="GPU infrastructure consulting services: distributed training optimization, RDMA networking, GPU cluster architecture, multi-tenancy, observability, and inference optimization."
         >
             <Head>
                 <script type="application/ld+json">
@@ -112,22 +124,13 @@ export default function Services() {
                     <div className={styles.heroContent}>
                         <span className={styles.heroLabel}>GPU Infrastructure Consulting</span>
                         <h1 className={styles.heroTitle}>
-                            Build & Optimize GPU Infrastructure for AI Training
+                            Build, optimize, and operate GPU infrastructure for AI
                         </h1>
-                        <div className={styles.heroStats}>
-                            <div className={styles.heroStat}>
-                                <span className={styles.statValue}>8.5x</span>
-                                <span className={styles.statLabel}>Faster Training</span>
-                            </div>
-                            <div className={styles.heroStat}>
-                                <span className={styles.statValue}>70%+</span>
-                                <span className={styles.statLabel}>GPU Utilization</span>
-                            </div>
-                            <div className={styles.heroStat}>
-                                <span className={styles.statValue}>10x</span>
-                                <span className={styles.statLabel}>Latency Reduction</span>
-                            </div>
-                        </div>
+                        <p className={styles.heroSubline}>
+                            From full AI-factory builds - provisioning, network fabric,
+                            orchestration, scheduling - to training performance,
+                            inference platforms, and Day-2 operations.
+                        </p>
                         <a
                             href="https://cal.com/baazhq"
                             target="_blank"
@@ -147,12 +150,36 @@ export default function Services() {
                             <div className={styles.serviceCard}>
                                 <div className={styles.serviceIcon}>
                                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                        <rect x="2" y="3" width="20" height="14" rx="2"/>
+                                        <path d="M8 21h8M12 17v4"/>
+                                    </svg>
+                                </div>
+                                <h3 className={styles.serviceTitle}>GPU Cluster Architecture</h3>
+                                <p className={styles.serviceDesc}>
+                                    Building a new GPU cluster? We design and implement end-to-end infrastructure
+                                    for AI workloads - on-prem, colo, or cloud.
+                                </p>
+                                <ul className={styles.serviceFeatures}>
+                                    <li>Hardware selection & network fabric</li>
+                                    <li>Storage architecture</li>
+                                    <li>Orchestration setup (K8s/Slurm)</li>
+                                    <li>Multi-tenant GPU-as-a-Service</li>
+                                    <li>Billing, metering & isolation</li>
+                                </ul>
+                                <Link to="/services/ai-factory" className={styles.caseStudyLink}>
+                                    Learn more →
+                                </Link>
+                            </div>
+
+                            <div className={styles.serviceCard}>
+                                <div className={styles.serviceIcon}>
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                         <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
                                     </svg>
                                 </div>
                                 <h3 className={styles.serviceTitle}>Distributed Training Optimization</h3>
                                 <p className={styles.serviceDesc}>
-                                    Multi-node training running slow? We diagnose and fix network bottlenecks, 
+                                    Multi-node training running slow? We diagnose and fix network bottlenecks,
                                     tune NCCL, configure RDMA, and optimize collective communications.
                                 </p>
                                 <ul className={styles.serviceFeatures}>
@@ -170,23 +197,22 @@ export default function Services() {
                             <div className={styles.serviceCard}>
                                 <div className={styles.serviceIcon}>
                                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                        <rect x="2" y="3" width="20" height="14" rx="2"/>
-                                        <path d="M8 21h8M12 17v4"/>
+                                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
                                     </svg>
                                 </div>
-                                <h3 className={styles.serviceTitle}>GPU Cluster Architecture</h3>
+                                <h3 className={styles.serviceTitle}>GPU Networking & RDMA</h3>
                                 <p className={styles.serviceDesc}>
-                                    Building a new GPU cluster? We design and implement end-to-end infrastructure
-                                    for AI workloads—on-prem, colo, or cloud.
+                                    Network killing your training throughput? We design and implement RDMA
+                                    fabrics - InfiniBand, RoCE, GPUDirect - that run at wire rate.
                                 </p>
                                 <ul className={styles.serviceFeatures}>
-                                    <li>Hardware selection & network fabric</li>
-                                    <li>Storage architecture</li>
-                                    <li>Orchestration setup (K8s/Slurm)</li>
-                                    <li>Multi-tenant GPU-as-a-Service</li>
-                                    <li>Billing, metering & isolation</li>
+                                    <li>InfiniBand & RoCE fabric design</li>
+                                    <li>GPUDirect RDMA setup</li>
+                                    <li>Switch configuration & QoS</li>
+                                    <li>Network Operator on Kubernetes</li>
+                                    <li>Dual-network architectures</li>
                                 </ul>
-                                <Link to="/services/ai-factory" className={styles.caseStudyLink}>
+                                <Link to="/services/gpu-networking" className={styles.caseStudyLink}>
                                     Learn more →
                                 </Link>
                             </div>
@@ -201,7 +227,7 @@ export default function Services() {
                                 <h3 className={styles.serviceTitle}>GPU Sharing & Multi-tenancy</h3>
                                 <p className={styles.serviceDesc}>
                                     GPUs sitting idle while teams wait? We implement proper sharing with
-                                    isolation—MIG, time-slicing, quotas—so you get 70%+ utilization.
+                                    isolation - MIG, time-slicing, quotas - so you get 70%+ utilization.
                                 </p>
                                 <ul className={styles.serviceFeatures}>
                                     <li>MIG partitioning & time-slicing</li>
@@ -211,29 +237,6 @@ export default function Services() {
                                     <li>Cost allocation & chargeback</li>
                                 </ul>
                                 <Link to="/services/gpu-kubernetes" className={styles.caseStudyLink}>
-                                    Learn more →
-                                </Link>
-                            </div>
-
-                            <div className={styles.serviceCard}>
-                                <div className={styles.serviceIcon}>
-                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                                    </svg>
-                                </div>
-                                <h3 className={styles.serviceTitle}>GPU Networking & RDMA</h3>
-                                <p className={styles.serviceDesc}>
-                                    Network killing your training throughput? We design and implement RDMA
-                                    fabrics — InfiniBand, RoCE, GPUDirect — that run at wire rate.
-                                </p>
-                                <ul className={styles.serviceFeatures}>
-                                    <li>InfiniBand & RoCE fabric design</li>
-                                    <li>GPUDirect RDMA setup</li>
-                                    <li>Switch configuration & QoS</li>
-                                    <li>Network Operator on Kubernetes</li>
-                                    <li>Dual-network architectures</li>
-                                </ul>
-                                <Link to="/services/gpu-networking" className={styles.caseStudyLink}>
                                     Learn more →
                                 </Link>
                             </div>
@@ -261,6 +264,32 @@ export default function Services() {
                                 </Link>
                             </div>
 
+                            <div className={styles.serviceCard}>
+                                <div className={styles.serviceIcon}>
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                        <path d="M4 17l6-6-6-6M12 19h8"/>
+                                    </svg>
+                                </div>
+                                <h3 className={styles.serviceTitle}>LLM Inference Optimization</h3>
+                                <p className={styles.serviceDesc}>
+                                    For teams self-hosting inference on dedicated GPUs: we profile
+                                    the serving path and tune the stack - vLLM/SGLang/TensorRT-LLM
+                                    selection, batching and KV-cache configuration, parallelism,
+                                    autoscaling - and hand over before/after throughput and cost
+                                    numbers.
+                                </p>
+                                <ul className={styles.serviceFeatures}>
+                                    <li>Serving stack selection and benchmarking</li>
+                                    <li>Batching, KV-cache, parallelism tuning</li>
+                                    <li>Latency SLO engineering</li>
+                                    <li>Inference observability</li>
+                                    <li>Cost-per-token analysis</li>
+                                </ul>
+                                {/* TODO(ADHEIP-INPUT): link target for this card (stub acceptable).
+                                    No performance claims here or on any linked page until the
+                                    inference benchmark is published. */}
+                            </div>
+
                         </div>
                     </div>
                 </section>
@@ -284,7 +313,7 @@ export default function Services() {
                                 <div className={styles.processNumber}>2</div>
                                 <h3 className={styles.processTitle}>Diagnose</h3>
                                 <p className={styles.processDesc}>
-                                    We find the real bottlenecks—often it's the network, not the GPUs.
+                                    We find the real bottlenecks - often it's the network, not the GPUs.
                                 </p>
                             </div>
                             <div className={styles.processStep}>
@@ -305,55 +334,8 @@ export default function Services() {
                     </div>
                 </section>
 
-                {/* Technologies */}
-                <section className={styles.section}>
-                    <div className={styles.sectionContent}>
-                        <h2 className={styles.sectionTitle}>Technologies We Work With</h2>
-                        <div className={styles.techGrid}>
-                            <div className={styles.techCategory}>
-                                <h3 className={styles.techCategoryTitle}>GPUs</h3>
-                                <div className={styles.techTags}>
-                                    <span className={styles.techTag}>H100</span>
-                                    <span className={styles.techTag}>A100</span>
-                                    <span className={styles.techTag}>L40S</span>
-                                    <span className={styles.techTag}>A6000</span>
-                                    <span className={styles.techTag}>V100</span>
-                                </div>
-                            </div>
-                            <div className={styles.techCategory}>
-                                <h3 className={styles.techCategoryTitle}>Networking</h3>
-                                <div className={styles.techTags}>
-                                    <span className={styles.techTag}>InfiniBand</span>
-                                    <span className={styles.techTag}>RoCE</span>
-                                    <span className={styles.techTag}>RDMA</span>
-                                    <span className={styles.techTag}>GPUDirect</span>
-                                    <span className={styles.techTag}>NCCL</span>
-                                </div>
-                            </div>
-                            <div className={styles.techCategory}>
-                                <h3 className={styles.techCategoryTitle}>Orchestration</h3>
-                                <div className={styles.techTags}>
-                                    <span className={styles.techTag}>Kubernetes</span>
-                                    <span className={styles.techTag}>Slurm</span>
-                                    <span className={styles.techTag}>GPU Operator</span>
-                                    <span className={styles.techTag}>Network Operator</span>
-                                </div>
-                            </div>
-                            <div className={styles.techCategory}>
-                                <h3 className={styles.techCategoryTitle}>Training Frameworks</h3>
-                                <div className={styles.techTags}>
-                                    <span className={styles.techTag}>PyTorch DDP</span>
-                                    <span className={styles.techTag}>DeepSpeed</span>
-                                    <span className={styles.techTag}>Megatron</span>
-                                    <span className={styles.techTag}>FSDP</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
                 {/* Case Study Teaser */}
-                <section className={`${styles.section} ${styles.sectionAlt}`}>
+                <section className={styles.section}>
                     <div className={styles.sectionContent}>
                         <div className={styles.caseStudyTeaser}>
                             <div className={styles.caseStudyContent}>
@@ -395,7 +377,7 @@ export default function Services() {
                     <div className={styles.ctaContent}>
                         <h2 className={styles.ctaTitle}>Ready to Optimize Your GPU Infrastructure?</h2>
                         <p className={styles.ctaText}>
-                            Let's discuss your challenges. No sales pitch—just a conversation about 
+                            Let's discuss your challenges. No sales pitch - just a conversation about 
                             what you're trying to do and whether we can help.
                         </p>
                         <a

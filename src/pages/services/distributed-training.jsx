@@ -18,7 +18,7 @@ const serviceSchema = {
 const faqItems = [
     {
         question: "What is distributed training optimization?",
-        answer: "It's the practice of tuning GPU networking, NCCL, and collective-communication paths so multi-node training scales near-linearly with node count — RDMA/RoCE configuration, GPUDirect RDMA, NCCL algorithm tuning, and topology-aware process placement to eliminate network-induced GPU idle time.",
+        answer: "It's the practice of tuning GPU networking, NCCL, and collective-communication paths so multi-node training scales near-linearly with node count - RDMA/RoCE configuration, GPUDirect RDMA, NCCL algorithm tuning, and topology-aware process placement to eliminate network-induced GPU idle time.",
     },
     {
         question: "How do I know if my multi-node training is network-bound?",
@@ -30,7 +30,7 @@ const faqItems = [
     },
     {
         question: "Do I need InfiniBand, or is RoCE enough?",
-        answer: "Both work. InfiniBand is a lossless, purpose-built fabric standard in DGX SuperPOD deployments. RoCE v2 runs RDMA over Ethernet and achieves comparable throughput when configured correctly with PFC and ECN — often the better fit for cloud, colo, and bare-metal Kubernetes clusters.",
+        answer: "Both work. InfiniBand is a lossless, purpose-built fabric standard in DGX SuperPOD deployments. RoCE v2 runs RDMA over Ethernet and achieves comparable throughput when configured correctly with PFC and ECN - often the better fit for cloud, colo, and bare-metal Kubernetes clusters.",
     },
     {
         question: "Can you fix distributed training issues without changing hardware?",
@@ -80,12 +80,12 @@ export default function DistributedTraining() {
 
                 <h2 className={styles.subH2}>What We Do</h2>
                 <ul className={styles.subList}>
-                    <li><strong>NCCL tuning</strong> — algorithm selection (Ring/Tree/CollnetDirect), protocol tuning, buffer sizing, thread configuration for your specific topology</li>
-                    <li><strong>RDMA/RoCE configuration</strong> — PFC, ECN/DCQCN, GID indexes, traffic class, DSCP marking, end-to-end lossless validation</li>
-                    <li><strong>InfiniBand optimization</strong> — subnet manager config, adaptive routing, partition keys, rail-optimized topologies</li>
-                    <li><strong>GPUDirect RDMA setup</strong> — zero-copy GPU-to-GPU transfers, peer memory modules, GDR copy validation</li>
-                    <li><strong>Topology-aware optimization</strong> — NVLink/NVSwitch intra-node routing, PCIe affinity alignment, NUMA-aware process placement</li>
-                    <li><strong>Profiling and diagnostics</strong> — perftest benchmarks, NCCL test validation, bandwidth calculators, bottleneck identification</li>
+                    <li><strong>NCCL tuning</strong>: algorithm selection (Ring/Tree/CollnetDirect), protocol tuning, buffer sizing, thread configuration for your specific topology</li>
+                    <li><strong>RDMA/RoCE configuration</strong>: PFC, ECN/DCQCN, GID indexes, traffic class, DSCP marking, end-to-end lossless validation</li>
+                    <li><strong>InfiniBand optimization</strong>: subnet manager config, adaptive routing, partition keys, rail-optimized topologies</li>
+                    <li><strong>GPUDirect RDMA setup</strong>: zero-copy GPU-to-GPU transfers, peer memory modules, GDR copy validation</li>
+                    <li><strong>Topology-aware optimization</strong>: NVLink/NVSwitch intra-node routing, PCIe affinity alignment, NUMA-aware process placement</li>
+                    <li><strong>Profiling and diagnostics</strong>: perftest benchmarks, NCCL test validation, bandwidth calculators, bottleneck identification</li>
                 </ul>
 
                 <h2 className={styles.subH2}>Proof</h2>

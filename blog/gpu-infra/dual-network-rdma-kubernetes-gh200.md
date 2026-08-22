@@ -5,7 +5,7 @@ authors: [Adheip Singh]
 tags: [gpu, rdma, kubernetes, networking, gh200, nccl, tutorial]
 ---
 
-*How to set up a management network and a dedicated RDMA training network inside Kubernetes pods — from hardware discovery to working RDMA verbs, on a bare-metal GH200 Grace Hopper superchip.*
+*How to set up a management network and a dedicated RDMA training network inside Kubernetes pods - from hardware discovery to working RDMA verbs, on a bare-metal GH200 Grace Hopper superchip.*
 
 <!-- truncate -->
 
@@ -13,19 +13,19 @@ tags: [gpu, rdma, kubernetes, networking, gh200, nccl, tutorial]
 
 ## Why two networks?
 
-In GPU training clusters, every pod needs two distinct network paths. The first is the management network — the standard Kubernetes pod network (Flannel, Calico, Cilium) that carries API traffic, health checks, metrics, DNS, and control plane communication. The second is the training network — a dedicated, high-bandwidth path that carries NCCL collective operations (all-reduce, all-gather, broadcast) directly between GPUs across nodes.
+In GPU training clusters, every pod needs two distinct network paths. The first is the management network - the standard Kubernetes pod network (Flannel, Calico, Cilium) that carries API traffic, health checks, metrics, DNS, and control plane communication. The second is the training network - a dedicated, high-bandwidth path that carries NCCL collective operations (all-reduce, all-gather, broadcast) directly between GPUs across nodes.
 
 Mixing both on a single interface is a non-starter for serious GPU workloads. NCCL traffic is latency-sensitive and bandwidth-hungry. It needs to bypass kube-proxy, skip the overlay network, and in the case of RDMA, bypass the kernel entirely. The management network, by contrast, is low-bandwidth but needs reliable service discovery and DNS.
 
 The Kubernetes-native way to give a pod two interfaces is Multus CNI. The primary CNI plugin (Flannel, in our case) provides `eth0` for management. Multus attaches a secondary interface (`net1`) backed by the physical RDMA-capable NIC, giving the pod direct access to the high-speed fabric.
 
-This post walks through the full setup on an NVIDIA GH200 Grace Hopper bare-metal instance with a ConnectX-7 NIC — from discovering whether RDMA is even available, through Kubernetes configuration, to running RDMA verbs inside a pod.
+This post walks through the full setup on an NVIDIA GH200 Grace Hopper bare-metal instance with a ConnectX-7 NIC - from discovering whether RDMA is even available, through Kubernetes configuration, to running RDMA verbs inside a pod.
 
 ---
 
 ## Hardware: What we're working with
 
-Our test platform is a single NVIDIA GH200 480GB Grace Hopper superchip — a Grace ARM CPU (72 cores) unified with an H200 GPU on a single module. The system runs Ubuntu 22.04 on the NVIDIA 6.8.0 kernel:
+Our test platform is a single NVIDIA GH200 480GB Grace Hopper superchip - a Grace ARM CPU (72 cores) unified with an H200 GPU on a single module. The system runs Ubuntu 22.04 on the NVIDIA 6.8.0 kernel:
 
 ```
 Linux guest 6.8.0-1050-nvidia-64k aarch64 GNU/Linux
@@ -65,7 +65,7 @@ On our GH200, this shows:
 
 The NIC naming is the first clue. `enp1s0f0np0` breaks down as: `en` (Ethernet), `p1` (PCI bus 1), `s0` (slot 0), `f0` (function 0), `np0` (network port 0). The `np` suffix is specific to Mellanox/NVIDIA ConnectX NICs. The MAC prefix `a0:88:c2` is registered to NVIDIA/Mellanox.
 
-Two ports, same PCI device: `f0np0` and `f1np1`. Port 0 is up with a public IP; port 1 is down (no cable/link partner). This dual-port setup is exactly the pattern we need — one port for management, one for data.
+Two ports, same PCI device: `f0np0` and `f1np1`. Port 0 is up with a public IP; port 1 is down (no cable/link partner). This dual-port setup is exactly the pattern we need - one port for management, one for data.
 
 ### Check PCI devices
 
@@ -98,8 +98,8 @@ NIC1    NODE  PIX    X
 
 This topology matrix tells us:
 
-- **GPU0 <-> NIC0/NIC1**: `NODE` — they traverse PCIe within the same NUMA node. Not the tightest coupling (that would be `PIX` or `PXB`), but good enough for GPUDirect RDMA.
-- **NIC0 <-> NIC1**: `PIX` — the two ports share the same PCIe bridge. They're physically the same device.
+- **GPU0 <-> NIC0/NIC1**: `NODE` - they traverse PCIe within the same NUMA node. Not the tightest coupling (that would be `PIX` or `PXB`), but good enough for GPUDirect RDMA.
+- **NIC0 <-> NIC1**: `PIX` - the two ports share the same PCIe bridge. They're physically the same device.
 
 ### Check kernel modules
 
@@ -118,12 +118,12 @@ mlx5_core            2686976  1 mlx5_ib
 
 The critical modules and what they mean:
 
-- **`mlx5_core`** — ConnectX base driver. Handles Ethernet. Without this, the NIC doesn't work at all.
-- **`mlx5_ib`** — RDMA/InfiniBand driver for ConnectX. This is what enables RDMA verbs on the NIC. If only `mlx5_core` is loaded but `mlx5_ib` is absent, RDMA is not active. You can try `modprobe mlx5_ib` to load it.
-- **`ib_core`** — Core InfiniBand/RDMA subsystem. Required by all RDMA drivers.
-- **`ib_uverbs`** — Userspace verbs interface. Exposes `/dev/infiniband/uverbsN` devices that applications use to perform RDMA operations.
-- **`nvidia_peermem`** — GPUDirect RDMA bridge. This module allows the ConnectX NIC to DMA directly to/from GPU HBM memory, bypassing CPU memory entirely. Its presence means the system is configured for GPU-to-GPU RDMA transfers.
-- **`mlx_compat`** (if present) — MOFED compatibility shim, indicating NVIDIA MOFED drivers are installed rather than stock kernel drivers.
+- **`mlx5_core`**: ConnectX base driver. Handles Ethernet. Without this, the NIC doesn't work at all.
+- **`mlx5_ib`**: RDMA/InfiniBand driver for ConnectX. This is what enables RDMA verbs on the NIC. If only `mlx5_core` is loaded but `mlx5_ib` is absent, RDMA is not active. You can try `modprobe mlx5_ib` to load it.
+- **`ib_core`**: Core InfiniBand/RDMA subsystem. Required by all RDMA drivers.
+- **`ib_uverbs`**: Userspace verbs interface. Exposes `/dev/infiniband/uverbsN` devices that applications use to perform RDMA operations.
+- **`nvidia_peermem`**: GPUDirect RDMA bridge. This module allows the ConnectX NIC to DMA directly to/from GPU HBM memory, bypassing CPU memory entirely. Its presence means the system is configured for GPU-to-GPU RDMA transfers.
+- **`mlx_compat`** (if present) - MOFED compatibility shim, indicating NVIDIA MOFED drivers are installed rather than stock kernel drivers.
 
 ### Check RDMA devices
 
@@ -159,10 +159,10 @@ phys_port_cnt: 1
 
 Key fields:
 
-- **`vendor_part_id: 4129`** — hex `0x1021`, which identifies this as ConnectX-7
-- **`link_layer: Ethernet`** — this is RoCE (RDMA over Converged Ethernet), not InfiniBand. The `transport: InfiniBand (0)` line refers to the verbs API layer, not the physical link
-- **`state: PORT_ACTIVE`** — RDMA is ready on this port
-- **`fw_ver: 28.40.1000`** — firmware version, useful for support cases and compatibility checks
+- **`vendor_part_id: 4129`**: hex `0x1021`, which identifies this as ConnectX-7
+- **`link_layer: Ethernet`**: this is RoCE (RDMA over Converged Ethernet), not InfiniBand. The `transport: InfiniBand (0)` line refers to the verbs API layer, not the physical link
+- **`state: PORT_ACTIVE`**: RDMA is ready on this port
+- **`fw_ver: 28.40.1000`**: firmware version, useful for support cases and compatibility checks
 
 Common ConnectX device IDs you'll encounter:
 
@@ -245,7 +245,7 @@ For x86 systems, replace `arm64` with `amd64`.
 
 ## Step 3: Installing Multus CNI
 
-Multus is a "meta-CNI" — it doesn't provide networking itself. It calls the primary CNI (Flannel) for `eth0`, then calls additional CNI plugins for secondary interfaces.
+Multus is a "meta-CNI" - it doesn't provide networking itself. It calls the primary CNI (Flannel) for `eth0`, then calls additional CNI plugins for secondary interfaces.
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/k8snetworkplumbingwg/multus-cni/master/deployments/multus-daemonset-thick.yml
@@ -313,7 +313,7 @@ data:
 Breaking down each field:
 
 - **`resourceName`**: The Kubernetes extended resource name. Pods will request `rdma/rdma_shared_device`.
-- **`rdmaHcaMax: 100`**: Maximum number of pods that can share the same physical RDMA HCA simultaneously. This works because RDMA supports thousands of independent Queue Pairs on a single NIC — each pod gets its own QP with no contention. Set this to match your expected concurrent pod count.
+- **`rdmaHcaMax: 100`**: Maximum number of pods that can share the same physical RDMA HCA simultaneously. This works because RDMA supports thousands of independent Queue Pairs on a single NIC - each pod gets its own QP with no contention. Set this to match your expected concurrent pod count.
 - **`vendors: ["15b3"]`**: PCI vendor ID filter. `15b3` = NVIDIA/Mellanox.
 - **`deviceIDs: ["1021"]`**: PCI device ID filter. `1021` = ConnectX-7.
 - **`drivers: ["mlx5_core"]`**: Only match devices bound to the mlx5 kernel driver (excludes devices bound to DPDK/vfio-pci).
@@ -368,9 +368,9 @@ spec:
 
 Key decisions and an important caveat:
 
-**Both interfaces share the same physical port.** In our setup, `enp1s0f1np1` (port 1) has no link — no cable, no link partner. So both the Flannel overlay (`eth0`) and the macvlan secondary interface (`net1`) are backed by the same physical NIC: `enp1s0f0np0` (port 0). Flannel builds a vxlan tunnel on top of it for pod-to-pod management traffic, and macvlan carves out a separate virtual sub-interface with its own MAC address for the RDMA data path. They share the same wire.
+**Both interfaces share the same physical port.** In our setup, `enp1s0f1np1` (port 1) has no link - no cable, no link partner. So both the Flannel overlay (`eth0`) and the macvlan secondary interface (`net1`) are backed by the same physical NIC: `enp1s0f0np0` (port 0). Flannel builds a vxlan tunnel on top of it for pod-to-pod management traffic, and macvlan carves out a separate virtual sub-interface with its own MAC address for the RDMA data path. They share the same wire.
 
-This is a test-environment constraint, not a production design. What we're validating here is that the **Multus + RDMA device plugin plumbing works** — a pod gets a secondary interface and RDMA device access through Kubernetes. The networking stack doesn't care whether the two interfaces are backed by the same port or physically separate NICs.
+This is a test-environment constraint, not a production design. What we're validating here is that the **Multus + RDMA device plugin plumbing works**: a pod gets a secondary interface and RDMA device access through Kubernetes. The networking stack doesn't care whether the two interfaces are backed by the same port or physically separate NICs.
 
 **In production, you would use physically separate interfaces:**
 
@@ -379,7 +379,7 @@ Port 0 / NIC 0 (onboard)       -> Flannel/Calico -> management (eth0)
 Port 1 / NIC 1 (dedicated HCA) -> host-device    -> RDMA training (net1)
 ```
 
-With a dedicated NIC for training, you would use the `host-device` CNI plugin instead of macvlan. `host-device` moves the entire physical interface into the pod's network namespace, giving the pod exclusive access — no sharing, no overhead. That's the standard pattern for NCCL traffic in GPU training clusters.
+With a dedicated NIC for training, you would use the `host-device` CNI plugin instead of macvlan. `host-device` moves the entire physical interface into the pod's network namespace, giving the pod exclusive access - no sharing, no overhead. That's the standard pattern for NCCL traffic in GPU training clusters.
 
 **Why macvlan works for this POC**: `macvlan` creates a virtual sub-interface on top of a physical NIC. The host retains the interface, and multiple pods can each get their own L2 identity backed by the same port. It proves the dual-interface pod pattern without requiring two active physical links.
 
@@ -409,7 +409,7 @@ spec:
         rdma/rdma_shared_device: 1
 ```
 
-The `IPC_LOCK` capability is required for RDMA operations — it allows the process to lock memory pages, which is necessary for RDMA registered memory regions.
+The `IPC_LOCK` capability is required for RDMA operations - it allows the process to lock memory pages, which is necessary for RDMA registered memory regions.
 
 ---
 
@@ -498,27 +498,27 @@ RDMA verbs work from inside the Kubernetes pod. The ConnectX-7 is fully visible 
 
 ## Architecture summary
 
-The final pod networking topology — note that both interfaces share the same physical NIC port in this test setup:
+The final pod networking topology - note that both interfaces share the same physical NIC port in this test setup:
 
 ![GH200 Dual-Network RDMA Architecture](/img/blog/gh200-dual-network-rdma-architecture.svg)
 
-In production, the two pod interfaces would be backed by **physically separate NICs** — management traffic on one, RDMA training traffic on another — with `host-device` replacing `macvlan` for exclusive NIC access.
+In production, the two pod interfaces would be backed by **physically separate NICs**: management traffic on one, RDMA training traffic on another - with `host-device` replacing `macvlan` for exclusive NIC access.
 
 ---
 
 ## What comes next
 
-This single-node setup proves the full networking stack: Multus secondary interface attachment, RDMA device exposure into pods, and RDMA verbs working through the container namespace. The components validated here — Multus, macvlan, RDMA shared device plugin — are the same components used in production GPU training clusters.
+This single-node setup proves the full networking stack: Multus secondary interface attachment, RDMA device exposure into pods, and RDMA verbs working through the container namespace. The components validated here - Multus, macvlan, RDMA shared device plugin - are the same components used in production GPU training clusters.
 
 The next steps for a production deployment:
 
-1. **Multi-node NCCL testing** — Add a second GH200 node, run `nccl-tests` (`all_reduce_perf`) across nodes to validate GPU-to-GPU RDMA throughput through Kubernetes.
+1. **Multi-node NCCL testing**: Add a second GH200 node, run `nccl-tests` (`all_reduce_perf`) across nodes to validate GPU-to-GPU RDMA throughput through Kubernetes.
 
-2. **GPUDirect RDMA verification** — Run `ib_write_bw --use_cuda=0` to confirm the NIC can DMA directly to GPU HBM memory, bypassing CPU memory.
+2. **GPUDirect RDMA verification**: Run `ib_write_bw --use_cuda=0` to confirm the NIC can DMA directly to GPU HBM memory, bypassing CPU memory.
 
-3. **SR-IOV or host-device for dedicated NICs** — In production, each node would have a dedicated NIC pair: one for management, one for training. The training NIC would use `host-device` (exclusive pod access) or SR-IOV (hardware-partitioned virtual functions) instead of macvlan.
+3. **SR-IOV or host-device for dedicated NICs**: In production, each node would have a dedicated NIC pair: one for management, one for training. The training NIC would use `host-device` (exclusive pod access) or SR-IOV (hardware-partitioned virtual functions) instead of macvlan.
 
-4. **Network Operator for fleet management** — At scale (dozens to hundreds of nodes), the NVIDIA Network Operator automates MOFED driver installation, device plugin deployment, and Multus configuration across the cluster. For a single node or small cluster, the manual setup described here gives you more control and visibility.
+4. **Network Operator for fleet management**: At scale (dozens to hundreds of nodes), the NVIDIA Network Operator automates MOFED driver installation, device plugin deployment, and Multus configuration across the cluster. For a single node or small cluster, the manual setup described here gives you more control and visibility.
 
 ---
 

@@ -2,13 +2,14 @@ import React from "react"
 import Layout from "@theme/Layout"
 import Link from "@docusaurus/Link"
 import { Navbar } from "@site/src/components/Layout"
+import ProofBar from "@site/src/components/ProofBar"
 import styles from "./styles.module.css"
 
 export default function About() {
     return (
         <Layout
             title="About BaaZ | GPU Infrastructure Engineers"
-            description="BaaZ is a team of GPU infrastructure engineers who've built production AI systems at scale. Apache Software Foundation contributors with deep expertise in distributed training, RDMA networking, and Kubernetes GPU orchestration."
+            description="BaaZ is a founder-led GPU infrastructure boutique. Upstream contributors to the NVIDIA stack with deep expertise in distributed training, RDMA networking, and Kubernetes GPU orchestration."
         >
             <Navbar />
             <main className={styles.main}>
@@ -17,8 +18,49 @@ export default function About() {
                     <div className={styles.heroContent}>
                         <h1 className={styles.heroTitle}>About BaaZ</h1>
                         <p className={styles.heroSubtitle}>
-                            We're a team of GPU infrastructure engineers who've built production AI systems at scale.
-                            We're not a traditional consultancy—we write code, configure systems, and solve problems alongside your team.
+                            BaaZ is a founder-led GPU infrastructure boutique. The
+                            engineer you talk to on the first call is the engineer
+                            doing the work.
+                        </p>
+                    </div>
+                </section>
+
+                {/* Founder Section */}
+                <section className={`${styles.section} ${styles.sectionAlt}`}>
+                    <div className={styles.sectionContent}>
+                        <h2 className={styles.sectionTitle}>Adheip Singh, Founder</h2>
+                        <p className={styles.founderText}>
+                            Apache Software Foundation member; upstream contributor to
+                            NVIDIA KAI Scheduler, NVIDIA Network Operator, and Mellanox
+                            ipoib-cni. NVIDIA Certified Associate. Building GPU
+                            infrastructure end to end: provisioning, network fabric,
+                            Kubernetes and Slurm, scheduling, GPUDirect.
+                        </p>
+                        {/* TODO(ADHEIP-INPUT): confirm links; photo optional (yes/no + asset) */}
+                        <p className={styles.founderLinks}>
+                            <a
+                                href="https://github.com/AdheipSingh"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                GitHub
+                            </a>
+                            {" · "}
+                            <a
+                                href="https://www.linkedin.com/in/adheipsingh/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                LinkedIn
+                            </a>
+                            {" · "}
+                            <a
+                                href="https://www.credly.com/users/adheip-singh-sadhrao.3ab58b44/badges/credly"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                NVIDIA Certification (Credly)
+                            </a>
                         </p>
                     </div>
                 </section>
@@ -27,18 +69,10 @@ export default function About() {
                 <section className={styles.section}>
                     <div className={styles.sectionContent}>
                         <h2 className={styles.sectionTitle}>Technical Credentials</h2>
+                    </div>
+                    <ProofBar />
+                    <div className={styles.sectionContent}>
                         <div className={styles.credentialsGrid}>
-                            <div className={styles.credentialCard}>
-                                <div className={styles.credentialIcon}>
-                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                                    </svg>
-                                </div>
-                                <h3 className={styles.credentialTitle}>Apache Software Foundation</h3>
-                                <p className={styles.credentialText}>
-                                    Contributors to Apache open-source projects. Our careers are built on open-source infrastructure.
-                                </p>
-                            </div>
                             <div className={styles.credentialCard}>
                                 <div className={styles.credentialIcon}>
                                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -48,7 +82,7 @@ export default function About() {
                                 </div>
                                 <h3 className={styles.credentialTitle}>Production Experience</h3>
                                 <p className={styles.credentialText}>
-                                    Built and operated GPU infrastructure at startups and scale-ups—under pressure, in production.
+                                    Built and operated GPU infrastructure at startups and scale-ups - under pressure, in production.
                                 </p>
                             </div>
                             <div className={styles.credentialCard}>
@@ -140,7 +174,7 @@ export default function About() {
                             <div className={styles.comparisonCard}>
                                 <h3 className={styles.comparisonTitle}>Work Directly With Experts</h3>
                                 <p className={styles.comparisonText}>
-                                    You work directly with the engineers who do the work—no junior consultants learning on your infrastructure.
+                                    You work directly with the engineers who do the work - no junior consultants learning on your infrastructure.
                                 </p>
                             </div>
                             <div className={styles.comparisonCard}>
@@ -167,17 +201,17 @@ export default function About() {
                             <div className={styles.resultCard}>
                                 <span className={styles.resultMetric}>8.5x</span>
                                 <span className={styles.resultLabel}>Faster Distributed Training</span>
-                                <p className={styles.resultDesc}>RDMA optimization for a computer vision company</p>
+                                <p className={styles.resultDesc}>2-node customer cluster, after RDMA path fixes</p>
                             </div>
                             <div className={styles.resultCard}>
-                                <span className={styles.resultMetric}>70%+</span>
+                                <span className={styles.resultMetric}>35% → 78%</span>
                                 <span className={styles.resultLabel}>GPU Utilization</span>
-                                <p className={styles.resultDesc}>Up from 30% through proper sharing architecture</p>
+                                <p className={styles.resultDesc}>Same engagement, after RDMA and scheduling fixes</p>
                             </div>
                             <div className={styles.resultCard}>
                                 <span className={styles.resultMetric}>10x</span>
-                                <span className={styles.resultLabel}>Latency Reduction</span>
-                                <p className={styles.resultDesc}>GPU-to-GPU communication optimization</p>
+                                <span className={styles.resultLabel}>AllReduce Latency Reduction</span>
+                                <p className={styles.resultDesc}>TCP to GPUDirect RDMA over RoCE</p>
                             </div>
                         </div>
                         <div className={styles.caseStudyLink}>
@@ -193,7 +227,7 @@ export default function About() {
                     <div className={styles.ctaContent}>
                         <h2 className={styles.ctaTitle}>Let's Talk</h2>
                         <p className={styles.ctaText}>
-                            If you're dealing with GPU infrastructure challenges—utilization, performance, reliability, or building something new—we should talk.
+                            If you're dealing with GPU infrastructure challenges - utilization, performance, reliability, or building something new - we should talk.
                         </p>
                         <a
                             href="https://cal.com/baazhq"

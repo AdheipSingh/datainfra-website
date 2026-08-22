@@ -318,3 +318,27 @@
         font-size: 1.75rem;
     }
 }
+
+/* Founder section */
+.founderText {
+    max-width: 720px;
+    margin: 0 auto 16px;
+    font-size: 1.1rem;
+    color: #4a5568;
+    line-height: 1.7;
+    text-align: center;
+}
+
+.founderLinks {
+    text-align: center;
+    font-weight: 600;
+}
+
+.founderLinks a {
+    color: #2b6cb0;
+    text-decoration: none;
+}
+
+.founderLinks a:hover {
+    text-decoration: underline;
+}

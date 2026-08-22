@@ -7,7 +7,7 @@ tags: [SAAS, control-planes]
 ---
 
 :::info Looking for GPU Infrastructure?
-BaaZ now specializes in GPU infrastructure consulting for AI training. [See our GPU infrastructure services →](/services)
+BaaZ now specializes in GPU infrastructure consulting for AI. [See our GPU infrastructure services →](/services)
 :::
 
 
@@ -117,7 +117,7 @@ Consider an enterprise customer who wishes to utilise your SaaS solution but req
 ## The Stateless Control Plane - Infrastructure Developer
 
 
-As an infrastructure developer, the control plane becomes an integral part of your infrastructure. Kubernetes transcends mere orchestration; it serves as the control plane for your applications. Let's explore how we can harness our infrastructure to create an event-driven SaaS control plane—one that is inherently stateless.
+As an infrastructure developer, the control plane becomes an integral part of your infrastructure. Kubernetes transcends mere orchestration; it serves as the control plane for your applications. Let's explore how we can harness our infrastructure to create an event-driven SaaS control plane - one that is inherently stateless.
 
 
 ### State Machines But Not Rigid
@@ -140,7 +140,7 @@ When grappling with state-related challenges, it becomes evident that there are 
 While using APIs to manipulate state may appear to be a straightforward approach, it falls short in truly addressing the intricacies of state management. State machines are rigid ie they have hardcoded state in built for certain outcomes.Moreover like a switch ON and OFF.
 
 
-In Kubernetes, controllers rely on conditions—essentially orthogonal concepts. These controllers fabricate state by observing changes, constructing the evolving state during each reconciliation process. While Kubernetes controllers possess certain traits akin to state machines, they are far from rigid. Interestingly, the term "state machine" is notably absent from the Kubernetes documentation.
+In Kubernetes, controllers rely on conditions - essentially orthogonal concepts. These controllers fabricate state by observing changes, constructing the evolving state during each reconciliation process. While Kubernetes controllers possess certain traits akin to state machines, they are far from rigid. Interestingly, the term "state machine" is notably absent from the Kubernetes documentation.
 
 
 ### Stateless Event-Driven Paradigm of Kubernetes Controllers
@@ -157,7 +157,7 @@ Whenever a state alteration transpires within the Custom Resource, it promptly a
 
 
 - **Level-Driven Trigger**
-At regular intervals, a comprehensive state assessment is conducted. If the existing state fails to align with the desired state—taking into account the original state—the event handler is triggered to take corrective measures.
+At regular intervals, a comprehensive state assessment is conducted. If the existing state fails to align with the desired state - taking into account the original state - the event handler is triggered to take corrective measures.
 
 
 :::info

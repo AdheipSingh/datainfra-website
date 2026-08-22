@@ -3,6 +3,8 @@ import Layout from "@theme/Layout"
 import Link from "@docusaurus/Link"
 import Head from "@docusaurus/Head"
 import { Navbar } from "@site/src/components/Layout"
+import ProofBar from "@site/src/components/ProofBar"
+import EmailCapture from "@site/src/components/EmailCapture"
 import styles from "./index.module.css"
 
 const faqSchema = {
@@ -64,7 +66,7 @@ export default function Home() {
     return (
         <Layout
             title="GPU Infrastructure Consulting for AI"
-            description="BaaZ helps startups and SMEs build, optimize, and operate GPU clusters for AI training. 8.5x faster distributed training, 70%+ GPU utilization, 10x latency reduction."
+            description="BaaZ builds, optimizes, and operates GPU clusters for AI - cluster bring-up, RDMA/RoCE networking, Kubernetes and Slurm, GPU scheduling, inference. On-prem, colo, or dedicated cloud."
         >
             <Head>
                 <script type="application/ld+json">
@@ -77,40 +79,59 @@ export default function Home() {
                 <section className={styles.hero}>
                     <div className={styles.heroContent}>
                         <h1 className={styles.heroTitle}>
-                            Get More From Your GPUs
+                            GPU infrastructure from rack to running workloads
                         </h1>
                         <p className={styles.heroSubtitle}>
-                            We've achieved <strong>8.5x faster distributed training</strong> through RDMA optimization
-                            and helped teams turn <strong>30% GPU utilization into 70%+</strong>.
-                            Whether you have 8 GPUs or 8,000—we make them work harder.
+                            We build, optimize, and operate GPU clusters for teams that
+                            run their own hardware - on-prem, colo, or dedicated cloud.
+                            Hands-on engineers, upstream contributors to the NVIDIA
+                            stack.
                         </p>
 
-                        {/* Trust Bar */}
-                        <div className={styles.trustBar}>
-                            <div className={styles.trustItem}>
-                                <span className={styles.trustMetric}>8.5x</span>
-                                <span className={styles.trustLabel}>Faster Training</span>
+                        {/* Two-door hero */}
+                        <div className={styles.doorGrid}>
+                            <div className={styles.doorCard}>
+                                <h2 className={styles.doorTitle}>
+                                    Standing up new GPU infrastructure?
+                                </h2>
+                                <p className={styles.doorText}>
+                                    From hardware delivery to first training job in
+                                    weeks: BMC discovery, automated OS provisioning,
+                                    RoCE/RDMA fabric, Kubernetes or Slurm, verified
+                                    GPUDirect.
+                                </p>
+                                <Link
+                                    to="/services/ai-factory"
+                                    className={styles.doorCta}
+                                >
+                                    How we deliver a cluster →
+                                </Link>
                             </div>
-                            <div className={styles.trustDivider}></div>
-                            <div className={styles.trustItem}>
-                                <span className={styles.trustMetric}>70%+</span>
-                                <span className={styles.trustLabel}>GPU Utilization</span>
-                            </div>
-                            <div className={styles.trustDivider}></div>
-                            <div className={styles.trustItem}>
-                                <span className={styles.trustMetric}>10x</span>
-                                <span className={styles.trustLabel}>Latency Reduction</span>
+                            <div className={styles.doorCard}>
+                                <h2 className={styles.doorTitle}>
+                                    GPUs underperforming?
+                                </h2>
+                                <p className={styles.doorText}>
+                                    Low utilization, slow multi-node training, jobs
+                                    failing overnight - usually the network, the
+                                    scheduler, or a config nobody checked. In one
+                                    customer's cluster, fixing the RDMA path made
+                                    distributed training 8.5x faster.
+                                </p>
+                                <Link to="/audit" className={styles.doorCta}>
+                                    Book a GPU Cluster Audit →
+                                </Link>
+                                <div className={styles.doorCapture}>
+                                    <EmailCapture />
+                                </div>
                             </div>
                         </div>
 
-                        <a
-                            href="#featured-resources"
-                            className={styles.ctaButton}
-                        >
-                            Explore Case Studies
-                        </a>
                     </div>
                 </section>
+
+                {/* Proof bar */}
+                <ProofBar />
 
                 {/* Problem Section */}
                 <section className={styles.section}>
@@ -120,7 +141,7 @@ export default function Home() {
                             Most GPU infrastructure is underutilized, overcomplicated, or both.
                         </p>
                         <p className={styles.bodyText}>
-                            You bought expensive hardware—H100s, A100s, L40s—but:
+                            You bought expensive hardware - H100s, A100s, L40s - but:
                         </p>
                         <ul className={styles.painPoints}>
                             <li>Utilization sits at 30-40% while teams wait for access</li>
@@ -171,7 +192,7 @@ export default function Home() {
                             <div className={styles.card}>
                                 <h3 className={styles.cardTitle}>Self-Service Access</h3>
                                 <p className={styles.cardText}>
-                                    Let your ML teams provision GPU environments themselves—with
+                                    Let your ML teams provision GPU environments themselves - with
                                     guardrails. No more tickets. No more waiting. Ship faster.
                                 </p>
                             </div>
@@ -193,7 +214,10 @@ export default function Home() {
                         <p className={styles.sectionLead}>
                             We're not a big consultancy that sends you a deck and disappears.
                             We're hands-on engineers who've built this infrastructure
-                            ourselves—at startups, in production, under pressure.
+                            ourselves - at startups, in production, under pressure.
+                            We work forward-deployed: embedded in your environment,
+                            shipping code and configs alongside your team until the
+                            cluster runs.
                         </p>
                         <div className={styles.processSteps}>
                             <div className={styles.processStep}>
@@ -225,7 +249,7 @@ export default function Home() {
                                 <div className={styles.stepContent}>
                                     <h3 className={styles.stepTitle}>Fix What Matters</h3>
                                     <p className={styles.stepText}>
-                                        We implement solutions—not recommendations. We write code,
+                                        We implement solutions - not recommendations. We write code,
                                         change configs, tune systems. You see results, not slide
                                         decks.
                                     </p>
@@ -292,6 +316,26 @@ export default function Home() {
                                         </td>
                                         <td>End-to-end architecture and implementation</td>
                                     </tr>
+                                    <tr>
+                                        <td>
+                                            "Hardware arrived weeks ago and it's still not
+                                            provisioned"
+                                        </td>
+                                        <td>
+                                            BMC enrollment, MaaS/PXE provisioning, firmware
+                                            baseline, repeatable node builds
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            "We're serving LLMs on dedicated GPUs and the bill
+                                            doesn't match the throughput"
+                                        </td>
+                                        <td>
+                                            Inference stack selection and tuning - batching,
+                                            KV-cache, parallelism, autoscaling
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -305,6 +349,26 @@ export default function Home() {
                         <div className={styles.personaGrid}>
                             <div className={styles.personaCard}>
                                 <p className={styles.personaQuote}>
+                                    "We need to build GPU infrastructure from scratch"
+                                </p>
+                                <p className={styles.personaDesc}>
+                                    You're standing up a new AI cluster - on-prem, colo, or cloud.
+                                    You want to get it right the first time without spending months
+                                    figuring out what NVIDIA's docs don't tell you.
+                                </p>
+                            </div>
+                            <div className={styles.personaCard}>
+                                <p className={styles.personaQuote}>
+                                    "We're building a GPU cloud for customers"
+                                </p>
+                                <p className={styles.personaDesc}>
+                                    You're a startup or colo provider building GPU-as-a-service.
+                                    You need the platform layer - scheduling, isolation, monitoring,
+                                    billing integration.
+                                </p>
+                            </div>
+                            <div className={styles.personaCard}>
+                                <p className={styles.personaQuote}>
                                     "We bought GPUs but they're sitting underutilized"
                                 </p>
                                 <p className={styles.personaDesc}>
@@ -314,32 +378,12 @@ export default function Home() {
                             </div>
                             <div className={styles.personaCard}>
                                 <p className={styles.personaQuote}>
-                                    "We need to build GPU infrastructure from scratch"
-                                </p>
-                                <p className={styles.personaDesc}>
-                                    You're standing up a new AI cluster—on-prem, colo, or cloud.
-                                    You want to get it right the first time without spending months
-                                    figuring out what NVIDIA's docs don't tell you.
-                                </p>
-                            </div>
-                            <div className={styles.personaCard}>
-                                <p className={styles.personaQuote}>
                                     "Our training jobs are slow and we don't know why"
                                 </p>
                                 <p className={styles.personaDesc}>
                                     Multi-node training should be faster. Something's wrong with
-                                    the network, the topology, the collective comms—but you can't
+                                    the network, the topology, the collective comms - but you can't
                                     pinpoint it.
-                                </p>
-                            </div>
-                            <div className={styles.personaCard}>
-                                <p className={styles.personaQuote}>
-                                    "We're building a GPU cloud for customers"
-                                </p>
-                                <p className={styles.personaDesc}>
-                                    You're a startup or colo provider building GPU-as-a-service.
-                                    You need the platform layer—scheduling, isolation, monitoring,
-                                    billing integration.
                                 </p>
                             </div>
                         </div>
@@ -393,13 +437,24 @@ export default function Home() {
                     </div>
                 </section>
 
+                {/* Partner mention */}
+                <section className={styles.section}>
+                    <div className={styles.sectionContent}>
+                        <p className={styles.bodyText}>
+                            We also take delivery work through partners - hardware
+                            resellers, system integrators, and GPU cloud providers.{" "}
+                            <Link to="/partners">Partners →</Link>
+                        </p>
+                    </div>
+                </section>
+
                 {/* CTA Section */}
                 <section className={styles.ctaSection}>
                     <div className={styles.ctaContent}>
                         <h2 className={styles.ctaTitle}>Let's Talk</h2>
                         <p className={styles.ctaText}>
-                            If you're dealing with GPU infrastructure challenges—utilization,
-                            performance, reliability, or building something new—we should talk.
+                            If you're dealing with GPU infrastructure challenges - utilization,
+                            performance, reliability, or building something new - we should talk.
                         </p>
                         <p className={styles.ctaSubtext}>
                             No sales pitch. Just a conversation about what you're trying to do

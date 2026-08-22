@@ -33,10 +33,64 @@
 }
 
 /* Trust Bar */
+/* Two-door hero cards */
+.doorGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 40px 0;
+    text-align: left;
+}
+
+.doorCard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 28px 32px;
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+}
+
+.doorTitle {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #1a365d;
+    margin-bottom: 12px;
+}
+
+.doorText {
+    color: #4a5568;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    flex-grow: 1;
+}
+
+.doorCta {
+    font-weight: 600;
+    color: #2b6cb0;
+    text-decoration: none;
+}
+
+.doorCta:hover {
+    text-decoration: underline;
+}
+
+.doorCapture {
+    margin-top: 16px;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .doorGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
 .trustBar {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     gap: 32px;
     margin-bottom: 40px;
     padding: 24px 0;
@@ -47,6 +101,16 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    max-width: 260px;
+    text-decoration: none;
+}
+
+.trustItem:hover {
+    text-decoration: none;
+}
+
+.trustItem:hover .trustMetric {
+    color: #1a365d;
 }
 
 .trustMetric {

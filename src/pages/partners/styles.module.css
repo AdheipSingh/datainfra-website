@@ -1,0 +1,47 @@
+.main {
+    padding-top: 80px;
+}
+
+.section {
+    padding: 80px 56px 60px;
+}
+
+.sectionContent {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.pageTitle {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1a365d;
+    margin-bottom: 24px;
+}
+
+.bodyText {
+    font-size: 1.1rem;
+    color: #4a5568;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.ctaSection {
+    padding: 60px 56px 80px;
+    text-align: center;
+}
+
+.ctaButton {
+    display: inline-block;
+    background: #1a365d;
+    color: white !important;
+    padding: 14px 32px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    text-decoration: none;
+}
+
+.ctaButton:hover {
+    background: #2c5282;
+    text-decoration: none;
+}

@@ -15,7 +15,7 @@ import ServiceCTA from '@site/src/components/ServiceCTA'
 
 I was lucky to work on a computer vision setup which involved NVIDIA RTX 6000 GPUs, Mellanox ONYX switches, and high-resolution cameras. The system was designed for real-time video capture and processing, pushing massive amounts of data through our network infrastructure. Here's a gist of debugging Mellanox switch metrics that led to some surprising discoveries about network traffic flow.
 
-When monitoring network equipment like switches, routers, or network cards, you'll constantly encounter two metrics: RX and TX. These simple abbreviations are fundamental to understanding how data flows through your network, yet they often cause confusion. Let's demystify them with real-world examples from our production Mellanox ONYX switch. If you're operating GPU infrastructure, this is exactly the kind of low-level visibility you need — it's a recurring theme in our [GPU monitoring and observability](/services/gpu-monitoring) engagements.
+When monitoring network equipment like switches, routers, or network cards, you'll constantly encounter two metrics: RX and TX. These simple abbreviations are fundamental to understanding how data flows through your network, yet they often cause confusion. Let's demystify them with real-world examples from our production Mellanox ONYX switch. If you're operating GPU infrastructure, this is exactly the kind of low-level visibility you need - it's a recurring theme in our [GPU monitoring and observability](/services/gpu-monitoring) engagements.
 
 {/* truncate */}
 
@@ -118,7 +118,7 @@ Port 7 (25G) ──RX(6B packets)──> Switch ──TX(41B packets)──> Por
                                     └──TX(2.6B packets)──> Port 21 (100G)
 ```
 
-This suggests Port 7 is receiving from an aggregation point, and Ports 19/21 are distributing to multiple endpoints. The same "don't just look at the packets, look at the fabric" mindset applies when you're tracing AllReduce traffic — see [How to calculate if your network is bottlenecking distributed training](/blog/network-bottleneck-distributed-training) for the GPU-training equivalent.
+This suggests Port 7 is receiving from an aggregation point, and Ports 19/21 are distributing to multiple endpoints. The same "don't just look at the packets, look at the fabric" mindset applies when you're tracing AllReduce traffic - see [How to calculate if your network is bottlenecking distributed training](/blog/network-bottleneck-distributed-training) for the GPU-training equivalent.
 
 ## Monitoring in Action: Getting Real-Time Metrics
 
@@ -231,12 +231,12 @@ Remember: These RX/TX metrics are always from the port's perspective. When troub
 <ServiceCTA
     service="GPU Observability"
     title="Turn switch counters into GPU training insights"
-    text="RX/TX counters are a starting point. We build the end-to-end observability that correlates switch-side metrics with NCCL throughput, GPU utilization, and job SLOs — so you spot bottlenecks before training budgets vanish."
+    text="RX/TX counters are a starting point. We build the end-to-end observability that correlates switch-side metrics with NCCL throughput, GPU utilization, and job SLOs - so you spot bottlenecks before training budgets vanish."
     link="/services/gpu-monitoring"
     buttonLabel="Get observability help"
 />
 
-{/* TODO: review FAQ answers before publishing — drafted from post content, refine for positioning. */}
+{/* TODO: review FAQ answers before publishing - drafted from post content, refine for positioning. */}
 <FAQSection
     items={[
         {
@@ -245,11 +245,11 @@ Remember: These RX/TX metrics are always from the port's perspective. When troub
         },
         {
             question: "Why do my switch ports show such asymmetric RX vs TX traffic?",
-            answer: "Asymmetry is normal and tells you the role of the port in your topology. Ports aggregating data from many sources (collectors) show RX far larger than TX. Uplinks and fan-out ports that push data to multiple endpoints show TX far larger than RX. For GPU training clusters, well-behaved AllReduce traffic tends to be balanced — a persistent imbalance during training usually indicates a topology or NCCL ring issue.",
+            answer: "Asymmetry is normal and tells you the role of the port in your topology. Ports aggregating data from many sources (collectors) show RX far larger than TX. Uplinks and fan-out ports that push data to multiple endpoints show TX far larger than RX. For GPU training clusters, well-behaved AllReduce traffic tends to be balanced - a persistent imbalance during training usually indicates a topology or NCCL ring issue.",
         },
         {
             question: "How do I calculate actual bandwidth utilization from byte counters?",
-            answer: "Sample the byte counter twice at a known interval, take the delta, convert to bits, and divide by the interval to get bps. A simple 30-second polling loop gives you a bandwidth-over-time view. Compare to the port's rated capacity (e.g. 100 Gbps) to get utilization. For short bursts, poll every second or use sFlow/IPFIX — accumulated counters hide burstiness.",
+            answer: "Sample the byte counter twice at a known interval, take the delta, convert to bits, and divide by the interval to get bps. A simple 30-second polling loop gives you a bandwidth-over-time view. Compare to the port's rated capacity (e.g. 100 Gbps) to get utilization. For short bursts, poll every second or use sFlow/IPFIX - accumulated counters hide burstiness.",
         },
         {
             question: "Are RX/TX counters reliable for detecting network problems?",
@@ -257,15 +257,8 @@ Remember: These RX/TX metrics are always from the port's perspective. When troub
         },
         {
             question: "Should I use REST/API or SNMP to poll switch counters?",
-            answer: "For high-frequency polling use SNMP — it's typically 10-100x faster than vendor REST APIs and designed for exactly this workload. Use REST/API when you need structured data (e.g. per-queue counters) or to drive automation. Many monitoring stacks combine both: SNMP for continuous counter scraping, REST for configuration and richer topology metadata.",
+            answer: "For high-frequency polling use SNMP - it's typically 10-100x faster than vendor REST APIs and designed for exactly this workload. Use REST/API when you need structured data (e.g. per-queue counters) or to drive automation. Many monitoring stacks combine both: SNMP for continuous counter scraping, REST for configuration and richer topology metadata.",
         },
     ]}
 />
 
----
-
-## Related
-
-- [GPU Networking & RDMA Consulting →](/services/gpu-networking)
-- [Distributed Training Optimization →](/services/distributed-training)
-- [How to Calculate if Your Network is Bottlenecking Distributed Training →](/blog/network-bottleneck-distributed-training)
