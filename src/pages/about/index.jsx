@@ -1,6 +1,5 @@
 import React from "react"
 import Layout from "@theme/Layout"
-import Link from "@docusaurus/Link"
 import { Navbar } from "@site/src/components/Layout"
 import ProofBar from "@site/src/components/ProofBar"
 import styles from "./styles.module.css"
@@ -21,46 +20,6 @@ export default function About() {
                             BaaZ is a founder-led GPU infrastructure boutique. The
                             engineer you talk to on the first call is the engineer
                             doing the work.
-                        </p>
-                    </div>
-                </section>
-
-                {/* Founder Section */}
-                <section className={`${styles.section} ${styles.sectionAlt}`}>
-                    <div className={styles.sectionContent}>
-                        <h2 className={styles.sectionTitle}>Adheip Singh, Founder</h2>
-                        <p className={styles.founderText}>
-                            Apache Software Foundation member; upstream contributor to
-                            NVIDIA KAI Scheduler, NVIDIA Network Operator, and Mellanox
-                            ipoib-cni. NVIDIA Certified Associate. Building GPU
-                            infrastructure end to end: provisioning, network fabric,
-                            Kubernetes and Slurm, scheduling, GPUDirect.
-                        </p>
-                        {/* TODO(ADHEIP-INPUT): confirm links; photo optional (yes/no + asset) */}
-                        <p className={styles.founderLinks}>
-                            <a
-                                href="https://github.com/AdheipSingh"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                GitHub
-                            </a>
-                            {" · "}
-                            <a
-                                href="https://www.linkedin.com/in/adheipsingh/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                LinkedIn
-                            </a>
-                            {" · "}
-                            <a
-                                href="https://www.credly.com/users/adheip-singh-sadhrao.3ab58b44/badges/credly"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                NVIDIA Certification (Credly)
-                            </a>
                         </p>
                     </div>
                 </section>
@@ -189,35 +148,6 @@ export default function About() {
                                     We implement and transfer knowledge; you don't need us forever. Your team can operate it going forward.
                                 </p>
                             </div>
-                        </div>
-                    </div>
-                </section>
-
-                {/* Results Section */}
-                <section className={`${styles.section} ${styles.sectionAlt}`}>
-                    <div className={styles.sectionContent}>
-                        <h2 className={styles.sectionTitle}>Proven Results</h2>
-                        <div className={styles.resultsGrid}>
-                            <div className={styles.resultCard}>
-                                <span className={styles.resultMetric}>8.5x</span>
-                                <span className={styles.resultLabel}>Faster Distributed Training</span>
-                                <p className={styles.resultDesc}>2-node customer cluster, after RDMA path fixes</p>
-                            </div>
-                            <div className={styles.resultCard}>
-                                <span className={styles.resultMetric}>35% → 78%</span>
-                                <span className={styles.resultLabel}>GPU Utilization</span>
-                                <p className={styles.resultDesc}>Same engagement, after RDMA and scheduling fixes</p>
-                            </div>
-                            <div className={styles.resultCard}>
-                                <span className={styles.resultMetric}>10x</span>
-                                <span className={styles.resultLabel}>AllReduce Latency Reduction</span>
-                                <p className={styles.resultDesc}>TCP to GPUDirect RDMA over RoCE</p>
-                            </div>
-                        </div>
-                        <div className={styles.caseStudyLink}>
-                            <Link to="/case-studies/rdma-kubernetes" className={styles.linkButton}>
-                                Read our RDMA case study →
-                            </Link>
                         </div>
                     </div>
                 </section>
