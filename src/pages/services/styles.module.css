@@ -720,3 +720,12 @@
         padding: 32px 20px;
     }
 }
+
+/* Subline under the services H1 (hero is dark blue - keep this light) */
+.heroSubline {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.7;
+    max-width: 720px;
+    margin: -24px auto 40px;
+}

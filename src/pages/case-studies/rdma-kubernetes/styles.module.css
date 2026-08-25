@@ -726,3 +726,11 @@
         padding: 10px 12px;
     }
 }
+
+/* Environment line under the hero stat cards */
+.environmentLine {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #4a5568;
+}

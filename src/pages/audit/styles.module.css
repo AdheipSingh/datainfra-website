@@ -1,0 +1,74 @@
+.main {
+    padding-top: 80px;
+}
+
+.section {
+    padding: 80px 56px 60px;
+}
+
+.sectionAlt {
+    background: #f7fafc;
+}
+
+.sectionContent {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.pageTitle {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1a365d;
+    margin-bottom: 16px;
+}
+
+.subline {
+    font-size: 1.2rem;
+    color: #4a5568;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+.bodyText {
+    font-size: 1.1rem;
+    color: #4a5568;
+    line-height: 1.7;
+    margin-bottom: 32px;
+}
+
+.sectionTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a365d;
+    margin-bottom: 16px;
+}
+
+.deliverables {
+    color: #4a5568;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 24px;
+    padding-left: 20px;
+}
+
+.priceLine {
+    font-weight: 600;
+    color: #1a365d;
+    margin-bottom: 24px;
+}
+
+.ctaButton {
+    display: inline-block;
+    background: #1a365d;
+    color: white !important;
+    padding: 14px 32px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    text-decoration: none;
+}
+
+.ctaButton:hover {
+    background: #2c5282;
+    text-decoration: none;
+}

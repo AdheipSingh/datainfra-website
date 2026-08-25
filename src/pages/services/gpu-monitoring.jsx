@@ -26,11 +26,11 @@ const faqItems = [
     },
     {
         question: "What is an XID error?",
-        answer: "XID errors are NVIDIA driver events reported via the kernel log when something goes wrong — ECC failures, GPU falls off the bus, hardware errors, timeouts. Some are transient, others (like XID 79) are fatal and require node replacement. Mature monitoring alerts on these and automates node draining for critical codes.",
+        answer: "XID errors are NVIDIA driver events reported via the kernel log when something goes wrong - ECC failures, GPU falls off the bus, hardware errors, timeouts. Some are transient, others (like XID 79) are fatal and require node replacement. Mature monitoring alerts on these and automates node draining for critical codes.",
     },
     {
         question: "How fast can GPU observability detect failures?",
-        answer: "With DCGM scraping at 5-15 second intervals and proper alerts, most failures — thermal throttling, ECC storms, XID events, PCIe link downgrade — are detected within a minute. Fail-fast controllers can drain the affected pod automatically, so jobs restart on healthy hardware.",
+        answer: "With DCGM scraping at 5-15 second intervals and proper alerts, most failures - thermal throttling, ECC storms, XID events, PCIe link downgrade - are detected within a minute. Fail-fast controllers can drain the affected pod automatically, so jobs restart on healthy hardware.",
     },
     {
         question: "Can you integrate with our existing monitoring stack?",
@@ -76,20 +76,20 @@ export default function GPUMonitoring() {
 
                 <h2 className={styles.subH2}>What We Do</h2>
                 <ul className={styles.subList}>
-                    <li><strong>DCGM metrics stack</strong> — DCGM Exporter deployment, custom field groups per workload type, collection intervals tuned for training vs inference</li>
-                    <li><strong>Prometheus integration</strong> — ServiceMonitor/PodMonitor setup, recording rules for cluster aggregations, remote write to Thanos/Cortex for large clusters</li>
-                    <li><strong>Grafana dashboards</strong> — Cluster overview, per-node GPU detail, job performance correlation, hardware health trends, capacity planning</li>
-                    <li><strong>XID error detection</strong> — Real-time XID monitoring from kernel logs and DCGM, severity classification, automated node drain for critical errors (31, 43, 45, 48, 64, 69, 74, 79, 92, 119)</li>
-                    <li><strong>GPU health monitoring</strong> — ECC error trend tracking (predicts failures days in advance), thermal throttling detection, PCIe link speed degradation alerts, NVLink error counters</li>
-                    <li><strong>Automated recovery</strong> — Detect fault → cordon node → attempt GPU reset → run DCGM diagnostics → uncordon or escalate. Node Problem Detector integration</li>
-                    <li><strong>Alerting rules</strong> — Critical XID errors, ECC double-bit errors, thermal breaches, stuck/idle workloads, NVLink errors, PCIe bandwidth degradation, OOM prevention</li>
+                    <li><strong>DCGM metrics stack</strong>: DCGM Exporter deployment, custom field groups per workload type, collection intervals tuned for training vs inference</li>
+                    <li><strong>Prometheus integration</strong>: ServiceMonitor/PodMonitor setup, recording rules for cluster aggregations, remote write to Thanos/Cortex for large clusters</li>
+                    <li><strong>Grafana dashboards</strong>: Cluster overview, per-node GPU detail, job performance correlation, hardware health trends, capacity planning</li>
+                    <li><strong>XID error detection</strong>: Real-time XID monitoring from kernel logs and DCGM, severity classification, automated node drain for critical errors (31, 43, 45, 48, 64, 69, 74, 79, 92, 119)</li>
+                    <li><strong>GPU health monitoring</strong>: ECC error trend tracking (predicts failures days in advance), thermal throttling detection, PCIe link speed degradation alerts, NVLink error counters</li>
+                    <li><strong>Automated recovery</strong>: Detect fault → cordon node → attempt GPU reset → run DCGM diagnostics → uncordon or escalate. Node Problem Detector integration</li>
+                    <li><strong>Alerting rules</strong>: Critical XID errors, ECC double-bit errors, thermal breaches, stuck/idle workloads, NVLink errors, PCIe bandwidth degradation, OOM prevention</li>
                 </ul>
 
                 <h2 className={styles.subH2}>Proof</h2>
                 <p className={styles.subP}>
                     We've deployed GPU monitoring stacks across bare-metal and cloud Kubernetes clusters. Our
                     monitoring setup caught a degrading GPU (rising single-bit ECC errors) 72 hours before it
-                    would have caused a job failure — the GPU was drained and replaced during a maintenance
+                    would have caused a job failure - the GPU was drained and replaced during a maintenance
                     window with zero training disruption.
                 </p>
 

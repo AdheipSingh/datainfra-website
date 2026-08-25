@@ -93,7 +93,7 @@ const config = {
                 "name": "BaaZ",
                 "url": "https://baaz.dev",
                 "logo": "https://baaz.dev/img/logo-vector.png",
-                "description": "GPU infrastructure consulting for AI training. We help startups and SMEs build, optimize, and operate GPU clusters.",
+                "description": "GPU infrastructure consulting for AI. We help startups and SMEs build, optimize, and operate GPU clusters.",
                 "founder": {
                     "@type": "Person",
                     "name": "Adheip Singh",
@@ -325,11 +325,11 @@ const config = {
                 },
                 {
                     name: "description",
-                    content: "Turn 30% GPU utilization into 70%+. BaaZ helps CTOs at AI startups build production-ready GPU infrastructure, optimize distributed training (8.5x faster), and reduce AI compute costs.",
+                    content: "BaaZ builds, optimizes, and operates GPU clusters for AI - cluster bring-up, RDMA/RoCE networking, Kubernetes and Slurm, GPU scheduling, inference. On-prem, colo, or dedicated cloud.",
                 },
                 {
                     name: "keywords",
-                    content: "GPU consulting, GPU infrastructure, AI factory, AI cloud, GPU optimization, H100, A100, L40, Kubernetes GPU, distributed training, InfiniBand, NVIDIA, GPU utilization, ML infrastructure",
+                    content: "GPU consulting, GPU infrastructure, AI factory, AI cloud, GPU optimization, H100, A100, L40, Kubernetes GPU, distributed training, InfiniBand, NVIDIA, GPU utilization, ML infrastructure, GPU cluster bring-up, Slurm, RoCE, NCCL, GPU cluster audit",
                 },
                 {
                     property: "og:type",

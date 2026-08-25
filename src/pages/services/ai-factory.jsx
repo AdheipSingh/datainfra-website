@@ -18,11 +18,11 @@ const serviceSchema = {
 const faqItems = [
     {
         question: "What is an AI factory?",
-        answer: "A full-stack GPU compute environment purpose-built for AI training and inference — compute, high-speed networking, storage, orchestration, observability, and tenancy — operated as a product for internal or external AI teams.",
+        answer: "A full-stack GPU compute environment purpose-built for AI training and inference - compute, high-speed networking, storage, orchestration, observability, and tenancy - operated as a product for internal or external AI teams.",
     },
     {
         question: "How long does it take to stand up a production GPU cluster?",
-        answer: "For a well-scoped deployment on dedicated hardware, a functional training-ready GPU cluster is typically weeks, not months. Full production hardening — multi-tenancy, self-service, cost allocation, SLOs — is usually a follow-on phase.",
+        answer: "For a well-scoped deployment on dedicated hardware, a functional training-ready GPU cluster is typically weeks, not months. Full production hardening - multi-tenancy, self-service, cost allocation, SLOs - is usually a follow-on phase.",
     },
     {
         question: "Should I build on-prem, in a colo, or in the cloud?",
@@ -46,7 +46,7 @@ export default function AIFactory() {
     return (
         <Layout
             title="AI Factory Setup Consulting"
-            description="End-to-end AI factory architecture and implementation. Compute, networking, storage, orchestration, and operations — production-ready from day one."
+            description="End-to-end AI factory architecture and implementation. Compute, networking, storage, orchestration, and operations - production-ready from day one."
         >
             <Head>
                 <script type="application/ld+json">
@@ -58,7 +58,7 @@ export default function AIFactory() {
                 <span className={styles.subLabel}>Service</span>
                 <h1 className={styles.subTitle}>AI Factory Setup</h1>
                 <p className={styles.subLead}>
-                    You're building a GPU cluster from scratch — on-prem, colo, or cloud. You want to get
+                    You're building a GPU cluster from scratch - on-prem, colo, or cloud. You want to get
                     compute, networking, storage, orchestration, and monitoring right the first time without
                     spending months figuring out what NVIDIA's docs don't tell you.
                 </p>
@@ -80,17 +80,17 @@ export default function AIFactory() {
 
                 <h2 className={styles.subH2}>What We Do</h2>
                 <ul className={styles.subList}>
-                    <li><strong>Compute layer</strong> — GPU server selection (DGX, HGX, custom builds), H100/H200/B200 sizing, NVLink/NVSwitch topology, power and cooling planning</li>
-                    <li><strong>Network layer</strong> — RDMA fabric design (InfiniBand or RoCE), leaf-spine topology, compute/storage network separation, GPUDirect RDMA</li>
-                    <li><strong>Storage layer</strong> — Parallel filesystem selection (Lustre, WekaFS, GPFS), checkpoint storage, data staging, GPUDirect Storage</li>
-                    <li><strong>Orchestration</strong> — Kubernetes with GPU Operator + KAI Scheduler, or Slurm with Pyxis/Enroot. Multi-tenancy, quotas, job scheduling</li>
-                    <li><strong>Operations</strong> — DCGM monitoring, XID error detection, automated fault recovery, capacity planning, runbooks</li>
-                    <li><strong>Cost planning</strong> — TCO analysis across hardware, facility, and ops. Build-vs-buy comparison for your workload</li>
+                    <li><strong>Compute layer</strong>: GPU server selection (DGX, HGX, custom builds), H100/H200/B200 sizing, NVLink/NVSwitch topology, power and cooling planning</li>
+                    <li><strong>Network layer</strong>: RDMA fabric design (InfiniBand or RoCE), leaf-spine topology, compute/storage network separation, GPUDirect RDMA</li>
+                    <li><strong>Storage layer</strong>: Parallel filesystem selection (Lustre, WekaFS, GPFS), checkpoint storage, data staging, GPUDirect Storage</li>
+                    <li><strong>Orchestration</strong>: Kubernetes with GPU Operator + KAI Scheduler, or Slurm with Pyxis/Enroot. Multi-tenancy, quotas, job scheduling</li>
+                    <li><strong>Operations</strong>: DCGM monitoring, XID error detection, automated fault recovery, capacity planning, runbooks</li>
+                    <li><strong>Cost planning</strong>: TCO analysis across hardware, facility, and ops. Build-vs-buy comparison for your workload</li>
                 </ul>
 
                 <h2 className={styles.subH2}>Proof</h2>
                 <p className={styles.subP}>
-                    We've built GPU clusters from zero for multiple companies — from 3-node bare-metal setups
+                    We've built GPU clusters from zero for multiple companies - from 3-node bare-metal setups
                     with RTX 5000 Ada to multi-rack H100 deployments with full RDMA fabric. We built the
                     GPUaaS platform at Aarna Networks from day one through its acquisition by Armada.
                 </p>

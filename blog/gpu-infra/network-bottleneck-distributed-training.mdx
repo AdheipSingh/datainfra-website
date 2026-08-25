@@ -16,7 +16,7 @@ import ServiceCTA from '@site/src/components/ServiceCTA'
 
 ---
 
-You've set up distributed training across multiple GPU servers. PyTorch DDP is configured. The job is running. But something's wrong—it's not faster than single-node training. It might even be slower.
+You've set up distributed training across multiple GPU servers. PyTorch DDP is configured. The job is running. But something's wrong - it's not faster than single-node training. It might even be slower.
 
 Before you blame the framework, the drivers, or the model, check your network. In most cases, **the network is the bottleneck**. This is exactly the class of problem our [distributed training optimization](/services/distributed-training) engagements were built around.
 
@@ -140,9 +140,9 @@ For transformer models like BERT, a single iteration typically takes **tens to h
 
 **For accurate benchmarks on your specific hardware, refer to these official sources:**
 
-- [NVIDIA Deep Learning Performance Hub](https://developer.nvidia.com/deep-learning-performance-training-inference) — Official NVIDIA benchmarks for training and inference
-- [MLCommons Training Benchmarks](https://mlcommons.org/benchmarks/training/) — Industry-standard MLPerf results across hardware vendors
-- [NVIDIA DeepLearningExamples GitHub](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/LanguageModeling/BERT) — Reproducible BERT benchmarks with throughput numbers
+- [NVIDIA Deep Learning Performance Hub](https://developer.nvidia.com/deep-learning-performance-training-inference) - Official NVIDIA benchmarks for training and inference
+- [MLCommons Training Benchmarks](https://mlcommons.org/benchmarks/training/) - Industry-standard MLPerf results across hardware vendors
+- [NVIDIA DeepLearningExamples GitHub](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/LanguageModeling/BERT) - Reproducible BERT benchmarks with throughput numbers
 
 **Relative performance between GPU generations** (validated by MLPerf):
 
@@ -225,12 +225,12 @@ Use this table to estimate your AllReduce time based on gradient size and networ
 
 **Key takeaways:**
 - **1 GbE is not viable** for any serious distributed training
-- **10 GbE is marginal** — still seconds of wait time for larger models
+- **10 GbE is marginal**: still seconds of wait time for larger models
 - **100 GbE RDMA** is the minimum for keeping GPUs productive
 
 For model parameter counts and architecture details, refer to:
-- [Hugging Face Model Hub](https://huggingface.co/models) — Parameter counts for common models
-- [Papers With Code](https://paperswithcode.com/) — Model benchmarks and specifications
+- [Hugging Face Model Hub](https://huggingface.co/models) - Parameter counts for common models
+- [Papers With Code](https://paperswithcode.com/) - Model benchmarks and specifications
 
 ---
 
@@ -261,7 +261,7 @@ We've written a detailed walkthrough of what this looks like on Kubernetes in [D
 
 ## Summary
 
-Before optimizing your model, your batch size, or your learning rate—check your network:
+Before optimizing your model, your batch size, or your learning rate - check your network:
 
 1. **Calculate gradient size:** parameters × 4 bytes (FP32)
 2. **Know network throughput:** 1 GbE ≈ 110 MB/s, 100 GbE ≈ 11 GB/s
@@ -273,17 +273,15 @@ If your GPUs are spending more time waiting than computing, no amount of softwar
 
 ---
 
-*Have questions about your distributed training setup? [Schedule a call](https://cal.com/baazhq)—we're happy to help you diagnose the bottleneck.*
-
 <ServiceCTA
     service="Distributed Training"
     title="Is your multi-node GPU training network-bound?"
-    text="We diagnose distributed-training slowdowns end to end — NCCL tuning, RDMA/RoCE configuration, GPUDirect, topology analysis — and deliver measurable throughput improvements, not decks."
+    text="We diagnose distributed-training slowdowns end to end - NCCL tuning, RDMA/RoCE configuration, GPUDirect, topology analysis - and deliver measurable throughput improvements, not decks."
     link="/services/distributed-training"
     buttonLabel="Get a diagnosis"
 />
 
-{/* TODO: review FAQ answers before publishing — drafted from post content, refine for positioning. */}
+{/* TODO: review FAQ answers before publishing - drafted from post content, refine for positioning. */}
 <FAQSection
     items={[
         {
@@ -296,11 +294,11 @@ If your GPUs are spending more time waiting than computing, no amount of softwar
         },
         {
             question: "Why is 1 GbE or 10 GbE not enough for GPU training?",
-            answer: "At ~110 MB/s effective throughput, 1 GbE needs 4 seconds to AllReduce a 440 MB BERT-base gradient — while the GPU compute for that iteration is under 200 ms. Even 10 GbE leaves GPUs idle for hundreds of milliseconds per step. You need 100 GbE with RDMA (or better) to keep modern GPUs productive in multi-node training.",
+            answer: "At ~110 MB/s effective throughput, 1 GbE needs 4 seconds to AllReduce a 440 MB BERT-base gradient - while the GPU compute for that iteration is under 200 ms. Even 10 GbE leaves GPUs idle for hundreds of milliseconds per step. You need 100 GbE with RDMA (or better) to keep modern GPUs productive in multi-node training.",
         },
         {
             question: "What does RDMA actually change vs plain TCP for training?",
-            answer: "RDMA (RoCE v2 or InfiniBand) bypasses the CPU and kernel, enables zero-copy GPU-to-GPU transfers via GPUDirect, and delivers 10-50x lower latency and significantly higher effective bandwidth than TCP on the same physical link. On a 100 GbE link, that's the difference between ~9 GB/s with TCP and ~11 GB/s with RDMA — plus massively lower per-message overhead.",
+            answer: "RDMA (RoCE v2 or InfiniBand) bypasses the CPU and kernel, enables zero-copy GPU-to-GPU transfers via GPUDirect, and delivers 10-50x lower latency and significantly higher effective bandwidth than TCP on the same physical link. On a 100 GbE link, that's the difference between ~9 GB/s with TCP and ~11 GB/s with RDMA - plus massively lower per-message overhead.",
         },
         {
             question: "How much faster can distributed training get once the network is fixed?",
@@ -309,12 +307,3 @@ If your GPUs are spending more time waiting than computing, no amount of softwar
     ]}
 />
 
----
-
-## Related
-
-- [Distributed Training Optimization Services →](/services/distributed-training)
-- [GPU Networking & RDMA Consulting →](/services/gpu-networking)
-- [GPU-to-GPU Communication Across Nodes →](/blog/gpu-to-gpu-communication-across-nodes)
-- [Dual-Network RDMA on GH200 →](/blog/dual-network-rdma-kubernetes-gh200)
-- [Case Study: 8.5x Faster Training with RDMA →](/case-studies/rdma-kubernetes)

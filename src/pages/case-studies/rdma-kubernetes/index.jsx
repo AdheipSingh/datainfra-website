@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "@theme/Layout"
 import Head from "@docusaurus/Head"
 import { Navbar } from "@site/src/components/Layout"
+import ArticleEndBlock from "@site/src/components/ArticleEndBlock"
 import styles from "./styles.module.css"
 
 const keyOutcomes = [
@@ -233,6 +234,10 @@ export default function CaseStudies() {
                                     </div>
                                 ))}
                             </div>
+                            <p className={styles.environmentLine}>
+                                Environment: 2-node bare-metal Kubernetes, 4 GPUs (RTX
+                                A5000/A5500), 100GbE RoCE.
+                            </p>
                         </div>
                     </section>
 
@@ -249,6 +254,9 @@ export default function CaseStudies() {
                                 </p>
                                 <p>
                                     We implemented a complete network redesign using GPUDirect RDMA over RoCE (RDMA over Converged Ethernet), integrated with their existing Kubernetes infrastructure through the NVIDIA Network Operator and Multus CNI.
+                                </p>
+                                <p>
+                                    The same failure pattern - NCCL silently falling back to TCP - appears in many clusters we audit, at every scale.
                                 </p>
                             </div>
                         </div>
@@ -334,7 +342,7 @@ export default function CaseStudies() {
                                 <div className={styles.issueItem}>
                                     <span className={styles.issueNumber}>3</span>
                                     <div>
-                                        <strong>Inadequate bandwidth.</strong> Even ignoring latency, 1GbE (125 MB/s) couldn't move a 400MB gradient payload fast enough. At theoretical maximum, that's 3.2 seconds per AllReduce—just for the network transfer.
+                                        <strong>Inadequate bandwidth.</strong> Even ignoring latency, 1GbE (125 MB/s) couldn't move a 400MB gradient payload fast enough. At theoretical maximum, that's 3.2 seconds per AllReduce - just for the network transfer.
                                     </div>
                                 </div>
                             </div>
@@ -551,7 +559,7 @@ export default function CaseStudies() {
                                             <td><strong>Host-Device</strong></td>
                                             <td>Entire NIC moved into pod namespace</td>
                                             <td>Simple, full performance</td>
-                                            <td>Exclusive access—one job per NIC</td>
+                                            <td>Exclusive access - one job per NIC</td>
                                         </tr>
                                         <tr>
                                             <td><strong>SR-IOV</strong></td>
@@ -644,7 +652,7 @@ export default function CaseStudies() {
                             <div className={styles.insightBox}>
                                 <h4>Key Insight</h4>
                                 <p>
-                                    The 8.5x training speedup was greater than expected. This is because reduced AllReduce time didn't just speed up synchronization—it allowed the GPUs to process more batches per unit time, compounding the gains.
+                                    The 8.5x training speedup was greater than expected. This is because reduced AllReduce time didn't just speed up synchronization - it allowed the GPUs to process more batches per unit time, compounding the gains.
                                 </p>
                             </div>
 
@@ -694,21 +702,13 @@ export default function CaseStudies() {
                     </section>
                 </article>
 
-                {/* CTA Section */}
-                <section className={styles.ctaSection} aria-labelledby="cta-heading">
-                    <div className={styles.ctaContent}>
-                        <h2 id="cta-heading" className={styles.ctaTitle}>Facing Similar Challenges?</h2>
-                        <p className={styles.ctaText}>
-                            If you're dealing with GPU infrastructure challenges—utilization, performance, reliability, or building something new—we should talk. No sales pitch. Just a conversation about what you're trying to do and whether we can help.
-                        </p>
-                        <a
-                            href="https://cal.com/baazhq"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={styles.ctaButton}
-                        >
-                            Schedule a Call
-                        </a>
+                {/* Article end block (shared soft/medium CTA + related reading) */}
+                <section className={styles.section}>
+                    <div className={styles.sectionContent}>
+                        <ArticleEndBlock
+                            tags={["gpu", "rdma", "kubernetes", "networking", "distributed-training", "nccl"]}
+                            currentUrl="/case-studies/rdma-kubernetes"
+                        />
                     </div>
                 </section>
             </main>

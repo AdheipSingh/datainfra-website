@@ -1,0 +1,41 @@
+.proofBar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 24px;
+    background: #f7fafc;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.leadIn {
+    font-weight: 700;
+    color: #1a365d;
+}
+
+.items {
+    color: #4a5568;
+}
+
+.separator {
+    margin: 0 8px;
+    color: #a0aec0;
+}
+
+.item {
+    color: #4a5568;
+}
+
+a.item {
+    color: #2b6cb0;
+    text-decoration: none;
+}
+
+a.item:hover {
+    text-decoration: underline;
+}

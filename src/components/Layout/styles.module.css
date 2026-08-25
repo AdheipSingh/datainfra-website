@@ -17,15 +17,19 @@
 .logo {
     position: absolute;
     left: 56px;
-    font-size: 1.75rem;
-    font-weight: 800;
-    color: #1a365d;
+    display: flex;
+    align-items: center;
     text-decoration: none;
 }
 
 .logo:hover {
-    color: #1a365d;
     text-decoration: none;
+}
+
+.logoImg {
+    height: 34px;
+    width: auto;
+    display: block;
 }
 
 .navLinks {
@@ -146,6 +150,15 @@
     margin-bottom: 8px;
 }
 
+.brandLogo {
+    height: 36px;
+    width: auto;
+    display: block;
+    margin-bottom: 16px;
+    /* blue eagle mark rendered white for the dark footer */
+    filter: brightness(0) invert(1);
+}
+
 .tagline {
     color: rgba(255, 255, 255, 0.8);
     font-size: 1rem;
@@ -189,15 +202,47 @@
     color: white;
 }
 
+.socialRow {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.socialIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.75);
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.socialIcon:hover {
+    background: rgba(255, 255, 255, 0.16);
+    color: #ffffff;
+}
+
 .footerBottom {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
 }
 
 .footerBottom p {
     font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.5);
     margin: 0;
+}
+
+.footerBottomLabel {
+    letter-spacing: 0.03em;
 }
 
 @media (max-width: 900px) {

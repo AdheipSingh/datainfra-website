@@ -11,22 +11,22 @@ const serviceSchema = {
     "@type": "Service",
     "name": "GPU Networking & RDMA Consulting",
     "provider": { "@type": "Organization", "name": "BaaZ", "url": "https://baaz.dev" },
-    "description": "RDMA network design for GPU clusters — InfiniBand, RoCE, GPUDirect RDMA, switch fabric design, and NCCL optimization.",
+    "description": "RDMA network design for GPU clusters - InfiniBand, RoCE, GPUDirect RDMA, switch fabric design, and NCCL optimization.",
     "url": "https://baaz.dev/services/gpu-networking",
 }
 
 const faqItems = [
     {
         question: "What is RDMA and why does it matter for GPU training?",
-        answer: "RDMA lets NICs read and write remote memory directly, bypassing the CPU and kernel. Combined with GPUDirect RDMA, it enables zero-copy GPU-to-GPU transfers across nodes — 5-10x higher bandwidth and an order-of-magnitude lower latency than TCP on the same hardware.",
+        answer: "RDMA lets NICs read and write remote memory directly, bypassing the CPU and kernel. Combined with GPUDirect RDMA, it enables zero-copy GPU-to-GPU transfers across nodes - 5-10x higher bandwidth and an order-of-magnitude lower latency than TCP on the same hardware.",
     },
     {
         question: "Should I use InfiniBand or RoCE?",
-        answer: "Both deliver RDMA performance. InfiniBand is a purpose-built lossless fabric standard in DGX SuperPOD deployments. RoCE v2 runs RDMA over Ethernet — cheaper, more flexible, and the right choice for most cloud, colo, and bare-metal clusters when PFC and ECN are configured correctly.",
+        answer: "Both deliver RDMA performance. InfiniBand is a purpose-built lossless fabric standard in DGX SuperPOD deployments. RoCE v2 runs RDMA over Ethernet - cheaper, more flexible, and the right choice for most cloud, colo, and bare-metal clusters when PFC and ECN are configured correctly.",
     },
     {
         question: "Do I need PFC and ECN for RoCE?",
-        answer: "Yes, if you want lossless RoCE v2. PFC prevents packet drops during microbursts, ECN signals congestion before buffers overflow. Without these configured end-to-end — NICs, switches, and host settings — RoCE falls over under load and NCCL silently underperforms.",
+        answer: "Yes, if you want lossless RoCE v2. PFC prevents packet drops during microbursts, ECN signals congestion before buffers overflow. Without these configured end-to-end - NICs, switches, and host settings - RoCE falls over under load and NCCL silently underperforms.",
     },
     {
         question: "What is GPUDirect RDMA?",
@@ -80,12 +80,12 @@ export default function GPUNetworking() {
 
                 <h2 className={styles.subH2}>What We Do</h2>
                 <ul className={styles.subList}>
-                    <li><strong>InfiniBand fabric</strong> — Quantum switch deployment, subnet manager configuration, adaptive routing, fat-tree/dragonfly topology design, partition keys</li>
-                    <li><strong>RoCE v2 fabric</strong> — Lossless Ethernet with PFC, ECN/DCQCN tuning, leaf-spine design, ECMP multi-path, jumbo frames, DSCP trust</li>
-                    <li><strong>GPUDirect RDMA</strong> — Zero-copy GPU-to-GPU transfers bypassing CPU, peer memory module setup, GDR copy validation, firmware tuning</li>
-                    <li><strong>Switch configuration</strong> — Spectrum-X / Quantum switch deployment, port speed validation, error counter monitoring, QoS policies, MTU config</li>
-                    <li><strong>Network Operator on Kubernetes</strong> — NicClusterPolicy setup, Multus secondary networks, SR-IOV, RDMA device plugin. We contributed the <Link to="/blog/global-config-nvidia-network-operator" className={styles.subLink}>global config feature</Link></li>
-                    <li><strong>Dual-network architectures</strong> — Separate management and RDMA training networks, MACVLAN/IPVLAN secondary interfaces, network isolation for multi-tenant clusters</li>
+                    <li><strong>InfiniBand fabric</strong>: Quantum switch deployment, subnet manager configuration, adaptive routing, fat-tree/dragonfly topology design, partition keys</li>
+                    <li><strong>RoCE v2 fabric</strong>: Lossless Ethernet with PFC, ECN/DCQCN tuning, leaf-spine design, ECMP multi-path, jumbo frames, DSCP trust</li>
+                    <li><strong>GPUDirect RDMA</strong>: Zero-copy GPU-to-GPU transfers bypassing CPU, peer memory module setup, GDR copy validation, firmware tuning</li>
+                    <li><strong>Switch configuration</strong>: Spectrum-X / Quantum switch deployment, port speed validation, error counter monitoring, QoS policies, MTU config</li>
+                    <li><strong>Network Operator on Kubernetes</strong>: NicClusterPolicy setup, Multus secondary networks, SR-IOV, RDMA device plugin. We contributed the <Link to="/blog/global-config-nvidia-network-operator" className={styles.subLink}>global config feature</Link></li>
+                    <li><strong>Dual-network architectures</strong>: Separate management and RDMA training networks, MACVLAN/IPVLAN secondary interfaces, network isolation for multi-tenant clusters</li>
                 </ul>
 
                 <h2 className={styles.subH2}>Proof</h2>
@@ -99,7 +99,7 @@ export default function GPUNetworking() {
                     <Link to="/blog/dual-network-rdma-kubernetes-gh200" className={styles.subLink}>
                         dual-network Kubernetes pods with RDMA on NVIDIA GH200
                     </Link>
-                    {" "}— separate management and training networks with working RDMA verbs.
+                    {" "} - separate management and training networks with working RDMA verbs.
                 </p>
 
                 <h2 className={styles.subH2}>InfiniBand vs RoCE</h2>
@@ -162,7 +162,7 @@ export default function GPUNetworking() {
                 <div className={styles.subCta}>
                     <h2 className={styles.subCtaTitle}>Network Holding Back Your GPUs?</h2>
                     <p className={styles.subCtaText}>
-                        We'll profile your fabric, find the bottleneck, and fix it. RDMA, GPUDirect, switch configs — all of it.
+                        We'll profile your fabric, find the bottleneck, and fix it. RDMA, GPUDirect, switch configs - all of it.
                     </p>
                     <a href="https://cal.com/baazhq" target="_blank" rel="noopener noreferrer" className={styles.subCtaButton}>
                         Schedule a Call
