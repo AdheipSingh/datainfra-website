@@ -17,14 +17,18 @@ const config = {
     // For GitHub pages deployment, it is often '/<projectName>/'
     baseUrl: "/",
 
+    // One canonical URL form everywhere: slashless (matches blog posts,
+    // nav/footer links, JSON-LD url values, and the sitemap). See seo spec T3/D2.
+    trailingSlash: false,
+
     staticDirectories: ["static"],
     // GitHub pages deployment config.
     // If you aren't using GitHub pages, you don't need these.
     organizationName: "BaaZ", // Usually your GitHub org/user name.
     projectName: "BaaZ", // Usually your repo name.
 
-    onBrokenLinks: "ignore",
-    onBrokenMarkdownLinks: "warn",
+    onBrokenLinks: "throw",
+    onBrokenMarkdownLinks: "throw",
 
     // Even if you don't use internalization, you can use this field to set useful
     // metadata like html lang. For example, if your site is Chinese, you may want
@@ -63,22 +67,6 @@ const config = {
             attributes: {
                 rel: "stylesheet",
                 href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap",
-            },
-        },
-        {
-            tagName: "link",
-            attributes: {
-                rel: "alternate",
-                hreflang: "en",
-                href: "https://baaz.dev/",
-            },
-        },
-        {
-            tagName: "link",
-            attributes: {
-                rel: "alternate",
-                hreflang: "x-default",
-                href: "https://baaz.dev/",
             },
         },
         // Organization structured data
@@ -123,7 +111,7 @@ const config = {
                 ]
             }),
         },
-        // WebSite structured data for sitelinks search
+        // WebSite structured data
         {
             tagName: "script",
             attributes: {
@@ -133,12 +121,7 @@ const config = {
                 "@context": "https://schema.org",
                 "@type": "WebSite",
                 "name": "BaaZ",
-                "url": "https://baaz.dev",
-                "potentialAction": {
-                    "@type": "SearchAction",
-                    "target": "https://baaz.dev/blog?q={search_term_string}",
-                    "query-input": "required name=search_term_string"
-                }
+                "url": "https://baaz.dev"
             }),
         },
     ],
@@ -185,9 +168,8 @@ const config = {
     themeConfig:
         /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
-            // Social card for link previews (OpenGraph/Twitter)
-            // TODO: Replace with a proper 1200x630px social card image
-            image: "img/baazLogo.png",
+            // Social card for link previews (OpenGraph/Twitter). 1200x630.
+            image: "img/og-default.png",
             // navbar: {
             //     title: "BaaZ",
             //     hideOnScroll: true,

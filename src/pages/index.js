@@ -3,7 +3,7 @@ import Layout from "@theme/Layout"
 import Link from "@docusaurus/Link"
 import Head from "@docusaurus/Head"
 import { Navbar } from "@site/src/components/Layout"
-import ProofBar from "@site/src/components/ProofBar"
+import Credentials from "@site/src/components/Credentials"
 import EmailCapture from "@site/src/components/EmailCapture"
 import styles from "./index.module.css"
 
@@ -130,13 +130,18 @@ export default function Home() {
                     </div>
                 </section>
 
-                {/* Technical credentials / proof bar */}
+                {/* Open source & certifications */}
                 <section className={styles.credentialsSection}>
                     <h2 className={styles.credentialsTitle}>
-                        Technical Credentials
+                        Open Source &amp; Certifications
                     </h2>
+                    <p className={styles.credentialsLead}>
+                        We build the stack we run. Our engineers contribute upstream
+                        to NVIDIA&apos;s GPU and networking projects and hold
+                        vendor-verified certifications.
+                    </p>
+                    <Credentials />
                 </section>
-                <ProofBar />
 
                 {/* Problem Section */}
                 <section className={styles.section}>

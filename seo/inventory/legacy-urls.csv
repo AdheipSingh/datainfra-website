@@ -1,0 +1,14 @@
+url,source,last_seen,live_status,live_location,action
+https://baaz.dev/demo,git 347750f,2026-01-18,301,https://baaz.dev/,301:/contact
+https://baaz.dev/documentation,git 347750f,2026-01-18,404,,404
+https://baaz.dev/docs/developer-documentation,git 347750f,2026-01-18,404,,404
+https://baaz.dev/docs/shared-infra/introduction,git 347750f,2026-01-18,404,,404
+https://baaz.dev/docs/api/overview,git 347750f,2026-01-18,404,,404
+https://baaz.dev/docs/api/dataplanes,git 347750f,2026-01-18,404,,404
+https://baaz.dev/docs/api/tenant-infra,git 347750f,2026-01-18,404,,404
+https://baaz.dev/docs/api/tenants,git 347750f,2026-01-18,404,,404
+https://baaz.dev/docs/api/applications,git 347750f,2026-01-18,404,,404
+https://baaz.dev/docs/api/customers,git 347750f,2026-01-18,404,,404
+https://baaz.dev/blog/accelerating-real-time-analytics-infrastructure-on-kubernetes,git 6cb4c5f,2024-08-05,404,,404
+https://baaz.dev/blog/dynamic-data-schemas-pinot-schema-evolution-state-management-on-kubernetes,git 6cb4c5f,2024-08-05,404,,404
+https://baaz.dev/blog/setting-up-apache-pinot-on-kubernetes-in-under-15-minutes,git 648621a,2024-08-15,404,,404
