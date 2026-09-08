@@ -35,15 +35,23 @@
 /* Trust Bar */
 /* Technical credentials heading above the proof bar */
 .credentialsSection {
-    padding: 8px 56px 20px;
+    padding: 40px 56px 64px;
     text-align: center;
 }
 
 .credentialsTitle {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     font-weight: 700;
     color: #1a365d;
     margin: 0;
+}
+
+.credentialsLead {
+    font-size: 1.05rem;
+    color: #4a5568;
+    line-height: 1.6;
+    max-width: 640px;
+    margin: 12px auto 0;
 }
 
 /* Two-door hero cards */

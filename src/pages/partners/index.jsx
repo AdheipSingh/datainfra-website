@@ -12,7 +12,6 @@ export default function Partners() {
             description="Some of our work comes through partners: hardware resellers, system integrators, and GPU cloud or colo providers. We deliver the layer between the metal and the workloads."
         >
             <Head>
-                <link rel="canonical" href="https://baaz.dev/partners" />
                 <meta property="og:url" content="https://baaz.dev/partners" />
                 <meta property="og:type" content="website" />
             </Head>

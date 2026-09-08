@@ -36,7 +36,6 @@ export default function Audit() {
             description="A fixed-scope, two-week engagement: we find your cluster's real bottlenecks and ship the safe fixes during the audit - the rest arrives as a prioritized plan, not a slide deck."
         >
             <Head>
-                <link rel="canonical" href="https://baaz.dev/audit" />
                 <meta property="og:url" content="https://baaz.dev/audit" />
                 <meta property="og:type" content="website" />
             </Head>

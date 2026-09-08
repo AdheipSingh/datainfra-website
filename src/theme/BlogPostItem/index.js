@@ -6,9 +6,9 @@ import Head from "@docusaurus/Head"
 import { useBlogPost } from "@docusaurus/theme-common/internal"
 
 // Tags whose posts should be excluded from search indexing.
-// These posts remain accessible via direct link but don't dilute
-// the site's topical authority around GPU infrastructure.
-const NOINDEX_TAGS = new Set(["saas", "control-planes"])
+// Empty since 2026-09: the legacy SaaS/control-plane posts are full
+// engineering articles and are indexable again (see seo spec, D1/T5).
+const NOINDEX_TAGS = new Set([])
 
 function hasNoindexTag(tags) {
     if (!tags || tags.length === 0) return false

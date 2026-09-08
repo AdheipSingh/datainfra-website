@@ -1,8 +1,13 @@
 {
+    "cleanUrls": true,
+    "trailingSlash": false,
     "redirects": [
+        { "source": "/demo", "destination": "/contact", "statusCode": 301 },
+        { "source": "/demo/", "destination": "/contact", "statusCode": 301 },
         {
-            "source": "/demo",
-            "destination": "/",
+            "source": "/:path*",
+            "has": [{ "type": "host", "value": "www.baaz.dev" }],
+            "destination": "https://baaz.dev/:path*",
             "statusCode": 301
         }
     ]

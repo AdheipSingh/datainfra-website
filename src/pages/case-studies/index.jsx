@@ -68,7 +68,6 @@ export default function CaseStudiesIndex() {
                 <meta property="og:type" content="website" />
                 <meta name="twitter:title" content="GPU Infrastructure Case Studies | BaaZ" />
                 <meta name="twitter:description" content="Technical case studies on GPU infrastructure optimization, distributed training, and Kubernetes GPU clusters." />
-                <link rel="canonical" href="https://baaz.dev/case-studies" />
                 <script type="application/ld+json">
                     {JSON.stringify(structuredData.collectionPage)}
                 </script>

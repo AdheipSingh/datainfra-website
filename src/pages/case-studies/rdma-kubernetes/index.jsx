@@ -171,7 +171,6 @@ export default function CaseStudies() {
 
                 {/* Additional SEO meta tags */}
                 <meta name="keywords" content="RDMA case study, GPUDirect RDMA, RoCE Kubernetes, distributed GPU training, NCCL optimization, ConnectX-6, Multus CNI, bare metal Kubernetes, GPU infrastructure consulting, AllReduce optimization" />
-                <link rel="canonical" href="https://baaz.dev/case-studies/rdma-kubernetes" />
 
                 {/* Structured Data */}
                 <script type="application/ld+json">
