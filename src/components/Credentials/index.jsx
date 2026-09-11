@@ -67,7 +67,8 @@ const PROJECTS = [
             {
                 n: 299,
                 title: "feat: install NFS userspace tools on host when ENABLE_NFSRDMA is enabled",
-                status: "open",
+                status: "merged",
+                date: "Sep 2026",
                 url: "https://github.com/Mellanox/doca-driver-build/pull/299",
             },
         ],
