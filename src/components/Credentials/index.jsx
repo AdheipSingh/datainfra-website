@@ -112,6 +112,14 @@ const CERTS = [
         cta: "View badge",
     },
     {
+        holder: "Adheip Singh",
+        title: "AMD ROCm Certified Associate",
+        subtitle: "ROCm software platform for GPU compute",
+        issuer: "AMD",
+        url: "https://www.credly.com/badges/19a43ca9-958a-4cab-9c71-e0680d71d39a/public_url",
+        cta: "View badge",
+    },
+    {
         title: "Apache Software Foundation",
         subtitle: "Foundation member",
         issuer: "The Apache Software Foundation",
