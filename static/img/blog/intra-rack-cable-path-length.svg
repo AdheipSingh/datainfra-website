@@ -1,0 +1,60 @@
+<svg width="680" viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+<defs><marker id="arp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+
+<rect x="0" y="0" width="680" height="400" rx="12" fill="#141420"/>
+
+<text x="340" y="22" text-anchor="middle" font-size="12" fill="#8a8980">&#8220;Same rack&#8221; is a floor-plan fact, not a cable length</text>
+
+<!-- rack -->
+<rect x="40" y="44" width="190" height="320" rx="8" fill="#1a1a2e" stroke="#6e7681" stroke-width="1"/>
+<text x="135" y="62" text-anchor="middle" font-size="10" fill="#6e7681">42U rack</text>
+
+<rect x="54" y="72" width="162" height="30" rx="5" fill="#1e1e2e" stroke="#58a6ff" stroke-width="0.8"/>
+<text x="135" y="87" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#58a6ff">leaf / ToR switch</text>
+
+<rect x="54" y="116" width="162" height="34" rx="5" fill="#1e1e2e" stroke="#8a8980" stroke-width="0.5"/>
+<text x="135" y="133" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#e0dfd8">GPU node</text>
+<rect x="54" y="158" width="162" height="34" rx="5" fill="#1e1e2e" stroke="#8a8980" stroke-width="0.5"/>
+<text x="135" y="175" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#e0dfd8">GPU node</text>
+<rect x="54" y="200" width="162" height="34" rx="5" fill="#1e1e2e" stroke="#8a8980" stroke-width="0.5"/>
+<text x="135" y="217" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#e0dfd8">GPU node</text>
+<rect x="54" y="242" width="162" height="34" rx="5" fill="#1e1e2e" stroke="#8a8980" stroke-width="0.5"/>
+<text x="135" y="259" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#e0dfd8">GPU node</text>
+<rect x="54" y="300" width="162" height="34" rx="5" fill="#1e1e2e" stroke="#d29922" stroke-width="0.9"/>
+<text x="135" y="317" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#e0a840">GPU node &#8212; bottom</text>
+
+<!-- routed path -->
+<polyline points="216,317 262,317 262,87 216,87" fill="none" stroke="#d29922" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#arp)"/>
+<circle cx="216" cy="317" r="3" fill="#d29922"/>
+<text x="276" y="204" font-size="10" fill="#e0a840">routed</text>
+<text x="276" y="218" font-size="10" fill="#e0a840">path</text>
+<text x="276" y="234" font-size="11" font-weight="600" fill="#e0a840">3.2 m</text>
+
+<!-- right panel -->
+<rect x="360" y="60" width="290" height="216" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="380" y="86" font-size="11" font-weight="600" fill="#e0dfd8">Bottom node to ToR, measured</text>
+
+<text x="380" y="114" font-size="10" fill="#8a8980">rack height, U1 to U40</text>
+<text x="630" y="114" text-anchor="end" font-size="11" fill="#e0dfd8">~1.8 m</text>
+<line x1="380" y1="124" x2="630" y2="124" stroke="#30363d"/>
+
+<text x="380" y="144" font-size="10" fill="#8a8980">+ service slack at both ends</text>
+<text x="630" y="144" text-anchor="end" font-size="11" fill="#e0dfd8">~0.6 m</text>
+<line x1="380" y1="154" x2="630" y2="154" stroke="#30363d"/>
+
+<text x="380" y="174" font-size="10" fill="#8a8980">+ side manager and bend radius</text>
+<text x="630" y="174" text-anchor="end" font-size="11" fill="#e0dfd8">~0.8 m</text>
+<line x1="380" y1="184" x2="630" y2="184" stroke="#30363d"/>
+
+<text x="380" y="206" font-size="11" font-weight="600" fill="#e0a840">cable you must order</text>
+<text x="630" y="206" text-anchor="end" font-size="13" font-weight="700" fill="#e0a840">3.0&#8211;3.5 m</text>
+
+<rect x="380" y="222" width="250" height="34" rx="6" fill="#1a1a2e" stroke="#f85149" stroke-width="0.8"/>
+<text x="394" y="239" dominant-baseline="central" font-size="10" fill="#f85149">NDR 800G passive DAC stops at 1.5 m</text>
+
+<text x="360" y="306" font-size="11" font-weight="600" fill="#3fb950">What this means on the BOM</text>
+<text x="360" y="326" font-size="10" fill="#8a8980">Top-of-rack nodes: passive DAC, 1 m or 1.5 m.</text>
+<text x="360" y="342" font-size="10" fill="#8a8980">Bottom-of-rack nodes: active copper at 3 m.</text>
+<text x="360" y="358" font-size="10" fill="#8a8980">Decide the split from a measured path, per U position,</text>
+<text x="360" y="374" font-size="10" fill="#8a8980">before the cable order goes out.</text>
+</svg>
