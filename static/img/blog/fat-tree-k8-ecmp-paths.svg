@@ -1,0 +1,87 @@
+<svg width="680" viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+<defs><marker id="a1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round"/></marker></defs>
+
+<rect x="0" y="0" width="680" height="400" rx="12" fill="#141420"/>
+<text x="340" y="22" text-anchor="middle" font-size="12" fill="#8a8980">Sixteen equal-cost paths between two pods &#8212; and two places a hash picks one</text>
+
+<!-- source -->
+<rect x="14" y="170" width="62" height="34" rx="6" fill="#1e1e2e" stroke="#8a8980" stroke-width="0.5"/>
+<text x="45" y="187" text-anchor="middle" dominant-baseline="central" font-size="10" fill="#e0dfd8">GPU host</text>
+
+<rect x="90" y="170" width="62" height="34" rx="6" fill="#1e1e2e" stroke="#58a6ff" stroke-width="0.8"/>
+<text x="121" y="182" text-anchor="middle" dominant-baseline="central" font-size="10" fill="#58a6ff">edge</text>
+<text x="121" y="194" text-anchor="middle" dominant-baseline="central" font-size="9" fill="#6e7681">leaf</text>
+<line x1="76" y1="187" x2="90" y2="187" stroke="#8a8980" stroke-width="1.2"/>
+
+<!-- agg column -->
+<g fill="#1e1e2e" stroke="#8a8980" stroke-width="0.5">
+<rect x="196" y="92" width="58" height="28" rx="5"/>
+<rect x="196" y="144" width="58" height="28" rx="5"/>
+<rect x="196" y="196" width="58" height="28" rx="5"/>
+<rect x="196" y="248" width="58" height="28" rx="5"/>
+</g>
+<g font-size="10" fill="#e0dfd8" text-anchor="middle">
+<text x="225" y="106" dominant-baseline="central">agg 0</text>
+<text x="225" y="158" dominant-baseline="central">agg 1</text>
+<text x="225" y="210" dominant-baseline="central">agg 2</text>
+<text x="225" y="262" dominant-baseline="central">agg 3</text>
+</g>
+<g stroke="#6e7681" stroke-width="0.9">
+<line x1="152" y1="187" x2="196" y2="106"/>
+<line x1="152" y1="187" x2="196" y2="158"/>
+<line x1="152" y1="187" x2="196" y2="210"/>
+<line x1="152" y1="187" x2="196" y2="262"/>
+</g>
+
+<!-- core column -->
+<g fill="#1e1e2e" stroke="#8a8980" stroke-width="0.5">
+<rect x="330" y="92" width="58" height="28" rx="5"/>
+<rect x="330" y="144" width="58" height="28" rx="5"/>
+<rect x="330" y="196" width="58" height="28" rx="5"/>
+<rect x="330" y="248" width="58" height="28" rx="5"/>
+</g>
+<g font-size="10" fill="#e0dfd8" text-anchor="middle">
+<text x="359" y="106" dominant-baseline="central">core</text>
+<text x="359" y="158" dominant-baseline="central">core</text>
+<text x="359" y="210" dominant-baseline="central">core</text>
+<text x="359" y="262" dominant-baseline="central">core</text>
+</g>
+<g stroke="#6e7681" stroke-width="0.7" opacity="0.65">
+<line x1="254" y1="106" x2="330" y2="106"/><line x1="254" y1="106" x2="330" y2="158"/><line x1="254" y1="106" x2="330" y2="210"/><line x1="254" y1="106" x2="330" y2="262"/>
+<line x1="254" y1="158" x2="330" y2="106"/><line x1="254" y1="158" x2="330" y2="158"/><line x1="254" y1="158" x2="330" y2="210"/><line x1="254" y1="158" x2="330" y2="262"/>
+<line x1="254" y1="210" x2="330" y2="106"/><line x1="254" y1="210" x2="330" y2="158"/><line x1="254" y1="210" x2="330" y2="210"/><line x1="254" y1="210" x2="330" y2="262"/>
+<line x1="254" y1="262" x2="330" y2="106"/><line x1="254" y1="262" x2="330" y2="158"/><line x1="254" y1="262" x2="330" y2="210"/><line x1="254" y1="262" x2="330" y2="262"/>
+</g>
+
+<!-- destination pod -->
+<rect x="440" y="150" width="76" height="74" rx="8" fill="#1a1930" stroke="#7b70e0" stroke-width="0.8"/>
+<text x="478" y="178" text-anchor="middle" dominant-baseline="central" font-size="10" fill="#a99ef5">dest pod</text>
+<text x="478" y="194" text-anchor="middle" dominant-baseline="central" font-size="9" fill="#8a8980">agg + edge</text>
+<g stroke="#6e7681" stroke-width="0.7" opacity="0.65">
+<line x1="388" y1="106" x2="440" y2="176"/><line x1="388" y1="158" x2="440" y2="180"/><line x1="388" y1="210" x2="440" y2="192"/><line x1="388" y1="262" x2="440" y2="198"/>
+</g>
+
+<rect x="540" y="170" width="62" height="34" rx="6" fill="#1e1e2e" stroke="#8a8980" stroke-width="0.5"/>
+<text x="571" y="187" text-anchor="middle" dominant-baseline="central" font-size="10" fill="#e0dfd8">GPU host</text>
+<line x1="516" y1="187" x2="540" y2="187" stroke="#8a8980" stroke-width="1.2"/>
+
+<!-- decision annotations -->
+<text x="174" y="312" text-anchor="middle" font-size="10" fill="#e0a840">hash &#8594; 1 of 4</text>
+<line x1="174" y1="300" x2="174" y2="286" stroke="#e0a840" stroke-width="1" marker-end="url(#a1)"/>
+<text x="292" y="312" text-anchor="middle" font-size="10" fill="#e0a840">hash &#8594; 1 of 4</text>
+<line x1="292" y1="300" x2="292" y2="286" stroke="#e0a840" stroke-width="1" marker-end="url(#a1)"/>
+<text x="233" y="332" text-anchor="middle" font-size="11" font-weight="600" fill="#e0a840">4 &#215; 4 = 16 equal-cost paths, one fixed per flow</text>
+
+<!-- k=8 sidebar -->
+<rect x="440" y="248" width="226" height="118" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="456" y="268" font-size="10" font-weight="600" fill="#e0dfd8">k = 8 fat-tree</text>
+<g font-size="10" fill="#8a8980">
+<text x="456" y="286">pods</text><text x="650" y="286" text-anchor="end" fill="#e0dfd8">8</text>
+<text x="456" y="302">edge + agg per pod</text><text x="650" y="302" text-anchor="end" fill="#e0dfd8">4 + 4</text>
+<text x="456" y="318">core switches (k/2)&#178;</text><text x="650" y="318" text-anchor="end" fill="#e0dfd8">16</text>
+<text x="456" y="334">hosts k&#179;/4</text><text x="650" y="334" text-anchor="end" fill="#e0dfd8">128</text>
+<text x="456" y="352">pod-to-pod paths</text><text x="650" y="352" text-anchor="end" fill="#39d2c0">16</text>
+</g>
+
+<text x="14" y="388" font-size="10" fill="#6e7681">The topology is right: every path is the same length. Only the choice of path is the problem.</text>
+</svg>

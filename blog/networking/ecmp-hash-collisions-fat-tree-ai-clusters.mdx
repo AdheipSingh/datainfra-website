@@ -1,0 +1,122 @@
+---
+title: "ECMP Hash Collisions in a Fat-Tree: Too Few Flows, Not Too Many"
+description: "A k=8 fat-tree has 16 equal-cost paths per pod pair, so why does AllReduce run at 60% of line rate? ECMP fails on AI traffic because collectives produce almost no flow entropy - and what adaptive routing does about it."
+slug: ecmp-hash-collisions-fat-tree-ai-clusters
+authors: [Adheip Singh]
+date: 2026-09-16T14:00
+tags: [networking, infiniband, gpu, rdma, infrastructure, nvidia]
+image: /img/blog/ecmp-hash-collisions-fat-tree.png
+keywords:
+    - ECMP hash collision
+    - adaptive routing
+    - fat-tree topology AI cluster
+    - elephant flows RoCE
+    - NCCL AllReduce network bottleneck
+    - InfiniBand adaptive routing
+    - Spectrum-X adaptive routing
+---
+
+import FAQSection from '@site/src/components/FAQSection'
+import ServiceCTA from '@site/src/components/ServiceCTA'
+
+The fabric looks non-blocking on paper. A k=8 fat-tree, full bisection bandwidth, sixteen equal-cost paths between any two pods, ECMP enabled everywhere to use them. Then the first real training job lands and AllReduce sustains something like 60% of line rate, with a handful of spine uplinks pinned and others barely warm.
+
+The usual explanation is that all-to-all traffic floods the fabric with so many flows that some are bound to collide. That has the mechanism backwards. ECMP copes well with many flows. It falls apart precisely because a collective gives it almost nothing to hash on.
+
+<!-- truncate -->
+
+## Equal-cost is the easy part
+
+![A k=8 fat-tree showing 16 equal-cost paths between two pods and the two hash decision points](/img/blog/fat-tree-k8-ecmp-paths.svg)
+
+The topology does its job. In a k-ary fat-tree every host-to-host path through the spine is the same length, so all of them are genuinely equal-cost. For k=8 that means 8 pods, 4 edge and 4 aggregation switches per pod, (k/2)² = 16 core switches, k³/4 = 128 hosts, and 4 × 4 = 16 distinct paths between a pair of pods.
+
+ECMP's view of that is correct and its mechanism is cheap: hash some header fields - typically source and destination IP plus ports - and use the result to index the path set. Same flow, same path, for the life of the flow. No per-packet state, no reordering, no signalling.
+
+The cost of that cheapness is that the decision is made once, from fields that say nothing about load, and is never revisited.
+
+## The failure is entropy, not volume
+
+This is where AI traffic differs from the web-serving workload ECMP was designed around. NVIDIA's own [Spectrum-X architecture paper](https://www.virtualgraffiti.com.au/datasheets/Nvidia/pdf7.pdf) puts it directly: AI and storage workloads "tend to generate very few, but very large flows," which "dominate the bandwidth usage per link, significantly reducing the total number of flows and resulting in very low entropy."
+
+A ring or tree AllReduce is exactly that. Each GPU opens a small number of long-lived queue pairs to a small number of neighbours and drives them at line rate for the whole gradient exchange. One NIC, a couple of elephant flows, four uplinks to choose from - and a hash function that has four bits of useful input.
+
+![Four elephant flows hashed onto four uplinks, two colliding on one uplink while another sits idle](/img/blog/ecmp-hash-collision-uplinks.svg)
+
+The [Hedera paper](https://raghavan.usc.edu/papers/hedera-nsdi10.pdf) (Al-Fares, Radhakrishnan, Raghavan, Huang, Vahdat, NSDI 2010) quantified both ends of this fifteen years ago, on a fat-tree with 27k hosts:
+
+- one large flow per host: hash collisions "reduce the network's bisection bandwidth by an average of 60.8%"
+- a thousand simultaneous flows per host: collisions "reduce total bisection bandwidth by 2.5%"
+
+Read those two lines together and the point is unmissable. Flow count is what protects ECMP, and a collective removes it. Hedera also names the two collision types worth knowing: *local*, where two large flows hash to the same uplink on one switch, and *downstream*, where flows hashed independently at different aggregation switches meet on a shared core switch that neither could see.
+
+## The arithmetic, and why the maximum is the only number that matters
+
+Treat it as balls in bins: *n* equal elephant flows hashed uniformly onto *m* equal-cost paths. What decides an AllReduce step is not the average path load, it is the load on the *worst* path, because every rank waits for the last byte before the next step begins. A collective runs at the speed of its most congested link.
+
+Expected worst-path load for m=16 pod-to-pod paths, and the resulting stretch in step time versus a perfectly balanced spread:
+
+| Concurrent flows | Ideal flows/path | Expected worst path | Step-time stretch |
+| --- | --- | --- | --- |
+| 16 | 1 | 3.08 | 3.1x |
+| 32 | 2 | 4.83 | 2.4x |
+| 64 | 4 | 7.88 | 2.0x |
+| 128 | 8 | 13.4 | 1.7x |
+| 256 | 16 | 23.4 | 1.5x |
+
+Simple model - uniform hashing, equal-rate flows, fair sharing on each link, no congestion control effects - so treat the numbers as the shape of the problem rather than a prediction for your fabric. The shape is the interesting part: 16 flows over 16 paths, which sounds like a comfortable fit, collide their way to a 3x step-time penalty, and the chance of a clean one-flow-per-path spread is about one in a million. At one edge switch with four uplinks and four flows, the chance of a clean spread is 9.4%.
+
+This also explains why the real symptom is rarely a flat 40% loss. Spectrum-X's paper reports a test where "some flows achieved an optimal completion time T of 13 seconds, while the slowest flows took 31 seconds, roughly 2.5X times T longer" - a tail, not an average. The tail is your iteration time.
+
+## What actually fixes it
+
+![Static ECMP compared with adaptive routing: per-flow hash versus per-packet least-loaded egress selection with NIC-side reordering](/img/blog/ecmp-vs-adaptive-routing.svg)
+
+**Adaptive routing** moves the decision from "hash of headers, once" to "load, now, per packet". On InfiniBand the switch ASIC "selects the least loaded output port" using egress queue depth with shortest-path priority, the Subnet Manager configures it, and out-of-order arrival is handled in hardware on ConnectX-5 and later. NVIDIA's [adaptive routing white paper](https://hardwarenation.com/wp-content/uploads/2021/09/infiniband-white-paper-adaptive-routing.pdf) reports MPI-Graph on the CORAL benchmark going from 10.2 TB/s (80% of maximum) under static routing to 11.8 TB/s (96%) with AR enabled.
+
+On Ethernet, Spectrum-X does the same per-packet selection and pushes the reordering problem to the NIC, where Direct Data Placement writes payloads into host or GPU memory in the right order so applications never see the spraying. Their claim for the combination is effective bandwidth rising "from 60 percent on standard Ethernet to 95 percent with Spectrum-X (1.6X)".
+
+Two things worth saying that the vendor material does not lead with. First, AR is not free: per-packet spraying only works when the receiving adapter can reorder, which is why AR can be disabled per Service Level for traffic that needs strict ordering on adapters that cannot. Second, routing is the wrong layer to fix some of this. **SHARP** performs the reduction inside the switches, so the all-to-all exchange never crosses the spine as host-to-host traffic at all, and a **rail-optimised** topology keeps most collective traffic on a single rail where there is no spine hop to load-balance. Both remove traffic instead of scheduling it better.
+
+## What to check on a fabric you already run
+
+- **Look at per-uplink counters, not aggregate utilisation.** Skew across the uplinks of one leaf during a training step is the signature. An average that looks healthy hides it by construction.
+- **Confirm AR is actually on.** It is enabled by default on recent InfiniBand systems, but "default" is not evidence - verify it in the SM configuration or UFM, and on Ethernet verify it in the switch config rather than assuming Spectrum hardware implies Spectrum-X behaviour.
+- **Check the adapters can reorder.** AR without NIC-side out-of-order handling is not a configuration you want to discover during a job.
+- **Measure with `all_reduce_perf` and compare bus bandwidth against what the topology should give you.** A 1.5-2x gap between measured and expected, with idle uplinks, is a load-balancing problem, not a NCCL tuning problem.
+- **Do not forget the storage network.** The same hashing applies to a handful of large NFS or object flows, and those collide for identical reasons.
+
+Getting this wrong is expensive in a way that does not show up as an outage. The cluster works, every link is up, and you are paying for GPUs that spend a third of each iteration waiting on one uplink. For the topology side of the same problem, see our notes on [GPU-to-GPU communication across nodes](/blog/gpu-to-gpu-communication-across-nodes) and [how to tell whether the network is bottlenecking training](/blog/network-bottleneck-distributed-training).
+
+<ServiceCTA
+    service="GPU Networking"
+    title="If AllReduce is slow and every link is up, the fabric is load-balancing badly"
+    text="We audit RDMA fabrics end to end - routing and adaptive routing configuration, uplink imbalance under real collectives, congestion control, NCCL behaviour - and report what is actually costing you GPU hours."
+    link="/services/gpu-networking"
+    buttonLabel="Get a fabric audit"
+/>
+
+<FAQSection
+    items={[
+        {
+            question: "Why does ECMP perform badly for AI training traffic?",
+            answer: "Because collectives produce very few, very large, long-lived flows. ECMP picks a path by hashing header fields once per flow, so with only a handful of flows per NIC there is almost no entropy to spread: two elephant flows landing on the same uplink oversubscribe it while another uplink sits idle. The Hedera paper measured an average 60.8% bisection bandwidth loss with one large flow per host on a fat-tree, but only 2.5% loss with a thousand concurrent flows per host. Flow count is what makes ECMP work, and AI collectives remove it.",
+        },
+        {
+            question: "How many equal-cost paths are there in a k=8 fat-tree?",
+            answer: "Sixteen between any pair of pods: four aggregation switches to choose from in the source pod, each connecting to four core switches that reach the destination pod, so (k/2)² = 16. The same k=8 fat-tree has 8 pods, 4 edge and 4 aggregation switches per pod, 16 core switches and 128 hosts. ECMP is correct that these paths are equal-cost; the problem is how it assigns flows to them.",
+        },
+        {
+            question: "What is the difference between ECMP and adaptive routing?",
+            answer: "ECMP hashes flow header fields to pick one path and keeps that flow on it regardless of congestion. Adaptive routing decides per packet, selecting the least loaded egress port by queue depth with a preference for shortest paths, so a single flow spreads across many paths and load follows actual congestion. The cost is out-of-order arrival, which NVIDIA handles in the adapter - hardware reordering on ConnectX-5 and later for InfiniBand, Direct Data Placement on Spectrum-X Ethernet.",
+        },
+        {
+            question: "How much performance does adaptive routing recover?",
+            answer: "NVIDIA's published figures: MPI-Graph on the CORAL benchmark improved from 10.2 TB/s with static routing (80% of maximum) to 11.8 TB/s with adaptive routing (96%), with application-level gains of roughly 10-28% on BSMBench and VASP. For Ethernet, the Spectrum-X architecture paper claims effective bandwidth rising from 60% on standard Ethernet to 95% with Spectrum-X, a 1.6x improvement. Your own gain depends on how much of your traffic is collective and how few flows carry it.",
+        },
+        {
+            question: "Does SHARP help with ECMP hash collisions?",
+            answer: "Indirectly, and more effectively than routing changes. SHARP performs reductions inside the switch hierarchy, so the gradient exchange is not carried as host-to-host elephant flows across the spine at all. Removing the traffic removes the load-balancing problem for that traffic. The same logic applies to rail-optimised topologies, where most collective traffic stays within a rail and never needs a spine path chosen for it.",
+        },
+    ]}
+/>
