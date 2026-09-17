@@ -1,0 +1,109 @@
+---
+title: "DAC, ACC or AOC: Cabling GPU Nodes to the Switch in the Same Rack"
+description: "Passive DAC is the right default for GPU-to-switch links inside a rack - but at NDR 400/800G its reach stops at 1.5 m. How to split DAC, active copper and optics from a measured cable path."
+slug: dac-vs-aoc-intra-rack-gpu-cluster
+authors: [Adheip Singh]
+date: 2026-09-16T10:00
+tags: [networking, infiniband, gpu, infrastructure, cabling, nvidia]
+image: /img/blog/dac-vs-aoc-intra-rack-gpu-cluster.png
+keywords:
+    - DAC vs AOC
+    - direct attach copper cable
+    - active copper cable ACC
+    - GPU cluster cabling
+    - InfiniBand NDR cable length
+    - intra-rack cabling
+    - NVIDIA LinkX
+---
+
+import FAQSection from '@site/src/components/FAQSection'
+import ServiceCTA from '@site/src/components/ServiceCTA'
+
+Every GPU cluster design review reaches the same slide: the nodes and the leaf switch are in one rack, nothing is further apart than about three metres, and somebody has to decide what goes in the cable order. The textbook answer is passive Direct Attach Copper, and the textbook answer is usually right - lowest power, lowest cost, one fewer active component per link.
+
+The part that bites is the number people carry around in their head. "DAC does 5 metres" was true at EDR. At NDR it is not, and a rack of 800G links planned on that assumption produces a cable order that does not physically reach.
+
+<!-- truncate -->
+
+## The three options, by what they actually are
+
+[Passive DAC](https://www.nvidia.com/en-eu/networking/infiniband/direct-attach-copper-cables/) is copper twinax with a connector on each end and nothing else inside. NVIDIA's own wording: passive DACs "use simply copper wires and have no electronics, consume zero power." The SerDes in the ConnectX adapter drives the wire directly and the SerDes in the switch recovers it.
+
+**Active copper** (ACC, now marketed as LACC - linear active copper) is the same twinax with a signal-conditioning IC in the connector shell. It buys reach at the cost of roughly 1.5-4 W per cable and one active component at each end.
+
+**AOC** is a fibre with transceiver optics moulded permanently onto both ends. **Transceiver pairs** are the same idea with the optics as field-replaceable modules and the fibre as separate structured cabling. Both convert electrical to optical and back, both are powered at both ends, both cost multiples of a copper cable.
+
+![Reach of passive DAC, active copper and optics against the path length actually routed in a rack](/img/blog/cable-reach-by-generation.svg)
+
+The reach column is the one that moved. Passive copper loses distance every time the lane rate doubles, because the loss budget is fixed and the signal is not:
+
+| Generation | Lane rate | NVIDIA passive DAC catalogue |
+| --- | --- | --- |
+| EDR 100G | 25G-NRZ | up to 5 m |
+| HDR 200G | 50G-PAM4 | up to 2 m |
+| NDR 400G / 800G | 100G-PAM4 | 0.5 m, 1 m, 1.5 m parts |
+
+Active copper covers the gap above that - the NDR 800G OSFP ACC part is a 3 m cable - and optics start where copper gives up. Nothing about an optical link is wrong for a 2 m run; it is simply paying watts and dollars for reach that the run does not need.
+
+## Why copper wins in-rack
+
+![Signal path for a passive DAC link compared with an optical link, showing where power and active components sit](/img/blog/dac-vs-aoc-signal-path.svg)
+
+Count the active components in the picture. A passive DAC link has two: the SerDes at each end, which you were paying for anyway. An optical link adds two more, each drawing power, each producing heat inside a rack that is already thermally constrained by the GPUs, and each capable of failing on its own.
+
+At fleet scale that arithmetic is the whole argument. Tens of watts per link of transceiver power, multiplied by every endpoint in a large fabric, is real capacity - power you would rather spend on GPUs than on lasers. It is the same reasoning that put a copper NVLink spine inside NVL72-class racks instead of optics.
+
+One claim to retire, though: the latency argument is weak. Copper and fibre propagate at broadly similar speed, so over three metres the difference between cable types is single-digit nanoseconds, plus whatever the DSP in a retimed optical module adds. On a fabric where end-to-end RDMA latency is measured in microseconds, you will not find that in a NCCL benchmark. Pick copper for power, cost and failure domains. Do not sell it internally on latency, because the first person who measures it will call you out.
+
+## The trap: rack height is not cable length
+
+![Routed cable path from a bottom-of-rack GPU node to the top-of-rack switch, totalling 3 to 3.5 metres against a 1.5 metre passive DAC limit](/img/blog/intra-rack-cable-path-length.svg)
+
+"Same rack, under 3 metres" is a statement about the floor plan. The cable has to follow the rack: out of the adapter, service slack so the node can slide forward, into the vertical manager at the side, up 40U, back out, slack again, into the switch port. On a 42U rack, a bottom-position node reaching a top-of-rack switch routinely needs 3 to 3.5 m of cable - and bend radius on stiff 800G twinax is not a rounding error.
+
+So at NDR the answer is not one cable type for the rack. It is a split you work out per U position:
+
+- **Top third of the rack** - 1 m and 1.5 m passive DAC.
+- **Middle and bottom** - 3 m active copper, or move the leaf switch to mid-rack and keep more nodes inside passive reach.
+- **Anything leaving the rack** - optics, and plan the structured fibre properly rather than trailing AOCs between racks.
+
+Two practical notes that cost people a re-order. First, OSFP comes in flat-top and finned-top variants: finned for the air-cooled switch ports, flat for the adapter side and liquid-cooled switches. The part numbers differ and they are not interchangeable in the cage. Second, do not solve length uncertainty by ordering everything long and coiling the slack - coiled twinax in the rear of a dense GPU rack is an airflow problem you will be debugging as a thermal problem later.
+
+## Where this stops applying
+
+The whole discussion assumes the leaf switch sits in the same rack as the nodes. In a rail-optimised design it does not: each adapter on a node goes to a *different* leaf, those leaves live in their own network racks, and the compute-to-leaf links are cross-rack by construction. Those runs are optical, and the copper conversation shrinks to in-rack management, storage and any single-rack pod you are building as a starter cluster. Decide the topology first; the cable BOM follows from it, never the other way around.
+
+If you are working out what the fabric should look like before you can size the cable order, our notes on [GPU-to-GPU communication across nodes](/blog/gpu-to-gpu-communication-across-nodes) cover the topology side.
+
+<ServiceCTA
+    service="AI Factory Build"
+    title="A cable order that does not reach is a two-week slip"
+    text="We plan and validate GPU rack builds end to end - topology, cable BOM by U position, adapter and switch firmware, link health after bring-up - so the fabric comes up the week the hardware lands."
+    link="/services/ai-factory"
+    buttonLabel="Talk about a rack build"
+/>
+
+<FAQSection
+    items={[
+        {
+            question: "What is the maximum length of a passive DAC cable?",
+            answer: "It depends on the lane rate, not on the cable. NVIDIA's passive DAC catalogue reaches 5 m at EDR 100G (25G-NRZ), 2 m at HDR 200G (50G-PAM4), and 0.5 m, 1 m and 1.5 m parts at NDR 400G and 800G (100G-PAM4). Passive copper loses reach every time the lane rate doubles because the loss budget stays fixed while the signal gets harder to recover.",
+        },
+        {
+            question: "DAC or AOC for connecting GPU servers to a switch in the same rack?",
+            answer: "Passive DAC, provided the routed cable path fits its reach at your link speed. It draws zero power, costs a fraction of an optical link, and adds no active components beyond the SerDes at each end. If the measured path exceeds the passive reach - common for bottom-of-rack nodes at NDR - use active copper (ACC/LACC) at 3 m rather than jumping straight to optics.",
+        },
+        {
+            question: "What is the difference between DAC and ACC cables?",
+            answer: "Both are copper twinax. A passive DAC has no electronics at all and consumes no power. An ACC (also called LACC, linear active copper) puts a signal-conditioning IC in each connector to extend reach, typically to 3-5 m depending on generation, at a cost of roughly 1.5-4 W per cable and one more active component per end.",
+        },
+        {
+            question: "Is DAC lower latency than AOC?",
+            answer: "Marginally, and not by enough to matter. Over a 3 m run the propagation difference between copper and fibre is a few nanoseconds, with some additional delay from the DSP in a retimed optical module. Against microsecond-scale end-to-end RDMA latency this is invisible in application benchmarks. The real reasons to prefer DAC in-rack are power, cost and having fewer things that can fail.",
+        },
+        {
+            question: "How long a cable do I need from a bottom-of-rack GPU node to the top-of-rack switch?",
+            answer: "Measure the routed path rather than the rack height. A 42U rack is about 1.8 m tall, and once you add service slack at both ends plus the vertical cable manager and bend radius, a bottom-position node typically needs 3 to 3.5 m. That is beyond passive DAC reach at NDR, which is why the cable BOM should be worked out per U position before ordering.",
+        },
+    ]}
+/>

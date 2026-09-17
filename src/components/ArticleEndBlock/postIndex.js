@@ -40,6 +40,11 @@ export const POST_INDEX = [
         tags: ["gpu", "rdma", "kubernetes", "networking", "nccl", "network-operator", "sr-iov"],
     },
     {
+        title: "DAC, ACC or AOC: Cabling GPU Nodes to the Switch in the Same Rack",
+        url: "/blog/dac-vs-aoc-intra-rack-gpu-cluster",
+        tags: ["networking", "infiniband", "gpu", "infrastructure", "cabling", "nvidia"],
+    },
+    {
         title: "Understanding RX vs TX - Making Sense of Network Traffic Direction",
         url: "/blog/understanding-rx-tx-network-traffic-direction",
         tags: ["networking", "monitoring", "infrastructure", "troubleshooting", "mellanox", "nvidia"],
