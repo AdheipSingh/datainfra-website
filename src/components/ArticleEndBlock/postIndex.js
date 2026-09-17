@@ -45,6 +45,11 @@ export const POST_INDEX = [
         tags: ["networking", "infiniband", "gpu", "infrastructure", "cabling", "nvidia"],
     },
     {
+        title: "ECMP Hash Collisions in a Fat-Tree: Too Few Flows, Not Too Many",
+        url: "/blog/ecmp-hash-collisions-fat-tree-ai-clusters",
+        tags: ["networking", "infiniband", "gpu", "rdma", "infrastructure", "nvidia"],
+    },
+    {
         title: "Understanding RX vs TX - Making Sense of Network Traffic Direction",
         url: "/blog/understanding-rx-tx-network-traffic-direction",
         tags: ["networking", "monitoring", "infrastructure", "troubleshooting", "mellanox", "nvidia"],

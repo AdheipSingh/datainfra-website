@@ -1,0 +1,65 @@
+<svg width="680" viewBox="0 0 680 340" xmlns="http://www.w3.org/2000/svg" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+<defs><marker id="a3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round"/></marker></defs>
+
+<rect x="0" y="0" width="680" height="340" rx="12" fill="#141420"/>
+<text x="340" y="22" text-anchor="middle" font-size="12" fill="#8a8980">What the switch decides on, and who cleans up afterwards</text>
+
+<!-- ECMP lane -->
+<text x="16" y="50" font-size="11" font-weight="700" fill="#f85149" letter-spacing="0.5">STATIC ECMP</text>
+<rect x="16" y="60" width="118" height="42" rx="7" fill="#1e1e2e" stroke="#8a8980" stroke-width="0.5"/>
+<text x="75" y="75" text-anchor="middle" dominant-baseline="central" font-size="10" fill="#e0dfd8">packet headers</text>
+<text x="75" y="89" text-anchor="middle" dominant-baseline="central" font-size="9" fill="#6e7681">src/dst IP, ports</text>
+
+<line x1="134" y1="81" x2="168" y2="81" stroke="#8a8980" stroke-width="1.2" marker-end="url(#a3)"/>
+
+<rect x="168" y="60" width="130" height="42" rx="7" fill="#1a1a2e" stroke="#f85149" stroke-width="0.8"/>
+<text x="233" y="75" text-anchor="middle" dominant-baseline="central" font-size="10" fill="#f85149">hash &#8594; path index</text>
+<text x="233" y="89" text-anchor="middle" dominant-baseline="central" font-size="9" fill="#8a8980">fixed for the flow's life</text>
+
+<line x1="298" y1="81" x2="332" y2="81" stroke="#8a8980" stroke-width="1.2" marker-end="url(#a3)"/>
+
+<rect x="332" y="60" width="150" height="42" rx="7" fill="#1e1e2e" stroke="#8a8980" stroke-width="0.5"/>
+<text x="407" y="75" text-anchor="middle" dominant-baseline="central" font-size="10" fill="#e0dfd8">one uplink, forever</text>
+<text x="407" y="89" text-anchor="middle" dominant-baseline="central" font-size="9" fill="#6e7681">congested or not</text>
+
+<rect x="500" y="60" width="164" height="42" rx="7" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="582" y="75" text-anchor="middle" dominant-baseline="central" font-size="10" fill="#8a8980">ordering: in order,</text>
+<text x="582" y="89" text-anchor="middle" dominant-baseline="central" font-size="10" fill="#8a8980">nothing to fix up</text>
+
+<line x1="16" y1="126" x2="664" y2="126" stroke="#30363d" stroke-width="1"/>
+
+<!-- AR lane -->
+<text x="16" y="154" font-size="11" font-weight="700" fill="#39d2c0" letter-spacing="0.5">ADAPTIVE ROUTING</text>
+<rect x="16" y="164" width="118" height="42" rx="7" fill="#1e1e2e" stroke="#8a8980" stroke-width="0.5"/>
+<text x="75" y="179" text-anchor="middle" dominant-baseline="central" font-size="10" fill="#e0dfd8">egress queue depth</text>
+<text x="75" y="193" text-anchor="middle" dominant-baseline="central" font-size="9" fill="#6e7681">measured now</text>
+
+<line x1="134" y1="185" x2="168" y2="185" stroke="#8a8980" stroke-width="1.2" marker-end="url(#a3)"/>
+
+<rect x="168" y="164" width="130" height="42" rx="7" fill="#1a1930" stroke="#39d2c0" stroke-width="0.8"/>
+<text x="233" y="179" text-anchor="middle" dominant-baseline="central" font-size="10" fill="#39d2c0">least-loaded port</text>
+<text x="233" y="193" text-anchor="middle" dominant-baseline="central" font-size="9" fill="#8a8980">chosen per packet</text>
+
+<line x1="298" y1="185" x2="332" y2="185" stroke="#8a8980" stroke-width="1.2" marker-end="url(#a3)"/>
+
+<rect x="332" y="164" width="150" height="42" rx="7" fill="#1e1e2e" stroke="#8a8980" stroke-width="0.5"/>
+<text x="407" y="179" text-anchor="middle" dominant-baseline="central" font-size="10" fill="#e0dfd8">one flow, many paths</text>
+<text x="407" y="193" text-anchor="middle" dominant-baseline="central" font-size="9" fill="#6e7681">load follows congestion</text>
+
+<rect x="500" y="164" width="164" height="42" rx="7" fill="#161b22" stroke="#39d2c0" stroke-width="0.8"/>
+<text x="582" y="179" text-anchor="middle" dominant-baseline="central" font-size="10" fill="#39d2c0">ordering: fixed in NIC</text>
+<text x="582" y="193" text-anchor="middle" dominant-baseline="central" font-size="9" fill="#8a8980">ConnectX reorder / DDP</text>
+
+<line x1="16" y1="230" x2="664" y2="230" stroke="#30363d" stroke-width="1"/>
+
+<!-- results -->
+<rect x="16" y="246" width="312" height="78" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="32" y="266" font-size="10" font-weight="600" fill="#e0dfd8">InfiniBand, CORAL MPI-Graph</text>
+<text x="32" y="286" font-size="10" fill="#8a8980">static routing</text><text x="312" y="286" text-anchor="end" font-size="11" fill="#f85149">10.2 TB/s &#183; 80%</text>
+<text x="32" y="308" font-size="10" fill="#8a8980">adaptive routing</text><text x="312" y="308" text-anchor="end" font-size="11" fill="#39d2c0">11.8 TB/s &#183; 96%</text>
+
+<rect x="352" y="246" width="312" height="78" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="368" y="266" font-size="10" font-weight="600" fill="#e0dfd8">Ethernet, NVIDIA Spectrum-X paper</text>
+<text x="368" y="286" font-size="10" fill="#8a8980">standard Ethernet</text><text x="648" y="286" text-anchor="end" font-size="11" fill="#f85149">60% effective BW</text>
+<text x="368" y="308" font-size="10" fill="#8a8980">Spectrum-X</text><text x="648" y="308" text-anchor="end" font-size="11" fill="#39d2c0">95% effective BW (1.6x)</text>
+</svg>
