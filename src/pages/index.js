@@ -16,7 +16,7 @@ const faqSchema = {
             "name": "How do you fix idle GPUs while teams wait for access?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "We implement MIG partitioning, time-slicing, Kubernetes GPU operators, and quota management to enable safe GPU sharing across teams, increasing utilization from 30% to over 70%."
+                "text": "We implement MIG partitioning, time-slicing, Kubernetes GPU operators, and quota management to enable safe GPU sharing across teams and significantly increase GPU utilization."
             }
         },
         {
@@ -24,7 +24,7 @@ const faqSchema = {
             "name": "How do you speed up slow distributed training across multiple nodes?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "We diagnose and fix network bottlenecks through NCCL optimization, RDMA configuration, and InfiniBand/RoCE tuning. We have achieved 8.5x faster distributed training through these optimizations."
+                "text": "We diagnose and fix network bottlenecks through NCCL optimization, RDMA configuration, and InfiniBand/RoCE tuning to substantially speed up distributed training."
             }
         },
         {
@@ -56,7 +56,7 @@ const faqSchema = {
             "name": "Can you help us build a GPU cloud from scratch?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. We provide end-to-end architecture and implementation for GPU cloud platforms, including multi-tenant scheduling, isolation, monitoring, billing integration, and usage metering."
+                "text": "Yes. We provide platform-layer architecture and implementation for GPU cloud platforms, including multi-tenant scheduling, isolation, monitoring, billing integration, and usage metering."
             }
         }
     ]
@@ -66,7 +66,7 @@ export default function Home() {
     return (
         <Layout
             title="GPU Infrastructure Consulting for AI"
-            description="BaaZ builds, optimizes, and operates GPU clusters for AI - cluster bring-up, RDMA/RoCE networking, Kubernetes and Slurm, GPU scheduling, inference. On-prem, colo, or dedicated cloud."
+            description="BaaZ makes installed GPU hardware work as an AI platform: provisioning, RDMA/RoCE networking, Kubernetes and Slurm, GPU scheduling, inference. The software layer, not the data centre. On-prem, colo, or dedicated cloud."
         >
             <Head>
                 <script type="application/ld+json">
@@ -79,32 +79,33 @@ export default function Home() {
                 <section className={styles.hero}>
                     <div className={styles.heroContent}>
                         <h1 className={styles.heroTitle}>
-                            GPU infrastructure from rack to running workloads
+                            GPU infrastructure engineering: the software layer above the hardware
                         </h1>
                         <p className={styles.heroSubtitle}>
-                            We build, optimize, and operate GPU clusters for teams that
-                            run their own hardware - on-prem, colo, or dedicated cloud.
-                            Hands-on engineers, upstream contributors to the NVIDIA
-                            stack.
+                            Once your GPU servers are installed, we make them run AI
+                            workloads reliably — and keep them that way. We don't
+                            build data centres or sell hardware. Hands-on engineers,
+                            upstream contributors to the NVIDIA stack.
                         </p>
 
                         {/* Two-door hero */}
                         <div className={styles.doorGrid}>
                             <div className={styles.doorCard}>
                                 <h2 className={styles.doorTitle}>
-                                    Standing up new GPU infrastructure?
+                                    New GPU hardware arriving?
                                 </h2>
                                 <p className={styles.doorText}>
-                                    From hardware delivery to first training job in
+                                    From racked servers to first training job in
                                     weeks: BMC discovery, automated OS provisioning,
                                     RoCE/RDMA fabric, Kubernetes or Slurm, verified
-                                    GPUDirect.
+                                    GPUDirect. Your hardware, your data centre — our
+                                    software layer.
                                 </p>
                                 <Link
                                     to="/services/ai-factory"
                                     className={styles.doorCta}
                                 >
-                                    How we deliver a cluster →
+                                    How we bring a cluster to life →
                                 </Link>
                             </div>
                             <div className={styles.doorCard}>
@@ -114,9 +115,10 @@ export default function Home() {
                                 <p className={styles.doorText}>
                                     Low utilization, slow multi-node training, jobs
                                     failing overnight - usually the network, the
-                                    scheduler, or a config nobody checked. In one
-                                    customer's cluster, fixing the RDMA path made
-                                    distributed training 8.5x faster.
+                                    scheduler, or a config nobody checked. The most
+                                    common cause we find is RDMA hardware that's
+                                    installed and silently unused — NCCL running over
+                                    TCP.
                                 </p>
                                 <Link to="/audit" className={styles.doorCta}>
                                     Book a GPU Cluster Audit →
@@ -172,13 +174,13 @@ export default function Home() {
                     <div className={styles.sectionContent}>
                         <h2 className={styles.sectionTitle}>GPU Infrastructure Consulting Services</h2>
                         <p className={styles.sectionLead}>
-                            We help companies get the most out of their GPU infrastructure.
+                            We make installed GPU hardware work as an AI platform — build the stack, optimize it, operate it.
                         </p>
                         <div className={styles.cardGrid}>
                             <div className={styles.card}>
                                 <h3 className={styles.cardTitle}>Higher Utilization</h3>
                                 <p className={styles.cardText}>
-                                    Turn 30% utilization into 70%+. Share GPUs safely across teams.
+                                    Raise low GPU utilization. Share GPUs safely across teams.
                                     Run inference by day, training by night. Stop leaving money on
                                     the table.
                                 </p>
@@ -223,7 +225,7 @@ export default function Home() {
                         <h2 className={styles.sectionTitle}>Hands-On Implementation, Not Slide Decks</h2>
                         <p className={styles.sectionLead}>
                             We're not a big consultancy that sends you a deck and disappears.
-                            We're hands-on engineers who've built this infrastructure
+                            We're hands-on engineers who've run this software layer
                             ourselves - at startups, in production, under pressure.
                             We work forward-deployed: embedded in your environment,
                             shipping code and configs alongside your team until the
@@ -324,7 +326,7 @@ export default function Home() {
                                             "We're building a GPU cloud and don't know where to
                                             start"
                                         </td>
-                                        <td>End-to-end architecture and implementation</td>
+                                        <td>Platform-layer architecture and implementation — scheduling, isolation, monitoring, billing integration</td>
                                     </tr>
                                     <tr>
                                         <td>
@@ -359,12 +361,12 @@ export default function Home() {
                         <div className={styles.personaGrid}>
                             <div className={styles.personaCard}>
                                 <p className={styles.personaQuote}>
-                                    "We need to build GPU infrastructure from scratch"
+                                    "Our GPU hardware is arriving and nobody's set it up before"
                                 </p>
                                 <p className={styles.personaDesc}>
-                                    You're standing up a new AI cluster - on-prem, colo, or cloud.
-                                    You want to get it right the first time without spending months
-                                    figuring out what NVIDIA's docs don't tell you.
+                                    The servers are ordered or racked. You want the software
+                                    layer right the first time without spending months on what
+                                    NVIDIA's docs don't tell you.
                                 </p>
                             </div>
                             <div className={styles.personaCard}>
@@ -411,10 +413,10 @@ export default function Home() {
                             <Link to="/case-studies/rdma-kubernetes" className={styles.resourceCard}>
                                 <span className={styles.resourceLabel}>Case Study</span>
                                 <h3 className={styles.resourceTitle}>
-                                    8.5x Faster Distributed Training: RDMA on Bare Metal Kubernetes
+                                    GPUDirect RDMA over RoCE on a 2-node bare-metal Kubernetes cluster
                                 </h3>
                                 <p className={styles.resourceDesc}>
-                                    How we helped a computer vision company achieve 10x latency improvement with GPUDirect RDMA over RoCE.
+                                    How we moved a 2-node, 4-GPU training cluster from 1GbE TCP to 100GbE RoCE, and the configuration that made it real.
                                 </p>
                                 <span className={styles.resourceLink}>Read case study →</span>
                             </Link>
@@ -451,8 +453,9 @@ export default function Home() {
                 <section className={styles.section}>
                     <div className={styles.sectionContent}>
                         <p className={styles.bodyText}>
-                            We also take delivery work through partners - hardware
-                            resellers, system integrators, and GPU cloud providers.{" "}
+                            We also work through partners — hardware resellers,
+                            system integrators, colo and GPU cloud providers — as the
+                            software layer on the hardware they sell.{" "}
                             <Link to="/partners">Partners →</Link>
                         </p>
                     </div>

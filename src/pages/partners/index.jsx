@@ -27,7 +27,8 @@ export default function Partners() {
                             they've sold. On those deals we deliver the layer between
                             the metal and the workloads - provisioning, network fabric,
                             Kubernetes or Slurm, scheduling, monitoring, and handover to
-                            the customer's team.
+                            the customer's team. We don't compete with you on hardware or
+                            facilities; we're the piece the customer asks for after the PO.
                         </p>
                         <p className={styles.bodyText}>
                             We're flexible on how engagements are structured and

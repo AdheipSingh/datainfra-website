@@ -55,7 +55,7 @@ export const POST_INDEX = [
         tags: ["networking", "monitoring", "infrastructure", "troubleshooting", "mellanox", "nvidia"],
     },
     {
-        title: "Case study: 8.5x Faster Distributed Training - RDMA on Bare Metal Kubernetes",
+        title: "Case study: GPUDirect RDMA over RoCE on a 2-node bare-metal Kubernetes cluster",
         url: "/case-studies/rdma-kubernetes",
         tags: ["gpu", "rdma", "kubernetes", "networking", "distributed-training", "nccl"],
     },

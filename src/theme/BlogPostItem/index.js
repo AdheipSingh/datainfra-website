@@ -66,7 +66,7 @@ function BlogPostStructuredData() {
             "@type": "WebPage",
             "@id": `https://baaz.dev${permalink}`
         },
-        "keywords": "GPU infrastructure, AI factory, GPU consulting, distributed training, Kubernetes GPU"
+        "keywords": "GPU infrastructure, AI infrastructure, GPU consulting, distributed training, Kubernetes GPU"
     }
 
     return (
