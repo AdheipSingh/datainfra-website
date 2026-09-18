@@ -3,62 +3,91 @@ import Layout from "@theme/Layout"
 import Link from "@docusaurus/Link"
 import Head from "@docusaurus/Head"
 import { Navbar } from "@site/src/components/Layout"
-import Credentials from "@site/src/components/Credentials"
-import EmailCapture from "@site/src/components/EmailCapture"
-import styles from "./index.module.css"
+
+// ---- inline icons (design uses [[icon:x]] placeholders) ----
+const Arrow = () => (<svg className="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>)
+const Check = () => (<svg className="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5" /></svg>)
+const Ext = () => (<svg className="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>)
+const IServer = () => (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="7" rx="2" /><rect x="3" y="13" width="18" height="7" rx="2" /><line x1="7" y1="7.5" x2="7.01" y2="7.5" /><line x1="7" y1="16.5" x2="7.01" y2="16.5" /></svg>)
+const IGauge = () => (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 14l4-4M4 20a8 8 0 1 1 16 0" /></svg>)
+const INetwork = () => (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="2" width="6" height="6" rx="1" /><rect x="2" y="16" width="6" height="6" rx="1" /><rect x="16" y="16" width="6" height="6" rx="1" /><path d="M12 8v4M12 12H5v4M12 12h7v4" /></svg>)
+const ILayers = () => (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2l9 5-9 5-9-5 9-5zM3 12l9 5 9-5M3 17l9 5 9-5" /></svg>)
+const IActivity = () => (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2" /></svg>)
+const IBolt = () => (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg>)
+
+const SERVICES = [
+    { icon: <IServer />, title: "GPU Cluster Architecture", to: "/services/ai-factory", body: "Building a new GPU cluster? Full bring-up on installed hardware — provisioning, fabric, storage integration, orchestration, monitoring." },
+    { icon: <IGauge />, title: "Distributed Training Optimization", to: "/services/distributed-training", body: "Multi-node training running slow? We diagnose and fix network bottlenecks, tune NCCL, configure RDMA, and optimize collective communication." },
+    { icon: <INetwork />, title: "GPU Networking & RDMA", to: "/services/gpu-networking", body: "Network killing your training throughput? RDMA fabrics — InfiniBand, RoCE, GPUDirect — configured and verified at wire rate." },
+    { icon: <ILayers />, title: "GPU Sharing & Multi-tenancy", to: "/services/gpu-kubernetes", body: "GPUs sitting idle while teams wait? Proper sharing with isolation — MIG, time-slicing, quotas, KAI Scheduler — so installed GPUs get used." },
+    { icon: <IActivity />, title: "GPU Observability & Reliability", to: "/services/gpu-monitoring", body: "Jobs failing at 2am with no visibility? Monitoring that catches GPU failures before jobs crash, and systems that recover automatically." },
+    { icon: <IBolt />, title: "LLM Inference Optimization", to: "/services", body: "Serving stack selection, batching and KV-cache tuning, latency SLO engineering, cost-per-token analysis — on your own GPUs." },
+]
+
+const LAYER_CELLS = [
+    { n: "01", t: "Bring-up & OS", d: "BMC discovery, provisioning, drivers, firmware baselines" },
+    { n: "02", t: "Network fabric", d: "RoCE / InfiniBand, GPUDirect RDMA, switch config" },
+    { n: "03", t: "Orchestration", d: "Kubernetes with GPU Operator, or Slurm" },
+    { n: "04", t: "Scheduling & sharing", d: "KAI Scheduler, MIG, quotas, multi-tenancy" },
+    { n: "05", t: "Observability", d: "DCGM, XID detection, dashboards, alerting" },
+    { n: "06", t: "Day-2 operations", d: "Upgrades, fault recovery, capacity, runbooks" },
+]
+
+const COMMITS = [
+    { repo: "KAI Scheduler", org: "NVIDIA", n: "#857", msg: "feat(queue-controller): add queue validator", status: "merged", when: "Mar 2026", url: "https://github.com/kai-scheduler/KAI-Scheduler/pull/857" },
+    { repo: "KAI Scheduler", org: "NVIDIA", n: "#1382", msg: "feat: reservation security context", status: "merged", when: "Apr 2026", url: "https://github.com/kai-scheduler/KAI-Scheduler/pull/1382" },
+    { repo: "Network Operator", org: "NVIDIA", n: "#2035", msg: "feat: RDMA, SR-IOV, Multus auto-restart pods on config changes", status: "merged", when: "Jan 2026", url: "https://github.com/Mellanox/network-operator/pull/2035" },
+    { repo: "Network Operator", org: "NVIDIA", n: "#2070", msg: "feat: add global config support for NicClusterPolicy", status: "merged", when: "Mar 2026", url: "https://github.com/Mellanox/network-operator/pull/2070" },
+    { repo: "Network Operator", org: "NVIDIA", n: "#3147", msg: "feat: add MTU support to IPoIBNetwork CRD", status: "open", when: "—", url: "https://github.com/Mellanox/network-operator/pull/3147" },
+    { repo: "DOCA Driver Build", org: "NVIDIA", n: "#299", msg: "feat: install NFS userspace tools on host when ENABLE_NFSRDMA is enabled", status: "merged", when: "Sep 2026", url: "https://github.com/Mellanox/doca-driver-build/pull/299" },
+    { repo: "ipoib-cni", org: "NVIDIA / Mellanox", n: "#132", msg: "feat: add MTU support", status: "merged", when: "Jun 2026", url: "https://github.com/Mellanox/ipoib-cni/pull/132" },
+]
+
+const CREDS = [
+    { badge: "NV", t: "NVIDIA-Certified Associate", d: "AI Infrastructure and Operations · Gurjot Kaur", url: "https://www.credly.com/go/ldtOTwWSKUCz73PViG0wyQ" },
+    { badge: "NV", t: "NVIDIA-Certified Associate", d: "AI Infrastructure and Operations · Adheip Singh", url: "https://www.credly.com/users/adheip-singh-sadhrao.3ab58b44/badges/credly" },
+    { badge: "AMD", t: "AMD ROCm Certified Associate", d: "ROCm software platform for GPU compute · Adheip Singh", url: "https://www.credly.com/badges/19a43ca9-958a-4cab-9c71-e0680d71d39a/public_url" },
+    { badge: "ASF", t: "Apache Software Foundation", d: "Foundation member", url: "https://people.apache.org/phonebook.html?uid=adheipsingh" },
+]
+
+const PROBLEMS = [
+    ["01", "Our GPUs sit idle while teams wait for access", "GPU sharing with proper isolation — MIG, time-slicing, quotas, queue-based scheduling"],
+    ["02", "Training is slow on multiple nodes", "Network fabric tuning, NCCL optimization, topology and RDMA path fixes"],
+    ["03", "We don't know what's happening in our cluster", "Monitoring, alerting, and visibility into GPU health with DCGM, Prometheus and Grafana"],
+    ["04", "Jobs fail randomly and we can't debug them", "Logging, XID error detection, fault tolerance, and automated recovery"],
+    ["05", "ML teams wait days for infrastructure tickets", "Self-service platforms with guardrails — namespaces, quotas, JupyterLab, golden images"],
+    ["06", "We're building a GPU cloud and don't know where to start", "Platform-layer architecture and implementation — scheduling, isolation, monitoring, metering"],
+]
+
+const STEPS = [
+    ["01", "Assess", "We look at your actual metrics, configs, and problems. No assumptions."],
+    ["02", "Diagnose", "We find the real bottlenecks — often it's the network, not the GPUs."],
+    ["03", "Implement", "We write code, change configs, tune systems. You see results, not slide decks."],
+    ["04", "Transfer", "We document everything so your team can operate it independently."],
+]
+
+const PERSONAS = [
+    { eyebrow: "Teams that own GPUs", q: "We bought the hardware. Now it has to earn its keep.", body: "Startups, enterprises and GCCs with GPU servers on-prem, in a colo, or in a dedicated cloud — building something new or getting more from what's installed.", link: "/services", label: "Services" },
+    { eyebrow: "Channel partners", q: "Our customer needs the software stack on the boxes we sold.", body: "Hardware resellers, system integrators, GPU cloud and colo providers who need delivery capacity for the layer between the metal and the workloads.", link: "/partners", label: "Working with partners" },
+    { eyebrow: "In-house inference teams", q: "We serve models on our own GPUs and the numbers don't add up.", body: "Teams running LLM inference on their own hardware who need the right serving stack, batching, latency SLOs and a sane cost per token.", link: "/services", label: "Inference optimization" },
+]
+
+const POSTS = [
+    { tag: "AI networking", title: "ECMP Hash Collisions in a Fat-Tree: Too Few Flows, Not Too Many", date: "Sep 16, 2026", read: "10 min", url: "/blog/ecmp-hash-collisions-fat-tree-ai-clusters" },
+    { tag: "Kubernetes", title: "Understanding Secondary Networks for GPU Workloads in Kubernetes", date: "Apr 13, 2026", read: "14 min", url: "/blog/secondary-networks-gpu-kubernetes" },
+    { tag: "GPU infrastructure", title: "How to Calculate if Your Network is Bottlenecking Distributed Training", date: "Guide", read: "10 min", url: "/blog/network-bottleneck-distributed-training" },
+]
 
 const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-        {
-            "@type": "Question",
-            "name": "How do you fix idle GPUs while teams wait for access?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "We implement MIG partitioning, time-slicing, Kubernetes GPU operators, and quota management to enable safe GPU sharing across teams and significantly increase GPU utilization."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "How do you speed up slow distributed training across multiple nodes?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "We diagnose and fix network bottlenecks through NCCL optimization, RDMA configuration, and InfiniBand/RoCE tuning to substantially speed up distributed training."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "How do you improve GPU cluster observability?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "We set up comprehensive monitoring, alerting, and visibility into GPU health using DCGM metrics, Prometheus, and Grafana dashboards so you know exactly what is happening in your cluster."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "How do you handle randomly failing GPU jobs?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "We implement proper logging, fault tolerance, and automated recovery systems that catch GPU failures before jobs crash and automatically recover from common failure modes."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "How do you reduce ML team wait times for infrastructure?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "We build self-service platforms with guardrails that let ML teams provision GPU environments themselves, eliminating infrastructure ticket bottlenecks."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "Can you help us build a GPU cloud from scratch?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes. We provide platform-layer architecture and implementation for GPU cloud platforms, including multi-tenant scheduling, isolation, monitoring, billing integration, and usage metering."
-            }
-        }
+        { "@type": "Question", "name": "How do you fix idle GPUs while teams wait for access?", "acceptedAnswer": { "@type": "Answer", "text": "We implement MIG partitioning, time-slicing, Kubernetes GPU operators, and quota management to enable safe GPU sharing across teams and significantly increase GPU utilization." } },
+        { "@type": "Question", "name": "How do you speed up slow distributed training across multiple nodes?", "acceptedAnswer": { "@type": "Answer", "text": "We diagnose and fix network bottlenecks through NCCL optimization, RDMA configuration, and InfiniBand/RoCE tuning to substantially speed up distributed training." } },
+        { "@type": "Question", "name": "How do you improve GPU cluster observability?", "acceptedAnswer": { "@type": "Answer", "text": "We set up comprehensive monitoring, alerting, and visibility into GPU health using DCGM metrics, Prometheus, and Grafana dashboards so you know exactly what is happening in your cluster." } },
+        { "@type": "Question", "name": "How do you handle randomly failing GPU jobs?", "acceptedAnswer": { "@type": "Answer", "text": "We implement proper logging, fault tolerance, and automated recovery systems that catch GPU failures before jobs crash and automatically recover from common failure modes." } },
+        { "@type": "Question", "name": "How do you reduce ML team wait times for infrastructure?", "acceptedAnswer": { "@type": "Answer", "text": "We build self-service platforms with guardrails that let ML teams provision GPU environments themselves, eliminating infrastructure ticket bottlenecks." } },
+        { "@type": "Question", "name": "Can you help us build a GPU cloud from scratch?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We provide platform-layer architecture and implementation for GPU cloud platforms, including multi-tenant scheduling, isolation, monitoring, billing integration, and usage metering." } }
     ]
 }
 
@@ -69,420 +98,249 @@ export default function Home() {
             description="BaaZ makes installed GPU hardware work as an AI platform: provisioning, RDMA/RoCE networking, Kubernetes and Slurm, GPU scheduling, inference. The software layer, not the data centre. On-prem, colo, or dedicated cloud."
         >
             <Head>
-                <script type="application/ld+json">
-                    {JSON.stringify(faqSchema)}
-                </script>
+                <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
             </Head>
             <Navbar />
-            <main className={styles.main}>
-                {/* Hero Section */}
-                <section className={styles.hero}>
-                    <div className={styles.heroContent}>
-                        <h1 className={styles.heroTitle}>
-                            GPU infrastructure engineering: the software layer above the hardware
-                        </h1>
-                        <p className={styles.heroSubtitle}>
-                            Post-rack, we make your GPU servers run AI workloads
-                            reliably — and keep them that way. Hands-on engineers,
-                            upstream contributors to the NVIDIA stack.
-                        </p>
-
-                        {/* Two-door hero */}
-                        <div className={styles.doorGrid}>
-                            <div className={styles.doorCard}>
-                                <h2 className={styles.doorTitle}>
-                                    New GPU hardware arriving?
-                                </h2>
-                                <p className={styles.doorText}>
-                                    From racked servers to first training job in
-                                    weeks: BMC discovery, automated OS provisioning,
-                                    RoCE/RDMA fabric, Kubernetes or Slurm, verified
-                                    GPUDirect. Your hardware, your data centre — our
-                                    software layer.
-                                </p>
-                                <Link
-                                    to="/services/ai-factory"
-                                    className={styles.doorCta}
-                                >
-                                    How we bring a cluster to life →
-                                </Link>
-                            </div>
-                            <div className={styles.doorCard}>
-                                <h2 className={styles.doorTitle}>
-                                    GPUs underperforming?
-                                </h2>
-                                <p className={styles.doorText}>
-                                    Low utilization, slow multi-node training, jobs
-                                    failing overnight - usually the network, the
-                                    scheduler, or a config nobody checked. The most
-                                    common cause we find is RDMA hardware that's
-                                    installed and silently unused — NCCL running over
-                                    TCP.
-                                </p>
-                                <Link to="/audit" className={styles.doorCta}>
-                                    Book a GPU Cluster Audit →
-                                </Link>
-                                <div className={styles.doorCapture}>
-                                    <EmailCapture />
+            <div className="site">
+                <main>
+                    {/* HERO */}
+                    <section className="hero">
+                        <div className="container">
+                            <div className="split">
+                                <div className="hero-copy">
+                                    <span className="eyebrow">GPU infrastructure · software layer</span>
+                                    <h1 className="display">The software layer between your GPUs and your AI workloads.</h1>
+                                    <p className="lead">You have the hardware — in your own data centre, a colo, or a dedicated cloud. We bring it up, configure the network fabric, put Kubernetes or Slurm on it, and keep it running. Hands-on engineers, upstream contributors to the NVIDIA stack.</p>
+                                    <div className="btn-row">
+                                        <a className="btn btn-primary btn-lg" href="https://cal.com/baazhq" target="_blank" rel="noopener noreferrer">Talk to us <Arrow /></a>
+                                        <Link className="btn btn-secondary btn-lg" to="/audit">Book a GPU Cluster Audit</Link>
+                                    </div>
+                                    <div className="proof-line">
+                                        <span className="faint">Merged upstream:</span>
+                                        <span><Check /> NVIDIA KAI Scheduler</span>
+                                        <span><Check /> NVIDIA Network Operator</span>
+                                        <span><Check /> Mellanox ipoib-cni</span>
+                                    </div>
+                                </div>
+                                <div className="terminal" aria-label="Illustrative terminal: verifying that NCCL is using RDMA">
+                                    <div className="terminal-bar"><div className="dots"><i /><i /><i /></div><span className="title">node-01 — rdma-path-check</span></div>
+                                    <pre className="terminal-body"><span className="cmd">ibdev2netdev</span>{"\n"}mlx5_0 port 1 ==&gt; ens1f0np0 <span className="ok">(Up)</span>{"\n"}mlx5_1 port 1 ==&gt; ens1f1np1 <span className="ok">(Up)</span>{"\n\n"}<span className="cmd">NCCL_DEBUG=INFO ./all_reduce_perf -b 8 -e 4G -f 2 -g 8</span>{"\n"}<span className="k">NCCL INFO</span> NET/IB : Using [0]mlx5_0:1/RoCE [1]mlx5_1:1/RoCE{"\n"}<span className="k">NCCL INFO</span> GPU Direct RDMA Enabled for HCA 0 'mlx5_0'{"\n"}<span className="k">NCCL INFO</span> Channel 00 : 0[0] -&gt; 1[1] via NET/IB/0/GDRDMA{"\n"}<span className="k">NCCL INFO</span> Channel 01 : 0[0] -&gt; 1[1] via NET/IB/1/GDRDMA{"\n"}<span className="dimline">…</span>{"\n"}<span className="c"># rdma path verified — no NET/Socket fallback</span>{"\n"}<span className="ok">ok</span>  <span className="c">GPUDirect RDMA in the data path on both HCAs</span></pre>
                                 </div>
                             </div>
                         </div>
+                    </section>
 
-                    </div>
-                </section>
-
-                {/* Open source & certifications */}
-                <section className={styles.credentialsSection}>
-                    <h2 className={styles.credentialsTitle}>
-                        Open Source &amp; Certifications
-                    </h2>
-                    <p className={styles.credentialsLead}>
-                        We build the stack we run. Our engineers contribute upstream
-                        to NVIDIA&apos;s GPU and networking projects and hold
-                        vendor-verified certifications.
-                    </p>
-                    <Credentials />
-                </section>
-
-                {/* Problem Section */}
-                <section className={styles.section}>
-                    <div className={styles.sectionContent}>
-                        <h2 className={styles.sectionTitle}>Why GPU Infrastructure Underperforms</h2>
-                        <p className={styles.sectionLead}>
-                            Most GPU infrastructure is underutilized, overcomplicated, or both.
-                        </p>
-                        <p className={styles.bodyText}>
-                            You bought expensive hardware - H100s, A100s, L40s - but:
-                        </p>
-                        <ul className={styles.painPoints}>
-                            <li>Utilization sits at 30-40% while teams wait for access</li>
-                            <li>Training jobs fail at 2am and nobody knows why</li>
-                            <li>Your "multi-tenant" setup is really just SSH and hope</li>
-                            <li>Networking bottlenecks kill distributed training performance</li>
-                            <li>You're not sure if the problem is hardware, software, or config</li>
-                        </ul>
-                        <p className={styles.bodyText}>
-                            Every idle GPU-hour is money burned. Every failed training run is weeks
-                            lost. We help you fix that.
-                        </p>
-                    </div>
-                </section>
-
-                {/* Outcomes Section */}
-                <section className={`${styles.section} ${styles.sectionAlt}`}>
-                    <div className={styles.sectionContent}>
-                        <h2 className={styles.sectionTitle}>GPU Infrastructure Consulting Services</h2>
-                        <p className={styles.sectionLead}>
-                            We make installed GPU hardware work as an AI platform — build the stack, optimize it, operate it.
-                        </p>
-                        <div className={styles.cardGrid}>
-                            <div className={styles.card}>
-                                <h3 className={styles.cardTitle}>Higher Utilization</h3>
-                                <p className={styles.cardText}>
-                                    Raise low GPU utilization. Share GPUs safely across teams.
-                                    Run inference by day, training by night. Stop leaving money on
-                                    the table.
-                                </p>
+                    {/* WHERE WE WORK */}
+                    <section className="section alt">
+                        <div className="container">
+                            <div className="section-head">
+                                <span className="eyebrow">Where we work</span>
+                                <h2 className="h2">Everything between installed hardware and a running job.</h2>
+                                <p className="lead">We start where the hardware is installed. We take what's there and make it run — and keep it running.</p>
                             </div>
-                            <div className={styles.card}>
-                                <h3 className={styles.cardTitle}>Faster Training</h3>
-                                <p className={styles.cardText}>
-                                    Eliminate network bottlenecks. Fix PCIe topology issues. Tune
-                                    collective communications. Get your training jobs finishing in
-                                    days, not weeks.
-                                </p>
+                            <div className="stack" role="img" aria-label="Three layers: your AI workloads on top, the BaaZ software layer in the middle, your installed hardware at the bottom">
+                                <div className="layer">
+                                    <div className="who">Your workloads</div>
+                                    <div className="what">Training runs, inference services, notebooks and internal platforms — owned by your ML and product teams.</div>
+                                </div>
+                                <div className="layer baaz">
+                                    <div className="who">BaaZ works here</div>
+                                    <div className="layer-cells">
+                                        {LAYER_CELLS.map((c) => (
+                                            <div className="cell" key={c.n}><span className="n">{c.n}</span><span className="t">{c.t}</span><span className="d">{c.d}</span></div>
+                                        ))}
+                                    </div>
+                                </div>
+                                <div className="layer">
+                                    <div className="who">Your hardware</div>
+                                    <div className="what">GPU servers, switches, storage, power and cooling — supplied and installed by you, your OEM, or your data-centre partner.</div>
+                                </div>
                             </div>
-                            <div className={styles.card}>
-                                <h3 className={styles.cardTitle}>Reliable Operations</h3>
-                                <p className={styles.cardText}>
-                                    Know when GPUs are failing before jobs crash. Get visibility into
-                                    what's actually happening. Build systems that recover
-                                    automatically.
-                                </p>
-                            </div>
-                            <div className={styles.card}>
-                                <h3 className={styles.cardTitle}>Self-Service Access</h3>
-                                <p className={styles.cardText}>
-                                    Let your ML teams provision GPU environments themselves - with
-                                    guardrails. No more tickets. No more waiting. Ship faster.
-                                </p>
-                            </div>
-                            <div className={styles.card}>
-                                <h3 className={styles.cardTitle}>Lower Costs</h3>
-                                <p className={styles.cardText}>
-                                    Delay your next hardware purchase by getting more from what you
-                                    have. Or build new infrastructure right the first time.
-                                </p>
+                            <div className="stack-caption">
+                                <span>On-prem, colo, or dedicated cloud. NVIDIA and AMD GPUs.</span>
+                                <Link className="link-arrow" to="/services">See all services <Arrow /></Link>
                             </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
 
-                {/* Process Section */}
-                <section className={styles.section}>
-                    <div className={styles.sectionContent}>
-                        <h2 className={styles.sectionTitle}>Hands-On Implementation, Not Slide Decks</h2>
-                        <p className={styles.sectionLead}>
-                            We're not a big consultancy that sends you a deck and disappears.
-                            We're hands-on engineers who've run this software layer
-                            ourselves - at startups, in production, under pressure.
-                            We work forward-deployed: embedded in your environment,
-                            shipping code and configs alongside your team until the
-                            cluster runs.
-                        </p>
-                        <div className={styles.processSteps}>
-                            <div className={styles.processStep}>
-                                <div className={styles.stepNumber}>1</div>
-                                <div className={styles.stepContent}>
-                                    <h3 className={styles.stepTitle}>
-                                        Understand Your Situation
-                                    </h3>
-                                    <p className={styles.stepText}>
-                                        We start by understanding what you have, what's working, and
-                                        what's not. No assumptions. We look at the actual metrics,
-                                        the actual configs, the actual problems.
-                                    </p>
+                    {/* TWO DOORS */}
+                    <section className="section">
+                        <div className="container">
+                            <div className="doors">
+                                <div className="card door">
+                                    <span className="eyebrow">New cluster</span>
+                                    <h3 className="h3">New GPU hardware arriving?</h3>
+                                    <p className="body">From racked servers to first training job: BMC discovery, automated OS provisioning, RoCE/RDMA fabric, Kubernetes or Slurm, verified GPUDirect. Done once, done right, handed over with runbooks.</p>
+                                    <div className="btn-row">
+                                        <Link className="btn btn-secondary" to="/services/ai-factory">How we bring a cluster to life <Arrow /></Link>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className={styles.processStep}>
-                                <div className={styles.stepNumber}>2</div>
-                                <div className={styles.stepContent}>
-                                    <h3 className={styles.stepTitle}>Identify the Bottlenecks</h3>
-                                    <p className={styles.stepText}>
-                                        GPU problems are often not GPU problems. It's the network.
-                                        It's the storage. It's the scheduler. It's the config nobody
-                                        touched since 2022. We find the real issues.
-                                    </p>
-                                </div>
-                            </div>
-                            <div className={styles.processStep}>
-                                <div className={styles.stepNumber}>3</div>
-                                <div className={styles.stepContent}>
-                                    <h3 className={styles.stepTitle}>Fix What Matters</h3>
-                                    <p className={styles.stepText}>
-                                        We implement solutions - not recommendations. We write code,
-                                        change configs, tune systems. You see results, not slide
-                                        decks.
-                                    </p>
-                                </div>
-                            </div>
-                            <div className={styles.processStep}>
-                                <div className={styles.stepNumber}>4</div>
-                                <div className={styles.stepContent}>
-                                    <h3 className={styles.stepTitle}>Transfer Knowledge</h3>
-                                    <p className={styles.stepText}>
-                                        We don't want you dependent on us forever. We document what
-                                        we did and why, and make sure your team can operate it going
-                                        forward.
-                                    </p>
+                                <div className="card door">
+                                    <span className="eyebrow">Existing cluster</span>
+                                    <h3 className="h3">GPUs underperforming?</h3>
+                                    <p className="body">Low utilization, slow multi-node training, jobs failing overnight — usually the network, the scheduler, or a config nobody checked. A fixed-scope, two-week audit finds the real bottlenecks and ships the safe fixes.</p>
+                                    <div className="btn-row">
+                                        <Link className="btn btn-primary" to="/audit">Book a GPU Cluster Audit <Arrow /></Link>
+                                    </div>
+                                    <Link className="link-arrow" to="/audit" style={{ fontSize: "14px" }}>Or get the free NCCL fallback test + pre-flight checklist <Arrow /></Link>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
 
-                {/* Problems Table Section */}
-                <section className={`${styles.section} ${styles.sectionAlt}`}>
-                    <div className={styles.sectionContent}>
-                        <h2 className={styles.sectionTitle}>Common Problems We Solve</h2>
-                        <div className={styles.tableWrapper}>
-                            <table className={styles.dataTable}>
-                                <thead>
-                                    <tr>
-                                        <th>You Say</th>
-                                        <th>We Do</th>
-                                    </tr>
-                                </thead>
+                    {/* SERVICES */}
+                    <section className="section alt">
+                        <div className="container">
+                            <div className="section-head">
+                                <span className="eyebrow">Services</span>
+                                <h2 className="h2">Build, optimize, and operate GPU infrastructure for AI.</h2>
+                                <p className="lead">Six ways we engage. Every one is delivered by the engineers you talk to on the first call.</p>
+                            </div>
+                            <div className="grid grid-3">
+                                {SERVICES.map((s) => (
+                                    <Link className="card" to={s.to} key={s.title}>
+                                        <span className="icon">{s.icon}</span>
+                                        <h3 className="h4">{s.title}</h3>
+                                        <p className="body">{s.body}</p>
+                                        <span className="link-arrow">Learn more <Arrow /></span>
+                                    </Link>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* PROOF */}
+                    <section className="section">
+                        <div className="container">
+                            <div className="section-head">
+                                <span className="eyebrow">Open source &amp; credentials</span>
+                                <h2 className="h2">We build the stack we run.</h2>
+                                <p className="lead">Our engineers contribute upstream to NVIDIA's GPU and networking projects. Every line below links to the real pull request.</p>
+                            </div>
+                            <div className="proof-grid">
+                                <div className="commit-log">
+                                    <div className="head"><span>Project</span><span>Pull request</span><span>Status</span><span>Date</span></div>
+                                    {COMMITS.map((c) => (
+                                        <a className="commit" href={c.url} target="_blank" rel="noopener noreferrer" key={c.n + c.repo}>
+                                            <span className="repo">{c.repo}<small>{c.org}</small></span>
+                                            <span className="msg"><b>{c.n}</b>{c.msg}</span>
+                                            <span className={`pill ${c.status === "merged" ? "ok" : "open"}`}><i />{c.status}</span>
+                                            <span className="when">{c.when}</span>
+                                        </a>
+                                    ))}
+                                </div>
+                                <div className="cred-list">
+                                    {CREDS.map((c) => (
+                                        <a className="cred" href={c.url} target="_blank" rel="noopener noreferrer" key={c.t + c.d}>
+                                            <span className="badge">{c.badge}</span>
+                                            <span><div className="t">{c.t}</div><div className="d">{c.d}</div></span>
+                                            <span className="ext"><Ext /></span>
+                                        </a>
+                                    ))}
+                                    <a className="link-arrow" href="https://github.com/baazhq" target="_blank" rel="noopener noreferrer">All contributions on GitHub <Arrow /></a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* YOU SAY / WE DO */}
+                    <section className="section alt">
+                        <div className="container">
+                            <div className="section-head">
+                                <span className="eyebrow">Common problems</span>
+                                <h2 className="h2">Most GPU infrastructure is underutilized, overcomplicated, or both.</h2>
+                                <p className="lead">GPU problems are often not GPU problems. It's the network, the storage, the scheduler, or the config nobody touched since the cluster went live.</p>
+                            </div>
+                            <table className="table">
+                                <thead><tr><th></th><th>You say</th><th>We do</th></tr></thead>
                                 <tbody>
-                                    <tr>
-                                        <td>"Our GPUs sit idle while teams wait for access"</td>
-                                        <td>
-                                            MIG partitioning, time-slicing, Kubernetes GPU operators, quota management
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>"Distributed training is slow on multiple nodes"</td>
-                                        <td>
-                                            NCCL optimization, RDMA configuration, InfiniBand/RoCE tuning
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>"We don't know what's happening in our cluster"</td>
-                                        <td>
-                                            Monitoring, alerting, and visibility into GPU health
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>"Jobs fail randomly and we can't debug them"</td>
-                                        <td>Logging, fault tolerance, and automated recovery</td>
-                                    </tr>
-                                    <tr>
-                                        <td>"ML teams wait days for infrastructure tickets"</td>
-                                        <td>Self-service platforms with guardrails</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            "We're building a GPU cloud and don't know where to
-                                            start"
-                                        </td>
-                                        <td>Platform-layer architecture and implementation — scheduling, isolation, monitoring, billing integration</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            "Hardware arrived weeks ago and it's still not
-                                            provisioned"
-                                        </td>
-                                        <td>
-                                            BMC enrollment, MaaS/PXE provisioning, firmware
-                                            baseline, repeatable node builds
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            "We're serving LLMs on dedicated GPUs and the bill
-                                            doesn't match the throughput"
-                                        </td>
-                                        <td>
-                                            Inference stack selection and tuning - batching,
-                                            KV-cache, parallelism, autoscaling
-                                        </td>
-                                    </tr>
+                                    {PROBLEMS.map(([idx, say, doit]) => (
+                                        <tr key={idx}><td className="idx">{idx}</td><td className="say">{say}</td><td className="do">{doit}</td></tr>
+                                    ))}
                                 </tbody>
                             </table>
                         </div>
-                    </div>
-                </section>
+                    </section>
 
-                {/* Who We Help Section */}
-                <section className={styles.section}>
-                    <div className={styles.sectionContent}>
-                        <h2 className={styles.sectionTitle}>GPU Infrastructure for Startups and Scale-Ups</h2>
-                        <div className={styles.personaGrid}>
-                            <div className={styles.personaCard}>
-                                <p className={styles.personaQuote}>
-                                    "Our GPU hardware is arriving and nobody's set it up before"
-                                </p>
-                                <p className={styles.personaDesc}>
-                                    The servers are ordered or racked. You want the software
-                                    layer right the first time without spending months on what
-                                    NVIDIA's docs don't tell you.
-                                </p>
+                    {/* PROCESS */}
+                    <section className="section">
+                        <div className="container">
+                            <div className="section-head">
+                                <span className="eyebrow">How we work</span>
+                                <h2 className="h2">Hands-on engineers. Results, not decks.</h2>
+                                <p className="lead">We're not a big consultancy that sends you a deck and disappears. We've built this infrastructure ourselves — at startups, in production, under pressure.</p>
                             </div>
-                            <div className={styles.personaCard}>
-                                <p className={styles.personaQuote}>
-                                    "We're building a GPU cloud for customers"
-                                </p>
-                                <p className={styles.personaDesc}>
-                                    You're a startup or colo provider building GPU-as-a-service.
-                                    You need the platform layer - scheduling, isolation, monitoring,
-                                    billing integration.
-                                </p>
-                            </div>
-                            <div className={styles.personaCard}>
-                                <p className={styles.personaQuote}>
-                                    "We bought GPUs but they're sitting underutilized"
-                                </p>
-                                <p className={styles.personaDesc}>
-                                    You invested in hardware but only a few people can use it.
-                                    Utilization reports look bad. Leadership is asking questions.
-                                </p>
-                            </div>
-                            <div className={styles.personaCard}>
-                                <p className={styles.personaQuote}>
-                                    "Our training jobs are slow and we don't know why"
-                                </p>
-                                <p className={styles.personaDesc}>
-                                    Multi-node training should be faster. Something's wrong with
-                                    the network, the topology, the collective comms - but you can't
-                                    pinpoint it.
-                                </p>
+                            <div className="steps">
+                                {STEPS.map(([num, title, body]) => (
+                                    <div className="step" key={num}><span className="num">{num}</span><h3 className="h4">{title}</h3><p className="body">{body}</p></div>
+                                ))}
                             </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
 
-                {/* Featured Resources Section */}
-                <section id="featured-resources" className={`${styles.section} ${styles.sectionAlt}`}>
-                    <div className={styles.sectionContent}>
-                        <h2 className={styles.sectionTitle}>Featured Resources</h2>
-                        <p className={styles.sectionLead}>
-                            Technical deep-dives from our work in GPU infrastructure.
-                        </p>
-                        <div className={styles.resourcesGrid}>
-                            <Link to="/case-studies/rdma-kubernetes" className={styles.resourceCard}>
-                                <span className={styles.resourceLabel}>Case Study</span>
-                                <h3 className={styles.resourceTitle}>
-                                    GPUDirect RDMA over RoCE on a 2-node bare-metal Kubernetes cluster
-                                </h3>
-                                <p className={styles.resourceDesc}>
-                                    How we moved a 2-node, 4-GPU training cluster from 1GbE TCP to 100GbE RoCE, and the configuration that made it real.
-                                </p>
-                                <span className={styles.resourceLink}>Read case study →</span>
-                            </Link>
-                            <Link to="/blog/network-bottleneck-distributed-training" className={styles.resourceCard}>
-                                <span className={styles.resourceLabel}>Blog</span>
-                                <h3 className={styles.resourceTitle}>
-                                    How to Calculate if Your Network is Bottlenecking Distributed Training
-                                </h3>
-                                <p className={styles.resourceDesc}>
-                                    A practical guide to understanding why your multi-node GPU training might be slower than expected.
-                                </p>
-                                <span className={styles.resourceLink}>Read article →</span>
-                            </Link>
-                            <Link to="/blog/gpu-to-gpu-communication-across-nodes" className={styles.resourceCard}>
-                                <span className={styles.resourceLabel}>Blog</span>
-                                <h3 className={styles.resourceTitle}>
-                                    GPU to GPU Communication Across Nodes
-                                </h3>
-                                <p className={styles.resourceDesc}>
-                                    Understanding how GPUs communicate in distributed training setups.
-                                </p>
-                                <span className={styles.resourceLink}>Read article →</span>
-                            </Link>
+                    {/* WHO WE HELP */}
+                    <section className="section alt">
+                        <div className="container">
+                            <div className="section-head">
+                                <span className="eyebrow">Who we help</span>
+                                <h2 className="h2">Three kinds of teams call us.</h2>
+                            </div>
+                            <div className="grid grid-3">
+                                {PERSONAS.map((p) => (
+                                    <div className="card persona" key={p.eyebrow}>
+                                        <span className="eyebrow plain">{p.eyebrow}</span>
+                                        <p className="q">{p.q}</p>
+                                        <p className="body">{p.body}</p>
+                                        <Link className="link-arrow" to={p.link}>{p.label} <Arrow /></Link>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                        <div className={styles.viewAllWrapper}>
-                            <Link to="/blog" className={styles.viewAllLink}>
-                                View all posts →
-                            </Link>
+                    </section>
+
+                    {/* RESOURCES */}
+                    <section className="section">
+                        <div className="container">
+                            <div className="section-head">
+                                <span className="eyebrow">Field notes</span>
+                                <h2 className="h2">Engineering write-ups, not marketing.</h2>
+                            </div>
+                            <div className="resources">
+                                <Link className="card feature" to="/case-studies/rdma-kubernetes">
+                                    <span className="tag">Case study · RDMA · Kubernetes</span>
+                                    <h3 className="h3">GPUDirect RDMA over RoCE on bare-metal Kubernetes</h3>
+                                    <p className="body">A computer-vision team's multi-node training was bottlenecked on the TCP/IP data path. We added a dedicated RoCE fabric with PFC/ECN, exposed the RDMA NICs to pods with Multus, configured NCCL for GPUDirect RDMA — and verified the path across the fabric. No vanity numbers; the engineering.</p>
+                                    <span className="link-arrow">Read the write-up <Arrow /></span>
+                                </Link>
+                                <div className="post-list">
+                                    {POSTS.map((p) => (
+                                        <Link className="post-row" to={p.url} key={p.url}>
+                                            <span><span className="tag">{p.tag}</span><div className="h4">{p.title}</div><div className="meta"><span>{p.date}</span><span>{p.read}</span></div></span>
+                                            <Arrow />
+                                        </Link>
+                                    ))}
+                                    <Link className="link-arrow mt-24" to="/blog">All posts <Arrow /></Link>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
 
-                {/* Partner mention */}
-                <section className={styles.section}>
-                    <div className={styles.sectionContent}>
-                        <p className={styles.bodyText}>
-                            We also work through partners — hardware resellers,
-                            system integrators, colo and GPU cloud providers — as the
-                            software layer on the hardware they sell.{" "}
-                            <Link to="/partners">Partners →</Link>
-                        </p>
-                    </div>
-                </section>
-
-                {/* CTA Section */}
-                <section className={styles.ctaSection}>
-                    <div className={styles.ctaContent}>
-                        <h2 className={styles.ctaTitle}>Let's Talk</h2>
-                        <p className={styles.ctaText}>
-                            If you're dealing with GPU infrastructure challenges - utilization,
-                            performance, reliability, or building something new - we should talk.
-                        </p>
-                        <p className={styles.ctaSubtext}>
-                            No sales pitch. Just a conversation about what you're trying to do
-                            and whether we can help.
-                        </p>
-                        <a
-                            href="https://cal.com/baazhq"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={styles.ctaButtonLarge}
-                        >
-                            Schedule a Call
-                        </a>
-                    </div>
-                </section>
-            </main>
+                    {/* CTA */}
+                    <section className="cta-band">
+                        <div className="container">
+                            <div className="inner">
+                                <span className="eyebrow plain">Let's talk</span>
+                                <h2 className="h2">Tell us about your cluster.</h2>
+                                <p className="lead">No sales pitch. A conversation about what you're trying to do and whether we can help — with the engineer who would do the work.</p>
+                                <div className="btn-row">
+                                    <a className="btn btn-primary btn-lg" href="https://cal.com/baazhq" target="_blank" rel="noopener noreferrer">Schedule a call <Arrow /></a>
+                                    <Link className="btn btn-secondary btn-lg" to="/audit">Start with an audit</Link>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
         </Layout>
     )
 }
