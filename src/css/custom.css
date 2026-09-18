@@ -3,48 +3,113 @@
  * Custom CSS following the design specification
  */
 
-/* Color Variables */
-:root {
-    /* Primary Colors from Spec */
-    --color-primary: #1a365d;
-    --color-accent: #3182ce;
-    --color-background: #ffffff;
-    --color-background-alt: #f7fafc;
-    --color-text: #2d3748;
-    --color-text-light: #4a5568;
-    --color-text-muted: #718096;
-    --color-border: #e2e8f0;
-
-    /* Docusaurus Overrides */
-    --ifm-color-primary: #1a365d;
-    --ifm-color-primary-dark: #15294a;
-    --ifm-color-primary-darker: #122346;
-    --ifm-color-primary-darkest: #0e1c39;
-    --ifm-color-primary-light: #1f4170;
-    --ifm-color-primary-lighter: #224574;
-    --ifm-color-primary-lightest: #2a5287;
-    --ifm-navbar-background-color: #ffffff;
-    --ifm-code-font-size: 95%;
-    --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-
-    /* Typography */
-    --ifm-heading-font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-    --ifm-font-family-base: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-    --ifm-font-size-base: 16px;
-    --ifm-line-height-base: 1.6;
+/* ---- Self-hosted Geist (SIL OFL 1.1) ---- */
+@font-face {
+    font-family: "Geist";
+    src: url("/fonts/Geist-Variable.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Geist Mono";
+    src: url("/fonts/GeistMono-Variable.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
 }
 
-/* Dark mode adjustments */
+/* ---- Design tokens (baaz-ui.css §1) ---- */
 [data-theme="dark"] {
-    --ifm-color-primary: #63b3ed;
-    --ifm-color-primary-dark: #4299e1;
-    --ifm-color-primary-darker: #3182ce;
-    --ifm-color-primary-darkest: #2b6cb0;
-    --ifm-color-primary-light: #90cdf4;
-    --ifm-color-primary-lighter: #bee3f8;
-    --ifm-color-primary-lightest: #ebf8ff;
-    --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+    --bg:            #0A0D12;
+    --bg-2:          #0E1219;
+    --surface:       #12171F;
+    --surface-2:     #181E28;
+    --line:          rgba(255,255,255,0.08);
+    --line-strong:   rgba(255,255,255,0.16);
+    --text:          #E8ECF1;
+    --text-2:        #A4AEBB;
+    --text-3:        #7B8694;
+    --accent:        #1959FF;
+    --accent-hover:  #3D73FF;
+    --accent-text:   #7AA2FF;
+    --accent-soft:   rgba(25,89,255,0.14);
+    --accent-ring:   rgba(25,89,255,0.45);
+    --ok:            #34D399;
+    --warn:          #FBBF24;
+    --terminal-bg:   #0B0E13;
+    --terminal-line: rgba(255,255,255,0.10);
+    --shadow-card:   0 1px 0 rgba(255,255,255,0.03) inset;
+    --shadow-panel:  0 24px 60px rgba(0,0,0,0.45), 0 1px 0 rgba(255,255,255,0.05) inset;
+    --nav-bg:        rgba(10,13,18,0.78);
+    --watermark:     rgba(255,255,255,0.055);
+    --color-scheme:  dark;
 }
+:root, [data-theme="light"] {
+    --bg:            #FFFFFF;
+    --bg-2:          #F5F7FA;
+    --surface:       #FFFFFF;
+    --surface-2:     #F0F3F7;
+    --line:          rgba(14,20,32,0.10);
+    --line-strong:   rgba(14,20,32,0.20);
+    --text:          #0E1420;
+    --text-2:        #4B5563;
+    --text-3:        #667085;
+    --accent:        #1959FF;
+    --accent-hover:  #1147D6;
+    --accent-text:   #1147D6;
+    --accent-soft:   rgba(25,89,255,0.09);
+    --accent-ring:   rgba(25,89,255,0.35);
+    --ok:            #047857;
+    --warn:          #B45309;
+    --terminal-bg:   #0E1420;
+    --terminal-line: rgba(255,255,255,0.10);
+    --shadow-card:   0 1px 2px rgba(14,20,32,0.04);
+    --shadow-panel:  0 24px 60px rgba(14,20,32,0.14);
+    --nav-bg:        rgba(255,255,255,0.82);
+    --watermark:     rgba(14,20,32,0.045);
+    --color-scheme:  light;
+}
+
+:root, .site {
+    --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    --container: 1200px;
+    --gutter: 32px;
+    --radius-sm: 6px;
+    --radius: 10px;
+    --radius-lg: 14px;
+    --nav-h: 64px;
+    --section-y: 80px;
+    --ease: cubic-bezier(.2,.7,.2,1);
+}
+
+/* ---- Docusaurus variable mapping (blog/MDX inherit the look) ---- */
+:root, [data-theme="light"] {
+    --ifm-color-primary: #1147D6;
+    --ifm-background-color: var(--bg);
+    --ifm-background-surface-color: var(--surface);
+    --ifm-font-color-base: var(--text);
+    --ifm-font-family-base: var(--font-sans);
+    --ifm-font-family-monospace: var(--font-mono);
+    --ifm-heading-font-family: var(--font-sans);
+    --ifm-heading-font-weight: 600;
+    --ifm-code-font-size: 88%;
+    --ifm-link-color: var(--accent-text);
+    --ifm-link-hover-color: var(--accent-hover);
+    --ifm-toc-border-color: var(--line);
+    --ifm-hr-border-color: var(--line);
+    --ifm-color-emphasis-300: var(--line-strong);
+    --ifm-navbar-height: 64px;
+}
+[data-theme="dark"] {
+    --ifm-color-primary: #7AA2FF;
+    --ifm-background-color: var(--bg);
+    --ifm-background-surface-color: var(--surface);
+    --ifm-font-color-base: var(--text);
+    --docusaurus-highlighted-code-line-bg: rgba(255,255,255,.08);
+}
+html { background: var(--bg); color-scheme: var(--color-scheme); }
 
 /* Base styles */
 body {
@@ -464,3 +529,4 @@ a:hover {
 .mb-2 { margin-bottom: 16px; }
 .mb-3 { margin-bottom: 24px; }
 .mb-4 { margin-bottom: 32px; }
+

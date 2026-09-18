@@ -38,35 +38,16 @@ const config = {
         locales: ["en"],
     },
 
-    // Google fonts and SEO tags
+    // Self-hosted Geist (preloaded) + SEO tags
     headTags: [
         {
             tagName: "link",
             attributes: {
-                rel: "preconnect",
-                href: "https://fonts.googleapis.com",
-            },
-        },
-        {
-            tagName: "link",
-            attributes: {
-                rel: "preconnect",
-                href: "https://fonts.gstatic.com",
+                rel: "preload",
+                href: "/fonts/Geist-Variable.woff2",
+                as: "font",
+                type: "font/woff2",
                 crossorigin: "anonymous",
-            },
-        },
-        {
-            tagName: "link",
-            attributes: {
-                rel: "stylesheet",
-                href: "https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600;700;800;900&display=swap",
-            },
-        },
-        {
-            tagName: "link",
-            attributes: {
-                rel: "stylesheet",
-                href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap",
             },
         },
         // Organization structured data
@@ -168,6 +149,12 @@ const config = {
     themeConfig:
         /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
+            // Dark default; toggle lives in the custom navbar (see Navbar.jsx).
+            colorMode: {
+                defaultMode: "dark",
+                disableSwitch: false,
+                respectPrefersColorScheme: false,
+            },
             // Social card for link previews (OpenGraph/Twitter). 1200x630.
             image: "img/og-default.png",
             // navbar: {
