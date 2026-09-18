@@ -1029,3 +1029,15 @@ a:hover {
   .site .stack-caption{ flex-direction: column; align-items: flex-start; }
   .site .btn-row.stretch .btn{ width: 100%; }
 }
+
+/* ---- Neutralize Infima global-class collisions inside .site ----
+   Docusaurus/Infima defines global .hero (flex, dark bg, hero text colour)
+   that clashes with the design's .hero. .site scoping wins on specificity;
+   reset the properties Infima sets but the design doesn't. */
+.site .hero {
+    background: transparent;
+    color: var(--text);
+    display: block;
+    align-items: initial;
+    padding: 80px 0 64px;
+}
