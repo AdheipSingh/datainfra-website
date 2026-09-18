@@ -82,9 +82,8 @@ export default function Home() {
                             GPU infrastructure engineering: the software layer above the hardware
                         </h1>
                         <p className={styles.heroSubtitle}>
-                            Once your GPU servers are installed, we make them run AI
-                            workloads reliably — and keep them that way. We don't
-                            build data centres or sell hardware. Hands-on engineers,
+                            Post-rack, we make your GPU servers run AI workloads
+                            reliably — and keep them that way. Hands-on engineers,
                             upstream contributors to the NVIDIA stack.
                         </p>
 

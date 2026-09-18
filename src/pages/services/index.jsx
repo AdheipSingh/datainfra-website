@@ -10,7 +10,7 @@ import styles from "./styles.module.css"
 const faqItems = [
     {
         question: "What does BaaZ do?",
-        answer: "BaaZ is a GPU infrastructure engineering consultancy. Once GPU hardware is installed - on-prem, colo, or dedicated cloud - we make it run AI workloads reliably: provisioning, RDMA networking, Kubernetes or Slurm, GPU scheduling and sharing, observability, and inference serving. We don't build data centres or sell hardware; we work with the resellers, integrators, and colo operators who do.",
+        answer: "BaaZ is a GPU infrastructure engineering consultancy. Once GPU hardware is installed - on-prem, colo, or dedicated cloud - we make it run AI workloads reliably: provisioning, RDMA networking, Kubernetes or Slurm, GPU scheduling and sharing, observability, and inference serving. The hardware and facilities stay with the resellers, integrators, and colo operators we work with; we're the software layer on top.",
     },
     {
         question: "Who do you typically work with?",
