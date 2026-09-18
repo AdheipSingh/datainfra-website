@@ -92,8 +92,8 @@ export default function Footer() {
                             className={styles.brandLogo}
                         />
                         <p className={styles.tagline}>
-                            GPU infrastructure from rack to running workloads -
-                            build, optimize, operate.
+                            We make installed GPU hardware work as an AI platform
+                            — build the stack, optimize it, operate it.
                         </p>
                         <SocialIcons />
                     </div>

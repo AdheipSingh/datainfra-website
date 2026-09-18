@@ -10,11 +10,11 @@ import styles from "./styles.module.css"
 const faqItems = [
     {
         question: "What does BaaZ do?",
-        answer: "We help teams that own or rent dedicated GPU hardware - AI startups, SMEs, enterprises, and GPU cloud providers - design, build, optimize, and operate their clusters.",
+        answer: "BaaZ is a GPU infrastructure engineering consultancy. Once GPU hardware is installed - on-prem, colo, or dedicated cloud - we make it run AI workloads reliably: provisioning, RDMA networking, Kubernetes or Slurm, GPU scheduling and sharing, observability, and inference serving. The hardware and facilities stay with the resellers, integrators, and colo operators we work with; we're the software layer on top.",
     },
     {
         question: "Who do you typically work with?",
-        answer: "Our clients are usually AI-first startups scaling from a handful to hundreds of GPUs, SMEs standing up in-house ML training clusters, and colo/GPU-cloud providers building multi-tenant GPU-as-a-service platforms. Engineering-led teams with concrete bottlenecks or timelines get the most out of the engagement.",
+        answer: "Our clients are usually AI-first startups scaling from a handful to hundreds of GPUs, SMEs setting up in-house ML training clusters, and colo/GPU-cloud providers building multi-tenant GPU-as-a-service platforms. Engineering-led teams with concrete bottlenecks or timelines get the most out of the engagement.",
     },
     {
         question: "Do you work with on-prem, colo, and cloud GPU clusters?",
@@ -22,7 +22,7 @@ const faqItems = [
     },
     {
         question: "How are BaaZ engagements typically structured?",
-        answer: "Most engagements follow Assess → Diagnose → Implement → Transfer: we audit your existing setup or design, identify real bottlenecks, implement changes hands-on (code, configs, IaC), and document so your team can operate the result. Engagements range from a focused 2-week diagnostic to multi-month greenfield build-and-operate work.",
+        answer: "Most engagements follow Assess → Diagnose → Implement → Transfer: we audit your existing setup or design, identify real bottlenecks, implement changes hands-on (code, configs, IaC), and document so your team can operate the result. Engagements range from a focused 2-week diagnostic to multi-month software-stack build-and-operate work on new hardware.",
     },
     {
         question: "Can you help with an urgent production issue?",
@@ -68,7 +68,7 @@ export default function Services() {
                     "itemOffered": {
                         "@type": "Service",
                         "name": "GPU Cluster Architecture",
-                        "description": "End-to-end GPU cluster design and implementation: hardware selection, network fabric, storage, orchestration, and monitoring."
+                        "description": "GPU cluster software design and implementation: network fabric, storage, orchestration, and monitoring."
                     }
                 },
                 {
@@ -76,7 +76,7 @@ export default function Services() {
                     "itemOffered": {
                         "@type": "Service",
                         "name": "GPU Sharing & Multi-tenancy",
-                        "description": "MIG partitioning, time-slicing, Kubernetes GPU operators, quota management, and fair scheduling for 70%+ utilization."
+                        "description": "MIG partitioning, time-slicing, Kubernetes GPU operators, quota management, and fair scheduling for high GPU utilization."
                     }
                 },
                 {
@@ -124,12 +124,12 @@ export default function Services() {
                     <div className={styles.heroContent}>
                         <span className={styles.heroLabel}>GPU Infrastructure Consulting</span>
                         <h1 className={styles.heroTitle}>
-                            Build, optimize, and operate GPU infrastructure for AI
+                            Make your GPU infrastructure work: build the software stack, optimize it, operate it
                         </h1>
                         <p className={styles.heroSubline}>
-                            From full AI-factory builds - provisioning, network fabric,
-                            orchestration, scheduling - to training performance,
-                            inference platforms, and Day-2 operations.
+                            From the software build on new hardware - provisioning,
+                            network fabric, orchestration, scheduling - to training
+                            performance, inference platforms, and Day-2 operations.
                         </p>
                         <a
                             href="https://cal.com/baazhq"
@@ -156,11 +156,11 @@ export default function Services() {
                                 </div>
                                 <h3 className={styles.serviceTitle}>GPU Cluster Architecture</h3>
                                 <p className={styles.serviceDesc}>
-                                    Building a new GPU cluster? We design and implement end-to-end infrastructure
-                                    for AI workloads - on-prem, colo, or cloud.
+                                    Building a new GPU cluster? We design and implement the software
+                                    stack on your hardware - on-prem, colo, or cloud.
                                 </p>
                                 <ul className={styles.serviceFeatures}>
-                                    <li>Hardware selection & network fabric</li>
+                                    <li>Fabric design and hardware advisory (we don't sell hardware)</li>
                                     <li>Storage architecture</li>
                                     <li>Orchestration setup (K8s/Slurm)</li>
                                     <li>Multi-tenant GPU-as-a-Service</li>
@@ -227,7 +227,7 @@ export default function Services() {
                                 <h3 className={styles.serviceTitle}>GPU Sharing & Multi-tenancy</h3>
                                 <p className={styles.serviceDesc}>
                                     GPUs sitting idle while teams wait? We implement proper sharing with
-                                    isolation - MIG, time-slicing, quotas - so you get 70%+ utilization.
+                                    isolation - MIG, time-slicing, quotas - so idle GPUs get used.
                                 </p>
                                 <ul className={styles.serviceFeatures}>
                                     <li>MIG partitioning & time-slicing</li>
@@ -291,6 +291,13 @@ export default function Services() {
                             </div>
 
                         </div>
+
+                        <h2 className={styles.subH2}>Inference Serving</h2>
+                        <div className={styles.techTagsRow}>
+                            {["vLLM", "SGLang", "TensorRT-LLM", "Triton"].map((t) => (
+                                <span key={t} className={styles.subTag}>{t}</span>
+                            ))}
+                        </div>
                     </div>
                 </section>
 
@@ -341,25 +348,15 @@ export default function Services() {
                             <div className={styles.caseStudyContent}>
                                 <span className={styles.caseStudyLabel}>Case Study</span>
                                 <h2 className={styles.caseStudyTitle}>
-                                    8.5x Faster Distributed Training with RDMA
+                                    GPUDirect RDMA over RoCE on a 2-node bare-metal Kubernetes cluster
                                 </h2>
                                 <p className={styles.caseStudyDesc}>
-                                    How we helped a computer vision company achieve 10x latency improvement 
-                                    with GPUDirect RDMA over RoCE on bare metal Kubernetes.
+                                    How we moved a 2-node, 4-GPU training cluster from 1GbE TCP to
+                                    100GbE RoCE, and the configuration that made it real.
                                 </p>
                                 <Link to="/case-studies/rdma-kubernetes" className={styles.caseStudyLink}>
                                     Read the full case study →
                                 </Link>
-                            </div>
-                            <div className={styles.caseStudyMetrics}>
-                                <div className={styles.caseStudyMetric}>
-                                    <span className={styles.metricValue}>8.5x</span>
-                                    <span className={styles.metricLabel}>Faster Training</span>
-                                </div>
-                                <div className={styles.caseStudyMetric}>
-                                    <span className={styles.metricValue}>10x</span>
-                                    <span className={styles.metricLabel}>Latency Reduction</span>
-                                </div>
                             </div>
                         </div>
                     </div>

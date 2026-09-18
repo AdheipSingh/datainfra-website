@@ -8,13 +8,9 @@ import styles from "./styles.module.css"
 const caseStudies = [
     {
         slug: "rdma-kubernetes",
-        title: "8.5x Faster Distributed Training: RDMA on Bare Metal Kubernetes",
-        description: "How we helped a computer vision company achieve 10x latency improvement with GPUDirect RDMA over RoCE on Kubernetes.",
-        metrics: [
-            { value: "8.5x", label: "Training Speedup" },
-            { value: "10x", label: "Latency Reduction" },
-            { value: "78%", label: "GPU Utilization" },
-        ],
+        title: "GPUDirect RDMA over RoCE on a 2-node bare-metal Kubernetes cluster",
+        description: "How we moved a 2-node, 4-GPU training cluster from 1GbE TCP to 100GbE RoCE, and the configuration that made it real.",
+        metrics: [],
         tags: ["RDMA", "Kubernetes", "Distributed Training", "RoCE"],
     },
 ]
@@ -59,7 +55,7 @@ export default function CaseStudiesIndex() {
     return (
         <Layout
             title="GPU Infrastructure Case Studies"
-            description="GPU infrastructure case studies from BaaZ. Real results: 8.5x faster distributed training, 70%+ GPU utilization, RDMA optimization on Kubernetes."
+            description="GPU infrastructure engineering write-ups from BaaZ: GPUDirect RDMA over RoCE, distributed training networking, and Kubernetes GPU clusters."
         >
             <Head>
                 <meta property="og:title" content="GPU Infrastructure Case Studies | BaaZ" />

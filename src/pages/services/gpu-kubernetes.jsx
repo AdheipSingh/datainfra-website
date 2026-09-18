@@ -58,20 +58,12 @@ export default function GPUKubernetes() {
                 <span className={styles.subLabel}>Service</span>
                 <h1 className={styles.subTitle}>GPU Kubernetes Consulting</h1>
                 <p className={styles.subLead}>
-                    Your GPU cluster is running at 25% utilization. Teams wait days for GPU access. Training
+                    Your GPU cluster is sitting mostly idle. Teams wait days for GPU access. Training
                     jobs fail because the scheduler doesn't understand GPU topology. Kubernetes can run GPUs
                     well - it just needs someone who's done it before.
                 </p>
 
                 <div className={styles.metricsRow}>
-                    <div className={styles.metricBox}>
-                        <span className={styles.metricBoxValue}>70%+</span>
-                        <span className={styles.metricBoxLabel}>GPU Utilization</span>
-                    </div>
-                    <div className={styles.metricBox}>
-                        <span className={styles.metricBoxValue}>3x</span>
-                        <span className={styles.metricBoxLabel}>Resource Efficiency</span>
-                    </div>
                     <div className={styles.metricBox}>
                         <span className={styles.metricBoxValue}>Zero</span>
                         <span className={styles.metricBoxLabel}>Scheduling Conflicts</span>

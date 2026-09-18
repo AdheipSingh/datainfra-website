@@ -11,7 +11,7 @@ const serviceSchema = {
     "@type": "Service",
     "name": "AI Factory Setup Consulting",
     "provider": { "@type": "Organization", "name": "BaaZ", "url": "https://baaz.dev" },
-    "description": "End-to-end AI factory architecture: compute, RDMA networking, storage, Kubernetes/Slurm orchestration, and GPU operations.",
+    "description": "AI factory architecture: compute, RDMA networking, storage, Kubernetes/Slurm orchestration, and GPU operations.",
     "url": "https://baaz.dev/services/ai-factory",
 }
 
@@ -26,7 +26,7 @@ const faqItems = [
     },
     {
         question: "Should I build on-prem, in a colo, or in the cloud?",
-        answer: "Cloud is fastest to start and best for bursty workloads. Colo hits a lower $/GPU-hour once utilization is above 50-60%. On-prem makes sense for the largest sustained fleets and regulated environments. We help model the tradeoff with your real numbers.",
+        answer: "Cloud is fastest to start and best for bursty workloads. Colo hits a lower $/GPU-hour once utilization is consistently high. On-prem makes sense for the largest sustained fleets and regulated environments. We help model the tradeoff with your real numbers.",
     },
     {
         question: "What storage architecture do I need?",
@@ -38,7 +38,7 @@ const faqItems = [
     },
     {
         question: "Do you operate the cluster after it is built?",
-        answer: "Both. We lead greenfield builds end-to-end and can hand off to your SRE/platform team with documentation and runbooks, or stay on as a co-operating partner for a defined period while they ramp up.",
+        answer: "Both. We lead new-cluster software builds and can hand off to your SRE/platform team with documentation and runbooks, or stay on as a co-operating partner for a defined period while they ramp up.",
     },
 ]
 
@@ -46,7 +46,7 @@ export default function AIFactory() {
     return (
         <Layout
             title="AI Factory Setup Consulting"
-            description="End-to-end AI factory architecture and implementation. Compute, networking, storage, orchestration, and operations - production-ready from day one."
+            description="AI factory architecture and implementation. Compute, networking, storage, orchestration, and operations - production-ready from day one."
         >
             <Head>
                 <script type="application/ld+json">
@@ -65,7 +65,7 @@ export default function AIFactory() {
 
                 <div className={styles.metricsRow}>
                     <div className={styles.metricBox}>
-                        <span className={styles.metricBoxValue}>End-to-End</span>
+                        <span className={styles.metricBoxValue}>Full Stack</span>
                         <span className={styles.metricBoxLabel}>Architecture Design</span>
                     </div>
                     <div className={styles.metricBox}>
@@ -96,7 +96,7 @@ export default function AIFactory() {
                 </p>
                 <p>
                     <Link to="/case-studies/rdma-kubernetes" className={styles.subLink}>
-                        Read case study: 8.5x Faster Training with RDMA →
+                        Read case study: GPUDirect RDMA over RoCE on bare-metal Kubernetes →
                     </Link>
                 </p>
 

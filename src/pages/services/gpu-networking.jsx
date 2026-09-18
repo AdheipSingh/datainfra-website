@@ -18,7 +18,7 @@ const serviceSchema = {
 const faqItems = [
     {
         question: "What is RDMA and why does it matter for GPU training?",
-        answer: "RDMA lets NICs read and write remote memory directly, bypassing the CPU and kernel. Combined with GPUDirect RDMA, it enables zero-copy GPU-to-GPU transfers across nodes - 5-10x higher bandwidth and an order-of-magnitude lower latency than TCP on the same hardware.",
+        answer: "RDMA lets NICs read and write remote memory directly, bypassing the CPU and kernel. Combined with GPUDirect RDMA, it enables zero-copy GPU-to-GPU transfers across nodes - much higher effective bandwidth and an order-of-magnitude lower latency than TCP on the same hardware.",
     },
     {
         question: "Should I use InfiniBand or RoCE?",
@@ -26,7 +26,7 @@ const faqItems = [
     },
     {
         question: "Do I need PFC and ECN for RoCE?",
-        answer: "Yes, if you want lossless RoCE v2. PFC prevents packet drops during microbursts, ECN signals congestion before buffers overflow. Without these configured end-to-end - NICs, switches, and host settings - RoCE falls over under load and NCCL silently underperforms.",
+        answer: "Yes, if you want lossless RoCE v2. PFC prevents packet drops during microbursts, ECN signals congestion before buffers overflow. Without these configured across NICs, switches, and host settings, RoCE falls over under load and NCCL silently underperforms.",
     },
     {
         question: "What is GPUDirect RDMA?",
@@ -91,8 +91,8 @@ export default function GPUNetworking() {
                 <h2 className={styles.subH2}>Proof</h2>
                 <p className={styles.subP}>
                     We configured GPUDirect RDMA over RoCE on bare-metal Kubernetes with ConnectX-6 NICs.
-                    Result: <strong>10x inter-node latency reduction</strong> and <strong>8.5x training
-                    throughput improvement</strong> over the previous TCP configuration.
+                    Result: inter-node GPU communication moved off the CPU onto the RDMA path, replacing the
+                    previous TCP configuration.
                 </p>
                 <p className={styles.subP}>
                     We also deployed{" "}
@@ -132,7 +132,7 @@ export default function GPUNetworking() {
                     <div className={styles.processBox}>
                         <div className={styles.processBoxNum}>3</div>
                         <p className={styles.processBoxTitle}>Implement</p>
-                        <p className={styles.processBoxDesc}>Configure switches, NICs, RDMA, GPUDirect. Validate end-to-end.</p>
+                        <p className={styles.processBoxDesc}>Configure switches, NICs, RDMA, GPUDirect. Validate across the path.</p>
                     </div>
                     <div className={styles.processBox}>
                         <div className={styles.processBoxNum}>4</div>

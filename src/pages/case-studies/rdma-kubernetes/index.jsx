@@ -5,21 +5,6 @@ import { Navbar } from "@site/src/components/Layout"
 import ArticleEndBlock from "@site/src/components/ArticleEndBlock"
 import styles from "./styles.module.css"
 
-const keyOutcomes = [
-    { metric: "10x", label: "AllReduce Latency Improvement", detail: "From ~100ms to ~10ms" },
-    { metric: "8.5x", label: "Training Throughput Increase", detail: "For BERT-sized models" },
-    { metric: "78%", label: "GPU Utilization", detail: "Up from 35%" },
-    { metric: "4 days → 11 hrs", label: "Time-to-Train Reduction", detail: "For production models" },
-]
-
-const benchmarkResults = [
-    { metric: "AllReduce latency (100MB)", before: "~95 ms", after: "~9 ms", improvement: "10.5x" },
-    { metric: "AllReduce bandwidth", before: "~800 Mbps", after: "~89 Gbps", improvement: "111x" },
-    { metric: "GPU utilization (training)", before: "35%", after: "78%", improvement: "2.2x" },
-    { metric: "BERT-base fine-tuning time", before: "52 hours", after: "6.1 hours", improvement: "8.5x" },
-    { metric: "Checkpoint save (2GB)", before: "12 seconds", after: "1.8 seconds", improvement: "6.7x" },
-]
-
 const componentStack = [
     { component: "Calico", purpose: "Primary CNI for pod networking" },
     { component: "Multus CNI", purpose: "Meta-CNI for multiple network interfaces" },
@@ -34,9 +19,9 @@ const structuredData = {
     techArticle: {
         "@context": "https://schema.org",
         "@type": "TechArticle",
-        "headline": "8.5x Faster Distributed Training: RDMA on Bare Metal Kubernetes",
+        "headline": "GPUDirect RDMA over RoCE on a 2-node bare-metal Kubernetes cluster — BaaZ engineering write-up",
         "alternativeHeadline": "Building RDMA-Enabled Kubernetes for Distributed GPU Training",
-        "description": "Technical case study on implementing GPUDirect RDMA over RoCE for a computer vision company, achieving 10x latency improvement and 8.5x training throughput increase on bare metal Kubernetes.",
+        "description": "How we moved a 2-node, 4-GPU training cluster from 1GbE TCP to 100GbE RoCE with GPUDirect RDMA: NIC and switch selection, Multus dual-network pods, NVIDIA Network Operator, and NCCL GID configuration.",
         "image": "https://baaz.dev/img/diagram-01-tcp-vs-rdma-datapath.svg",
         "author": {
             "@type": "Organization",
@@ -136,7 +121,7 @@ const structuredData = {
                 "name": "How does GPUDirect RDMA improve distributed training performance?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "GPUDirect RDMA enables zero-copy transfers directly between GPU memory and the network, bypassing the CPU and system RAM entirely. This reduces AllReduce latency from ~100ms to ~10ms (10x improvement) and can increase training throughput by 8.5x or more."
+                    "text": "GPUDirect RDMA enables zero-copy transfers directly between GPU memory and the network, bypassing the CPU and system RAM entirely. It moves gradient-sync traffic off the CPU onto the RDMA path so the GPUs stop waiting on the network during AllReduce."
                 }
             }
         ]
@@ -146,13 +131,13 @@ const structuredData = {
 export default function CaseStudies() {
     return (
         <Layout
-            title="8.5x Faster Distributed Training: RDMA on Bare Metal Kubernetes"
-            description="Technical case study: How we implemented GPUDirect RDMA over RoCE on Kubernetes, achieving 10x latency reduction and 8.5x training throughput for distributed GPU workloads."
+            title="GPUDirect RDMA over RoCE on a 2-node bare-metal Kubernetes cluster — BaaZ engineering write-up"
+            description="How we moved a 2-node, 4-GPU training cluster from 1GbE TCP to 100GbE RoCE with GPUDirect RDMA: NIC and switch selection, Multus dual-network pods, NVIDIA Network Operator, and NCCL GID configuration."
         >
             <Head>
                 {/* Enhanced meta tags for this specific page */}
-                <meta property="og:title" content="8.5x Faster Distributed Training: RDMA on Bare Metal Kubernetes | BaaZ Case Study" />
-                <meta property="og:description" content="Technical case study on implementing GPUDirect RDMA over RoCE, achieving 10x latency improvement and 8.5x training throughput on bare metal Kubernetes." />
+                <meta property="og:title" content="GPUDirect RDMA over RoCE on a 2-node bare-metal Kubernetes cluster — BaaZ engineering write-up" />
+                <meta property="og:description" content="How we moved a 2-node, 4-GPU training cluster from 1GbE TCP to 100GbE RoCE with GPUDirect RDMA: NIC and switch selection, Multus dual-network pods, NVIDIA Network Operator, and NCCL GID configuration." />
                 <meta property="og:url" content="https://baaz.dev/case-studies/rdma-kubernetes" />
                 <meta property="og:type" content="article" />
                 <meta property="og:image" content="https://baaz.dev/img/diagram-01-tcp-vs-rdma-datapath.svg" />
@@ -165,8 +150,8 @@ export default function CaseStudies() {
                 <meta property="article:tag" content="Distributed Training" />
 
                 {/* Twitter Card meta tags */}
-                <meta name="twitter:title" content="8.5x Faster Distributed Training: RDMA on Bare Metal Kubernetes" />
-                <meta name="twitter:description" content="How we helped a computer vision company achieve 10x latency improvement with GPUDirect RDMA over RoCE on Kubernetes." />
+                <meta name="twitter:title" content="GPUDirect RDMA over RoCE on a 2-node bare-metal Kubernetes cluster — BaaZ engineering write-up" />
+                <meta name="twitter:description" content="How we moved a 2-node, 4-GPU training cluster from 1GbE TCP to 100GbE RoCE with GPUDirect RDMA: NIC and switch selection, Multus dual-network pods, NVIDIA Network Operator, and NCCL GID configuration." />
                 <meta name="twitter:image" content="https://baaz.dev/img/diagram-01-tcp-vs-rdma-datapath.svg" />
 
                 {/* Additional SEO meta tags */}
@@ -208,31 +193,22 @@ export default function CaseStudies() {
                     {/* Hero Section */}
                     <header className={styles.heroSection}>
                         <div className={styles.heroContent}>
-                            <span className={styles.heroLabel}>Technical Case Study</span>
+                            <span className={styles.heroLabel}>Engineering write-up</span>
                             <h1 className={styles.heroTitle} itemProp="headline">
-                                8.5x Faster Distributed Training
+                                GPUDirect RDMA over RoCE on a 2-node bare-metal Kubernetes cluster
                             </h1>
                             <p className={styles.heroSubtitle} itemProp="alternativeHeadline">
-                                RDMA on Bare Metal Kubernetes
+                                What we changed, and why it mattered
                             </p>
                             <p className={styles.heroDesc} itemProp="description">
-                                How we helped a computer vision company deploy bare metal Kubernetes with GPUDirect RDMA over RoCE for high-performance ML workloads
+                                A computer-vision team's 2-node training cluster was running gradient sync over 1GbE TCP. We specified RDMA-capable NICs and a DCB switch, then did the Kubernetes and NCCL configuration that makes RDMA actually get used.
                             </p>
                         </div>
                     </header>
 
-                    {/* Key Outcomes */}
-                    <section className={styles.outcomesSection} aria-label="Key Results">
+                    {/* Environment */}
+                    <section className={styles.section} aria-label="Environment">
                         <div className={styles.sectionContent}>
-                            <div className={styles.outcomesGrid}>
-                                {keyOutcomes.map((outcome, index) => (
-                                    <div key={index} className={styles.outcomeCard}>
-                                        <span className={styles.outcomeMetric}>{outcome.metric}</span>
-                                        <span className={styles.outcomeLabel}>{outcome.label}</span>
-                                        <span className={styles.outcomeDetail}>{outcome.detail}</span>
-                                    </div>
-                                ))}
-                            </div>
                             <p className={styles.environmentLine}>
                                 Environment: 2-node bare-metal Kubernetes, 4 GPUs (RTX
                                 A5000/A5500), 100GbE RoCE.
@@ -246,16 +222,13 @@ export default function CaseStudies() {
                             <h2 id="executive-summary" className={styles.sectionTitle}>Executive Summary</h2>
                             <div className={styles.summaryContent} itemProp="articleBody">
                                 <p>
-                                    A mid-sized computer vision company had invested in GPU infrastructure for their ML platform but hit a wall: distributed training jobs that should complete in hours were taking days. Their data science team was frustrated, GPU utilization was under 40%, and leadership was questioning the ROI of their hardware investment.
+                                    A computer-vision team trains object-detection and segmentation models on-prem for data-residency reasons. Their cluster: two workstations, four GPUs, Kubernetes on bare metal. Multi-node training was running gradient synchronization over the workstations' integrated 1GbE NICs — TCP, CPU in the data path, no RDMA capability at all.
                                 </p>
                                 <p>
-                                    <strong>The root cause: network bottlenecks.</strong> Without RDMA, gradient synchronization between GPUs was crawling over TCP/IP, burning expensive GPU cycles waiting on the network. Their RTX A5000 and A5500 cards sat idle during AllReduce operations while the CPU copied data between system memory and network buffers.
+                                    The work had two halves. The hardware half: specify RDMA-capable 100GbE NICs and a DCB switch on a dedicated network (procurement and physical installation were the customer's). The software half — the part that usually goes wrong — make Kubernetes and NCCL actually use it: a second pod network via Multus, drivers and device plugin via NVIDIA Network Operator, PFC/ECN on the switch, and the NCCL GID index set so traffic doesn't silently fall back to TCP.
                                 </p>
                                 <p>
-                                    We implemented a complete network redesign using GPUDirect RDMA over RoCE (RDMA over Converged Ethernet), integrated with their existing Kubernetes infrastructure through the NVIDIA Network Operator and Multus CNI.
-                                </p>
-                                <p>
-                                    The same failure pattern - NCCL silently falling back to TCP - appears in many clusters we audit, at every scale.
+                                    In clusters that already own RDMA hardware, that silent fallback is the failure we find most often in audits.
                                 </p>
                             </div>
                         </div>
@@ -268,7 +241,7 @@ export default function CaseStudies() {
 
                             <h3 className={styles.subsectionTitle}>Client Context</h3>
                             <p className={styles.paragraph}>
-                                The client, a mid-sized computer vision company, had built an on-premises ML platform to train object detection and image segmentation models. Privacy requirements and data residency regulations made cloud training impractical for their most sensitive workloads.
+                                The client, a computer-vision team, had built an on-premises ML platform to train object detection and image segmentation models. Privacy requirements and data residency regulations made cloud training impractical for their most sensitive workloads.
                             </p>
 
                             <div className={styles.infoBox}>
@@ -279,48 +252,13 @@ export default function CaseStudies() {
                                     <li>NVIDIA GPU Operator for device management</li>
                                     <li>Calico CNI for pod networking</li>
                                     <li>NFS for shared storage, local NVMe for scratch space</li>
-                                    <li>KAI Scheduler for GPU-aware job scheduling</li>
                                 </ul>
                             </div>
 
                             <h3 className={styles.subsectionTitle}>The Problem</h3>
                             <p className={styles.paragraph}>
-                                Training jobs that used all 4 GPUs across both nodes were painfully slow. A BERT-base fine-tuning job that benchmarked at 6 hours on a single 8-GPU cloud instance was taking over 50 hours on their 4-GPU cluster.
+                                Training jobs that used all 4 GPUs across both nodes were painfully slow. The GPUs spent much of each iteration idle, waiting on the network while gradients synchronized, with the CPU stuck in the data path for every byte transferred.
                             </p>
-
-                            <div className={styles.tableWrapper}>
-                                <table className={styles.dataTable}>
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Symptom</th>
-                                            <th scope="col">Observed</th>
-                                            <th scope="col">Expected</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>GPU utilization during training</td>
-                                            <td className={styles.badValue}>30-40%</td>
-                                            <td className={styles.goodValue}>&gt;80%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>AllReduce time per iteration</td>
-                                            <td className={styles.badValue}>~400ms</td>
-                                            <td className={styles.goodValue}>&lt;50ms</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Network throughput during sync</td>
-                                            <td className={styles.badValue}>~800 Mbps</td>
-                                            <td className={styles.goodValue}>&gt;10 Gbps</td>
-                                        </tr>
-                                        <tr>
-                                            <td>CPU utilization during sync</td>
-                                            <td className={styles.badValue}>85%+ (single core)</td>
-                                            <td className={styles.goodValue}>&lt;10%</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
 
                             <h3 className={styles.subsectionTitle}>Root Cause Analysis</h3>
                             <p className={styles.paragraph}>We identified three compounding issues:</p>
@@ -335,13 +273,13 @@ export default function CaseStudies() {
                                 <div className={styles.issueItem}>
                                     <span className={styles.issueNumber}>2</span>
                                     <div>
-                                        <strong>No GPUDirect.</strong> Without GPUDirect RDMA, NCCL fell back to the Socket transport. Each AllReduce operation involved multiple memory copies and CPU intervention, adding 50-100μs of latency per operation.
+                                        <strong>No GPUDirect.</strong> Without GPUDirect RDMA, NCCL fell back to the Socket transport. Each AllReduce operation involved multiple memory copies and CPU intervention, adding latency per operation.
                                     </div>
                                 </div>
                                 <div className={styles.issueItem}>
                                     <span className={styles.issueNumber}>3</span>
                                     <div>
-                                        <strong>Inadequate bandwidth.</strong> Even ignoring latency, 1GbE (125 MB/s) couldn't move a 400MB gradient payload fast enough. At theoretical maximum, that's 3.2 seconds per AllReduce - just for the network transfer.
+                                        <strong>Inadequate bandwidth.</strong> Even ignoring latency, a 1GbE link cannot move gradient payloads of hundreds of megabytes fast enough for multi-node training to make sense.
                                     </div>
                                 </div>
                             </div>
@@ -359,7 +297,7 @@ export default function CaseStudies() {
                             </figure>
 
                             <p className={styles.highlight}>
-                                The math was clear: to make distributed training viable, they needed 100x bandwidth improvement and 10-50x latency reduction. That meant RDMA.
+                                Two nodes with no RDMA path is a network problem, not a GPU problem. That meant RDMA.
                             </p>
                         </div>
                     </section>
@@ -618,58 +556,13 @@ export default function CaseStudies() {
                     {/* Results */}
                     <section className={`${styles.section} ${styles.sectionAlt}`} aria-labelledby="results">
                         <div className={styles.sectionContent}>
-                            <h2 id="results" className={styles.sectionTitle}>Results</h2>
-
-                            <h3 className={styles.subsectionTitle}>Performance Benchmarks</h3>
+                            <h2 id="results" className={styles.sectionTitle}>What changed</h2>
                             <p className={styles.paragraph}>
-                                We benchmarked before and after using nccl-tests (all_reduce_perf) and real training workloads:
+                                Gradient synchronization moved off the CPU and onto the RDMA path; AllReduce stopped being the step the GPUs waited on. Multi-node jobs that had been network-bound became GPU-bound, which is the state you want. The team's multi-day fine-tuning runs became same-day runs, and multi-node training went from something they avoided to the default.
                             </p>
-
-                            <div className={styles.tableWrapper}>
-                                <table className={styles.dataTable}>
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Metric</th>
-                                            <th scope="col">Before (TCP)</th>
-                                            <th scope="col">After (RoCE)</th>
-                                            <th scope="col">Improvement</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {benchmarkResults.map((result, index) => (
-                                            <tr key={index}>
-                                                <td>{result.metric}</td>
-                                                <td className={styles.badValue}>{result.before}</td>
-                                                <td className={styles.goodValue}>{result.after}</td>
-                                                <td className={styles.improvementValue}>{result.improvement}</td>
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
-                            </div>
-
-                            <div className={styles.insightBox}>
-                                <h4>Key Insight</h4>
-                                <p>
-                                    The 8.5x training speedup was greater than expected. This is because reduced AllReduce time didn't just speed up synchronization - it allowed the GPUs to process more batches per unit time, compounding the gains.
-                                </p>
-                            </div>
-
-                            <h3 className={styles.subsectionTitle}>Operational Impact</h3>
-                            <div className={styles.impactGrid}>
-                                <div className={styles.impactCard}>
-                                    <strong>Model iteration time</strong>
-                                    <p>Data scientists can now run 5-6 experiments per week instead of 1-2.</p>
-                                </div>
-                                <div className={styles.impactCard}>
-                                    <strong>GPU ROI</strong>
-                                    <p>Effective utilization more than doubled, improving the cost-per-trained-model significantly.</p>
-                                </div>
-                                <div className={styles.impactCard}>
-                                    <strong>Team morale</strong>
-                                    <p>No more babysitting multi-day training jobs or debugging mysterious slowdowns.</p>
-                                </div>
-                            </div>
+                            <p className={styles.paragraph}>
+                                The configuration detail that mattered most was the smallest one: the NCCL GID index. Get it wrong and everything runs — over TCP, silently, at a fraction of the speed.
+                            </p>
                         </div>
                     </section>
 

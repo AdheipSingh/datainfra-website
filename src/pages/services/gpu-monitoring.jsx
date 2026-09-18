@@ -54,9 +54,9 @@ export default function GPUMonitoring() {
                 <span className={styles.subLabel}>Service</span>
                 <h1 className={styles.subTitle}>GPU Monitoring & Observability</h1>
                 <p className={styles.subLead}>
-                    A 64-GPU training job runs 18 hours, then crashes on an XID error from one bad GPU.
+                    A 64-GPU training job runs overnight, then crashes on an XID error from one bad GPU.
                     Without monitoring, your team restarts on the same node and loses another day. With
-                    proper observability, the failing GPU is flagged and drained in under 60 seconds.
+                    proper observability, the failing GPU is flagged and drained quickly.
                 </p>
 
                 <div className={styles.metricsRow}>
@@ -88,7 +88,7 @@ export default function GPUMonitoring() {
                 <h2 className={styles.subH2}>Proof</h2>
                 <p className={styles.subP}>
                     We've deployed GPU monitoring stacks across bare-metal and cloud Kubernetes clusters. Our
-                    monitoring setup caught a degrading GPU (rising single-bit ECC errors) 72 hours before it
+                    monitoring setup caught a degrading GPU (rising single-bit ECC errors) days before it
                     would have caused a job failure - the GPU was drained and replaced during a maintenance
                     window with zero training disruption.
                 </p>

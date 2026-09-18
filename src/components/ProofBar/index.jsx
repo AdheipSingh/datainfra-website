@@ -16,7 +16,7 @@ const ITEMS = [
         url: "https://github.com/Mellanox/ipoib-cni/pulls?q=is%3Apr+author%3AAdheipSingh+is%3Amerged",
     },
     {
-        label: "NVIDIA Certified Engineers",
+        label: "NVIDIA certifications",
         url: "https://www.credly.com/users/adheip-singh-sadhrao.3ab58b44/badges/credly",
     },
     {
