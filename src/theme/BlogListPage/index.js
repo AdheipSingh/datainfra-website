@@ -21,7 +21,6 @@ const CATEGORIES = [
 function BlogListPageMetadata() {
     return (
         <>
-            <Navbar />
             <PageMetadata
                 title="BaaZ Blog | GPU Infrastructure Insights"
                 description="Technical insights on GPU infrastructure, distributed training, Kubernetes operators, and cloud-native technologies."
@@ -160,6 +159,7 @@ function BlogListPageContent({ metadata, items }) {
 
     return (
         <BlogLayout>
+            <Navbar />
             <div className={styles.blogWrapper}>
                 {/* Hero Section */}
                 <div className={styles.blogHero}>
