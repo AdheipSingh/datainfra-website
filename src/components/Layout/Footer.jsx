@@ -29,7 +29,6 @@ const COLS = [
             { label: "Blog", to: "/blog" },
             { label: "Case studies", to: "/case-studies" },
             { label: "Newsletter", href: "https://saasinfra.substack.com", external: true },
-            { label: "RSS feed", href: "/blog/rss.xml" },
         ],
     },
     {
@@ -63,9 +62,6 @@ function Social() {
             </a>
             <a href="https://saasinfra.substack.com" target="_blank" rel="noopener noreferrer" aria-label="BaaZ newsletter on Substack">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="M22 7l-10 6L2 7" /></svg>
-            </a>
-            <a href="/blog/rss.xml" aria-label="Blog RSS feed">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16" /><circle cx="5" cy="19" r="1.5" fill="currentColor" /></svg>
             </a>
         </div>
     )
