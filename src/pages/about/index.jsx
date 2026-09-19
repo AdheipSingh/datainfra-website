@@ -1,7 +1,6 @@
 import React from "react"
 import Layout from "@theme/Layout"
 import { Navbar } from "@site/src/components/Layout"
-import ProofBar from "@site/src/components/ProofBar"
 import styles from "./styles.module.css"
 
 export default function About() {
@@ -21,41 +20,6 @@ export default function About() {
                             engineer you talk to on the first call is the engineer
                             doing the work.
                         </p>
-                    </div>
-                </section>
-
-                {/* Credentials Section */}
-                <section className={styles.section}>
-                    <div className={styles.sectionContent}>
-                        <h2 className={styles.sectionTitle}>Technical Credentials</h2>
-                    </div>
-                    <ProofBar />
-                    <div className={styles.sectionContent}>
-                        <div className={styles.credentialsGrid}>
-                            <div className={styles.credentialCard}>
-                                <div className={styles.credentialIcon}>
-                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                        <circle cx="12" cy="12" r="10"/>
-                                        <path d="M12 6v6l4 2"/>
-                                    </svg>
-                                </div>
-                                <h3 className={styles.credentialTitle}>Production Experience</h3>
-                                <p className={styles.credentialText}>
-                                    Built and operated GPU infrastructure at startups and scale-ups - under pressure, in production.
-                                </p>
-                            </div>
-                            <div className={styles.credentialCard}>
-                                <div className={styles.credentialIcon}>
-                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-                                    </svg>
-                                </div>
-                                <h3 className={styles.credentialTitle}>Hands-On Engineers</h3>
-                                <p className={styles.credentialText}>
-                                    We implement solutions, not recommendations. You work directly with the engineers who do the work.
-                                </p>
-                            </div>
-                        </div>
                     </div>
                 </section>
 

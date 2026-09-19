@@ -775,13 +775,14 @@ a:hover {
 .proof-grid{ display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 32px; align-items: start; }
 .site .commit-log{ border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--surface); }
 .site .commit-log .head{ display: grid; grid-template-columns: 168px minmax(0,1fr) 92px 72px; gap: 16px; padding: 12px 18px; background: var(--surface-2); border-bottom: 1px solid var(--line); font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--text-3); }
-.site .commit{ display: grid; grid-template-columns: 168px minmax(0,1fr) 92px 72px; gap: 16px; padding: 14px 18px; border-bottom: 1px solid var(--line); align-items: center; color: inherit; }
+.site .commit{ display: grid; grid-template-columns: 168px minmax(0,1fr) 92px 72px; gap: 16px; padding: 14px 18px; border-bottom: 1px solid var(--line); align-items: center; color: inherit; cursor: pointer; }
 .site .commit:last-child{ border-bottom: 0; }
 .site a.commit:hover{ background: var(--surface-2); color: inherit; }
+.site a.commit:hover .msg b{ text-decoration: underline; }
 .site .commit .repo{ font-family: var(--font-mono); font-size: 13px; color: var(--text); display: flex; flex-direction: column; gap: 2px; }
 .site .commit .repo small{ color: var(--text-3); font-size: 11px; }
 .site .commit .msg{ font-size: 13.5px; color: var(--text-2); line-height: 1.4; }
-.site .commit .msg b{ color: var(--text); font-weight: 500; font-family: var(--font-mono); font-size: 12.5px; margin-right: 8px; }
+.site .commit .msg b{ color: var(--accent-text); font-weight: 600; font-family: var(--font-mono); font-size: 12.5px; margin-right: 8px; }
 .site .commit .when{ font-family: var(--font-mono); font-size: 12px; color: var(--text-3); text-align: right; }
 .site .cred-list{ display: flex; flex-direction: column; gap: 12px; }
 .site .cred{ display: flex; gap: 14px; align-items: center; padding: 16px 18px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); color: inherit; }

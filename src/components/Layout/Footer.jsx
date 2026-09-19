@@ -89,15 +89,6 @@ export default function Footer() {
                         </p>
                         <Social />
                     </div>
-                    <div className={styles.newsletter}>
-                        <div className={styles.newsletterTitle}>Field notes on GPU infrastructure</div>
-                        <p>Occasional posts on RDMA, schedulers, Kubernetes and the things NVIDIA&apos;s docs don&apos;t tell you. No marketing.</p>
-                        <form action="https://saasinfra.substack.com/subscribe" method="get" target="_blank" rel="noopener noreferrer">
-                            <label htmlFor="footer-email">Email address</label>
-                            <input id="footer-email" name="email" type="email" placeholder="you@company.com" autoComplete="email" />
-                            <button className={`${styles.btn} ${styles.btnPrimary}`} type="submit">Subscribe</button>
-                        </form>
-                    </div>
                 </div>
 
                 <div className={styles.footerCols}>
@@ -119,7 +110,6 @@ export default function Footer() {
 
                 <div className={styles.footerBottom}>
                     <div>© {year} BaaZ. All rights reserved.</div>
-                    <div className={styles.status}><i />Remote by default · on-site when the work needs it</div>
                 </div>
             </div>
             <div className={styles.footerMark} aria-hidden="true">BaaZ</div>

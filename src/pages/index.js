@@ -16,12 +16,12 @@ const IActivity = () => (<svg viewBox="0 0 24 24" fill="none" stroke="currentCol
 const IBolt = () => (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg>)
 
 const SERVICES = [
-    { icon: <IServer />, title: "GPU Cluster Architecture", to: "/services/ai-factory", body: "Building a new GPU cluster? Full bring-up on installed hardware — provisioning, fabric, storage integration, orchestration, monitoring." },
+    { icon: <IServer />, title: "GPU Cluster Architecture", to: "/services/ai-factory", body: "Building a new GPU cluster? Full bring-up on installed hardware: provisioning, fabric, storage integration, orchestration, monitoring." },
     { icon: <IGauge />, title: "Distributed Training Optimization", to: "/services/distributed-training", body: "Multi-node training running slow? We diagnose and fix network bottlenecks, tune NCCL, configure RDMA, and optimize collective communication." },
-    { icon: <INetwork />, title: "GPU Networking & RDMA", to: "/services/gpu-networking", body: "Network killing your training throughput? RDMA fabrics — InfiniBand, RoCE, GPUDirect — configured and verified at wire rate." },
-    { icon: <ILayers />, title: "GPU Sharing & Multi-tenancy", to: "/services/gpu-kubernetes", body: "GPUs sitting idle while teams wait? Proper sharing with isolation — MIG, time-slicing, quotas, KAI Scheduler — so installed GPUs get used." },
+    { icon: <INetwork />, title: "GPU Networking & RDMA", to: "/services/gpu-networking", body: "Network killing your training throughput? RDMA fabrics (InfiniBand, RoCE, GPUDirect) configured and verified at wire rate." },
+    { icon: <ILayers />, title: "GPU Sharing & Multi-tenancy", to: "/services/gpu-kubernetes", body: "GPUs sitting idle while teams wait? Proper sharing with isolation (MIG, time-slicing, quotas, KAI Scheduler) so installed GPUs get used." },
     { icon: <IActivity />, title: "GPU Observability & Reliability", to: "/services/gpu-monitoring", body: "Jobs failing at 2am with no visibility? Monitoring that catches GPU failures before jobs crash, and systems that recover automatically." },
-    { icon: <IBolt />, title: "LLM Inference Optimization", to: "/services", body: "Serving stack selection, batching and KV-cache tuning, latency SLO engineering, cost-per-token analysis — on your own GPUs." },
+    { icon: <IBolt />, title: "LLM Inference Optimization", to: "/services", body: "Serving stack selection, batching and KV-cache tuning, latency SLO engineering, and cost-per-token analysis on your own GPUs." },
 ]
 
 const LAYER_CELLS = [
@@ -38,7 +38,7 @@ const COMMITS = [
     { repo: "KAI Scheduler", org: "NVIDIA", n: "#1382", msg: "feat: reservation security context", status: "merged", when: "Apr 2026", url: "https://github.com/kai-scheduler/KAI-Scheduler/pull/1382" },
     { repo: "Network Operator", org: "NVIDIA", n: "#2035", msg: "feat: RDMA, SR-IOV, Multus auto-restart pods on config changes", status: "merged", when: "Jan 2026", url: "https://github.com/Mellanox/network-operator/pull/2035" },
     { repo: "Network Operator", org: "NVIDIA", n: "#2070", msg: "feat: add global config support for NicClusterPolicy", status: "merged", when: "Mar 2026", url: "https://github.com/Mellanox/network-operator/pull/2070" },
-    { repo: "Network Operator", org: "NVIDIA", n: "#3147", msg: "feat: add MTU support to IPoIBNetwork CRD", status: "open", when: "—", url: "https://github.com/Mellanox/network-operator/pull/3147" },
+    { repo: "Network Operator", org: "NVIDIA", n: "#3147", msg: "feat: add MTU support to IPoIBNetwork CRD", status: "open", when: "", url: "https://github.com/Mellanox/network-operator/pull/3147" },
     { repo: "DOCA Driver Build", org: "NVIDIA", n: "#299", msg: "feat: install NFS userspace tools on host when ENABLE_NFSRDMA is enabled", status: "merged", when: "Sep 2026", url: "https://github.com/Mellanox/doca-driver-build/pull/299" },
     { repo: "ipoib-cni", org: "NVIDIA / Mellanox", n: "#132", msg: "feat: add MTU support", status: "merged", when: "Jun 2026", url: "https://github.com/Mellanox/ipoib-cni/pull/132" },
 ]
@@ -51,23 +51,23 @@ const CREDS = [
 ]
 
 const PROBLEMS = [
-    ["01", "Our GPUs sit idle while teams wait for access", "GPU sharing with proper isolation — MIG, time-slicing, quotas, queue-based scheduling"],
+    ["01", "Our GPUs sit idle while teams wait for access", "GPU sharing with proper isolation: MIG, time-slicing, quotas, queue-based scheduling"],
     ["02", "Training is slow on multiple nodes", "Network fabric tuning, NCCL optimization, topology and RDMA path fixes"],
     ["03", "We don't know what's happening in our cluster", "Monitoring, alerting, and visibility into GPU health with DCGM, Prometheus and Grafana"],
     ["04", "Jobs fail randomly and we can't debug them", "Logging, XID error detection, fault tolerance, and automated recovery"],
-    ["05", "ML teams wait days for infrastructure tickets", "Self-service platforms with guardrails — namespaces, quotas, JupyterLab, golden images"],
-    ["06", "We're building a GPU cloud and don't know where to start", "Platform-layer architecture and implementation — scheduling, isolation, monitoring, metering"],
+    ["05", "ML teams wait days for infrastructure tickets", "Self-service platforms with guardrails: namespaces, quotas, JupyterLab, golden images"],
+    ["06", "We're building a GPU cloud and don't know where to start", "Platform-layer architecture and implementation: scheduling, isolation, monitoring, metering"],
 ]
 
 const STEPS = [
     ["01", "Assess", "We look at your actual metrics, configs, and problems. No assumptions."],
-    ["02", "Diagnose", "We find the real bottlenecks — often it's the network, not the GPUs."],
+    ["02", "Diagnose", "We find the real bottlenecks. Often it's the network, not the GPUs."],
     ["03", "Implement", "We write code, change configs, tune systems. You see results, not slide decks."],
     ["04", "Transfer", "We document everything so your team can operate it independently."],
 ]
 
 const PERSONAS = [
-    { eyebrow: "Teams that own GPUs", q: "We bought the hardware. Now it has to earn its keep.", body: "Startups, enterprises and GCCs with GPU servers on-prem, in a colo, or in a dedicated cloud — building something new or getting more from what's installed.", link: "/services", label: "Services" },
+    { eyebrow: "Teams that own GPUs", q: "We bought the hardware. Now it has to earn its keep.", body: "Startups, enterprises and GCCs with GPU servers on-prem, in a colo, or in a dedicated cloud. They're building something new, or getting more out of what's installed.", link: "/services", label: "Services" },
     { eyebrow: "Channel partners", q: "Our customer needs the software stack on the boxes we sold.", body: "Hardware resellers, system integrators, GPU cloud and colo providers who need delivery capacity for the layer between the metal and the workloads.", link: "/partners", label: "Working with partners" },
     { eyebrow: "In-house inference teams", q: "We serve models on our own GPUs and the numbers don't add up.", body: "Teams running LLM inference on their own hardware who need the right serving stack, batching, latency SLOs and a sane cost per token.", link: "/services", label: "Inference optimization" },
 ]
@@ -110,16 +110,10 @@ export default function Home() {
                                 <div className="hero-copy">
                                     <span className="eyebrow">GPU infrastructure · software layer</span>
                                     <h1 className="display">The software layer between your GPUs and your AI workloads.</h1>
-                                    <p className="lead">You have the hardware — in your own data centre, a colo, or a dedicated cloud. We bring it up, configure the network fabric, put Kubernetes or Slurm on it, and keep it running. Hands-on engineers, upstream contributors to the NVIDIA stack.</p>
+                                    <p className="lead">You have the hardware, in your own data centre, a colo, or a dedicated cloud. We bring it up, configure the network fabric, put Kubernetes or Slurm on it, and keep it running. Hands-on engineers and upstream contributors to the NVIDIA stack.</p>
                                     <div className="btn-row">
                                         <a className="btn btn-primary btn-lg" href="https://cal.com/baazhq" target="_blank" rel="noopener noreferrer">Talk to us <Arrow /></a>
                                         <Link className="btn btn-secondary btn-lg" to="/audit">Book a GPU Cluster Audit</Link>
-                                    </div>
-                                    <div className="proof-line">
-                                        <span className="faint">Merged upstream:</span>
-                                        <span><Check /> NVIDIA KAI Scheduler</span>
-                                        <span><Check /> NVIDIA Network Operator</span>
-                                        <span><Check /> Mellanox ipoib-cni</span>
                                     </div>
                                 </div>
                                 <div className="terminal" aria-label="Illustrative terminal: verifying that NCCL is using RDMA">
@@ -136,12 +130,12 @@ export default function Home() {
                             <div className="section-head">
                                 <span className="eyebrow">Where we work</span>
                                 <h2 className="h2">Everything between installed hardware and a running job.</h2>
-                                <p className="lead">We start where the hardware is installed. We take what's there and make it run — and keep it running.</p>
+                                <p className="lead">We start where the hardware is installed. We take what's there, make it run, and keep it running.</p>
                             </div>
                             <div className="stack" role="img" aria-label="Three layers: your AI workloads on top, the BaaZ software layer in the middle, your installed hardware at the bottom">
                                 <div className="layer">
                                     <div className="who">Your workloads</div>
-                                    <div className="what">Training runs, inference services, notebooks and internal platforms — owned by your ML and product teams.</div>
+                                    <div className="what">Training runs, inference services, notebooks and internal platforms, owned by your ML and product teams.</div>
                                 </div>
                                 <div className="layer baaz">
                                     <div className="who">BaaZ works here</div>
@@ -153,7 +147,7 @@ export default function Home() {
                                 </div>
                                 <div className="layer">
                                     <div className="who">Your hardware</div>
-                                    <div className="what">GPU servers, switches, storage, power and cooling — supplied and installed by you, your OEM, or your data-centre partner.</div>
+                                    <div className="what">GPU servers, switches, storage, power and cooling, supplied and installed by you, your OEM, or your data-centre partner.</div>
                                 </div>
                             </div>
                             <div className="stack-caption">
@@ -178,11 +172,10 @@ export default function Home() {
                                 <div className="card door">
                                     <span className="eyebrow">Existing cluster</span>
                                     <h3 className="h3">GPUs underperforming?</h3>
-                                    <p className="body">Low utilization, slow multi-node training, jobs failing overnight — usually the network, the scheduler, or a config nobody checked. A fixed-scope, two-week audit finds the real bottlenecks and ships the safe fixes.</p>
+                                    <p className="body">Low utilization, slow multi-node training, jobs failing overnight. Usually it's the network, the scheduler, or a config nobody checked. A fixed-scope, two-week audit finds the real bottlenecks and ships the safe fixes.</p>
                                     <div className="btn-row">
                                         <Link className="btn btn-primary" to="/audit">Book a GPU Cluster Audit <Arrow /></Link>
                                     </div>
-                                    <Link className="link-arrow" to="/audit" style={{ fontSize: "14px" }}>Or get the free NCCL fallback test + pre-flight checklist <Arrow /></Link>
                                 </div>
                             </div>
                         </div>
@@ -237,7 +230,6 @@ export default function Home() {
                                             <span className="ext"><Ext /></span>
                                         </a>
                                     ))}
-                                    <a className="link-arrow" href="https://github.com/baazhq" target="_blank" rel="noopener noreferrer">All contributions on GitHub <Arrow /></a>
                                 </div>
                             </div>
                         </div>
@@ -268,7 +260,7 @@ export default function Home() {
                             <div className="section-head">
                                 <span className="eyebrow">How we work</span>
                                 <h2 className="h2">Hands-on engineers. Results, not decks.</h2>
-                                <p className="lead">We're not a big consultancy that sends you a deck and disappears. We've built this infrastructure ourselves — at startups, in production, under pressure.</p>
+                                <p className="lead">We're not a big consultancy that sends you a deck and disappears. We've built this infrastructure ourselves, at startups, in production, under pressure.</p>
                             </div>
                             <div className="steps">
                                 {STEPS.map(([num, title, body]) => (
@@ -309,7 +301,7 @@ export default function Home() {
                                 <Link className="card feature" to="/case-studies/rdma-kubernetes">
                                     <span className="tag">Case study · RDMA · Kubernetes</span>
                                     <h3 className="h3">GPUDirect RDMA over RoCE on bare-metal Kubernetes</h3>
-                                    <p className="body">A computer-vision team's multi-node training was bottlenecked on the TCP/IP data path. We added a dedicated RoCE fabric with PFC/ECN, exposed the RDMA NICs to pods with Multus, configured NCCL for GPUDirect RDMA — and verified the path across the fabric. No vanity numbers; the engineering.</p>
+                                    <p className="body">A computer-vision team's multi-node training was bottlenecked on the TCP/IP data path. We added a dedicated RoCE fabric with PFC/ECN, exposed the RDMA NICs to pods with Multus, configured NCCL for GPUDirect RDMA, and verified the path across the fabric. No vanity numbers, just the engineering.</p>
                                     <span className="link-arrow">Read the write-up <Arrow /></span>
                                 </Link>
                                 <div className="post-list">
@@ -331,7 +323,7 @@ export default function Home() {
                             <div className="inner">
                                 <span className="eyebrow plain">Let's talk</span>
                                 <h2 className="h2">Tell us about your cluster.</h2>
-                                <p className="lead">No sales pitch. A conversation about what you're trying to do and whether we can help — with the engineer who would do the work.</p>
+                                <p className="lead">No sales pitch. Just a conversation about what you're trying to do and whether we can help, with the engineer who would do the work.</p>
                                 <div className="btn-row">
                                     <a className="btn btn-primary btn-lg" href="https://cal.com/baazhq" target="_blank" rel="noopener noreferrer">Schedule a call <Arrow /></a>
                                     <Link className="btn btn-secondary btn-lg" to="/audit">Start with an audit</Link>

@@ -163,9 +163,6 @@
 .footer { border-top: 1px solid var(--line); background: var(--bg); position: relative; overflow: hidden; }
 .footerInner { max-width: var(--container); margin: 0 auto; padding: 0 var(--gutter); position: relative; z-index: 1; }
 .footerTop {
-    display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-    gap: 48px;
     padding: 64px 0 48px;
     border-bottom: 1px solid var(--line);
 }

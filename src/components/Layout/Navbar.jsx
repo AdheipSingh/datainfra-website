@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react"
 import Link from "@docusaurus/Link"
 import { useLocation } from "@docusaurus/router"
-import { useColorMode } from "@docusaurus/theme-common"
 import styles from "./styles.module.css"
 
 const NAV_LINKS = [
@@ -55,12 +54,10 @@ function MenuIcon({ open }) {
 export default function Navbar() {
     const [mobileOpen, setMobileOpen] = useState(false)
     const [servicesOpen, setServicesOpen] = useState(false)
-    const { colorMode, setColorMode } = useColorMode()
     const location = useLocation()
     const servicesRef = useRef(null)
 
     const isActive = (to) => location.pathname === to || location.pathname.startsWith(to + "/")
-    const toggleTheme = () => setColorMode(colorMode === "dark" ? "light" : "dark")
 
     // Close the Services dropdown on Escape or outside click.
     useEffect(() => {
@@ -92,12 +89,7 @@ export default function Navbar() {
                 </Link>
 
                 <nav className={styles.navLinks} aria-label="Primary">
-                    <div
-                        className={styles.dropdownWrap}
-                        ref={servicesRef}
-                        onMouseEnter={() => setServicesOpen(true)}
-                        onMouseLeave={() => setServicesOpen(false)}
-                    >
+                    <div className={styles.dropdownWrap} ref={servicesRef}>
                         <button
                             type="button"
                             className={`${styles.navLink} ${isActive("/services") ? styles.active : ""}`}
@@ -142,14 +134,6 @@ export default function Navbar() {
                     </a>
                     <button
                         type="button"
-                        className={styles.iconBtn}
-                        aria-label={colorMode === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-                        onClick={toggleTheme}
-                    >
-                        {colorMode === "dark" ? <SunIcon /> : <MoonIcon />}
-                    </button>
-                    <button
-                        type="button"
                         className={`${styles.iconBtn} ${styles.burger}`}
                         aria-label={mobileOpen ? "Close menu" : "Open menu"}
                         aria-expanded={mobileOpen}
@@ -174,9 +158,6 @@ export default function Navbar() {
                         <a href="https://cal.com/baazhq" target="_blank" rel="noopener noreferrer" className={`${styles.btn} ${styles.btnPrimary}`}>
                             Talk to us
                         </a>
-                        <button type="button" className={`${styles.btn} ${styles.btnGhost}`} onClick={toggleTheme}>
-                            {colorMode === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-                        </button>
                     </div>
                 </div>
             )}
