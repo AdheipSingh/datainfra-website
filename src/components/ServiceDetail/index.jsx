@@ -8,13 +8,13 @@ const Arrow = () => (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" 
 const Chevron = () => (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 6l6 6-6 6" /></svg>)
 const Plus = () => (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 5v14M5 12h14" /></svg>)
 
-// Shared "Proof, not claims" callout — the same on every service page.
+// Subtle upstream-contributions line, shared across the service pages.
 function ProofCallout() {
     return (
         <div className="callout mt-48">
-            <b>Proof, not claims.</b> Our engineers&apos; work on this layer is upstream in
-            NVIDIA&apos;s own projects: KAI Scheduler, Network Operator, DOCA driver build,
-            ipoib-cni. <Link to="/about">See the contributions →</Link>
+            Our engineers contribute upstream to the projects this layer runs on:
+            KAI Scheduler, Network Operator, DOCA driver build, ipoib-cni.{" "}
+            <Link to="/about">See the contributions →</Link>
         </div>
     )
 }
@@ -159,7 +159,6 @@ export default function ServiceDetail({
                             <div className="container">
                                 <div className="section-head">
                                     <span className="eyebrow">FAQ</span>
-                                    <h2 className="h2">Questions we get on the first call.</h2>
                                 </div>
                                 <div className="faq">
                                     {faqs.map((f, i) => (
