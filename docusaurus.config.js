@@ -149,10 +149,10 @@ const config = {
     themeConfig:
         /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
-            // Dark default; toggle lives in the custom navbar (see Navbar.jsx).
+            // Light-only. No colour-mode toggle.
             colorMode: {
-                defaultMode: "dark",
-                disableSwitch: false,
+                defaultMode: "light",
+                disableSwitch: true,
                 respectPrefersColorScheme: false,
             },
             // Social card for link previews (OpenGraph/Twitter). 1200x630.

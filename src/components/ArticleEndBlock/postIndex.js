@@ -55,7 +55,7 @@ export const POST_INDEX = [
         tags: ["networking", "monitoring", "infrastructure", "troubleshooting", "mellanox", "nvidia"],
     },
     {
-        title: "Case study: GPUDirect RDMA over RoCE on a 2-node bare-metal Kubernetes cluster",
+        title: "Case study: GPUDirect RDMA over RoCE on bare-metal Kubernetes",
         url: "/case-studies/rdma-kubernetes",
         tags: ["gpu", "rdma", "kubernetes", "networking", "distributed-training", "nccl"],
     },

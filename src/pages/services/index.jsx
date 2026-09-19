@@ -348,11 +348,11 @@ export default function Services() {
                             <div className={styles.caseStudyContent}>
                                 <span className={styles.caseStudyLabel}>Case Study</span>
                                 <h2 className={styles.caseStudyTitle}>
-                                    GPUDirect RDMA over RoCE on a 2-node bare-metal Kubernetes cluster
+                                    GPUDirect RDMA over RoCE on bare-metal Kubernetes
                                 </h2>
                                 <p className={styles.caseStudyDesc}>
-                                    How we moved a 2-node, 4-GPU training cluster from 1GbE TCP to
-                                    100GbE RoCE, and the configuration that made it real.
+                                    How we took a training cluster from 1GbE TCP to 100GbE RoCE
+                                    with GPUDirect RDMA, on a design that scales from two nodes up.
                                 </p>
                                 <Link to="/case-studies/rdma-kubernetes" className={styles.caseStudyLink}>
                                     Read the full case study →

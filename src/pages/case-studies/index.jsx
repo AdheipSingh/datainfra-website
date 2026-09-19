@@ -8,8 +8,8 @@ import styles from "./styles.module.css"
 const caseStudies = [
     {
         slug: "rdma-kubernetes",
-        title: "GPUDirect RDMA over RoCE on a 2-node bare-metal Kubernetes cluster",
-        description: "How we moved a 2-node, 4-GPU training cluster from 1GbE TCP to 100GbE RoCE, and the configuration that made it real.",
+        title: "GPUDirect RDMA over RoCE on bare-metal Kubernetes",
+        description: "How we took a training cluster from 1GbE TCP to 100GbE RoCE with GPUDirect RDMA, on a design that scales from two nodes up.",
         metrics: [],
         tags: ["RDMA", "Kubernetes", "Distributed Training", "RoCE"],
     },
