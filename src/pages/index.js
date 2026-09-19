@@ -116,10 +116,11 @@ export default function Home() {
                                         <Link className="btn btn-secondary btn-lg" to="/audit">Book a GPU Cluster Audit</Link>
                                     </div>
                                 </div>
-                                <div className="terminal" aria-label="Illustrative terminal: verifying that NCCL is using RDMA">
-                                    <div className="terminal-bar"><div className="dots"><i /><i /><i /></div><span className="title">node-01 — rdma-path-check</span></div>
-                                    <pre className="terminal-body"><span className="cmd">ibdev2netdev</span>{"\n"}mlx5_0 port 1 ==&gt; ens1f0np0 <span className="ok">(Up)</span>{"\n"}mlx5_1 port 1 ==&gt; ens1f1np1 <span className="ok">(Up)</span>{"\n\n"}<span className="cmd">NCCL_DEBUG=INFO ./all_reduce_perf -b 8 -e 4G -f 2 -g 8</span>{"\n"}<span className="k">NCCL INFO</span> NET/IB : Using [0]mlx5_0:1/RoCE [1]mlx5_1:1/RoCE{"\n"}<span className="k">NCCL INFO</span> GPU Direct RDMA Enabled for HCA 0 'mlx5_0'{"\n"}<span className="k">NCCL INFO</span> Channel 00 : 0[0] -&gt; 1[1] via NET/IB/0/GDRDMA{"\n"}<span className="k">NCCL INFO</span> Channel 01 : 0[0] -&gt; 1[1] via NET/IB/1/GDRDMA{"\n"}<span className="dimline">…</span>{"\n"}<span className="c"># rdma path verified — no NET/Socket fallback</span>{"\n"}<span className="ok">ok</span>  <span className="c">GPUDirect RDMA in the data path on both HCAs</span></pre>
-                                </div>
+                                <img
+                                    className="hero-illo"
+                                    src="/img/hero-illo-light.svg"
+                                    alt="The BaaZ software layer between installed GPU hardware and AI workloads"
+                                />
                             </div>
                         </div>
                     </section>
@@ -203,11 +204,11 @@ export default function Home() {
                     </section>
 
                     {/* PROOF */}
-                    <section className="section">
+                    <section className="section" id="open-source">
                         <div className="container">
                             <div className="section-head">
                                 <span className="eyebrow">Open source &amp; credentials</span>
-                                <h2 className="h2">We build the stack we run.</h2>
+                                <h2 className="h2"><a href="#open-source" className="anchor-h">We build the stack we run.</a></h2>
                                 <p className="lead">Our engineers contribute upstream to NVIDIA's GPU and networking projects. Every line below links to the real pull request.</p>
                             </div>
                             <div className="proof-grid">
@@ -295,7 +296,7 @@ export default function Home() {
                         <div className="container">
                             <div className="section-head">
                                 <span className="eyebrow">Field notes</span>
-                                <h2 className="h2">Engineering write-ups, not marketing.</h2>
+                                <h2 className="h2">Engineering write-ups.</h2>
                             </div>
                             <div className="resources">
                                 <Link className="card feature" to="/case-studies/rdma-kubernetes">

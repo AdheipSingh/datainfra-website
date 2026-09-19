@@ -19,9 +19,9 @@ const structuredData = {
     techArticle: {
         "@context": "https://schema.org",
         "@type": "TechArticle",
-        "headline": "GPUDirect RDMA over RoCE on a 2-node bare-metal Kubernetes cluster — BaaZ engineering write-up",
+        "headline": "GPUDirect RDMA over RoCE on bare-metal Kubernetes — BaaZ engineering write-up",
         "alternativeHeadline": "Building RDMA-Enabled Kubernetes for Distributed GPU Training",
-        "description": "How we moved a 2-node, 4-GPU training cluster from 1GbE TCP to 100GbE RoCE with GPUDirect RDMA: NIC and switch selection, Multus dual-network pods, NVIDIA Network Operator, and NCCL GID configuration.",
+        "description": "How we moved a training cluster from 1GbE TCP to 100GbE RoCE with GPUDirect RDMA: NIC and switch selection, Multus dual-network pods, NVIDIA Network Operator, and NCCL GID configuration.",
         "image": "https://baaz.dev/img/diagram-01-tcp-vs-rdma-datapath.svg",
         "author": {
             "@type": "Organization",
@@ -131,13 +131,13 @@ const structuredData = {
 export default function CaseStudies() {
     return (
         <Layout
-            title="GPUDirect RDMA over RoCE on a 2-node bare-metal Kubernetes cluster — BaaZ engineering write-up"
-            description="How we moved a 2-node, 4-GPU training cluster from 1GbE TCP to 100GbE RoCE with GPUDirect RDMA: NIC and switch selection, Multus dual-network pods, NVIDIA Network Operator, and NCCL GID configuration."
+            title="GPUDirect RDMA over RoCE on bare-metal Kubernetes — BaaZ engineering write-up"
+            description="How we moved a training cluster from 1GbE TCP to 100GbE RoCE with GPUDirect RDMA: NIC and switch selection, Multus dual-network pods, NVIDIA Network Operator, and NCCL GID configuration."
         >
             <Head>
                 {/* Enhanced meta tags for this specific page */}
-                <meta property="og:title" content="GPUDirect RDMA over RoCE on a 2-node bare-metal Kubernetes cluster — BaaZ engineering write-up" />
-                <meta property="og:description" content="How we moved a 2-node, 4-GPU training cluster from 1GbE TCP to 100GbE RoCE with GPUDirect RDMA: NIC and switch selection, Multus dual-network pods, NVIDIA Network Operator, and NCCL GID configuration." />
+                <meta property="og:title" content="GPUDirect RDMA over RoCE on bare-metal Kubernetes — BaaZ engineering write-up" />
+                <meta property="og:description" content="How we moved a training cluster from 1GbE TCP to 100GbE RoCE with GPUDirect RDMA: NIC and switch selection, Multus dual-network pods, NVIDIA Network Operator, and NCCL GID configuration." />
                 <meta property="og:url" content="https://baaz.dev/case-studies/rdma-kubernetes" />
                 <meta property="og:type" content="article" />
                 <meta property="og:image" content="https://baaz.dev/img/diagram-01-tcp-vs-rdma-datapath.svg" />
@@ -150,8 +150,8 @@ export default function CaseStudies() {
                 <meta property="article:tag" content="Distributed Training" />
 
                 {/* Twitter Card meta tags */}
-                <meta name="twitter:title" content="GPUDirect RDMA over RoCE on a 2-node bare-metal Kubernetes cluster — BaaZ engineering write-up" />
-                <meta name="twitter:description" content="How we moved a 2-node, 4-GPU training cluster from 1GbE TCP to 100GbE RoCE with GPUDirect RDMA: NIC and switch selection, Multus dual-network pods, NVIDIA Network Operator, and NCCL GID configuration." />
+                <meta name="twitter:title" content="GPUDirect RDMA over RoCE on bare-metal Kubernetes — BaaZ engineering write-up" />
+                <meta name="twitter:description" content="How we moved a training cluster from 1GbE TCP to 100GbE RoCE with GPUDirect RDMA: NIC and switch selection, Multus dual-network pods, NVIDIA Network Operator, and NCCL GID configuration." />
                 <meta name="twitter:image" content="https://baaz.dev/img/diagram-01-tcp-vs-rdma-datapath.svg" />
 
                 {/* Additional SEO meta tags */}
@@ -195,7 +195,7 @@ export default function CaseStudies() {
                         <div className={styles.heroContent}>
                             <span className={styles.heroLabel}>Engineering write-up</span>
                             <h1 className={styles.heroTitle} itemProp="headline">
-                                GPUDirect RDMA over RoCE on a 2-node bare-metal Kubernetes cluster
+                                GPUDirect RDMA over RoCE on bare-metal Kubernetes
                             </h1>
                             <p className={styles.heroSubtitle} itemProp="alternativeHeadline">
                                 What we changed, and why it mattered
