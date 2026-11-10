@@ -1,0 +1,167 @@
+/* /networking: page-specific styles on top of the global .site system. */
+
+.contributions {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--line);
+    max-width: 860px;
+}
+
+.contributions li {
+    border-bottom: 1px solid var(--line);
+}
+
+.contributions a {
+    display: block;
+    padding: 14px 0;
+    font-size: 15.5px;
+    line-height: 1.5;
+    color: var(--text);
+}
+
+.contributions a:hover {
+    color: var(--accent-text);
+}
+
+.also {
+    margin-top: 20px;
+}
+
+.also + .also {
+    margin-top: 12px;
+}
+
+/* RDMA on bare-metal Kubernetes: the former case study, in the .prose flow. */
+.writeUp {
+    max-width: 820px;
+}
+
+.writeUp h4 {
+    font-size: 18px;
+    margin-top: 8px;
+    color: var(--text);
+}
+
+.writeUp h5 {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 8px;
+    color: var(--text);
+}
+
+.environment {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--text-3);
+}
+
+.issues {
+    padding-left: 22px;
+    list-style: decimal;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.issues strong,
+.box strong {
+    color: var(--text);
+}
+
+.figure img {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: #fff;
+}
+
+.highlight {
+    border-left: 3px solid var(--accent);
+    padding: 12px 18px;
+    background: var(--accent-soft);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    color: var(--text);
+    font-weight: 500;
+}
+
+.box,
+.decision,
+.warning {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    padding: 18px 20px;
+    background: var(--surface);
+    font-size: 15.5px;
+}
+
+.box ul {
+    padding-left: 20px;
+    list-style: disc;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.box code {
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.decision {
+    border-left: 3px solid var(--accent);
+}
+
+.warning {
+    border-left: 3px solid var(--warn);
+}
+
+.pair {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.tableWrap {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14.5px;
+    display: table;
+}
+
+.table th {
+    text-align: left;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    font-weight: 500;
+    padding: 10px 14px;
+    background: var(--surface-2);
+    border: 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.table td {
+    padding: 12px 14px;
+    border: 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--text-2);
+    vertical-align: top;
+}
+
+.table tr {
+    background: transparent;
+    border: 0;
+}
+
+@media (max-width: 640px) {
+    .pair {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
