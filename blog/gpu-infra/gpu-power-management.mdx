@@ -5,7 +5,7 @@ description: Learn how modern GPUs implement intelligent power management throug
 url: understanding-power-management-in-gpu-via-pcie
 authors: [Adheip Singh]
 date: 2025-08-27T10:00
-tags: [gpu, infrastructure, power-management, pcie, monitoring]
+tags: [gpu, infrastructure, power-management, pcie, monitoring, energy-sites]
 ---
 
 import FAQSection from '@site/src/components/FAQSection'
@@ -37,7 +37,7 @@ The performance implications seemed significant at first glance. PCIe Gen 1 prov
 
 ## Verifying the Configuration
 
-To ensure this wasn't a hardware misconfiguration, we proceeded with a thorough investigation using standard Linux diagnostic tools. This kind of low-level verification is one of the signals we rely on when building a [GPU observability and reliability stack](/services/gpu-monitoring) - a single downgraded link can otherwise hide behind green dashboards for weeks.
+To ensure this wasn't a hardware misconfiguration, we proceeded with a thorough investigation using standard Linux diagnostic tools. This kind of low-level verification is one of the signals we rely on when building a [GPU observability and reliability stack](/networking#run) - a single downgraded link can otherwise hide behind green dashboards for weeks.
 
 ### PCIe Link Status Verification
 
@@ -92,7 +92,7 @@ For teams managing GPU infrastructure, understanding these power management beha
     service="GPU Observability"
     title="Is your monitoring surfacing real issues - or false alarms?"
     text="We help GPU teams build observability that distinguishes idle-state power management from actual link failures, driver regressions, and hardware degradation. Real dashboards, real alerts, real on-call hygiene."
-    link="/services/gpu-monitoring"
+    link="/networking#run"
     buttonLabel="Talk to us about GPU monitoring"
 />
 

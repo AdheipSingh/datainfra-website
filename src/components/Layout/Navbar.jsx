@@ -3,22 +3,16 @@ import Link from "@docusaurus/Link"
 import { useLocation } from "@docusaurus/router"
 import styles from "./styles.module.css"
 
-const NAV_LINKS = [
-    { label: "Case Studies", to: "/case-studies", key: "case-studies" },
-    { label: "Blog", to: "/blog", key: "blog" },
-    { label: "About", to: "/about", key: "about" },
-    { label: "Partners", to: "/partners", key: "partners" },
+// Spec section 2, left to right: Networking, Solutions (dropdown),
+// Open source, Blog, About, then the Talk to us button.
+const SOLUTIONS = [
+    { label: "Distributed GPU compute at energy sites", to: "/solutions/distributed-gpu-compute-energy-sites" },
 ]
 
-// Six services + one-line descriptions (from the design frames). LLM Inference
-// has no detail page yet, so it points at the services index (which carries it).
-const SERVICES = [
-    { label: "GPU Cluster Architecture", desc: "Bring-up on installed hardware", to: "/services/ai-factory" },
-    { label: "Distributed Training Optimization", desc: "NCCL, RDMA, topology", to: "/services/distributed-training" },
-    { label: "GPU Networking & RDMA", desc: "RoCE / InfiniBand at wire rate", to: "/services/gpu-networking" },
-    { label: "GPU Sharing & Multi-tenancy", desc: "KAI, MIG, quotas", to: "/services/gpu-kubernetes" },
-    { label: "Observability & Reliability", desc: "DCGM, XID, recovery", to: "/services/gpu-monitoring" },
-    { label: "LLM Inference Optimization", desc: "Serving stack, SLOs, cost/token", to: "/services" },
+const NAV_LINKS = [
+    { label: "Open source", to: "/open-source", key: "open-source" },
+    { label: "Blog", to: "/blog", key: "blog" },
+    { label: "About", to: "/about", key: "about" },
 ]
 
 function SunIcon() {
@@ -53,18 +47,18 @@ function MenuIcon({ open }) {
 
 export default function Navbar() {
     const [mobileOpen, setMobileOpen] = useState(false)
-    const [servicesOpen, setServicesOpen] = useState(false)
+    const [solutionsOpen, setSolutionsOpen] = useState(false)
     const location = useLocation()
-    const servicesRef = useRef(null)
+    const solutionsRef = useRef(null)
 
     const isActive = (to) => location.pathname === to || location.pathname.startsWith(to + "/")
 
-    // Close the Services dropdown on Escape or outside click.
+    // Close the Solutions dropdown on Escape or outside click.
     useEffect(() => {
-        if (!servicesOpen) return
-        const onKey = (e) => e.key === "Escape" && setServicesOpen(false)
+        if (!solutionsOpen) return
+        const onKey = (e) => e.key === "Escape" && setSolutionsOpen(false)
         const onClick = (e) => {
-            if (servicesRef.current && !servicesRef.current.contains(e.target)) setServicesOpen(false)
+            if (solutionsRef.current && !solutionsRef.current.contains(e.target)) setSolutionsOpen(false)
         }
         document.addEventListener("keydown", onKey)
         document.addEventListener("mousedown", onClick)
@@ -72,7 +66,7 @@ export default function Navbar() {
             document.removeEventListener("keydown", onKey)
             document.removeEventListener("mousedown", onClick)
         }
-    }, [servicesOpen])
+    }, [solutionsOpen])
 
     // Lock body scroll while the mobile sheet is open.
     useEffect(() => {
@@ -89,27 +83,32 @@ export default function Navbar() {
                 </Link>
 
                 <nav className={styles.navLinks} aria-label="Primary">
-                    <div className={styles.dropdownWrap} ref={servicesRef}>
-                        <button
-                            type="button"
-                            className={`${styles.navLink} ${isActive("/services") ? styles.active : ""}`}
-                            aria-expanded={servicesOpen}
-                            aria-haspopup="true"
-                            onClick={() => setServicesOpen((v) => !v)}
-                        >
-                            Services <ChevronIcon />
-                        </button>
-                        {servicesOpen && (
-                            <div className={styles.dropdown}>
-                                {SERVICES.map((s) => (
-                                    <Link key={s.label} to={s.to} className={styles.dropdownItem} onClick={() => setServicesOpen(false)}>
+                    <Link to="/networking" className={`${styles.navLink} ${isActive("/networking") ? styles.active : ""}`}>
+                        Networking
+                    </Link>
+                    <div className={styles.dropdownWrap} ref={solutionsRef}>
+                        <span className={styles.splitLink}>
+                            <Link to="/solutions" className={`${styles.navLink} ${styles.splitMain} ${isActive("/solutions") ? styles.active : ""}`}>
+                                Solutions
+                            </Link>
+                            <button
+                                type="button"
+                                className={`${styles.navLink} ${styles.splitToggle}`}
+                                aria-label="Show solutions"
+                                aria-expanded={solutionsOpen}
+                                aria-haspopup="true"
+                                onClick={() => setSolutionsOpen((v) => !v)}
+                            >
+                                <ChevronIcon />
+                            </button>
+                        </span>
+                        {solutionsOpen && (
+                            <div className={`${styles.dropdown} ${styles.dropdownSingle}`}>
+                                {SOLUTIONS.map((s) => (
+                                    <Link key={s.label} to={s.to} className={styles.dropdownItem} onClick={() => setSolutionsOpen(false)}>
                                         <span className={styles.dropdownT}>{s.label}</span>
-                                        <span className={styles.dropdownD}>{s.desc}</span>
                                     </Link>
                                 ))}
-                                <Link to="/services" className={styles.dropdownAll} onClick={() => setServicesOpen(false)}>
-                                    All services →
-                                </Link>
                             </div>
                         )}
                     </div>
@@ -121,17 +120,9 @@ export default function Navbar() {
                 </nav>
 
                 <div className={styles.navActions}>
-                    <Link to="/audit" className={`${styles.btn} ${styles.btnSecondary} ${styles.btnSm} ${styles.hideMobile}`}>
-                        GPU Cluster Audit
-                    </Link>
-                    <a
-                        href="https://cal.com/baazhq"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`${styles.btn} ${styles.btnPrimary} ${styles.btnSm} ${styles.hideMobile}`}
-                    >
+                    <Link to="/contact" className={`${styles.btn} ${styles.btnPrimary} ${styles.btnSm} ${styles.hideMobile}`}>
                         Talk to us
-                    </a>
+                    </Link>
                     <button
                         type="button"
                         className={`${styles.iconBtn} ${styles.burger}`}
@@ -146,18 +137,18 @@ export default function Navbar() {
 
             {mobileOpen && (
                 <div className={styles.mobileSheet}>
-                    <Link to="/services" className={styles.navLink} onClick={() => setMobileOpen(false)}>Services</Link>
+                    <Link to="/networking" className={styles.navLink} onClick={() => setMobileOpen(false)}>Networking</Link>
+                    <Link to="/solutions" className={styles.navLink} onClick={() => setMobileOpen(false)}>Solutions</Link>
+                    {SOLUTIONS.map((s) => (
+                        <Link key={s.label} to={s.to} className={`${styles.navLink} ${styles.navSub}`} onClick={() => setMobileOpen(false)}>{s.label}</Link>
+                    ))}
                     {NAV_LINKS.map((l) => (
                         <Link key={l.key} to={l.to} className={styles.navLink} onClick={() => setMobileOpen(false)}>{l.label}</Link>
                     ))}
-                    <Link to="/contact" className={styles.navLink} onClick={() => setMobileOpen(false)}>Contact</Link>
                     <div className={styles.mobileActions}>
-                        <Link to="/audit" className={`${styles.btn} ${styles.btnSecondary}`} onClick={() => setMobileOpen(false)}>
-                            GPU Cluster Audit
-                        </Link>
-                        <a href="https://cal.com/baazhq" target="_blank" rel="noopener noreferrer" className={`${styles.btn} ${styles.btnPrimary}`}>
+                        <Link to="/contact" className={`${styles.btn} ${styles.btnPrimary}`} onClick={() => setMobileOpen(false)}>
                             Talk to us
-                        </a>
+                        </Link>
                     </div>
                 </div>
             )}

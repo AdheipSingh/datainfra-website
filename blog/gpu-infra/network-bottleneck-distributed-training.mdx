@@ -18,7 +18,7 @@ import ServiceCTA from '@site/src/components/ServiceCTA'
 
 You've set up distributed training across multiple GPU servers. PyTorch DDP is configured. The job is running. But something's wrong - it's not faster than single-node training. It might even be slower.
 
-Before you blame the framework, the drivers, or the model, check your network. In most cases, **the network is the bottleneck**. This is exactly the class of problem our [distributed training optimization](/services/distributed-training) engagements were built around.
+Before you blame the framework, the drivers, or the model, check your network. In most cases, **the network is the bottleneck**. This is exactly the class of problem our [distributed training optimization](/networking#design) engagements were built around.
 
 This post will teach you how to calculate whether your network is limiting your distributed training performance, and by how much.
 
@@ -255,7 +255,7 @@ If the math shows your network is the problem, the solution is high-speed RDMA n
 - **Protocol:** RoCE v2 (RDMA over Converged Ethernet) or InfiniBand
 - **Why RDMA:** Bypasses the CPU, enables zero-copy transfers, delivers 10-50x lower latency than TCP
 
-We've written a detailed walkthrough of what this looks like on Kubernetes in [Dual-network RDMA on GH200](/blog/dual-network-rdma-kubernetes-gh200), and a full case study at **[From 10x Slower to Line-Rate: Building RDMA-Enabled Kubernetes for HPC and Distributed GPU Training](/case-studies/rdma-kubernetes)**.
+We've written a detailed walkthrough of what this looks like on Kubernetes in [Dual-network RDMA on GH200](/blog/dual-network-rdma-kubernetes-gh200), and the full write-up at **[RDMA on bare-metal Kubernetes](/networking#rdma-on-kubernetes)**.
 
 ---
 
@@ -277,7 +277,7 @@ If your GPUs are spending more time waiting than computing, no amount of softwar
     service="Distributed Training"
     title="Is your multi-node GPU training network-bound?"
     text="We diagnose distributed-training slowdowns end to end - NCCL tuning, RDMA/RoCE configuration, GPUDirect, topology analysis - and deliver measurable throughput improvements, not decks."
-    link="/services/distributed-training"
+    link="/networking#design"
     buttonLabel="Get a diagnosis"
 />
 

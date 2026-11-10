@@ -528,6 +528,5 @@ The next steps for a production deployment:
 
 ## Related
 
-- [GPU Kubernetes Consulting →](/services/gpu-kubernetes)
-- [GPU Networking & RDMA Consulting →](/services/gpu-networking)
+- [GPU networking on Kubernetes →](/networking)
 - [GPU-to-GPU Communication Across Nodes →](/blog/gpu-to-gpu-communication-across-nodes)
