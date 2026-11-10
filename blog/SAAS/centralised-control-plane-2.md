@@ -7,7 +7,7 @@ tags: [SAAS, control-planes, energy-sites]
 ---
 
 :::info Looking for GPU Infrastructure?
-BaaZ now specializes in GPU infrastructure consulting for AI. [See our GPU infrastructure services →](/services)
+BaaZ now specializes in GPU infrastructure consulting for AI. [See our GPU infrastructure services →](/networking)
 :::
 
 

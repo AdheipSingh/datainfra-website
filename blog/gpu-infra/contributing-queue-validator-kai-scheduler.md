@@ -111,7 +111,6 @@ If you're interested in GPU scheduling, multi-tenancy, or Kubernetes-native AI i
 
 ## Related
 
-- [GPU Kubernetes Consulting →](/services/gpu-kubernetes)
-- [GPU Infrastructure Consulting Services →](/services)
-- [Case Study: 8.5x Faster Training with RDMA on Kubernetes →](/case-studies/rdma-kubernetes)
+- [GPU networking on Kubernetes →](/networking)
+- [RDMA on bare-metal Kubernetes →](/networking#rdma-on-kubernetes)
 - [How to Calculate if Your Network is Bottlenecking Distributed Training →](/blog/network-bottleneck-distributed-training)
