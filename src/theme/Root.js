@@ -2,6 +2,18 @@ import React from 'react';
 import Head from '@docusaurus/Head';
 import {useLocation} from '@docusaurus/router';
 
+// Breadcrumb names for page segments, matching the breadcrumbs shown on
+// the pages. Segments not listed fall back to title-cased slugs.
+const SEGMENT_NAMES = {
+    'networking': 'GPU networking',
+    'solutions': 'Solutions',
+    'distributed-gpu-compute-energy-sites': 'Distributed GPU compute at energy sites',
+    'open-source': 'Open source',
+    'about': 'About',
+    'contact': 'Contact',
+    'blog': 'Blog',
+};
+
 function BreadcrumbSchema() {
     const location = useLocation();
     const path = location.pathname;
@@ -21,7 +33,7 @@ function BreadcrumbSchema() {
     let currentPath = '';
     segments.forEach((segment, index) => {
         currentPath += `/${segment}`;
-        const name = segment
+        const name = SEGMENT_NAMES[segment] || segment
             .split('-')
             .map(word => word.charAt(0).toUpperCase() + word.slice(1))
             .join(' ');
