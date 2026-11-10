@@ -23,11 +23,12 @@
     color: var(--accent-text);
 }
 
-.also {
+/* Doubled class: beats the global .site p { margin: 0 }. */
+.also.also {
     margin-top: 20px;
 }
 
-.also + .also {
+.also + .also.also {
     margin-top: 12px;
 }
 

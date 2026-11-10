@@ -4,7 +4,8 @@
     max-width: 24ch;
 }
 
-.list {
+/* Doubled class: beats the global .site ul { list-style: none; padding: 0 }. */
+.list.list {
     display: flex;
     flex-direction: column;
     gap: 14px;
