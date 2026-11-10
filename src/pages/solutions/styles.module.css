@@ -1,0 +1,53 @@
+/* /solutions and its solution pages: styles on top of the global .site system. */
+
+.title {
+    max-width: 24ch;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-width: 760px;
+    padding-left: 20px;
+    list-style: disc;
+    color: var(--text-2);
+    font-size: 16.5px;
+    line-height: 1.65;
+}
+
+.list strong {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.prose {
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.prose > p {
+    color: var(--text-2);
+    font-size: 16.5px;
+    line-height: 1.65;
+}
+
+.subhead {
+    margin-top: 16px;
+}
+
+.problems {
+    margin-top: 8px;
+}
+
+.problems .body {
+    font-size: 15.5px;
+}
+
+.whitepaper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
