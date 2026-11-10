@@ -3,7 +3,7 @@ slug: centralised-control-planes-for-saas-part-3
 title: "Centralised Control Planes for SaaS - Part 3: Logical and Physical Models"
 url: centralised-control-planes-for-saas-part-3
 authors: [Adheip Singh]
-tags: [SAAS, control-planes]
+tags: [SAAS, control-planes, energy-sites]
 ---
 
 :::info Looking for GPU Infrastructure?

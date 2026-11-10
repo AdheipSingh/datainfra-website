@@ -3,7 +3,7 @@ title: "Contributing a Queue Validator to the KAI Scheduler"
 description: "How we contributed a validating admission webhook to NVIDIA's KAI Scheduler that enforces parent-child queue quota consistency - preventing resource overcommit, unsafe deletions, and quota drift in hierarchical GPU scheduling."
 slug: contributing-queue-validator-kai-scheduler
 authors: [Adheip Singh]
-tags: [gpu, kubernetes, kai-scheduler, open-source]
+tags: [gpu, kubernetes, kai-scheduler, open-source, networking]
 ---
 
 If you run GPU workloads on Kubernetes at any meaningful scale, you've probably hit a point where the default scheduler isn't enough. Fractional GPU requests, quota enforcement, gang scheduling, preemption - none of that comes out of the box. That's the gap [KAI Scheduler](https://github.com/kai-scheduler/KAI-Scheduler) fills.

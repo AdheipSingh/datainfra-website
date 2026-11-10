@@ -3,7 +3,7 @@ slug: centralised-control-planes-for-saas-part-2
 title: "Centralised Control Planes for SaaS - Part 2: Stateless Async Event Handling"
 url: centralised-control-planes-for-saas-part-2
 authors: [Adheip Singh]
-tags: [SAAS, control-planes]
+tags: [SAAS, control-planes, energy-sites]
 ---
 
 :::info Looking for GPU Infrastructure?

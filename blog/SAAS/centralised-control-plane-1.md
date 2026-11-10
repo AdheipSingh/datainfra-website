@@ -3,7 +3,7 @@ slug: centralised-control-planes-for-saas-infra-part-1
 title: "Centralised Control Planes for SaaS - Part 1: SaaS Business Models"
 url: centralised-control-planes-for-saas-infra-part-1
 authors: [Adheip Singh]
-tags: [SAAS, control-planes]
+tags: [SAAS, control-planes, energy-sites]
 ---
 
 :::info Looking for GPU Infrastructure?

@@ -3,7 +3,7 @@ slug: state-machines-vs-observed-state
 title: "State Management for Infra Products - Part 1: State Machines vs Observed State"
 url: state-machines-vs-observed-state
 authors: [Adheip Singh]
-tags: [SAAS, control-planes]
+tags: [SAAS, control-planes, energy-sites]
 ---
 
 :::info Looking for GPU Infrastructure?

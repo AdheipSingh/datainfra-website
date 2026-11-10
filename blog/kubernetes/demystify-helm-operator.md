@@ -5,7 +5,7 @@ title: Demystifying Helm and Operator pattern.
 description: Discover insights and explanations about Helm and the Operator Pattern. Gain a clearer understanding of these tools and patterns used for efficient Kubernetes infrastructure management.
 authors: [Adheip Singh]
 date: 2023-05-17T10:00
-tags: [kubernetes, operator, control-planes]
+tags: [kubernetes, operator, control-planes, networking]
 hide_table_of_contents: false
 ---
 
