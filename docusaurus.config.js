@@ -50,48 +50,8 @@ const config = {
                 crossorigin: "anonymous",
             },
         },
-        // Organization structured data
-        {
-            tagName: "script",
-            attributes: {
-                type: "application/ld+json",
-            },
-            innerHTML: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "Organization",
-                "name": "BaaZ",
-                "url": "https://baaz.dev",
-                "logo": "https://baaz.dev/img/logo-vector.png",
-                "description": "GPU infrastructure consulting for AI. We help startups and SMEs build, optimize, and operate GPU clusters.",
-                "founder": {
-                    "@type": "Person",
-                    "name": "Adheip Singh",
-                    "jobTitle": "Founder",
-                    "sameAs": [
-                        "https://www.linkedin.com/in/adheipsingh/",
-                        "https://github.com/AdheipSingh"
-                    ]
-                },
-                "sameAs": [
-                    "https://www.linkedin.com/company/baazhq",
-                    "https://github.com/baazhq"
-                ],
-                "contactPoint": {
-                    "@type": "ContactPoint",
-                    "contactType": "sales",
-                    "url": "https://cal.com/baazhq"
-                },
-                "areaServed": "Worldwide",
-                "knowsAbout": [
-                    "GPU Infrastructure",
-                    "Distributed Training",
-                    "RDMA Networking",
-                    "Kubernetes",
-                    "NVIDIA GPU Clusters",
-                    "AI Infrastructure"
-                ]
-            }),
-        },
+        // Organization structured data lives on the home page only
+        // (src/pages/index.js), so the home page carries exactly one block.
         // WebSite structured data
         {
             tagName: "script",
@@ -294,11 +254,11 @@ const config = {
                 },
                 {
                     name: "description",
-                    content: "BaaZ builds, optimizes, and operates GPU clusters for AI - cluster bring-up, RDMA/RoCE networking, Kubernetes and Slurm, GPU scheduling, inference. On-prem, colo, or dedicated cloud.",
+                    content: "BaaZ designs GPU deployments and builds the software that runs them: RDMA fabrics on Kubernetes, and distributed GPU compute at energy sites.",
                 },
                 {
                     name: "keywords",
-                    content: "GPU consulting, GPU infrastructure, AI factory, AI cloud, GPU optimization, H100, A100, L40, Kubernetes GPU, distributed training, InfiniBand, NVIDIA, GPU utilization, ML infrastructure, GPU cluster bring-up, Slurm, RoCE, NCCL, GPU cluster audit",
+                    content: "GPU networking on Kubernetes, RDMA fabric, NVIDIA Network Operator, distributed GPU compute, energy sites, GPU fleet management, edge inference",
                 },
                 {
                     property: "og:type",
