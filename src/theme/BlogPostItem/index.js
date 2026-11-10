@@ -82,7 +82,7 @@ function BlogPostStructuredData() {
     )
 }
 
-// Shared end block (soft CTA + audit CTA + related reading) appended to
+// Shared end block (link to the post's door + related reading) appended to
 // every full blog post page - replaces per-post generic call CTAs.
 function PostEndBlock() {
     let metadata = null
