@@ -2,40 +2,29 @@ import React from "react"
 import Link from "@docusaurus/Link"
 import styles from "./styles.module.css"
 
+// Spec section 2: three columns.
 const COLS = [
     {
-        heading: "Services",
+        heading: "Networking",
         links: [
-            { label: "GPU Cluster Architecture", to: "/services/ai-factory" },
-            { label: "Distributed Training Optimization", to: "/services/distributed-training" },
-            { label: "GPU Networking & RDMA", to: "/services/gpu-networking" },
-            { label: "GPU Sharing & Multi-tenancy", to: "/services/gpu-kubernetes" },
-            { label: "Observability & Reliability", to: "/services/gpu-monitoring" },
-            { label: "All services", to: "/services" },
+            { label: "Fabric acceptance", to: "/networking#fabric-acceptance" },
+            { label: "Network Operator deployment and upgrades", to: "/networking#network-operator" },
+            { label: "Secondary networks", to: "/networking#secondary-networks" },
+        ],
+    },
+    {
+        heading: "Solutions",
+        links: [
+            { label: "Distributed GPU compute at energy sites", to: "/solutions/distributed-gpu-compute-energy-sites" },
+            { label: "Request the whitepaper", to: "/solutions/distributed-gpu-compute-energy-sites#whitepaper" },
         ],
     },
     {
         heading: "Company",
         links: [
             { label: "About", to: "/about" },
-            { label: "Partners", to: "/partners" },
-            { label: "Contact", to: "/contact" },
-            { label: "Open source", href: "https://github.com/baazhq", external: true },
-        ],
-    },
-    {
-        heading: "Resources",
-        links: [
+            { label: "Open source", to: "/open-source" },
             { label: "Blog", to: "/blog" },
-            { label: "Case studies", to: "/case-studies" },
-            { label: "Newsletter", href: "https://saasinfra.substack.com", external: true },
-        ],
-    },
-    {
-        heading: "Get started",
-        links: [
-            { label: "GPU Cluster Audit", to: "/audit" },
-            { label: "Schedule a call", href: "https://cal.com/baazhq", external: true },
             { label: "Contact", to: "/contact" },
         ],
     },
@@ -78,11 +67,6 @@ export default function Footer() {
                             <img src="/img/logo-vector.png" alt="" width="46" height="22" />
                             <span>BaaZ</span>
                         </Link>
-                        <p>
-                            The software layer on top of your GPU hardware: bring-up,
-                            network fabric, Kubernetes or Slurm, scheduling, observability
-                            and Day-2 operations.
-                        </p>
                         <Social />
                     </div>
                 </div>
@@ -105,7 +89,7 @@ export default function Footer() {
                 </div>
 
                 <div className={styles.footerBottom}>
-                    <div>© {year} BaaZ. All rights reserved.</div>
+                    <div>BaaZ · baaz.dev · © {year} Sadhrao Software Consulting</div>
                 </div>
             </div>
             <div className={styles.footerMark} aria-hidden="true">BaaZ</div>
