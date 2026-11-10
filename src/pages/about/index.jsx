@@ -1,139 +1,45 @@
 import React from "react"
 import Layout from "@theme/Layout"
+import Link from "@docusaurus/Link"
 import { Navbar } from "@site/src/components/Layout"
 import styles from "./styles.module.css"
+
+const Arrow = () => (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>)
 
 export default function About() {
     return (
         <Layout
-            title="About BaaZ | GPU Infrastructure Engineers"
-            description="BaaZ is a founder-led GPU infrastructure boutique. Upstream contributors to the NVIDIA stack with deep expertise in distributed training, RDMA networking, and Kubernetes GPU orchestration."
+            title="About"
+            description="BaaZ is a founder-led GPU infrastructure boutique. The engineer you talk to on the first call is the engineer doing the work."
         >
             <Navbar />
-            <main className={styles.main}>
-                {/* Hero Section */}
-                <section className={styles.hero}>
-                    <div className={styles.heroContent}>
-                        <h1 className={styles.heroTitle}>About BaaZ</h1>
-                        <p className={styles.heroSubtitle}>
-                            BaaZ is a founder-led GPU infrastructure boutique. The
-                            engineer you talk to on the first call is the engineer
-                            doing the work.
-                        </p>
-                    </div>
-                </section>
+            <div className="site">
+                <main>
+                    <section className="page-hero">
+                        <div className="container stack-v gap-16">
+                            <h1 className="h1">About BaaZ</h1>
+                        </div>
+                    </section>
 
-                {/* Expertise Section */}
-                <section className={`${styles.section} ${styles.sectionAlt}`}>
-                    <div className={styles.sectionContent}>
-                        <h2 className={styles.sectionTitle}>Areas of Expertise</h2>
-                        <div className={styles.expertiseGrid}>
-                            <div className={styles.expertiseCategory}>
-                                <h3 className={styles.expertiseCategoryTitle}>Distributed Training Systems</h3>
-                                <ul className={styles.expertiseList}>
-                                    <li>PyTorch DDP & FSDP</li>
-                                    <li>DeepSpeed & Megatron</li>
-                                    <li>Multi-node training optimization</li>
-                                    <li>Gradient synchronization tuning</li>
-                                </ul>
-                            </div>
-                            <div className={styles.expertiseCategory}>
-                                <h3 className={styles.expertiseCategoryTitle}>High-Performance Networking</h3>
-                                <ul className={styles.expertiseList}>
-                                    <li>InfiniBand & RoCE</li>
-                                    <li>RDMA configuration</li>
-                                    <li>GPUDirect RDMA</li>
-                                    <li>NCCL tuning</li>
-                                </ul>
-                            </div>
-                            <div className={styles.expertiseCategory}>
-                                <h3 className={styles.expertiseCategoryTitle}>GPU Orchestration</h3>
-                                <ul className={styles.expertiseList}>
-                                    <li>Kubernetes GPU operators</li>
-                                    <li>Slurm integration</li>
-                                    <li>Multi-tenancy & quotas</li>
-                                    <li>Job scheduling</li>
-                                </ul>
-                            </div>
-                            <div className={styles.expertiseCategory}>
-                                <h3 className={styles.expertiseCategoryTitle}>GPU Sharing & Isolation</h3>
-                                <ul className={styles.expertiseList}>
-                                    <li>MIG (Multi-Instance GPU)</li>
-                                    <li>Time-slicing</li>
-                                    <li>Fractional GPUs</li>
-                                    <li>vGPU</li>
-                                </ul>
-                            </div>
-                            <div className={styles.expertiseCategory}>
-                                <h3 className={styles.expertiseCategoryTitle}>Observability & Reliability</h3>
-                                <ul className={styles.expertiseList}>
-                                    <li>DCGM metrics</li>
-                                    <li>GPU health monitoring</li>
-                                    <li>Fault detection & recovery</li>
-                                    <li>Performance profiling</li>
-                                </ul>
-                            </div>
-                            <div className={styles.expertiseCategory}>
-                                <h3 className={styles.expertiseCategoryTitle}>Infrastructure Platforms</h3>
-                                <ul className={styles.expertiseList}>
-                                    <li>H100, A100, L40S, A6000</li>
-                                    <li>NVLink & NVSwitch</li>
-                                    <li>PCIe topology optimization</li>
-                                    <li>Bare metal & cloud</li>
-                                </ul>
+                    <section className="section">
+                        <div className="container">
+                            <div className={styles.prose}>
+                                <p>BaaZ is a founder-led GPU infrastructure boutique. The engineer you talk to on the first call is the engineer doing the work. We have run these systems in production and we contribute to the software we run.</p>
+                                <p>We do not build data centers, assemble racks or sell hardware. We decide what goes where and make it run, and we hand it over: your team operates it afterwards, with runbooks and the code.</p>
+
+                                <h2 className="h2" id="partners">Working with partners</h2>
+                                <p>Integrators, resellers and GPU cloud providers bring us in for the layer between the hardware and the workloads, under their name or ours. Same engineers, same handover.</p>
+
+                                <p className={styles.footnote}>The founder is a member of the Apache Software Foundation.</p>
+
+                                <div className="btn-row">
+                                    <Link className="btn btn-primary btn-lg" to="/contact">Schedule a call <Arrow /></Link>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-
-                {/* Why Not Big Consultancy Section */}
-                <section className={styles.section}>
-                    <div className={styles.sectionContent}>
-                        <h2 className={styles.sectionTitle}>Why Choose a Boutique Firm?</h2>
-                        <p className={styles.sectionLead}>
-                            Big consultancies send junior consultants who learn on your infrastructure. We're different.
-                        </p>
-                        <div className={styles.comparisonGrid}>
-                            <div className={styles.comparisonCard}>
-                                <h3 className={styles.comparisonTitle}>Work Directly With Experts</h3>
-                                <p className={styles.comparisonText}>
-                                    You work directly with the engineers who do the work - no junior consultants learning on your infrastructure.
-                                </p>
-                            </div>
-                            <div className={styles.comparisonCard}>
-                                <h3 className={styles.comparisonTitle}>Production Experience</h3>
-                                <p className={styles.comparisonText}>
-                                    We've operated these systems in production, not just advised on them. We know what breaks at 3am.
-                                </p>
-                            </div>
-                            <div className={styles.comparisonCard}>
-                                <h3 className={styles.comparisonTitle}>Knowledge Transfer</h3>
-                                <p className={styles.comparisonText}>
-                                    We implement and transfer knowledge; you don't need us forever. Your team can operate it going forward.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                {/* CTA Section */}
-                <section className={styles.ctaSection}>
-                    <div className={styles.ctaContent}>
-                        <h2 className={styles.ctaTitle}>Let's Talk</h2>
-                        <p className={styles.ctaText}>
-                            If you're dealing with GPU infrastructure challenges - utilization, performance, reliability, or building something new - we should talk.
-                        </p>
-                        <a
-                            href="https://cal.com/baazhq"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={styles.ctaButton}
-                        >
-                            Schedule a Call
-                        </a>
-                    </div>
-                </section>
-            </main>
+                    </section>
+                </main>
+            </div>
         </Layout>
     )
 }

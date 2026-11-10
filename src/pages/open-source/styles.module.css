@@ -1,0 +1,31 @@
+/* /open-source: styles on top of the global .site system. */
+
+.changes {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--line);
+    max-width: 860px;
+}
+
+.changes li {
+    border-bottom: 1px solid var(--line);
+}
+
+.changes a {
+    display: block;
+    padding: 14px 0;
+    font-size: 15.5px;
+    line-height: 1.5;
+    color: var(--text-2);
+}
+
+.changes a:hover .ref {
+    color: var(--accent-hover);
+}
+
+.ref {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent-text);
+}
