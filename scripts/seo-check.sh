@@ -14,8 +14,11 @@ chk "$BASE/demo" 301 "$BASE/contact"
 chk "$BASE/demo/" 301 "$BASE/contact"
 chk "$BASE/about/" 308 "$BASE/about"
 chk "$BASE/about" 200
-chk "$BASE/services" 200
-chk "$BASE/services/gpu-networking" 200
+chk "$BASE/networking" 200
+chk "$BASE/solutions" 200
+chk "$BASE/solutions/distributed-gpu-compute-energy-sites" 200
+chk "$BASE/open-source" 200
+chk "$BASE/contact" 200
 chk "$BASE/blog" 200
 chk "$BASE/blog/rss.xml" 200
 chk "$BASE/blog/atom.xml" 200
@@ -23,10 +26,26 @@ chk "$BASE/robots.txt" 200
 chk "$BASE/sitemap.xml" 200
 chk "$BASE/no-such-page-xyz" 404
 chk "$BASE/docs/developer-documentation" 404
+echo "## retired pages: 301 to their door (spec section 3)"
+while read -r from to; do
+  chk "$BASE$from" 301 "$BASE$to"
+  chk "$BASE$from/" 301 "$BASE$to"
+done <<'EOF'
+/services /networking
+/services/ai-factory /networking#bring-up
+/services/distributed-training /networking#design
+/services/gpu-networking /networking
+/services/gpu-kubernetes /networking#run
+/services/gpu-monitoring /networking#run
+/case-studies /networking#rdma-on-kubernetes
+/case-studies/rdma-kubernetes /networking#rdma-on-kubernetes
+/audit /networking#fabric-check
+/partners /about#partners
+EOF
 if [[ "$BASE" == "https://baaz.dev" ]]; then
   chk "http://baaz.dev/" "301|308" "https://baaz.dev/"
   chk "https://www.baaz.dev/" "301|308" "https://baaz.dev/"
-  chk "https://www.baaz.dev/services/gpu-networking" "301|308" "https://baaz.dev/services/gpu-networking"
+  chk "https://www.baaz.dev/networking" "301|308" "https://baaz.dev/networking"
 fi
 echo "## headers"
 curl -sI "$BASE/" | grep -i 'x-robots-tag' && { echo "FAIL X-Robots-Tag present"; fail=1; } || echo "ok   no X-Robots-Tag"
