@@ -22,7 +22,30 @@ if (names.length === 0) {
   process.exit(0);
 }
 
-const needles = names.map((n) => n.toLowerCase());
+// Whitespace-insensitive: a multi-word name still matches when the file
+// wraps it across lines or joins it with a non-breaking space.
+const collapse = (s) => s.toLowerCase().replace(/\s+/g, " ");
+const needles = names.map(collapse);
+
+// Lowercase the text and collapse every whitespace run to one space,
+// keeping the line number each collapsed character came from.
+function normalize(text) {
+  let out = "";
+  const lineOf = [];
+  let line = 1;
+  let inSpace = false;
+  for (const ch of text.toLowerCase()) {
+    if (/\s/.test(ch)) {
+      if (!inSpace) { out += " "; lineOf.push(line); inSpace = true; }
+      if (ch === "\n") line++;
+    } else {
+      out += ch;
+      for (let k = 0; k < ch.length; k++) lineOf.push(line);
+      inSpace = false;
+    }
+  }
+  return { out, lineOf };
+}
 
 function walk(dir) {
   const out = [];
@@ -51,12 +74,15 @@ for (const root of ROOTS) {
     const text = readText(file);
     if (text === null) continue;
     scanned++;
-    const lines = text.split(/\r?\n/);
-    lines.forEach((line, i) => {
-      const lower = line.toLowerCase();
-      needles.forEach((needle, k) => {
-        if (lower.includes(needle)) hits.push(`${file}:${i + 1}: matches CLIENT_NAMES entry ${k + 1}`);
-      });
+    const { out, lineOf } = normalize(text);
+    needles.forEach((needle, k) => {
+      const seen = new Set();
+      for (let at = out.indexOf(needle); at !== -1; at = out.indexOf(needle, at + 1)) {
+        const line = lineOf[at];
+        if (seen.has(line)) continue;
+        seen.add(line);
+        hits.push(`${file}:${line}: matches CLIENT_NAMES entry ${k + 1}`);
+      }
     });
   }
 }
