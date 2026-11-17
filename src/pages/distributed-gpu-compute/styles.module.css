@@ -1,0 +1,221 @@
+/* /distributed-gpu-compute: page-specific styles on top of the shared
+   landing look (src/components/Landing/styles.module.css). */
+
+.hero.hero {
+    padding: 80px 0 72px;
+}
+
+.heroInner.heroInner {
+    gap: 56px;
+}
+
+.heroCopy.heroCopy {
+    max-width: 1000px;
+}
+
+.lead.lead.lead {
+    font-size: 19px;
+    line-height: 1.6;
+    max-width: 780px;
+    text-wrap: balance;
+}
+
+.heroButton {
+    display: flex;
+    margin-top: 10px;
+}
+
+.diagram {
+    max-width: 1136px;
+}
+
+.stackWide {
+    gap: 40px;
+}
+
+.headWide {
+    max-width: 780px;
+}
+
+/* ---- What we design and build ---- */
+.parts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.part {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 6px;
+    border-radius: 10px;
+    background: #EEF3FF;
+    color: var(--accent);
+}
+
+.icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+.part h3,
+.proofItem h3 {
+    margin: 0;
+    font-size: 19px;
+    line-height: 1.3;
+    font-weight: 600;
+}
+
+.part p,
+.proofItem p {
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--text-2);
+}
+
+/* ---- What you get ---- */
+.steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+}
+
+.step {
+    border-top: 2px solid var(--text);
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.stepNum {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--text-3);
+}
+
+.step h3 {
+    margin: 0;
+    font-size: 20px;
+    line-height: 1.3;
+    font-weight: 600;
+}
+
+.step p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-2);
+}
+
+/* ---- Why BaaZ ---- */
+.proof {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+    align-items: flex-start;
+}
+
+.proofHead {
+    flex: 1 1 360px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.proofTitle.proofTitle {
+    max-width: 14ch;
+}
+
+.proofList {
+    flex: 1 1 560px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid rgba(14, 20, 32, 0.12);
+}
+
+.proofItem {
+    padding: 20px 0;
+    border-top: 1px solid rgba(14, 20, 32, 0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.proofLink {
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* ---- Closing ---- */
+.closing.closing {
+    padding: 88px 0;
+}
+
+.closingAction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+/* ---- Tablet and phone ---- */
+@media (max-width: 960px) {
+    .parts,
+    .steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .hero.hero {
+        padding: 40px 0 48px;
+    }
+
+    .heroInner.heroInner {
+        gap: 32px;
+    }
+
+    .lead.lead.lead {
+        font-size: 17px;
+        text-wrap: pretty;
+    }
+
+    .heroButton a {
+        width: 100%;
+    }
+
+    .parts,
+    .steps {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .steps {
+        gap: 24px;
+    }
+
+    .proof {
+        gap: 24px;
+    }
+
+    .closing.closing {
+        padding: 56px 0;
+    }
+
+    .closingAction,
+    .closingAction a {
+        width: 100%;
+    }
+}
