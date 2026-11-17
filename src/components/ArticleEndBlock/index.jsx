@@ -9,14 +9,16 @@ import styles from "./styles.module.css"
 // to the networking door.
 const DOORS = {
     "energy-sites": {
-        lead: "Planning a fleet?",
-        label: "Distributed GPU compute at energy sites",
-        to: "/solutions/distributed-gpu-compute-energy-sites",
+        lead: "Planning GPU compute at your energy sites?",
+        text: "Tell us about the sites. In one call we will tell you what it would take.",
+        label: "Distributed GPU compute",
+        to: "/distributed-gpu-compute",
     },
     networking: {
-        lead: "Planning a cluster, or inheriting one?",
-        label: "Fabric check",
-        to: "/networking#fabric-check",
+        lead: "The GPU Cluster Audit",
+        text: "Two weeks on a cluster you already run. We test each path under load, fix what is safe to fix, and hand you the rest as a plan.",
+        label: "Book a GPU Cluster Audit",
+        to: "/networking#audit",
     },
 }
 
@@ -43,6 +45,7 @@ export default function ArticleEndBlock({ tags = [], currentUrl = "" }) {
         <div className={styles.endBlock}>
             <aside className={styles.cta} role="complementary">
                 <p className={styles.lead}>{door.lead}</p>
+                <p className={styles.text}>{door.text}</p>
                 <p className={styles.doorLine}>
                     <Link to={door.to} className={styles.doorLink}>
                         {door.label} →

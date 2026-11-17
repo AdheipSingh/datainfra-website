@@ -126,4 +126,4 @@ If you're building a multi-node training setup from standard servers, getting GP
 
 - [GPU networking on Kubernetes →](/networking)
 - [How to Calculate if Your Network is Bottlenecking Distributed Training →](/blog/network-bottleneck-distributed-training)
-- [RDMA on bare-metal Kubernetes →](/networking#rdma-on-kubernetes)
+- [RDMA on bare-metal Kubernetes →](/case-studies/rdma-kubernetes)

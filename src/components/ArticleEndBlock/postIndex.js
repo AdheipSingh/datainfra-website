@@ -1,4 +1,4 @@
-// Static index of GPU-relevant posts for tag-based "Related reading"
+// Static index of GPU-relevant posts and the case study for tag-based "Related reading"
 // selection. SaaS/control-plane posts are not listed.
 // Keep in sync when publishing new GPU posts.
 
@@ -52,6 +52,11 @@ export const POST_INDEX = [
         title: "Understanding RX vs TX - Making Sense of Network Traffic Direction",
         url: "/blog/understanding-rx-tx-network-traffic-direction",
         tags: ["networking", "monitoring", "infrastructure", "troubleshooting", "mellanox", "nvidia"],
+    },
+    {
+        title: "Case study: RDMA on bare-metal Kubernetes",
+        url: "/case-studies/rdma-kubernetes",
+        tags: ["gpu", "rdma", "kubernetes", "networking", "distributed-training", "nccl"],
     },
 ]
 

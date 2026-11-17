@@ -5,9 +5,10 @@ import {useLocation} from '@docusaurus/router';
 // Breadcrumb names for page segments, matching the breadcrumbs shown on
 // the pages. Segments not listed fall back to title-cased slugs.
 const SEGMENT_NAMES = {
-    'networking': 'GPU networking',
-    'solutions': 'Solutions',
-    'distributed-gpu-compute-energy-sites': 'Distributed GPU compute at energy sites',
+    'networking': 'Networking',
+    'distributed-gpu-compute': 'Distributed GPU compute',
+    'case-studies': 'Case studies',
+    'rdma-kubernetes': 'RDMA on bare-metal Kubernetes',
     'open-source': 'Open source',
     'about': 'About',
     'contact': 'Contact',

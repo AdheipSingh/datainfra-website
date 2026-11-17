@@ -59,7 +59,7 @@ const DOORS = [
             "Pilot, end to end before hardware is bought",
             "Whitepaper on request",
         ],
-        link: { label: "Energy sites", to: "/solutions/distributed-gpu-compute-energy-sites" },
+        link: { label: "Energy sites", to: "/distributed-gpu-compute" },
     },
 ]
 

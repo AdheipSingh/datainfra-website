@@ -112,5 +112,5 @@ If you're interested in GPU scheduling, multi-tenancy, or Kubernetes-native AI i
 ## Related
 
 - [GPU networking on Kubernetes →](/networking)
-- [RDMA on bare-metal Kubernetes →](/networking#rdma-on-kubernetes)
+- [RDMA on bare-metal Kubernetes →](/case-studies/rdma-kubernetes)
 - [How to Calculate if Your Network is Bottlenecking Distributed Training →](/blog/network-bottleneck-distributed-training)
