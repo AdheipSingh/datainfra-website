@@ -1,6 +1,5 @@
 import React from "react"
 import BlogPostItem from "@theme-original/BlogPostItem"
-import { Navbar } from "@site/src/components/Layout"
 import ArticleEndBlock from "@site/src/components/ArticleEndBlock"
 import Head from "@docusaurus/Head"
 import { useBlogPost } from "@docusaurus/theme-common/internal"
@@ -113,10 +112,7 @@ export default function BlogPostItemWrapper(props) {
     return (
         <>
             <BlogPostStructuredData />
-            <Navbar />
-            <div style={{ marginTop: "80px" }}>
-                <BlogPostItem {...props} />
-            </div>
+            <BlogPostItem {...props} />
             <PostEndBlock />
         </>
     )
