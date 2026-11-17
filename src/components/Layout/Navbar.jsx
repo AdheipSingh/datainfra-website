@@ -55,8 +55,23 @@ export default function Navbar({ cta = DEFAULT_CTA }) {
         return () => { document.body.style.overflow = "" }
     }, [mobileOpen])
 
+    // Close the sheet on Escape, and when the window grows past the phone
+    // menu (a tablet turned to landscape), so the page never stays locked.
+    useEffect(() => {
+        if (!mobileOpen) return
+        const query = window.matchMedia(`(max-width: ${ctaFitsBar ? 960 : 1080}px)`)
+        const onChange = (e) => { if (!e.matches) setMobileOpen(false) }
+        const onKey = (e) => { if (e.key === "Escape") setMobileOpen(false) }
+        query.addEventListener("change", onChange)
+        document.addEventListener("keydown", onKey)
+        return () => {
+            query.removeEventListener("change", onChange)
+            document.removeEventListener("keydown", onKey)
+        }
+    }, [mobileOpen, ctaFitsBar])
+
     return (
-        <header className={styles.nav}>
+        <header className={`${styles.nav} ${ctaFitsBar ? "" : styles.navLong}`}>
             <div className={styles.navInner}>
                 <Link to="/" className={styles.brand} aria-label="BaaZ home">
                     <img src="/img/logo-vector.png" alt="" width="46" height="22" />

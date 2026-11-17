@@ -65,7 +65,6 @@ export default function Footer() {
                     <div>© {year} BaaZ</div>
                 </div>
             </div>
-            <div className={styles.footerMark} aria-hidden="true">BaaZ</div>
         </footer>
     )
 }

@@ -79,6 +79,7 @@
     border: none;
     cursor: pointer;
     font-family: var(--font-sans);
+    white-space: nowrap;
 }
 .navLink:hover { color: var(--text); background: var(--surface); }
 .navLinks .navLink { color: var(--text); }
@@ -124,6 +125,13 @@
     .burger { display: inline-flex; border-color: var(--line); width: 44px; height: 44px; }
     .navCta { padding: 0 14px; font-size: 14px; border-radius: 9px; }
     .navActions { gap: 8px; }
+}
+/* A long menu button ("Book a GPU Cluster Audit") needs more room before the
+   menu fits on one line, so those pages switch to the phone menu earlier. */
+@media (min-width: 961px) and (max-width: 1080px) {
+    .navLong .navLinks { display: none; }
+    .navLong .hideMobile { display: none; }
+    .navLong .burger { display: inline-flex; border-color: var(--line); width: 44px; height: 44px; }
 }
 
 /* ---- Footer ---- */
@@ -173,12 +181,6 @@
     width: 7px; height: 7px; border-radius: 50%; background: var(--ok); display: block;
     box-shadow: 0 0 0 3px color-mix(in srgb, var(--ok) 25%, transparent);
 }
-.footerMark {
-    pointer-events: none; user-select: none; position: absolute; left: 50%;
-    transform: translateX(-50%); bottom: -0.36em; font-size: 280px; font-weight: 700;
-    letter-spacing: -0.06em; line-height: 1; color: transparent;
-    -webkit-text-stroke: 1px var(--watermark); white-space: nowrap;
-}
 
 @media (max-width: 960px) {
     .newsletter { justify-self: stretch; max-width: none; }
@@ -186,6 +188,7 @@
 }
 @media (max-width: 640px) {
     .footerCols { grid-template-columns: 1fr; }
+    .footerBrand { padding-bottom: 32px; border-bottom: 1px solid var(--line); }
+    .social a { width: 44px; height: 44px; }
     .footerBottom { flex-direction: column; align-items: flex-start; gap: 12px; }
-    .footerMark { font-size: 120px; }
 }
