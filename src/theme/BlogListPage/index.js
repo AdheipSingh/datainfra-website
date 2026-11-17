@@ -6,7 +6,6 @@ import BlogLayout from "@theme/BlogLayout"
 import BlogListPaginator from "@theme/BlogListPaginator"
 import SearchMetadata from "@theme/SearchMetadata"
 import Link from "@docusaurus/Link"
-import { Navbar } from "@site/src/components/Layout"
 import styles from "./styles.module.css"
 
 // Define categories - GPU featured visually when active
@@ -159,7 +158,6 @@ function BlogListPageContent({ metadata, items }) {
 
     return (
         <BlogLayout>
-            <Navbar />
             <div className={styles.blogWrapper}>
                 {/* Hero Section */}
                 <div className={styles.blogHero}>

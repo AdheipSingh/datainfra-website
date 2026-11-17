@@ -1,0 +1,299 @@
+/* Shared look of the service landing pages (/networking and
+   /distributed-gpu-compute), from the design canvas. Site tokens where
+   they match the frames, frame values where they do not. */
+
+.page {
+    font-family: var(--font-sans);
+    color: var(--text);
+    background: var(--bg);
+}
+
+.container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+}
+
+/* ---- Opening ---- */
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: 88px 0 80px;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 520px;
+    background-image: linear-gradient(rgba(14, 20, 32, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(14, 20, 32, 0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+    -webkit-mask-image: radial-gradient(ellipse at 50% 0%, #000 0%, transparent 68%);
+    mask-image: radial-gradient(ellipse at 50% 0%, #000 0%, transparent 68%);
+    pointer-events: none;
+}
+
+.heroInner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 36px;
+}
+
+.heroCopy {
+    max-width: 1040px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 22px;
+}
+
+.eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.eyebrow::before,
+.eyebrow::after {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 1px;
+    background: var(--text-3);
+}
+
+.h1.h1 {
+    margin: 0;
+    font-size: 60px;
+    line-height: 1.06;
+    letter-spacing: -0.03em;
+    font-weight: 700;
+}
+
+.h1 span {
+    display: block;
+}
+
+.h1 .accentLine {
+    color: var(--accent);
+}
+
+.lead.lead {
+    margin: 0;
+    max-width: 64ch;
+    font-size: 20px;
+    line-height: 1.55;
+    color: var(--text-2);
+    text-wrap: pretty;
+}
+
+/* ---- Buttons ---- */
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 52px;
+    padding: 0 22px;
+    border-radius: 10px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 17px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.button:hover {
+    background: var(--accent-hover);
+    color: #fff;
+}
+
+.button svg {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 auto;
+}
+
+/* ---- Sections ---- */
+.section {
+    padding: 80px 0;
+}
+
+.sectionAlt {
+    padding: 80px 0;
+    background: var(--bg-2);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.stack {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+
+.head {
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.h2.h2 {
+    margin: 0;
+    font-size: 36px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+    text-wrap: balance;
+}
+
+.sub.sub {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--text-2);
+}
+
+.label {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.card {
+    box-sizing: border-box;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--bg);
+}
+
+/* ---- Closing: the button alone, or a question and the button ---- */
+.closing {
+    position: relative;
+    overflow: hidden;
+    padding: 72px 0;
+    background: #0E1420;
+    color: #fff;
+}
+
+.closing::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+    background-size: 48px 48px;
+    -webkit-mask-image: radial-gradient(ellipse at 50% 100%, #000 0%, transparent 70%);
+    mask-image: radial-gradient(ellipse at 50% 100%, #000 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.closingInner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 28px;
+}
+
+.closingTitle.closingTitle {
+    margin: 0;
+    font-size: 44px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+    max-width: 20ch;
+    text-wrap: balance;
+    color: #fff;
+}
+
+.closingButton {
+    composes: button;
+    background: #fff;
+    color: #0E1420;
+}
+
+.closingButton:hover {
+    background: #E8ECF1;
+    color: #0E1420;
+}
+
+.closingNote {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.62);
+}
+
+/* ---- Phone (mobile frames at 390px) ---- */
+@media (max-width: 640px) {
+    .hero {
+        padding: 40px 0 44px;
+    }
+
+    .heroInner,
+    .heroCopy {
+        align-items: stretch;
+        text-align: left;
+        gap: 20px;
+    }
+
+    .eyebrow {
+        font-size: 11px;
+        letter-spacing: 0.06em;
+    }
+
+    .eyebrow::after {
+        display: none;
+    }
+
+    .h1.h1 {
+        font-size: 34px;
+        line-height: 1.1;
+    }
+
+    .lead.lead {
+        font-size: 17px;
+    }
+
+    .button {
+        height: 48px;
+        font-size: 16px;
+    }
+
+    .section,
+    .sectionAlt {
+        padding: 56px 0;
+    }
+
+    .stack {
+        gap: 28px;
+    }
+
+    .h2.h2 {
+        font-size: 28px;
+    }
+
+    .sub.sub {
+        font-size: 17px;
+    }
+
+    .closing {
+        padding: 56px 0;
+    }
+
+    .closingTitle.closingTitle {
+        font-size: 30px;
+    }
+}

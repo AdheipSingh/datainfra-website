@@ -10,7 +10,7 @@ image: /img/blog/global-config-nvidia-network-operator.svg
 
 If you've ever written a `NicClusterPolicy` manifest for the NVIDIA Network Operator, you know the pain: the same `repository`, `version`, and `imagePullSecrets` copied and pasted across every single sub-component. OFED driver, RDMA shared device plugin, SR-IOV device plugin, Multus, CNI plugins, IPAM plugin, NV-IPAM - each one needs its own `repository: nvcr.io/nvidia/mellanox` and `version: network-operator-v25.7.0`. Change the version during an upgrade, and you're editing 8+ places in the same YAML. Miss one, and you get a partially upgraded cluster with mismatched component versions.
 
-We recently contributed a fix for this: **global config support for NicClusterPolicy** ([PR #2070](https://github.com/Mellanox/network-operator/pull/2070)). It's now merged into the NVIDIA Network Operator, and this post explains the problem, the implementation, and why it matters for anyone operating [RDMA-capable GPU clusters on Kubernetes](/services/gpu-networking).
+We recently contributed a fix for this: **global config support for NicClusterPolicy** ([PR #2070](https://github.com/Mellanox/network-operator/pull/2070)). It's now merged into the NVIDIA Network Operator, and this post explains the problem, the implementation, and why it matters for anyone operating [RDMA-capable GPU clusters on Kubernetes](/networking).
 
 <!-- truncate -->
 
@@ -155,7 +155,7 @@ If you're running NVIDIA Network Operator on GPU clusters - whether for RDMA, GP
 
 **Secret management.** Teams using NGC or private registry authentication only need to reference their imagePullSecret once. No more debugging why one component can't pull its image while others work fine - it was always a missing secret reference on one of the eight component blocks.
 
-At [BaaZ](https://baaz.dev/services), we deploy and operate the Network Operator on production GPU clusters for clients running distributed training and inference workloads. This change came directly from that operational experience - we got tired of writing the same three fields eight times in every cluster deployment.
+At [BaaZ](https://baaz.dev/networking), we deploy and operate the Network Operator on production GPU clusters for clients running distributed training and inference workloads. This change came directly from that operational experience - we got tired of writing the same three fields eight times in every cluster deployment.
 
 ## Frequently Asked Questions
 
@@ -177,4 +177,4 @@ If you're building or operating GPU clusters with RDMA networking, these might b
 
 - [Dual-Network Kubernetes Pods with RDMA on NVIDIA GH200 →](/blog/dual-network-rdma-kubernetes-gh200)
 - [GPU-to-GPU Communication Across Nodes: What Actually Works →](/blog/gpu-to-gpu-communication-across-nodes)
-- [GPU Networking & RDMA Consulting Services →](/services)
+- [GPU networking on Kubernetes →](/networking)

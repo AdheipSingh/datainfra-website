@@ -3,11 +3,11 @@ slug: centralised-control-planes-for-saas-part-2
 title: "Centralised Control Planes for SaaS - Part 2: Stateless Async Event Handling"
 url: centralised-control-planes-for-saas-part-2
 authors: [Adheip Singh]
-tags: [SAAS, control-planes]
+tags: [SAAS, control-planes, energy-sites]
 ---
 
 :::info Looking for GPU Infrastructure?
-BaaZ now specializes in GPU infrastructure consulting for AI. [See our GPU infrastructure services →](/services)
+BaaZ now specializes in GPU infrastructure consulting for AI. [See our GPU infrastructure services →](/networking)
 :::
 
 

@@ -1,8 +1,6 @@
 import React from "react"
 import Layout from "@theme/Layout"
-import Link from "@docusaurus/Link"
 import { Navbar } from "@site/src/components/Layout"
-import EmailCapture from "@site/src/components/EmailCapture"
 import styles from "./styles.module.css"
 
 export default function Contact() {
@@ -28,17 +26,9 @@ export default function Contact() {
                             </p>
                         </div>
 
-                        {/* Not-ready-for-a-call alternatives.
-                            TODO: once the email provider is configured in
-                            EmailCapture, reword to "Start with the pre-flight
-                            checklist or a fixed-scope GPU Cluster Audit." */}
-                        <div className={styles.preCallBlock}>
-                            <p className={styles.preCallText}>
-                                Not ready for a call? Start with a fixed-scope{" "}
-                                <Link to="/audit">GPU Cluster Audit</Link>.
-                            </p>
-                            <EmailCapture />
-                        </div>
+                        <p className={styles.formLine}>
+                            Tell us which it is: a cluster's network, or compute at sites. One line about the deployment is enough.
+                        </p>
 
                         {/* Cal.com Embed */}
                         <div className={styles.calEmbed}>

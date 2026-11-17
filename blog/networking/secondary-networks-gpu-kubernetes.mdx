@@ -22,7 +22,7 @@ Every GPU training pod needs two distinct network paths. The management network 
 
 Mixing both on a single interface doesn't work for serious GPU workloads. NCCL traffic is latency-sensitive and bandwidth-hungry. It needs to bypass kube-proxy, skip the overlay network, and in the case of RDMA, bypass the kernel entirely. The management network, by contrast, is low-bandwidth but needs reliable service discovery and DNS.
 
-The Kubernetes-native way to give a pod two interfaces is Multus CNI. The primary CNI plugin provides `eth0` for management. Multus attaches a secondary interface (`net1`) backed by a physical RDMA-capable NIC, giving the pod direct access to the high-speed fabric. Getting this dual-interface plumbing right is the foundation of all our [GPU networking and RDMA consulting](/services/gpu-networking) engagements.
+The Kubernetes-native way to give a pod two interfaces is Multus CNI. The primary CNI plugin provides `eth0` for management. Multus attaches a secondary interface (`net1`) backed by a physical RDMA-capable NIC, giving the pod direct access to the high-speed fabric. Getting this dual-interface plumbing right is the foundation of all our [GPU networking and RDMA consulting](/networking) engagements.
 
 The question is *how* that secondary interface gets attached to the physical NIC. There are four options, each with different isolation, performance, and complexity characteristics. These four options map directly to the four secondary network CRDs in the [NVIDIA Network Operator](https://github.com/Mellanox/network-operator), which automates deploying Multus, MOFED drivers, device plugins, and secondary network definitions across a cluster through a single `NicClusterPolicy` CR.
 
@@ -157,7 +157,7 @@ The operator is not strictly required - for small clusters or POCs, you can depl
     service="GPU Networking"
     title="Picking the wrong secondary network costs you GPU hours"
     text="Whether it's macvlan for a POC, host-device for production single-tenant training, or SR-IOV for multi-tenant clusters - we help GPU teams choose, deploy, and debug the Network Operator stack end to end."
-    link="/services/gpu-networking"
+    link="/networking"
     buttonLabel="Get RDMA networking help"
 />
 

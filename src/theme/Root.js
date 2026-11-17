@@ -2,6 +2,26 @@ import React from 'react';
 import Head from '@docusaurus/Head';
 import {useLocation} from '@docusaurus/router';
 
+// Breadcrumb names for page segments, matching the breadcrumbs shown on
+// the pages. Segments not listed fall back to title-cased slugs.
+const SEGMENT_NAMES = {
+    'networking': 'Networking',
+    'distributed-gpu-compute': 'Distributed GPU compute',
+    'open-source': 'Open source',
+    'about': 'About',
+    'contact': 'Contact',
+    'blog': 'Blog',
+};
+
+// Pages whose visible breadcrumb is not their URL path. /case-studies is a
+// redirect, so the case study sits under Networking, as shown on the page.
+const TRAILS = {
+    '/case-studies/rdma-kubernetes': [
+        ['Networking', '/networking'],
+        ['Case study', '/case-studies/rdma-kubernetes'],
+    ],
+};
+
 function BreadcrumbSchema() {
     const location = useLocation();
     const path = location.pathname;
@@ -18,10 +38,22 @@ function BreadcrumbSchema() {
         }
     ];
 
+    const trail = TRAILS[path.replace(/\/$/, '')];
+    if (trail) {
+        trail.forEach(([name, url], index) => {
+            items.push({
+                "@type": "ListItem",
+                "position": index + 2,
+                "name": name,
+                "item": `https://baaz.dev${url}`
+            });
+        });
+    }
+
     let currentPath = '';
-    segments.forEach((segment, index) => {
+    if (!trail) segments.forEach((segment, index) => {
         currentPath += `/${segment}`;
-        const name = segment
+        const name = SEGMENT_NAMES[segment] || segment
             .split('-')
             .map(word => word.charAt(0).toUpperCase() + word.slice(1))
             .join(' ');

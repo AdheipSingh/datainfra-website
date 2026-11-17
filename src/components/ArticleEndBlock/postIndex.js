@@ -1,6 +1,5 @@
-// Static index of GPU-relevant posts and case studies for tag-based
-// "Related reading" selection. SaaS/control-plane posts are deliberately
-// excluded (they are noindexed and off-topic for GPU readers).
+// Static index of GPU-relevant posts and the case study for tag-based "Related reading"
+// selection. SaaS/control-plane posts are not listed.
 // Keep in sync when publishing new GPU posts.
 
 export const POST_INDEX = [
@@ -55,7 +54,7 @@ export const POST_INDEX = [
         tags: ["networking", "monitoring", "infrastructure", "troubleshooting", "mellanox", "nvidia"],
     },
     {
-        title: "Case study: GPUDirect RDMA over RoCE on bare-metal Kubernetes",
+        title: "Case study: RDMA on bare-metal Kubernetes",
         url: "/case-studies/rdma-kubernetes",
         tags: ["gpu", "rdma", "kubernetes", "networking", "distributed-training", "nccl"],
     },

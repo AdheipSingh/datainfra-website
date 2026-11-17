@@ -1,6 +1,5 @@
 import React from "react"
 import BlogPostItem from "@theme-original/BlogPostItem"
-import { Navbar } from "@site/src/components/Layout"
 import ArticleEndBlock from "@site/src/components/ArticleEndBlock"
 import Head from "@docusaurus/Head"
 import { useBlogPost } from "@docusaurus/theme-common/internal"
@@ -82,7 +81,7 @@ function BlogPostStructuredData() {
     )
 }
 
-// Shared end block (soft CTA + audit CTA + related reading) appended to
+// Shared end block (link to the post's door + related reading) appended to
 // every full blog post page - replaces per-post generic call CTAs.
 function PostEndBlock() {
     let metadata = null
@@ -113,10 +112,7 @@ export default function BlogPostItemWrapper(props) {
     return (
         <>
             <BlogPostStructuredData />
-            <Navbar />
-            <div style={{ marginTop: "80px" }}>
-                <BlogPostItem {...props} />
-            </div>
+            <BlogPostItem {...props} />
             <PostEndBlock />
         </>
     )

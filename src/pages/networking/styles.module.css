@@ -1,0 +1,464 @@
+/* /networking: page-specific styles on top of the shared landing look
+   (src/components/Landing/styles.module.css). */
+
+/* ---- Each kind of traffic: a table on desktop, a card per row on a phone ---- */
+.trafficWrap {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.traffic {
+    overflow: hidden;
+}
+
+.trafficHead,
+.trafficRow {
+    display: grid;
+    grid-template-columns: 296px repeat(2, minmax(0, 1fr));
+}
+
+.trafficHead span,
+.cellLabel {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-3);
+}
+
+.trafficHead span {
+    padding: 15px 24px;
+}
+
+.trafficHead span + span,
+.trafficCell {
+    border-left: 1px solid var(--line);
+}
+
+.trafficRow > div {
+    padding: 26px 24px;
+    border-top: 1px solid var(--line);
+}
+
+.trafficName {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.trafficName h3 {
+    margin: 0;
+    font-size: 21px;
+    line-height: 1.3;
+    font-weight: 600;
+}
+
+.trafficTag {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-3);
+}
+
+.num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #fff;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0;
+}
+
+.cellLabel {
+    display: none;
+}
+
+.trafficCell p {
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--text-2);
+}
+
+.trafficCell p.needs {
+    color: var(--text);
+    font-weight: 500;
+}
+
+.note.note {
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--text-2);
+}
+
+/* ---- What we configure ---- */
+.layers {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.layer {
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.layerHead {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.layerHead h3 {
+    margin: 0;
+    font-size: 21px;
+    line-height: 1.3;
+    font-weight: 600;
+}
+
+.dots.dots {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.dots li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.dots li::before {
+    content: "";
+    flex: 0 0 6px;
+    width: 6px;
+    height: 6px;
+    margin-top: 9px;
+    border-radius: 999px;
+    background: var(--accent);
+}
+
+/* ---- The offer ---- */
+.offerSection {
+    padding: 0 0 80px;
+}
+
+.offer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 56px;
+    align-items: center;
+    padding: 56px;
+    border-radius: 20px;
+    background: #EEF3FF;
+    border: 1px solid rgba(25, 89, 255, 0.20);
+}
+
+.offerCopy {
+    flex: 1 1 520px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.offerTitle.offerTitle {
+    margin: 0;
+    font-size: 40px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+}
+
+.offerCopy p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #364152;
+    max-width: 50ch;
+}
+
+.offerCard {
+    flex: 0 1 392px;
+    min-width: 0;
+    padding: 28px;
+    box-shadow: 0 1px 2px rgba(14, 20, 32, 0.04), 0 12px 32px rgba(14, 20, 32, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.youGet.youGet {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--text-3);
+}
+
+.checks.checks {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.checks li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.checks svg {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 auto;
+    margin-top: 2px;
+    color: var(--ok);
+}
+
+.offerButton {
+    align-self: stretch;
+}
+
+/* ---- Write-ups and open source ---- */
+.reading {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 56px;
+    align-items: start;
+}
+
+.listLabel {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-2);
+    padding-bottom: 14px;
+}
+
+.rows.rows {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid rgba(14, 20, 32, 0.12);
+}
+
+.rows li {
+    border-top: 1px solid rgba(14, 20, 32, 0.12);
+}
+
+.rowLink {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 17px 0;
+    color: var(--text);
+}
+
+.rowLink:hover {
+    color: var(--accent-text);
+}
+
+.rowLink svg {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 auto;
+    color: var(--text-3);
+}
+
+.rowTitle {
+    min-width: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 12px;
+    font-size: 16px;
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+.tag {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    height: 22px;
+    padding: 0 8px;
+    border: 1px solid rgba(14, 20, 32, 0.12);
+    border-radius: 6px;
+    background: var(--bg);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-2);
+}
+
+.repoRow {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding: 17px 0;
+}
+
+.repo {
+    flex: 0 0 148px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-2);
+}
+
+.changes {
+    flex: 1 1 auto;
+    min-width: 0;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.changes a {
+    color: var(--text);
+}
+
+.changes a:hover {
+    color: var(--accent-text);
+}
+
+.fullList.fullList {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 14px;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--text-2);
+}
+
+.fullListLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+}
+
+.fullListLink svg {
+    width: 15px;
+    height: 15px;
+}
+
+/* ---- Closing: the button alone ---- */
+.closingBig.closingBig {
+    height: 60px;
+    padding: 0 30px;
+    border-radius: 12px;
+    font-size: 18px;
+}
+
+/* ---- Tablet and phone ---- */
+@media (max-width: 960px) {
+    .layers,
+    .reading {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .offer {
+        padding: 40px;
+    }
+}
+
+@media (max-width: 640px) {
+    .traffic {
+        border: 0;
+        background: transparent;
+        overflow: visible;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .trafficHead {
+        display: none;
+    }
+
+    .trafficRow {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--bg);
+    }
+
+    .trafficRow > div {
+        padding: 18px 20px;
+        border-top: 1px solid var(--line);
+    }
+
+    .trafficRow > div:first-child {
+        border-top: 0;
+    }
+
+    .trafficCell {
+        border-left: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .cellLabel {
+        display: block;
+        font-size: 11px;
+    }
+
+    .layer {
+        padding: 24px;
+    }
+
+    .offer {
+        padding: 28px 20px;
+        gap: 28px;
+    }
+
+    .offerTitle.offerTitle {
+        font-size: 30px;
+    }
+
+    .offerCopy p {
+        font-size: 17px;
+    }
+
+    .repoRow {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .repo {
+        flex: none;
+    }
+
+    .closingBig.closingBig {
+        width: 100%;
+        height: 56px;
+        font-size: 17px;
+    }
+}
