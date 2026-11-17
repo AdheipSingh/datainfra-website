@@ -2,6 +2,8 @@
 
 *Spec for the site rebuild. Seven pages plus the blog. Every page's copy is final draft and can be built as written. Repository notes for the coding agent are at the end.*
 
+*Revised 2026-11-17 from the design canvas "BaaZ site pages": the networking, energy, open source and about pages, the menu, the footer and the redirects below follow the canvas frames. Where this file and the built pages disagree, the canvas wins.*
+
 ## 1. Positioning
 
 **The line.** BaaZ designs GPU deployments and builds the software that runs them: which hardware, where it sits, how it is powered and connected, and everything from the operating system up.
@@ -26,39 +28,41 @@
 
 ## 2. Site map
 
-| Page       | URL                                         | Job                                                                                                          | Length        |
-|----------------|-------------------------------------------------|------------------------------------------------------------------------------------------------------------------|-------------------|
-| Home           | /                                               | The line, two doors, proof strip, one call to action                                                             | about 180 words   |
-| GPU networking | /networking                                     | Door 1: what we design, bring up and run, the three packages, the contributions, the RDMA write-up, fabric check | about 650 words   |
-| Solutions      | /solutions                                      | Door 2 landing: what a solution includes, the energy-sites solution                                              | about 220 words   |
-| Energy sites   | /solutions/distributed-gpu-compute-energy-sites | The solution page: problem, what we decide, how we solve it, what we measure, whitepaper request                 | about 1,100 words |
-| Open source    | /open-source                                    | Proof page: the merged changes with links, the pilot when public                                                 | about 250 words   |
-| About          | /about                                          | Who we are, the boundary, how we work with partners                                                              | about 150 words   |
-| Contact        | /contact                                        | Unchanged, one line added                                                                                        |                   |
-| Blog           | /blog                                           | Unchanged. Every post tagged networking or energy-sites. New posts only on those two topics.                     |                   |
+| Page           | URL                             | Job                                                                                      |
+|----------------|---------------------------------|------------------------------------------------------------------------------------------|
+| Home           | /                               | The line, two doors, proof strip, one call to action                                     |
+| GPU networking | /networking                     | Networking landing page. One action: Book a GPU Cluster Audit                            |
+| Case study     | /case-studies/rdma-kubernetes   | The RDMA write-up, without figures, linked from /networking                              |
+| Energy sites   | /distributed-gpu-compute        | Energy landing page. One action: Talk to us                                              |
+| Open source    | /open-source                    | One table of the merged pull requests                                                    |
+| About          | /about                          | Who we are, and how we work with partners                                                |
+| Contact        | /contact                        | Unchanged, one line added                                                                |
+| Blog           | /blog                           | Unchanged. Every post tagged networking or energy-sites. New posts only on those topics. |
 
-**Navbar**, left to right: Networking · Solutions (dropdown: Distributed GPU compute at energy sites) · Open source · Blog · About · Talk to us (button, to /contact).
+**Menu**, left to right: Networking · Distributed GPU compute · Open source · Blog · About, then one button. The button opens the booking page (cal.com/baazhq): "Book a GPU Cluster Audit" on every page except the energy page, where it is "Talk to us". On a phone a short button stays in the top bar; a long one is the first item of the open menu. The word Solutions is not used.
 
-**Footer**, three columns: Networking (Fabric acceptance, Network Operator deployment and upgrades, Secondary networks, each an anchor on /networking) · Solutions (Distributed GPU compute at energy sites, Request the whitepaper) · Company (About, Open source, Blog, Contact). Below: "BaaZ · baaz.dev · © 2026 Sadhrao Software Consulting".
+**Footer**: the logo with LinkedIn, GitHub and email links · Services (Networking, Distributed GPU compute) · Company (About, Open source, Blog, Contact). Below: "© 2026 BaaZ".
 
 ## 3. Retired pages and redirects
 
-Thirteen pages become seven. Every retired URL returns a 301 to the page that now answers its query, so nothing indexed dies. Before the pages are removed, check Google Search Console for the last three months: any retired page with real clicks (not impressions) stays as a short page of about 150 words under its door, linking up to it, instead of a redirect. Record the decision per URL in this table before building.
+Every retired or moved URL returns a 301, with and without a trailing slash, so nothing indexed dies. Any retired page with real clicks in Google Search Console over the last three months can come back as a short page under its door instead; record the decision in this table.
 
-| Retired URL                | 301 to                     | Search Console |
-|--------------------------------|--------------------------------|--------------------|
-| /services                      | /networking                    |                    |
-| /services/ai-factory           | /networking#bring-up           |                    |
-| /services/distributed-training | /networking#design             |                    |
-| /services/gpu-networking       | /networking                    |                    |
-| /services/gpu-kubernetes       | /networking#run                |                    |
-| /services/gpu-monitoring       | /networking#run                |                    |
-| /case-studies                  | /networking#rdma-on-kubernetes |                    |
-| /case-studies/rdma-kubernetes  | /networking#rdma-on-kubernetes |                    |
-| /audit                         | /networking#fabric-check       |                    |
-| /partners                      | /about#partners                |                    |
+| Retired URL                                     | 301 to                    | Search Console |
+|-------------------------------------------------|---------------------------|----------------|
+| /services                                       | /networking               |                |
+| /services/ai-factory                            | /networking#layers        |                |
+| /services/distributed-training                  | /networking#traffic       |                |
+| /services/gpu-networking                        | /networking               |                |
+| /services/gpu-kubernetes                        | /networking#layers        |                |
+| /services/gpu-monitoring                        | /networking               |                |
+| /case-studies                                   | /networking#open-source   |                |
+| /audit                                          | /networking#audit         |                |
+| /partners                                       | /about#partners           |                |
+| /solutions                                      | /distributed-gpu-compute  |                |
+| /solutions/distributed-gpu-compute-energy-sites | /distributed-gpu-compute  |                |
+| /energy (short link)                            | /distributed-gpu-compute  |                |
 
-The LLM inference service has no page of its own today (its navbar item points at /services) and gets no redirect. The GPU cloud control plane solution designed in October is not built in this release; its design stays in the canvas for when a buyer appears.
+/case-studies/rdma-kubernetes keeps its address and stays a page.
 
 ## 4. Page copy
 
@@ -104,219 +108,133 @@ Nothing else on the page: no feature grid, no "who we help", no blog teasers, no
 
 ### 4.2 GPU networking (/networking)
 
-Title tag: GPU Networking on Kubernetes: RDMA Fabrics \| BaaZ  
-Meta description: Fabric design, bring-up and acceptance for GPU clusters, and NVIDIA's networking stack on Kubernetes, by engineers who contribute to it.
+Reader: someone who runs a GPU cluster on Kubernetes (a head of infrastructure, a platform lead or a CTO). This page uses their terms: underlay, overlay, RDMA, SR-IOV, PFC, ECN. One action: Book a GPU Cluster Audit, in the menu, under the headline, in the offer and at the end; each opens the booking page.
 
-**Breadcrumb:** Home › GPU networking
+Title tag: GPU Cluster Networking on Kubernetes \| BaaZ  
+Meta description: Network design for GPU clusters on Kubernetes: a switch underlay for RDMA training, a pod overlay for inference and developer traffic, and a two-week audit.  
+og:title: One GPU cluster, three kinds of traffic
 
-**H1:** GPU networking on Kubernetes
+**Eyebrow:** GPU cluster networking on Kubernetes
 
-**Lead:** A GPU cluster is worth what its network lets it do. The fabric is the part of a cluster most often wrong on day one and hardest to prove right, and the software that runs it on Kubernetes is deep. We design it, bring it up and run it, and we contribute to the software we run.
+**H1 (two lines):** One GPU cluster, / three kinds of traffic
 
-**H2 (anchor: design):** What we design
+**Lead:** Training, inference and developer work each need something different from the network. We design and configure it so each one gets its own path, from the switches up to the pods.
 
-The fabric topology for the traffic the cluster will carry: rail-optimized for training where that pays, simpler where it does not. Switch and NIC selection against the GPU and server you have chosen. The cabling plan. The management network, separate from the data fabric. The storage path, including NFS over RDMA where it fits. The output is a design your integrator can build from and we can accept against.
+Button: Book a GPU Cluster Audit
 
-**H2 (anchor: bring-up):** What we bring up
+**H2 (anchor: traffic):** Each kind of traffic, and the path it takes
 
-Switch configuration for the fabric and the management network. Provisioning through the servers' management controllers, so the operating system, firmware and driver baselines are the same on every node. GPUDirect RDMA verified end to end, GPU to NIC to switch to GPU, before anything else is installed on top.
+Training traffic runs straight on the switch fabric and never enters the pod network. Inference and developer traffic stay on the pod network.
 
-**H2 (anchor: run):** What we run
+Drawing: the pod network (overlay) above two GPU nodes, the switch fabric (underlay) under them; requests and developer sessions come in through a gateway; each training pod has a second interface, net1, through the NIC to the leaf and spine switches. Numbered 1 training, 2 inference, 3 developer work. On a phone the overlay and the fabric stand upright on either side of the nodes.
 
-NVIDIA's Network Operator on Kubernetes, with the device plugins and the drivers it manages. Secondary networks for training and storage traffic (SR-IOV, IPoIB, Multus), isolated from the cluster network. The telemetry that shows the fabric is healthy, and the runbooks that let your team keep it that way.
+| Traffic | What it carries | What it needs |
+|---|---|---|
+| 1 East-west. **Training** | Gradients between GPUs on different servers, at every step of a job. | RDMA on a lossless path, at the full speed of the link. |
+| 2 North-south. **Inference** | Requests from users and applications, and the responses streamed back. | Low, steady latency, and one stable address in front of every replica. |
+| 3 North-south. **Developer work** | Notebooks, terminals and dashboards: many small sessions through the day. | Access for each person, and a boundary between teams. |
 
-**H2:** Three ways to work with us
+Storage and out-of-band management run on networks of their own.
 
-**H3 (anchor: fabric-acceptance):** Fabric acceptance
+**H2 (anchor: layers):** What we configure, from the switch to the pod
 
-Before you sign off on a new cluster, we test the RDMA fabric at wire rate with the standard tools, fix what fails, and hand over the report. For clusters delivered by an integrator or a reseller, this is the check that the thing you paid for is the thing you got.
+- Underlay. **Switches and links:** Leaf and spine layout, link speeds and oversubscription · A lossless class for RDMA, with PFC and ECN set the same way on switches and NICs · MTU and DSCP matched end to end, ECMP across the spines · On InfiniBand: subnet manager, partition keys and adaptive routing
+- Overlay. **Tenant and pod networks:** VXLAN segments and VRFs on the switches, where tenants share a fabric · The pod network, with encapsulation that fits inside the underlay's MTU · A load balancer and a gateway for traffic from outside · A namespace and a network policy for each team
+- Secondary networks. **The second interface in a pod:** Host-device when one pod owns the whole NIC · SR-IOV when several pods share a NIC, each isolated in hardware · IPoIB on InfiniBand fabrics · Macvlan for development and single-NIC servers
 
-**H3 (anchor: network-operator):** Network Operator deployment and upgrades
+**H2 (anchor: audit), eyebrow "The offer":** The GPU Cluster Audit
 
-Install or upgrade the Operator and the pieces it manages on an existing cluster, without taking the cluster down. We know the code paths: we have contributed to them.
+Two weeks on a cluster you already run. We test each path under load, fix what is safe to fix, and hand you the rest as a plan.
 
-**H3 (anchor: secondary-networks):** Secondary networks for training and storage
+You get: Test results from before and after · What is wrong, in order of priority · A fix plan, handed over to your team. Button: Book a GPU Cluster Audit
 
-RDMA, SR-IOV and IPoIB networks for training jobs and storage traffic on Kubernetes, kept apart from the cluster network, with the MTU, the IPAM and the restart behavior set so a configuration change does not take a job down.
+**H2 (anchor: open-source):** Write-ups and open source
 
-**H2 (anchor: contributions):** We contribute to the software we run
+From our blog: Secondary networks for GPU workloads in Kubernetes · Dual-network Kubernetes pods with RDMA · ECMP hash collisions in a fat-tree · RDMA on bare-metal Kubernetes (Case study, to /case-studies/rdma-kubernetes).
 
-Changes we contributed to NVIDIA's networking software in 2026, maintained in the Mellanox organization on GitHub. Each links to the merged change.
+Merged upstream, each change linked to its pull request: network-operator: One global configuration for the NIC cluster policy. MTU for IPoIB networks. Access mode for NIC firmware storage. Pod restarts on RDMA, SR-IOV and Multus changes. · ipoib-cni: MTU support. · doca-driver-build: NFS tools on the host, for NFS over RDMA.
 
-- network-operator: make NIC firmware storage access mode configurable (September 2026)
-- network-operator: MTU support on the IPoIBNetwork resource (September 2026)
-- ipoib-cni: MTU support (May 2026)
-- doca-driver-build: install the NFS userspace tools on the host when NFS over RDMA is enabled (April 2026)
-- network-operator: global configuration for the NicClusterPolicy (January 2026)
-- network-operator: restart RDMA, SR-IOV and Multus pods automatically on configuration changes (January 2026)
+Changes we contributed to NVIDIA's open-source networking software. Link: See the full list (/open-source)
 
-Also: a queue validator contributed to the KAI Scheduler, written up on the blog. Link: Open source, for the full list.
+**Closing:** the button alone, no heading.
 
-**H2 (anchor: rdma-on-kubernetes):** RDMA on bare-metal Kubernetes
+Still to decide (kept off the page): cost; what the customer keeps if the audit finds nothing; credentials; whether the audit covers more than the network. To confirm: the inference row, the developer row and the three pod-network lines have no published post behind them yet.
 
-Keep the body of the existing case study, without any figures, as this section. Same text, same diagrams, new place. Nothing is added.
-
-**H2:** Reading
-
-Three existing posts, linked by title: ECMP Hash Collisions in a Fat-Tree; Understanding Secondary Networks for GPU Workloads in Kubernetes; How to Calculate if Your Network is Bottlenecking Distributed Training.
-
-**H2 (anchor: fabric-check):** Fabric check
-
-Planning a cluster, or inheriting one? Send us the topology and the switch and NIC models, and we will tell you what to test first and what usually fails. No charge for the first look. Button: Send the topology (/contact)
-
-This replaces the audit page. The pre-flight checklist and the fallback test in lead-magnets/ are delivered by email from this section once the form backend exists; until then the button goes to /contact.
+**Case study (/case-studies/rdma-kubernetes):** the body of the original RDMA case study, without any figures, same text and diagrams. Title tag: RDMA on bare-metal Kubernetes \| BaaZ. Breadcrumb Home › Networking › Case study.
 
 ### 4.3 Solutions (/solutions)
 
-Title tag: Solutions \| BaaZ  
-Meta description: GPU deployments for places that are not a data center: designed, piloted and run, starting with distributed GPU compute at energy sites.
+Retired. 301 to /distributed-gpu-compute.
 
-**Eyebrow:** Solutions
+### 4.4 Distributed GPU compute at energy sites (/distributed-gpu-compute)
 
-**H1:** GPU infrastructure for places that are not a data center
-
-**Lead:** Compute is moving to where the power, the customers or the hardware already are. Each such place needs the same software layer a data center gets, built for a site with no staff, no network you control and no way in from outside. We design that layer, build the first version in the open, and hand it over with the code.
-
-**H2:** What a solution includes
-
-- A deployment design: the hardware, what the site must provide, the fleet layout and the measures, as a document your own engineers and suppliers can act on. Fixed fee.
-- A pilot that runs end to end before any hardware is bought.
-- The few services nobody sells, written and documented.
-- The measures that decide whether it pays, agreed up front and reported from the platform's own readings.
-
-**H2:** Distributed GPU compute at energy sites
-
-GPU pods at homes, batteries and solar sites, run as one fleet that follows the power. Link: Read the solution
-
-**Call to action:** Planning something that does not fit a data center? Tell us about the sites, the hardware and what you need to sell, and we will tell you what the software has to do. Button: Talk to us
-
-### 4.4 Distributed GPU compute at energy sites (/solutions/distributed-gpu-compute-energy-sites)
+Reader: a CEO or technology executive at a company with sites and power who has never heard of BaaZ, arriving from a message, a referral or search. One action: Talk to us, in the menu, under the headline and at the end; each opens the booking page. The whitepaper, site types and customer segments are kept for outreach: no solar, batteries or homes on the page, and no list of who it is built for. The energy system is the customer's; the page claims nothing about managing or controlling energy. Words not on the page: Kubernetes, operating system, agent, tunnel, enrollment, gateway, control plane, telemetry, power limit, depot, inference.
 
 Title tag: Distributed GPU Compute at Energy Sites \| BaaZ  
-Meta description: Software to run GPU pods at homes, batteries and solar sites: hardware and site design, zero-touch enrollment, fleet operations, a pod that follows the site's power. Whitepaper on request.
+Meta description: BaaZ designs and builds distributed GPU compute for companies with sites and power: GPU pods at your sites, run as one fleet your team owns.  
+og:title: Turn your energy sites into GPU compute you can sell
 
-**Breadcrumb:** Home › Solutions › Distributed GPU compute at energy sites
+**Eyebrow:** Distributed GPU compute at energy sites
 
-**H1:** Distributed GPU compute at energy sites
+**H1 (two lines):** Turn your energy sites / into GPU compute you can sell
 
-**Lead:** GPU pods at homes, batteries and solar farms only work if the software treats each site as what it is: a small data center with no staff, no network you control, no way in from outside, and a power supply that changes hour by hour. We decide the hardware and what the site must provide, and we build that software: the pod's operating system and enrollment, the fleet management, the agent that follows the site's power, and the monitoring that shows whether the fleet is earning its keep.
+**Lead:** BaaZ designs and builds distributed GPU compute for companies with sites and power: GPU pods at your sites, run as one fleet your team owns.
 
-Buttons: Request the whitepaper (anchor: whitepaper) · Talk to us about your fleet (/contact)
+Button: Talk to us
 
-**H2:** The problem
+Drawing (anchor: how), left to right from 900 px, top to bottom below: at each site, your energy system powers a GPU pod; the pods run as one fleet; your customers buy the compute. Captions: Power you already have · One fleet, run by your team · Compute your customers buy.
 
-Operators with sites and power are putting GPUs where the electricity already is: solar and battery retailers, virtual power plant operators, modular data center and edge compute companies, charging networks. The hardware and the energy side are well understood. Four things go wrong when the software is an afterthought.
+**H2 (anchor: build):** What we design and build
 
-**H3:** The empty disk  
-A server at a home cannot be installed over the network, and its management controller cannot be reached from outside. A blank machine at a site is a dead end, and every method that works in a data center assumes a network you control.
+Everything between the power at your sites and the compute your customers buy. We configure existing software and write only what is missing.
 
-**H3:** The dropped link  
-Home internet drops constantly. A fleet built as one big cluster loses nodes all day, and one bad setting reaches every home at once. Many homes have no public address at all, so nothing outside can reach in to fix it.
+- **The pod.** The right GPU hardware for your sites, ready for your suppliers to deliver.
+- **The site.** What each site must provide, and an install your own crews can do.
+- **Power.** Your energy system stays in charge. The fleet works within the limits it sets.
+- **The fleet.** Every pod run from one place by your team, without routine site visits.
+- **Security.** Hardware and customer workloads protected at sites nobody staffs.
+- **Revenue.** Compute your customers can buy, and the numbers behind every site.
 
-**H3:** The ignored limit  
-The battery is carrying the house, or the grid has set a limit. A pod that only listens to the cloud ignores that the moment the cloud is unreachable, and the house, the battery and the grid pay for it.
+**H2 (anchor: offer):** What you get
 
-**H3:** The silent fleet  
-Nothing in a garage announces that it has been idle for a week, throttled every evening, or waiting for a technician. Without the right readings the margin leaks, and nobody sees it until the quarter ends.
+1. **A deployment design.** What to buy, what each site needs, and how you will know it pays.
+2. **A working pilot.** The whole system running end to end before you commit to a fleet.
+3. **Your platform.** The software, the code and the runbooks, handed over to your team.
 
-**H2:** What we decide before any hardware is bought
+**H2 (anchor: proof), eyebrow "Why BaaZ":** GPU infrastructure is all we do
 
-The design comes first, as a document the energy side and the hardware supplier can act on. It settles:
+- **We contribute to NVIDIA's open-source software.** Merged changes in the infrastructure software GPU clusters run on. Link: See the contributions (/open-source)
+- **We work from the rack up.** We have built and run GPU clusters end to end, from hardware to workload.
+- **Founder-led.** The engineer on your first call is the engineer who does the work.
 
-- **The pod.** GPU class and edition, the host around it, storage, enclosure and cooling, and the power it draws at full load and at its floor.
-- **What the site must provide.** Its own circuit for the pod, a meter if the host is paid per kilowatt-hour, the router and the connection, and where the pod gets its power readings: from the inverter on the local network, or from the energy platform.
-- **The fleet layout.** Regions, gateways, spares, and how a pod is replaced.
-- **The measures.** The five below, with the targets written down before the first pod ships.
+**Closing. H2:** Planning GPU compute at your energy sites?  
+Button: Talk to us. Under it: Tell us about the sites. In one call we will tell you what it would take.
 
-Fixed fee, scoped on the first call. It stands on its own if you build with someone else.
-
-**H2:** How we solve it
-
-Five principles, applied in four places. Everything above the hardware is open-source software, configured rather than written, except the few small services that do not exist anywhere else.
-
-- **Nothing is installed at the site.** Pods are imaged, tested and enrolled at a depot or the factory, and ship ready to plug in. The installer connects power and network; the pod does the rest.
-- **Every pod runs on its own.** Each is its own small cluster. A central manager publishes settings; the pod pulls them when it can and keeps working when it cannot. Changes roll out in stages and roll back by themselves.
-- **The pod opens every connection; nothing connects in.** One tunnel for management, one path for customer traffic, so a customer surge cannot lock you out and a management outage cannot stop customers.
-- **The pod follows the site's power.** Its agent reads the battery, the solar output and the house load on the local network and sets the GPU's power limit itself: full, reduced, paused, off. If the readings stop, it drops to a safe level on its own. It never commands the battery or the inverter.
-- **Open source, configured, plus the services we write.** The code is yours, with documentation and handover.
-
-**H3:** Where the software runs
-
-- **Central.** Control plane, no GPUs: fleet manager, enrollment and identity, placement and inventory, monitoring. It publishes; pods pull.
-- **Regional.** A gateway per region: public address, tunnel hub, routing to pods with power to spare, model cache, metering.
-- **Site.** The pod: immutable operating system, Kubernetes, GPU runtime, model server, pod agent. Outbound connections only.
-- **Depot.** Staging depot or factory: image, firmware settings, keys, burn-in. Ships ready to plug in.
-
-**H3:** What we write ourselves
-
-- **Pod agent.** Reads the site's power, sets the GPU's power limit, reports health and draw, drops to a safe level when the readings stop. Self-test on first boot.
-- **Placement and inventory.** Every pod's state from staged to enrolled, serving, draining and retired, with its site, region and capacity.
-- **Energy-aware routing.** The regional gateway sends each request to a healthy pod with power to spare, and meters usage per customer.
-- **Energy platform integration.** Where an operator's platform can set a budget per site, the agent takes it as an input alongside the local readings.
-
-Configured, not written: an immutable operating system with automatic rollback, single-node Kubernetes on each pod, open model serving, outbound-only encrypted tunnels, boot attestation and workload identity, metrics and alerting.
-
-**H2:** What we measure
-
-A pod's margin depends on five things, and four of them are set by how the software is built: sellable hours, utilization, operations cost and site visits. Price is the fifth. These are the measures agreed during design and reported monthly, from the platform's own readings.
-
-- **Fleet availability.** Pod-hours serving over pod-hours installed.
-- **Remote recovery rate.** Incidents closed without a site visit.
-- **Site visits per 100 pods.** Per month; the operations budget line.
-- **Onboarding time.** Plug-in to first customer request served.
-- **Time to safe cap.** Power-limit event to GPU cap applied.
-
-**H2 (include only once the repository is public):** Built in the open
-
-The reference implementation is being built as open source, starting with a site simulator that behaves like a real inverter and battery over the standard the industry uses, so the whole loop can be run and measured before a single pod exists. Link: the repository.
-
-**H2 (anchor: whitepaper):** Whitepaper: Compute Where the Power Is
-
-How to build and run distributed GPU compute at homes, batteries and solar sites, and how the way it is built decides whether it pays.
-
-- What the public designs describe, and what they leave out
-- The operating model: five principles, from the empty disk to the power limit
-- How it is built: four phases and six proofs in a quarter
-- The measures that decide the margin, and which build decision moves each one
-- Risks and what the design does about them
-
-Form fields: Name · Work email · Company · What are you building? (GPU pods at homes or small sites / Modular compute at renewable sites / Edge inference for an existing network / Evaluating the space). Line under the button: We email the PDF within one business day. BaaZ may follow up once about it; nothing else. Button: Email me the whitepaper.
-
-**H2:** Planning a fleet?
-
-Tell us about your sites, your hardware and what your energy platform can signal, and we will tell you what the pod software would need to do. Buttons: Talk to us (/contact) · Request the whitepaper (anchor)
+Still to decide (kept off the page): length and price; whether the three steps get a name, as the audit has.
 
 ### 4.5 Open source (/open-source)
 
 Title tag: Open Source \| BaaZ  
-Meta description: The open-source software BaaZ contributes to and runs for customers: NVIDIA's networking stack on Kubernetes, the KAI Scheduler, and our own work.
+Meta description: The open-source projects BaaZ contributes to, with the status of each pull request: NVIDIA's networking software for Kubernetes and the KAI Scheduler.
 
-**H1:** Open source
+**H1:** Open source. No other heading.
 
-**Lead:** We run this software for customers, and we contribute to it. Everything below links to the merged change or the repository.
+**Lead:** Changes we contributed to NVIDIA's open-source networking software and to the KAI Scheduler. Each row links to the pull request.
 
-**H2:** NVIDIA networking on Kubernetes
+One table, newest first, each row linking to github.com/\<project\>/pull/\<number\>. The month is the month of the merge. A new pull request is added as Open and changes to Merged when it lands; one closed without a merge is not listed.
 
-Maintained in the Mellanox organization on GitHub. Changes contributed in 2026:
+| Project | Pull request | Status |
+|---|---|---|
+| Mellanox/network-operator | \#3266 Configurable access mode for NIC firmware storage | Merged, Oct 2026 |
+| Mellanox/network-operator | \#3147 MTU setting for IPoIB networks | Merged, Oct 2026 |
+| Mellanox/doca-driver-build | \#299 NFS tools installed on the host for NFS over RDMA | Merged, Sep 2026 |
+| Mellanox/ipoib-cni | \#132 MTU support | Merged, Jun 2026 |
+| kai-scheduler/KAI-Scheduler | \#1382 Security contexts for the pods that reserve GPUs | Merged, Apr 2026 |
+| kai-scheduler/KAI-Scheduler | \#857 Queue validator | Merged, Mar 2026 |
+| Mellanox/network-operator | \#2070 One global configuration for the NIC cluster policy | Merged, Mar 2026 |
+| Mellanox/network-operator | \#2035 Pods restart on RDMA, SR-IOV and Multus changes | Merged, Jan 2026 |
 
-- network-operator \#3266: make NIC firmware storage access mode configurable. September 2026.
-- network-operator \#3147: MTU support on the IPoIBNetwork resource. September 2026.
-- ipoib-cni \#132: MTU support. May 2026.
-- doca-driver-build \#299: install the NFS userspace tools on the host when NFS over RDMA is enabled. April 2026.
-- network-operator \#2070: global configuration for the NicClusterPolicy. January 2026.
-- network-operator \#2035: restart RDMA, SR-IOV and Multus pods automatically on configuration changes. January 2026.
-
-Each item links to github.com/Mellanox/\<repo\>/pull/\<number\>.
-
-**H2:** KAI Scheduler
-
-A queue validator for the KAI Scheduler, the GPU scheduler we run for multi-team clusters. Link: the blog post.
-
-**H2 (include only once the repository is public):** Our own work
-
-The reference implementation for distributed GPU compute at energy sites, built in the open. Link: the repository. One sentence on what it contains at the time of publishing.
-
-Nothing else on the page. No Apache or database work: it is not one of the two things.
+Under the table: Status as on GitHub, November 2026.
 
 ### 4.6 About (/about)
 
@@ -327,31 +245,27 @@ Meta description: BaaZ is a founder-led GPU infrastructure boutique. The enginee
 
 BaaZ is a founder-led GPU infrastructure boutique. The engineer you talk to on the first call is the engineer doing the work. We have run these systems in production and we contribute to the software we run.
 
-We do not build data centers, assemble racks or sell hardware. We decide what goes where and make it run, and we hand it over: your team operates it afterwards, with runbooks and the code.
-
 **H2 (anchor: partners):** Working with partners
 
-Integrators, resellers and GPU cloud providers bring us in for the layer between the hardware and the workloads, under their name or ours. Same engineers, same handover.
+Integrators, resellers and GPU cloud providers bring us in for the layer between the hardware and the workloads, under their name or ours.
 
-One line at the end: The founder is a member of the Apache Software Foundation. Nothing else about databases.
-
-Button: Schedule a call (/contact)
+Link: Talk to us (/contact)
 
 ### 4.7 Contact (/contact)
 
-Unchanged, with one line added above the form: "Tell us which it is: a cluster's network, or compute at sites. One line about the deployment is enough." The email-capture block on this page is removed; the two lead magnets are offered from /networking instead.
+Unchanged, with one line added above the form: "Tell us which it is: a cluster's network, or compute at sites. One line about the deployment is enough." The email-capture block on this page is removed.
 
 ## 5. SEO notes
 
-- Canonical on every page is its own URL. Sitemap is automatic; confirm the seven URLs are in it and the retired ones are not.
-- Structured data through the Head component: Organization on the home page; Service on /networking and on the energy-sites page (name = H1, provider = BaaZ, areaServed = Worldwide); BreadcrumbList on every inner page.
-- Open Graph image per page: the home image stays; /networking gets a 1200 × 630 crop of the fabric diagram from the RDMA write-up; the energy-sites page gets the "where the software runs" diagram with the H1 over it.
-- Primary terms, in H1, title and first paragraph only: GPU networking on Kubernetes, RDMA fabric, NVIDIA Network Operator; distributed GPU compute, energy sites, GPU fleet management, edge inference. Secondary terms stay in body copy where they read naturally. No term is repeated for its own sake.
-- Internal links: home to both doors and to /open-source; /networking to /open-source and the three posts; the energy-sites page to /solutions and /contact; every blog post's end block links to the door its tag belongs to, not to the retired audit page.
+- Canonical on every page is its own URL. Sitemap is automatic; confirm the pages in section 2 are in it and the retired ones are not.
+- Structured data through the Head component: Organization on the home page; Service on /networking (name "GPU Cluster Audit") and on the energy page (name "Distributed GPU compute at energy sites"), provider BaaZ, areaServed Worldwide; BreadcrumbList on every inner page (Home › Networking, Home › Distributed GPU compute).
+- Open Graph image per page: the home image stays; /networking and the energy page each get their drawing with the H1 above it, 1200 × 630.
+- Primary terms: GPU cluster networking on Kubernetes in the networking title, eyebrow and lead; "Distributed GPU compute at energy sites" in the energy title tag, the line above the H1 and the first sentence. Each where it reads naturally, nowhere else.
+- Internal links: home to both landing pages and to /open-source; /networking to the three posts, the case study and /open-source; the energy page to /open-source; every blog post's end block links to the landing page its tag belongs to.
 
-## 6. The whitepaper and fabric-check forms
+## 6. Forms
 
-The PDF is never hosted publicly. The form posts to a form backend; the request arrives by email; the PDF is sent by hand from adheip@baaz.dev within one business day. Start with Formspree (free tier is enough): set the endpoint in one place, a new WhitepaperRequest component, and until the endpoint exists render a mailto link to adheip@baaz.dev with the subject prefilled instead of a dead form. Log every request in the outreach sheet: name, company, email, what they are building, date sent. One follow-up after seven days, offering a design review. Nothing after that. The fabric-check section on /networking uses the same component with its own subject and no "what are you building" field.
+No form is on the site. The whitepaper is sent through outreach, by hand from adheip@baaz.dev. Every Book a GPU Cluster Audit and Talk to us button opens the booking page.
 
 ## 7. Build notes for the coding agent
 
@@ -375,4 +289,5 @@ Repository: github.com/AdheipSingh/datainfra-website, Docusaurus, deployed on Ve
 - No figure on the site that BaaZ cannot back with its own delivery.
 - Search Console decisions recorded in section 3.
 - The "Built in the open" sections stay out until the repository is public.
+- The "still to decide" and "to confirm" points in 4.2 and 4.4 are settled before the copy they touch changes.
 - Outreach sheet messaging updated to say the same two things as the site.

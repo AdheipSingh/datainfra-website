@@ -13,7 +13,7 @@ BaaZ designs GPU deployments and builds the software that runs them: which hardw
 - Contributions are "we contribute to", never "ours" or "our code". List only merged changes, each linked.
 - No figures BaaZ cannot back with its own delivery: no utilization, speed-up, cost or fleet-size numbers, no "proven" or "in production" for the energy-sites work.
 - No "technologies we work with" lists, no FAQ sections, no process diagrams, no testimonials.
-- Plain words: tunnel, not overlay; security chip, not TPM; its own lane on the router, not VLAN.
+- Plain words: tunnel, not overlay; security chip, not TPM; its own lane on the router, not VLAN. The networking page is the exception: it uses its readers' terms (underlay, overlay, RDMA, SR-IOV, PFC, ECN).
 - US spelling. Short sentences. No em dashes in headings. No exclamation marks.
 - Existing URLs are never changed or removed without a 301 in `vercel.json`. Add every new page and every redirect to `scripts/seo-check.sh`.
 - Every blog post carries one of the tags `networking` or `energy-sites`.
