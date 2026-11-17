@@ -1,29 +1,216 @@
-/* Home page: styles on top of the global .site system. */
+/* Home page, from the design canvas: one line on what BaaZ does and two doors. */
 
-.title {
-    max-width: 20ch;
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: 96px 0 64px;
 }
 
-.note {
-    font-size: 14.5px;
-    color: var(--text-3);
+.hero::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 520px;
+    background-image: linear-gradient(rgba(14, 20, 32, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(14, 20, 32, 0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+    -webkit-mask-image: radial-gradient(ellipse at 50% 0%, #000 0%, transparent 68%);
+    mask-image: radial-gradient(ellipse at 50% 0%, #000 0%, transparent 68%);
+    pointer-events: none;
 }
 
-/* Proof strip: one row, text only. */
-.proof {
+.heroInner {
+    position: relative;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 22px;
+}
+
+.eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.eyebrow::before,
+.eyebrow::after {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 1px;
+    background: var(--text-3);
+}
+
+/* Doubled classes beat the global .site h1/h2/p resets. */
+.title.title {
+    margin: 0;
+    font-size: 54px;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    font-weight: 700;
+}
+
+.title span {
+    display: block;
+}
+
+.title .accentLine {
+    color: var(--accent);
+}
+
+.lead.lead {
+    max-width: 60ch;
+    font-size: 20px;
+    line-height: 1.55;
+    color: var(--text-2);
+    text-wrap: pretty;
+}
+
+/* ---- The two doors ---- */
+.doorsSection {
+    padding: 0 0 112px;
+}
+
+.doors {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.door {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 36px;
+    border: 1px solid rgba(14, 20, 32, 0.12);
+    border-radius: 16px;
+    background: var(--bg);
+    color: var(--text);
+    transition: border-color 0.15s var(--ease);
+}
+
+.door:hover {
+    color: var(--text);
+    border-color: var(--accent-ring);
+}
+
+.doorHead {
+    display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px 32px;
-    padding: 20px 24px;
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    background: var(--surface);
+    gap: 16px;
 }
 
-.proof p {
-    font-family: var(--font-mono);
-    font-size: 14px;
+.doorTitle.doorTitle {
+    margin: 0;
+    font-size: 28px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+}
+
+.doorArrow {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    background: #EEF3FF;
+    color: var(--accent);
+    transition: transform 0.15s var(--ease);
+}
+
+.door:hover .doorArrow {
+    transform: translateX(3px);
+}
+
+.doorArrow svg {
+    width: 18px;
+    height: 18px;
+}
+
+.doorBody.doorBody {
+    max-width: 46ch;
+    font-size: 17px;
+    line-height: 1.6;
     color: var(--text-2);
+}
+
+/* ---- Phone (mobile frame at 390px) ---- */
+@media (max-width: 640px) {
+    .hero {
+        padding: 40px 0 32px;
+    }
+
+    .heroInner {
+        align-items: stretch;
+        text-align: left;
+        gap: 18px;
+    }
+
+    .eyebrow {
+        font-size: 11px;
+        letter-spacing: 0.06em;
+    }
+
+    .eyebrow::after {
+        display: none;
+    }
+
+    .title.title {
+        font-size: 32px;
+        line-height: 1.12;
+    }
+
+    .title span {
+        text-wrap: balance;
+    }
+
+    .lead.lead {
+        font-size: 17px;
+    }
+
+    .doorsSection {
+        padding-bottom: 56px;
+    }
+
+    .doors {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .door {
+        gap: 10px;
+        padding: 22px 20px;
+        border-radius: 14px;
+    }
+
+    .doorTitle.doorTitle {
+        font-size: 22px;
+    }
+
+    .doorArrow {
+        width: 36px;
+        height: 36px;
+    }
+
+    .doorArrow svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .doorBody.doorBody {
+        font-size: 15px;
+    }
 }

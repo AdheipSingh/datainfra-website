@@ -4,7 +4,7 @@ Docusaurus 2.4 site for BaaZ, deployed on Vercel. `npm ci`, `npm run build`, `np
 
 ## What the site says
 
-BaaZ designs GPU deployments and builds the software that runs them: which hardware, where it sits, how it is powered and connected, and everything from the operating system up. Two kinds of deployment, and nothing else: GPU networking on Kubernetes, and distributed GPU compute at energy sites. The full structure and page copy are in `SITE-REVAMP-SPEC.md`; build to it, do not improvise copy.
+BaaZ designs GPU data centers and builds the software that runs them: which hardware, where it sits, how it is powered, cooled and connected, and everything from the operating system up. Two kinds of deployment, and nothing else: GPU networking on Kubernetes, and distributed GPU compute at energy sites. The full structure and page copy are in `SITE-REVAMP-SPEC.md`; build to it, do not improvise copy.
 
 ## Rules for every change
 

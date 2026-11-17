@@ -254,7 +254,7 @@ const config = {
                 },
                 {
                     name: "description",
-                    content: "BaaZ designs GPU deployments and builds the software that runs them: RDMA fabrics on Kubernetes, and distributed GPU compute at energy sites.",
+                    content: "BaaZ designs GPU data centers and builds the software that runs them: networking inside GPU clusters on Kubernetes, and distributed GPU compute at energy sites.",
                 },
                 {
                     name: "keywords",

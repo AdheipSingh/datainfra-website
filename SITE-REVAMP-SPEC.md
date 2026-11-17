@@ -6,7 +6,7 @@
 
 ## 1. Positioning
 
-**The line.** BaaZ designs GPU deployments and builds the software that runs them: which hardware, where it sits, how it is powered and connected, and everything from the operating system up.
+**The line.** BaaZ designs GPU data centers and builds the software that runs them: which hardware, where it sits, how it is powered, cooled and connected, and everything from the operating system up. (Changed on 17 Nov from "GPU deployments". What it claims: design from the GPU side, meaning the design basis, power and cooling for dense racks, the layout and the network, and review of the facility design. Not construction, and not the detailed electrical and mechanical drawings. The site names no data center; a prospect will ask which.)
 
 **The boundary** (About page only): We do not build data centers, assemble racks or sell hardware. We decide what goes where and make it run.
 
@@ -68,43 +68,24 @@ Every retired or moved URL returns a 301, with and without a trailing slash, so 
 
 ### 4.1 Home
 
-Title tag: GPU deployments, designed and run \| BaaZ  
-Meta description: BaaZ designs GPU deployments and builds the software that runs them: RDMA fabrics on Kubernetes, and distributed GPU compute at energy sites.
+Job of the page: sends each visitor to one of the two service pages. It explains nothing itself.
+
+Title tag: GPU data centers, designed and run \| BaaZ  
+Meta description: BaaZ designs GPU data centers and builds the software that runs them: networking inside GPU clusters on Kubernetes, and distributed GPU compute at energy sites.
 
 **Eyebrow:** GPU infrastructure engineering
 
-**H1:** BaaZ designs GPU deployments and builds the software that runs them.
+**H1 (two lines):** BaaZ designs GPU data centers / and builds the software that runs them.
 
-**Lead:** Which hardware, where it sits, how it is powered and connected, and everything from the operating system up. Two kinds of deployment.
+**Lead:** Which hardware, where it sits, how it is powered, cooled and connected, and everything from the operating system up.
 
-**Door 1 (left). H2:** GPU networking on Kubernetes
+**Door 1. H2:** Networking  
+The network inside a GPU cluster on Kubernetes: a separate path for training, inference and developer traffic, from the switches up to the pods. The whole card links to /networking.
 
-The network decides what a cluster's GPUs are worth. We design the fabric, bring it up, and run NVIDIA's networking stack on Kubernetes, which we also contribute to.
+**Door 2. H2:** Distributed GPU compute  
+For companies with sites and power: GPU pods at your sites, run as one fleet your team owns. The whole card links to /distributed-gpu-compute.
 
-- Fabric acceptance
-- Network Operator deployment and upgrades
-- Secondary networks for training and storage
-
-Six changes merged into NVIDIA's networking software in 2026.
-
-Link: GPU networking
-
-**Door 2 (right). H2:** Distributed GPU compute at energy sites
-
-GPU pods at homes, batteries and solar sites, run as one fleet that follows the power. We decide the hardware and what the site must provide, then build the software: the pod, the fleet, and the agent that reads the site's power.
-
-- Deployment design, fixed fee
-- Pilot, end to end before hardware is bought
-- Whitepaper on request
-
-Link: Energy sites
-
-**Proof strip (one row, text only, no logos):** Code we contribute to: network-operator, ipoib-cni, doca-driver-build, KAI Scheduler. Link: Open source
-
-**Call to action. H2:** Tell us about the deployment.  
-We will tell you what it needs, on one call. Button: Talk to us (/contact)
-
-Nothing else on the page: no feature grid, no "who we help", no blog teasers, no credentials row.
+Nothing else on the page: no lists inside the doors, no count of merged changes, no row of projects, no closing block, no whitepaper line.
 
 ### 4.2 GPU networking (/networking)
 
