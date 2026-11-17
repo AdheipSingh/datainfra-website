@@ -12,8 +12,8 @@
 
 **Two kinds of deployment, and nothing else on the site.**
 
-- **GPU networking on Kubernetes.** Buyer: anyone standing up or operating a GPU cluster who needs the RDMA fabric to work: regional and sovereign clouds, integrators and resellers delivering clusters, enterprises with on-prem GPUs. Offer: fabric design, bring-up, and NVIDIA's networking stack on Kubernetes, sold as three packages. Proof: the changes BaaZ has contributed to that stack.
-- **Distributed GPU compute at energy sites.** Buyer: companies with sites and power entering compute: solar and battery retailers, virtual power plant operators, modular and edge compute builders. Offer: a deployment design, then a pilot that runs end to end, then the software, handed over with the code. Proof: the whitepaper and, once public, the open-source pilot.
+- **GPU networking on Kubernetes.** Buyer: anyone standing up or operating a GPU cluster who needs the RDMA fabric to work: regional and sovereign clouds, integrators and resellers delivering clusters, enterprises with on-prem GPUs. Offer: the GPU Cluster Audit on a cluster you already run, and the design and configuration of each kind of traffic's path, from the switches to the pods. Proof: the changes BaaZ has contributed to that stack, and the write-ups.
+- **Distributed GPU compute at energy sites.** Buyer: companies with sites and power entering compute: solar and battery retailers, virtual power plant operators, modular and edge compute builders. Offer: a deployment design, then a working pilot, then the platform, handed over to your team. Proof: the Why BaaZ block on the page (merged contributions, clusters built end to end, founder-led); the whitepaper goes out through outreach, and the open-source pilot follows once public.
 
 **Rules for every word on the site.**
 
@@ -22,7 +22,7 @@
 - Contributions are described as "we contribute to", never as ours. Count and name only merged changes.
 - No figures BaaZ cannot back with its own delivery: no utilization, speed-up or cost numbers, no fleet sizes, no "proven" or "in production" for the energy-sites work. The page says what we design, build and measure.
 - No "technologies we work with" lists, no FAQ sections, no process diagrams, no testimonials.
-- Plain words. Tunnel, not overlay. Security chip, not TPM. Its own lane on the router, not VLAN. Power readings, not telemetry, when talking to the energy side.
+- Plain words. Tunnel, not overlay. Security chip, not TPM. Its own lane on the router, not VLAN. Power readings, not telemetry, when talking to the energy side. The networking page is the exception: it uses its readers' terms (underlay, overlay, RDMA, SR-IOV, PFC, ECN).
 - US spelling, matching the existing site. The solutions copy from the October design is converted.
 - Short sentences, no em dashes in headings, no exclamation marks, nothing that reads as marketing.
 
@@ -269,17 +269,15 @@ No form is on the site. The whitepaper is sent through outreach, by hand from ad
 
 ## 7. Build notes for the coding agent
 
-Repository: github.com/AdheipSingh/datainfra-website, Docusaurus, deployed on Vercel. Work on a branch; the Vercel preview is the review.
+Repository: github.com/AdheipSingh/datainfra-website, Docusaurus, deployed on Vercel. Work on a branch; the Vercel preview is the review. What is built, for whoever changes it next:
 
-- **Pages.** Rewrite src/pages/index.js. Add src/pages/networking/index.jsx, src/pages/solutions/index.jsx, src/pages/solutions/distributed-gpu-compute-energy-sites.jsx and src/pages/open-source/index.jsx, each with its own styles.module.css. Rewrite src/pages/about/index.jsx. Remove src/pages/services/, src/pages/case-studies/, src/pages/audit/ and src/pages/partners/ once their redirects are in, except any page the Search Console check keeps.
-- **Do not reuse ServiceDetail** for the new pages: it renders a technologies list, FAQs and a four-step process, which the rules exclude. Build a small SolutionDetail and a NetworkingPage from the existing layout primitives in src/components/Layout.
-- **Navbar and footer** are the custom components src/components/Layout/Navbar.jsx and Footer.jsx, not docusaurus.config.js. Replace the Services dropdown with the items in section 2.
-- **Redirects** go in vercel.json under redirects, status 301, one entry per row in section 3, both with and without a trailing slash as the existing /demo entries do.
-- **Forms.** New src/components/WhitepaperRequest with FORM_ACTION and a mailto fallback, as in section 6. Retire EmailCapture from /contact and the article end block; the end block links to the door instead.
-- **Client-name check.** New scripts/client-check.mjs, run as prebuild in package.json: fails the build if any string from a short list kept outside the repository (the client's company name, product name, city and contact names, supplied by Adheip as an environment variable or a gitignored file) appears under src/, blog/, static/ or lead-magnets/. A small Node script with no dependencies, like the other scripts in scripts/. With the variable unset the check prints a warning and passes, so a local build never needs the list.
-- **SEO script.** In scripts/seo-check.sh replace the /services/gpu-networking check with /networking, add the two solutions URLs and /open-source, and add one 301 check per retired URL.
-- **Blog tags.** Tag every existing post with networking or energy-sites. There is no tag allow-list in this Docusaurus version, and scripts/tag-check.mjs is an analytics check, not a tag check, so add scripts/blog-tags-check.mjs, run in prebuild, that fails when a post under blog/ carries neither tag. The posts under blog/networking, the GH200, GPU-to-GPU, network-bottleneck and KAI Scheduler posts, and the Helm operator post get networking. The GPU power management post and the control-plane and state-machine posts get energy-sites. The article end block links to the door the post's tag belongs to.
-- **Order of work.** Redirects and the client check first, then /networking and the home page (door 1 pays today), then the solutions pages, then open source and about, then the removals.
+- **Pages.** src/pages/index.js (home), src/pages/networking/, src/pages/distributed-gpu-compute/, src/pages/case-studies/rdma-kubernetes/, src/pages/open-source/, src/pages/about/ and src/pages/contact/, each with its own styles.module.css. The two landing pages share src/components/Landing/styles.module.css; their drawings are inline SVG in src/components/LandingDiagram/diagrams.js, one desktop and one phone layout each. The case study body is src/components/RdmaWriteUp. Do not reuse a technologies list, FAQ or process-steps component on these pages.
+- **Menu and footer** are the custom components src/components/Layout/Navbar.jsx and Footer.jsx, not docusaurus.config.js. A page sets its own menu button with `<Navbar cta={{ label, href }} />`; the default is Book a GPU Cluster Audit. Blog pages get the menu from src/theme/BlogLayout.
+- **Redirects** go in vercel.json under redirects, status 301, one pair per row in section 3, with and without a trailing slash, as the /demo entries do.
+- **Forms.** None on the site (section 6).
+- **Client-name check.** scripts/client-check.mjs runs as prebuild: it fails the build if any name from the CLIENT_NAMES environment variable (comma-separated, set in the Vercel project) appears in a text file under src/, blog/, static/ or lead-magnets/, matching across line breaks. Unset, it warns and passes.
+- **SEO script.** scripts/seo-check.sh checks every live page for 200 and every row of section 3 for a 301, then every sitemap entry for a single self-canonical. Run it against the Vercel preview.
+- **Blog tags.** Every post carries networking or energy-sites; scripts/blog-tags-check.mjs runs in prebuild and fails otherwise. The article end block links to the landing page the post's tag belongs to.
 
 ## 8. Before it goes live
 

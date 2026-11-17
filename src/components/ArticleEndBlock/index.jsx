@@ -17,7 +17,7 @@ const DOORS = {
     networking: {
         lead: "The GPU Cluster Audit",
         text: "Two weeks on a cluster you already run. We test each path under load, fix what is safe to fix, and hand you the rest as a plan.",
-        label: "Book a GPU Cluster Audit",
+        label: "Networking",
         to: "/networking#audit",
     },
 }

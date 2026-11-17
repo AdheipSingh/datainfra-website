@@ -56,9 +56,10 @@ gb=$(curl -s -o /dev/null -w '%{http_code}' -A "Mozilla/5.0 (compatible; Googleb
 echo "## sitemap entries: 200, no redirect, exactly one self-canonical, robots meta shown"
 while read -r u; do
   out=$(curl -s -o /tmp/p.html -w '%{http_code}|%{redirect_url}' "$u"); code="${out%%|*}"; red="${out#*|}"
-  can=$(grep -o '<link rel="canonical" href="[^"]*"' /tmp/p.html | head -1 | sed 's/.*href="//;s/"$//')
-  n=$(grep -o '<link rel="canonical"' /tmp/p.html | wc -l | tr -d ' ')
-  rob=$(grep -o '<meta name="robots" content="[^"]*"' /tmp/p.html | head -1)
+  # Docusaurus writes attributes before rel/name (data-rh="true"), so match the tag, not its first bytes.
+  can=$(grep -o '<link[^>]*rel="canonical"[^>]*>' /tmp/p.html | head -1 | sed 's/.*href="//;s/".*//')
+  n=$(grep -o '<link[^>]*rel="canonical"' /tmp/p.html | wc -l | tr -d ' ')
+  rob=$(grep -o '<meta[^>]*name="robots"[^>]*>' /tmp/p.html | head -1)
   if [[ "$code" == "200" && -z "$red" && "$can" == "$u" && "$n" == "1" ]]; then echo "ok   $u ${rob}"; else echo "FAIL $u code=$code red=$red canonical=$can n=$n"; fail=1; fi
 done < <(curl -s "$BASE/sitemap.xml" | grep -o '<loc>[^<]*</loc>' | sed 's/<[^>]*>//g')
 exit $fail
