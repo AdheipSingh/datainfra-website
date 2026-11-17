@@ -81,7 +81,8 @@
     font-family: var(--font-sans);
 }
 .navLink:hover { color: var(--text); background: var(--surface); }
-.navLink.active { color: var(--text); }
+.navLinks .navLink { color: var(--text); }
+.navLink.active { color: var(--text); font-weight: 600; }
 .navLink svg { width: 14px; height: 14px; opacity: 0.7; }
 .navActions { margin-left: auto; display: flex; align-items: center; gap: 8px; }
 .iconBtn {
@@ -100,54 +101,6 @@
 .iconBtn svg { width: 18px; height: 18px; }
 .burger { display: none; }
 
-/* Services dropdown */
-.dropdownWrap { position: relative; }
-.dropdown {
-    position: absolute;
-    top: calc(var(--nav-h) - 6px);
-    left: 0;
-    width: 560px;
-    padding: 8px;
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-panel);
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 2px;
-    z-index: 60;
-}
-.dropdownItem {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    padding: 10px 12px;
-    border-radius: var(--radius-sm);
-    color: var(--text);
-    text-decoration: none;
-}
-.dropdownItem:hover { background: var(--surface-2); color: var(--text); }
-.dropdownT { font-size: 14px; font-weight: 500; }
-.dropdownD { font-size: 13px; color: var(--text-3); }
-.dropdownSingle {
-    width: 340px;
-    grid-template-columns: minmax(0, 1fr);
-}
-/* Solutions: the label links to /solutions, the chevron opens the dropdown. */
-.splitLink { display: inline-flex; align-items: center; }
-.splitMain { padding-right: 4px; }
-.splitToggle { padding: 0 8px 0 2px; }
-.dropdownAll {
-    grid-column: 1 / -1;
-    border-top: 1px solid var(--line);
-    margin-top: 4px;
-    padding: 12px;
-    color: var(--accent-text);
-    font-size: 14px;
-    font-weight: 500;
-    text-decoration: none;
-}
-
 /* Mobile sheet */
 .mobileSheet {
     background: var(--bg);
@@ -158,24 +111,25 @@
     gap: 2px;
 }
 .mobileSheet .navLink { height: 48px; font-size: 17px; padding: 0 8px; }
-.mobileSheet .navSub { padding-left: 24px; font-size: 15px; color: var(--text-3); }
-.mobileActions { margin-top: 12px; display: flex; flex-direction: column; gap: 12px; }
+.mobileActions { margin: 8px 0; display: flex; flex-direction: column; gap: 12px; }
+
+/* The one menu button (frame: 44px tall, 10px radius) */
+.navCta { height: 44px; padding: 0 18px; border-radius: 10px; font-weight: 600; }
+.mobileActions .btn { height: 48px; border-radius: 10px; font-weight: 600; }
 .mobileActions .btn { width: 100%; }
 
 @media (max-width: 960px) {
     .navLinks { display: none; }
     .hideMobile { display: none; }
-    .burger { display: inline-flex; }
+    .burger { display: inline-flex; border-color: var(--line); width: 44px; height: 44px; }
+    .navCta { padding: 0 14px; font-size: 14px; border-radius: 9px; }
+    .navActions { gap: 8px; }
 }
 
 /* ---- Footer ---- */
 .footer { border-top: 1px solid var(--line); background: var(--bg); position: relative; overflow: hidden; }
 .footerInner { max-width: var(--container); margin: 0 auto; padding: 0 var(--gutter); position: relative; z-index: 1; }
-.footerTop {
-    padding: 64px 0 48px;
-    border-bottom: 1px solid var(--line);
-}
-.footerBrand { display: flex; flex-direction: column; gap: 16px; max-width: 420px; }
+.footerBrand { display: flex; flex-direction: column; gap: 16px; }
 .footerBrand p { color: var(--text-2); font-size: 15px; line-height: 1.6; margin: 0; }
 .social { display: flex; gap: 8px; }
 .social a {
@@ -200,7 +154,7 @@
 }
 .newsletter input::placeholder { color: var(--text-3); }
 .newsletter label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
-.footerCols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; padding: 48px 0; }
+.footerCols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; padding: 56px 0 32px; }
 .footerCol { display: flex; flex-direction: column; gap: 10px; }
 .footerColHeading {
     font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.10em;
@@ -227,7 +181,6 @@
 }
 
 @media (max-width: 960px) {
-    .footerTop { grid-template-columns: 1fr; gap: 32px; }
     .newsletter { justify-self: stretch; max-width: none; }
     .footerCols { grid-template-columns: repeat(2, 1fr); }
 }
