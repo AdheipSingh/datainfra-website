@@ -1,0 +1,49 @@
+<svg width="680" viewBox="0 0 680 310" xmlns="http://www.w3.org/2000/svg" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+</defs>
+
+<rect x="0" y="0" width="680" height="310" rx="12" fill="#141420"/>
+
+<text x="340" y="28" text-anchor="middle" font-size="12" fill="#8a8980">A GPU pod runs two networks side by side: management (eth0) and training (net1)</text>
+
+<!-- Pod container -->
+<rect x="44" y="54" width="164" height="218" rx="10" fill="#19192a" stroke="#7b70e0" stroke-width="1"/>
+<text x="126" y="76" text-anchor="middle" font-size="13" font-weight="600" fill="#a99ef5">Pod</text>
+
+<!-- eth0 -->
+<rect x="62" y="96" width="128" height="62" rx="8" fill="#1e1e2e" stroke="#8a8980" stroke-width="0.75"/>
+<text x="126" y="120" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="600" fill="#e0dfd8">eth0</text>
+<text x="126" y="141" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#8a8980">primary</text>
+
+<!-- net1 -->
+<rect x="62" y="184" width="128" height="62" rx="8" fill="#0d2820" stroke="#1a9e7a" stroke-width="0.75"/>
+<text x="126" y="208" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="600" fill="#4dd8a8">net1</text>
+<text x="126" y="229" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#4dd8a8">secondary</text>
+
+<!-- Middle column -->
+<rect x="256" y="96" width="156" height="62" rx="8" fill="#1e1e2e" stroke="#8a8980" stroke-width="0.75"/>
+<text x="334" y="119" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#e0dfd8">Cluster CNI</text>
+<text x="334" y="139" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#8a8980">Calico, Flannel, etc.</text>
+
+<rect x="256" y="184" width="156" height="62" rx="8" fill="#0d2820" stroke="#1a9e7a" stroke-width="0.75"/>
+<text x="334" y="207" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#4dd8a8">NVIDIA NIC</text>
+<text x="334" y="227" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#4dd8a8">RDMA-capable card</text>
+
+<!-- Right column -->
+<rect x="460" y="96" width="176" height="62" rx="8" fill="#1e1e2e" stroke="#8a8980" stroke-width="0.75"/>
+<text x="548" y="119" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#e0dfd8">Management network</text>
+<text x="548" y="139" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#8a8980">API, DNS, metrics</text>
+
+<rect x="460" y="184" width="176" height="62" rx="8" fill="#0d2820" stroke="#1a9e7a" stroke-width="0.75"/>
+<text x="548" y="207" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#4dd8a8">Training network</text>
+<text x="548" y="227" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#4dd8a8">GPU-to-GPU traffic</text>
+
+<!-- Arrows -->
+<line x1="190" y1="127" x2="254" y2="127" stroke="#8a8980" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="412" y1="127" x2="458" y2="127" stroke="#8a8980" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="190" y1="215" x2="254" y2="215" stroke="#1a9e7a" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="412" y1="215" x2="458" y2="215" stroke="#1a9e7a" stroke-width="1.5" marker-end="url(#arrow)"/>
+</svg>
