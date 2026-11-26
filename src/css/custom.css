@@ -148,6 +148,17 @@ a:hover {
     text-decoration: none;
 }
 
+/* Blog/MDX prose links */
+.markdown a:not(.hash-link) {
+    color: var(--ifm-link-color);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.markdown a:not(.hash-link):hover {
+    color: var(--ifm-link-hover-color);
+}
+
 /* Custom Navbar */
 .site-navbar {
     position: fixed;
