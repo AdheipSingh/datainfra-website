@@ -54,6 +54,11 @@ export const POST_INDEX = [
         tags: ["networking", "monitoring", "infrastructure", "troubleshooting", "mellanox", "nvidia"],
     },
     {
+        title: "Getting Started with Secondary Networks in Kubernetes",
+        url: "/blog/getting-started-secondary-networks-kubernetes",
+        tags: ["gpu", "kubernetes", "networking", "rdma", "network-operator", "tutorial"],
+    },
+    {
         title: "Case study: RDMA on bare-metal Kubernetes",
         url: "/case-studies/rdma-kubernetes",
         tags: ["gpu", "rdma", "kubernetes", "networking", "distributed-training", "nccl"],
